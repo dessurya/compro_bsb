@@ -10,7 +10,7 @@
     const inbox_check_url = '{{ route("cms.inbox.check") }}'
     $( document ).ready(function() {
         loadingScreen(false)
-        getNotifyInbox(inbox_check_url);
+        getNotifyInbox(inbox_check_url)
     });
 </script>
 

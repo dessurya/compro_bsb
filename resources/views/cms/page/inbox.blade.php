@@ -109,10 +109,11 @@ User Management
             updateFlagRead(decode_data.id)
         }
     }
-
+    
     updateFlagRead = async (id) => {
         await httpRequest('{{ route("cms.inbox.flag-read") }}','post',{id}).then(function(result){ console.log(result) })
-        rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        await rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        getNotifyInbox(inbox_check_url)
     }
 </script>
 @endpush

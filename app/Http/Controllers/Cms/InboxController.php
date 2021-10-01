@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 use App\Models\Inbox;
 
@@ -29,6 +31,7 @@ class InboxController extends Controller
         'tools' => []
     ];
     protected $paginate_default = 10;
+    protected $cache_notify_inbox = 'newInboxCahce';
 
     public function index()
     {
@@ -80,6 +83,21 @@ class InboxController extends Controller
     public function flagRead(Request $http_req)
     {
         Inbox::where('id',$http_req->id)->update(['flag_read' => 'Y']);
+        Cache::forget($this->cache_notify_inbox);
         return response()->json(['response' => true, 'msg' => 'success']);
+    }
+
+    public function check()
+    {
+        $data = Cache::remember($this->cache_notify_inbox, 45, function () {
+            return Inbox::where('flag_read', 'N')->orderBy('id','desc')->get();
+        });
+
+        $id = $data->pluck('id');
+        $data = $data->take(3)->map(function($val,$key){
+            $val->message = Str::words($val->message,18,'...');
+            return $val;
+        });
+        return response()->json(['response' => true, 'id' => $id, 'data' => $data]);
     }
 }

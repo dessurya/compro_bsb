@@ -47,9 +47,7 @@ Route::middleware('auth')->group(function(){
             Route::get('/', 'InboxController@index');
             Route::post('/list', 'InboxController@list')->name('.list');
             Route::post('/flag-read', 'InboxController@flagRead')->name('.flag-read');
-            Route::post('/check', function(){
-                return [];
-            })->name('.check');
+            Route::post('/check', 'InboxController@check')->name('.check');
         });
     // inbox
 });
