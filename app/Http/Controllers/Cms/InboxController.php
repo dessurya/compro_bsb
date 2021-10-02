@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+use App\Exports\InboxExport;
+use Excel;
 
 use App\Models\Inbox;
 
@@ -15,7 +19,7 @@ class InboxController extends Controller
         'table_id' => 'list_inbox',
         'table_title' => 'List inbox',
         'table_url' => 'cms.inbox.list',
-        'table_info' => '<small style="color:red">*For selected data, double click at a data row</small>',
+        'table_info' => null,
         'data_field_count' => 7,
         'data_field_key' => 'email',
         'data_order' => ['field'=>'created_at','value'=>'desc'],
@@ -28,7 +32,9 @@ class InboxController extends Controller
             [ 'label' => 'Read', 'field' => 'flag_read', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'label' => 'Tools', 'field' => 'tools', 'order' => false, 'search' => false ],
         ],
-        'tools' => []
+        'tools' => [
+            [ 'label' => 'Export Data Table', 'function' => "exportInbox()" ]
+        ]
     ];
     protected $paginate_default = 10;
     protected $cache_notify_inbox = 'newInboxCahce';
@@ -99,5 +105,24 @@ class InboxController extends Controller
             return $val;
         });
         return response()->json(['response' => true, 'id' => $id, 'data' => $data]);
+    }
+
+    public function export(Request $http_req)
+    {
+        $file_name = 'test-excel-inbox-'.$http_req->created_at_from.'-'.$http_req->created_at_to.'.xlsx';
+        $condition = [
+            'created_at_from' => $http_req->created_at_from,
+            'created_at_to' => $http_req->created_at_to,
+            'flag_read' => $http_req->flag_read,
+            'email' => $http_req->email,
+            'phone' => $http_req->phone,
+            'subject' => $http_req->subject,
+            'name' => $http_req->name,
+        ];
+        (new InboxExport($condition))->store($file_name);
+        $files = Storage::get($file_name);
+        $files = base64_encode($files);
+        Storage::delete($file_name);
+        return response()->json(['response' => true, 'encode_file' => $files, 'file_name' => $file_name]);
     }
 }

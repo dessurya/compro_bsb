@@ -40,7 +40,7 @@ User History
         let t_config = table_index_config
         $('#'+identity+' table tbody').html('')
         if (data.length == 0) {
-            $('#'+identity+' table tbody').html('<tr><td class="text-center" colspan="'+t_config.data_field_count+'"></td></tr>')
+            $('#'+identity+' table tbody').html('<tr><td class="text-center" colspan="'+t_config.data_field_count+'">-- No Data Found --</td></tr>')
         }else{
             $.each(data, function(idx,row){
                 let render_row = '<tr>'

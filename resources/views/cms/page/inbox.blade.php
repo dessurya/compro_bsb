@@ -41,7 +41,6 @@ User Management
             @include('cms.component.table-index-template', ['table_config' => $table_config])
         </div>
     </div>
-
 </div>
 @endpush
 
@@ -53,8 +52,52 @@ User Management
     $( document ).ready(function() {
         rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
         $('#'+table_index_config.table_id+' .selected-trigger').remove()
-        $('#'+table_index_config.table_id+' .other-tools').remove()
     });
+
+    exportInbox = () => {
+        loadingScreen(true)
+        let identity = table_index_config.table_id
+        let condition = getConditionTableIndex(identity)
+        if (condition.created_at_from == null || condition.created_at_from == '' || condition.created_at_to == null || condition.created_at_to == '') {
+            showPNotify('Invalid','Inbox date must be set start date and end date','error')
+            loadingScreen(false)
+            return false
+        }
+        time_start = new Date(condition.created_at_from)
+        time_end = new Date(condition.created_at_to)
+        if (time_start > time_end) {
+            showPNotify('Invalid','Start date cannot be higher than to end date','error')
+            loadingScreen(false)
+            return false
+        }
+        var countdate = Math.round((time_end-time_start)/(1000*60*60*24))
+        if (countdate > 100) {
+            showPNotify('Invalid','Range of inbox date cannot higher than 100 days','error')
+            loadingScreen(false)
+            return false
+        }
+        let confirm_act = confirm('Confirmation Needed! Are you sure export this table data?')
+        if (confirm_act == false) {
+            loadingScreen(false)
+            return false
+        }
+        let target = '{{ route("cms.inbox.export") }}'
+        exportInboxExe({condition,target})
+    }
+    
+    exportInboxExe = async (param) => {
+        let result = await httpRequest(param.target,'post',param.condition).then(function(result){ return result })
+        showPNotify('Success','Download excel file','success')
+        if (result.response == true) {
+            let link_file = "data:application/vnd.ms-excel;base64,"+result.encode_file
+            var a = document.createElement("a")
+            a.href = link_file
+            a.download = result.file_name
+            a.click()
+            a.remove()
+        }
+        loadingScreen(false)
+    }
 
     getConditionTableIndex = (identity) => {
         let condition = {}
@@ -72,7 +115,7 @@ User Management
         let t_config = table_index_config
         $('#'+identity+' table tbody').html('')
         if (data.length == 0) {
-            $('#'+identity+' table tbody').html('<tr><td class="text-center" colspan="'+t_config.data_field_count+'"></td></tr>')
+            $('#'+identity+' table tbody').html('<tr><td class="text-center" colspan="'+t_config.data_field_count+'">-- No Data Found --</td></tr>')
         }else{
             $.each(data, function(idx,row){
                 let render_row = '<tr>'

@@ -177,6 +177,8 @@ return [
 
         App\Providers\HelperServiceProvider::class,
 
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'HelperService' => App\Helper\HelperService::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
