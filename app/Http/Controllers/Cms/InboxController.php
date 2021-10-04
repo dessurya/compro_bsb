@@ -95,15 +95,19 @@ class InboxController extends Controller
 
     public function check()
     {
-        $data = Cache::remember($this->cache_notify_inbox, 45, function () {
-            return Inbox::where('flag_read', 'N')->orderBy('id','desc')->get();
+        $cache_data = Cache::remember($this->cache_notify_inbox, 45, function () {
+            $data = Inbox::where('flag_read', 'N')->orderBy('id','desc')->get();
+            $id = $data->pluck('id');
+            $data = $data->take(3)->map(function($val,$key){
+                $val->message = Str::words($val->message,18,'...');
+                return $val;
+            });
+            return [ 'id' => $id, 'data' => $data ];
         });
+        
+        $id = $cache_data['id'];
+        $data = $cache_data['data'];
 
-        $id = $data->pluck('id');
-        $data = $data->take(3)->map(function($val,$key){
-            $val->message = Str::words($val->message,18,'...');
-            return $val;
-        });
         return response()->json(['response' => true, 'id' => $id, 'data' => $data]);
     }
 
