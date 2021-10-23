@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Auth;
 
 class NewsInfo extends Model
 {
@@ -28,13 +27,8 @@ class NewsInfo extends Model
     {
         return date('Y-m-d H:i:s', strtotime($date));
     }
-
-    public static function boot() 
-    {
-		parent::boot();
-		self::creating(function ($selfM) {
-            if (empty($selfM->slug)) { $selfM->slug = Str::slug($selfM->title, '-'); }
-            if (empty($selfM->created_by)) { $selfM->created_by = Auth::user()->name; }
-		});
+    public function setSlugAttribute($value)
+    { 
+        return $this->attributes['slug'] = Str::slug($value, '-');; 
     }
 }

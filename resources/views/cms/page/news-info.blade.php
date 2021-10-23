@@ -156,16 +156,18 @@ News & Info
     }
 
     submitFormNewsInfoExe = async (identity) => {
-        const newsInfoStore = await storeNewsInfoPartOne(identity)
+        const newsInfoStore = await storeNewsInfo(identity)
         if (newsInfoStore.response == true) {
-            await storeNewsInfoImg(identity,newsInfoStore.id)
-            await refreshTable()
-            await openNewsInfo(newsInfoStore.id)
+            const newsInfoStoreImg = await storeNewsInfoImg(identity,newsInfoStore.id)
+            if (newsInfoStoreImg == 0) {
+                await openNewsInfo(newsInfoStore.id)
+                await refreshTable()
+            }
         }
         loadingScreen(false)
     }
 
-    storeNewsInfoPartOne = async (identity) => {
+    storeNewsInfo = async (identity) => {
         let param = {}
         param['title'] = $(identity+' [name=title]').val()
         param['publish_date'] = $(identity+' [name=publish_date]').val()
@@ -173,7 +175,7 @@ News & Info
         param['flag_img'] = $(identity+' [name=flag_img]').val()
         param['content'] = $(identity+' [name=content]').summernote('code')
         param['id'] = $(identity+' [name=old_data]').val()
-        let result_data = await httpRequest('{{ $http_req['store-part-one'] }}','post',param).then(function(result){ return result })
+        let result_data = await httpRequest('{{ $http_req['store'] }}','post',param).then(function(result){ return result })
         showPNotify('Info',result_data.msg,result_data.notif_type)
         return result_data
     }
@@ -196,10 +198,13 @@ News & Info
                     'type':img.type,
                     'set_id':img.set_id
                 }
-                await httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ console.log(result) })
+                httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
+                    openNewsInfo(img.set_id)
+                    refreshTable()
+                })
             };
         })
-        return true
+        return pictures.length
     }
 
     openNewsInfo = async (id) => {

@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/', 'NewsInfoController@index');
         Route::post('/list', 'NewsInfoController@list')->name('.list');
         Route::post('/open', 'NewsInfoController@open')->name('.open');
-        Route::post('/store-part-one', 'NewsInfoController@storePartOne')->name('.store-part-one');
+        Route::post('/store', 'NewsInfoController@store')->name('.store');
         Route::post('/store-img', 'NewsInfoController@storeImg')->name('.store-img');
     });
     // news info

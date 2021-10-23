@@ -8,6 +8,7 @@ use App\Models\NewsInfo;
 
 use Validator;
 use HelperService;
+use Auth;
 
 class NewsInfoController extends Controller
 {
@@ -43,7 +44,7 @@ class NewsInfoController extends Controller
         $table_config['table_url'] = route($table_config['table_url']);
         $http_req = [
             'open' => route('cms.news-info.open'),
-            'store-part-one' => route('cms.news-info.store-part-one'),
+            'store' => route('cms.news-info.store'),
             'store-img' => route('cms.news-info.store-img'),
         ];
         return view('cms.page.news-info', compact(
@@ -98,7 +99,7 @@ class NewsInfoController extends Controller
         ]);
     }
 
-    public function storePartOne(Request $http_req)
+    public function store(Request $http_req)
     {
         $rule_validate = [ 'title' => 'required|max:175|unique:news_info,title', ];
         if (!empty($http_req->id)) { $rule_validate['title'] .= ','.$http_req->id; }
@@ -107,6 +108,8 @@ class NewsInfoController extends Controller
             $param_find = ['id'=>$http_req->id];
             $param_store = [
                 'title'=>$http_req->title,
+                'slug'=>$http_req->title,
+                'created_by'=>Auth::user()->name,
                 'publish_date'=>$http_req->publish_date,
                 'language'=>$http_req->language,
                 'content'=>$http_req->content,
