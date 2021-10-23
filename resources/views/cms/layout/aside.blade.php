@@ -22,6 +22,16 @@
     				</a>
     			</li>
 				<li class="nav-item">
+					<a href="{{ route('cms.news-info') }}" class="nav-link {{ Route::is('cms.news-info') ? 'active' : '' }} ">
+						<p>News & Info</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{ route('cms.inbox') }}" class="nav-link {{ Route::is('cms.inbox') ? 'active' : '' }} ">
+						<p>Inbox</p>
+					</a>
+				</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.user') }}" class="nav-link {{ Route::is('cms.user') ? 'active' : '' }} ">
     					<p>User Management</p>
     				</a>
@@ -29,11 +39,6 @@
 				<li class="nav-item">
     				<a href="{{ route('cms.user-history') }}" class="nav-link {{ Route::is('cms.user-history') ? 'active' : '' }} ">
     					<p>User History</p>
-    				</a>
-    			</li>
-				<li class="nav-item">
-    				<a href="{{ route('cms.inbox') }}" class="nav-link {{ Route::is('cms.inbox') ? 'active' : '' }} ">
-    					<p>Inbox</p>
     				</a>
     			</li>
     		</ul>

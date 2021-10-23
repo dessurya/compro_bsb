@@ -137,7 +137,6 @@ User Management
     
     submitFormUserExecute = async (param) => {
         let result_data = await httpRequest(param.target,'post',param.input).then(function(result){ return result })
-        console.log(result_data)
         showPNotify('Info',result_data.msg,result_data.notif_type)
         if (result_data.response == true) {
             closeFormUser()

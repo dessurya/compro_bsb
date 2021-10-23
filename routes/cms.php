@@ -42,6 +42,15 @@ Route::middleware('auth')->group(function(){
     });
     // user history
     
+    // news info
+    Route::name('news-info')->prefix('news-info')->group(function(){
+        Route::get('/', 'NewsInfoController@index');
+        Route::post('/list', 'NewsInfoController@list')->name('.list');
+        Route::post('/store-part-one', 'NewsInfoController@storePartOne')->name('.store-part-one');
+        Route::post('/store-img', 'NewsInfoController@storeImg')->name('.store-img');
+    });
+    // news info
+
     // inbox
     Route::name('inbox')->prefix('inbox')->group(function(){
             Route::get('/', 'InboxController@index');

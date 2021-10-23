@@ -1,7 +1,7 @@
 @extends('cms.layout.base')
 
 @section('title')
-User Management
+Inbox
 @endsection
 
 @push('content')

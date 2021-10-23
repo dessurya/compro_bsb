@@ -66,7 +66,7 @@ class UserController extends Controller
             $data->orderBy($http_req->order_key, $http_req->order_val);
         }else{
             $order = $table_config['data_order'];
-            $data->orderBy($order['key'], $order['value']);
+            $data->orderBy($order['field'], $order['value']);
         }
         if (isset($http_req->condition['name']) and !empty($http_req->condition['name'])){
             $data->where('name', 'like', '%'.$http_req->condition['name'].'%');
