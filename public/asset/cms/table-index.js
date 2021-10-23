@@ -30,3 +30,7 @@ rebuildTableIndex = async (target, identity, page) => {
 
     renderedTableIndex(identity,result_data.data.data)
 }
+
+refreshTable = () => {
+    rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+}

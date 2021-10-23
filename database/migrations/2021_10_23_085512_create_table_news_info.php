@@ -16,13 +16,13 @@ class CreateTableNewsInfo extends Migration
         Schema::create('news_info', function (Blueprint $table) {
             $table->id();
             $table->string('title',175)->unique();
-            $table->date('publish_date')->comment('publish date or estimate publish date')->default(null);
+            $table->date('publish_date')->comment('publish date or estimate publish date')->nullable();
             $table->string('language',3)->default('en');
-            $table->text('content')->default(null);
-            $table->string('img',250)->default(null);
+            $table->text('content')->nullable();
+            $table->string('img',250)->nullable();
             $table->string('created_by',175);
             $table->string('slug',175);
-            $table->string('meta_keyword',175)->default(null);
+            $table->string('meta_keyword',175)->nullable();
             $table->string('flag_img',1)->default('N');
             $table->string('flag_publish',1)->default('N');
             $table->timestamps();

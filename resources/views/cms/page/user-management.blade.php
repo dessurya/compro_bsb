@@ -58,7 +58,7 @@ User Management
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
     table_index_config = JSON.parse(atob(table_index_config))
     $( document ).ready(function() {
-        rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        refreshTable()
     });
 
     getConditionTableIndex = (identity) => {
@@ -141,7 +141,7 @@ User Management
         if (result_data.response == true) {
             closeFormUser()
             let t_config = table_index_config
-            rebuildTableIndex(t_config.table_url,t_config.table_id,1)
+            refreshTable()
         }
         else{ $.each(result_data.invalid, function(key,err_data){ showPNotify('Invalid '+key,err_data[0],'error') }) }
         loadingScreen(false)
@@ -187,7 +187,7 @@ User Management
         let t_config = table_index_config
         let result_data = await httpRequest(param.target,'post',param).then(function(result){ return result })
         showPNotify('Info',result_data.msg,'success')
-        rebuildTableIndex(t_config.table_url,t_config.table_id,1)
+        refreshTable()
         loadingScreen(false)
     }
 </script>

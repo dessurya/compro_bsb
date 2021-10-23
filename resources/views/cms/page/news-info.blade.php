@@ -56,6 +56,9 @@ News & Info
                                     <input type="date" class="form-control" id="publish_date" name="publish_date" placeholder="Publish date" min="{{ date('Y-m-d') }}">
                                 </div>
                             </div>
+                            <div id="imgDisplay" class="row">
+                                <div class="col" style="display:none"></div>
+                            </div>
                             <div class="row">
                                 <div class="col form-group">
                                     <label for="content">Content</label>
@@ -93,7 +96,7 @@ News & Info
     let indentity_form_news_info = '#formNewsInfo'
     table_index_config = JSON.parse(atob(table_index_config))
     $( document ).ready(function() {
-        rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        refreshTable()
     });
 
     getConditionTableIndex = (identity) => {
@@ -119,8 +122,7 @@ News & Info
                 let render_row = '<tr>'
                 $.each(t_config.data_set, function(c_idx,c_coll){
                     if (c_coll.field == 'tools') {
-                        let encode_data = btoa(JSON.stringify(row))
-                        render_row += '<td><button class="btn btn-info btn-sm" onclick="openData(\''+encode_data+'\')">Open</button></td>'
+                        render_row += '<td><button class="btn btn-info btn-sm" onclick="openNewsInfo('+row.id+')">Open</button></td>'
                     }else{
                         render_row += '<td>'+row[c_coll.field]+'</td>'
                     }
@@ -135,6 +137,8 @@ News & Info
         $(indentity_form_news_info+' #content').summernote('destroy')
         $(indentity_form_news_info+' .card-title h3 b').html('')
         $(indentity_form_news_info+' input').val(null)
+        $(indentity_form_news_info+' #imgDisplay .col').html('').fadeOut()
+        $(indentity_form_news_info+' #content').val(null)
         $(indentity_form_news_info).fadeOut()
     }
 
@@ -155,6 +159,8 @@ News & Info
         const newsInfoStore = await storeNewsInfoPartOne(identity)
         if (newsInfoStore.response == true) {
             await storeNewsInfoImg(identity,newsInfoStore.id)
+            await refreshTable()
+            await openNewsInfo(newsInfoStore.id)
         }
         loadingScreen(false)
     }
@@ -165,29 +171,53 @@ News & Info
         param['publish_date'] = $(identity+' [name=publish_date]').val()
         param['language'] = $(identity+' [name=language]').val()
         param['flag_img'] = $(identity+' [name=flag_img]').val()
-        param['id'] = null
-
-        let old_data = $(identity+' input[name=old_data]').val()
-        if (old_data != null && old_data != undefined && old_data != '' ) {
-            old_data = JSON.parse(atob(old_data))
-            param['id'] = old_data.id
-        }
+        param['content'] = $(identity+' [name=content]').summernote('code')
+        param['id'] = $(identity+' [name=old_data]').val()
         let result_data = await httpRequest('{{ $http_req['store-part-one'] }}','post',param).then(function(result){ return result })
         showPNotify('Info',result_data.msg,result_data.notif_type)
         return result_data
     }
 
     storeNewsInfoImg = async (identity, ni_id) => {
-        let param = {}
-        param['title'] = $(identity+' [name=title]').val()
-        param['publish_date'] = $(identity+' [name=publish_date]').val()
-        param['language'] = $(identity+' [name=language]').val()
-        param['flag_img'] = $(identity+' [name=flag_img]').val()
-        param['id'] = null
+        let pictures = $(identity+' [name=img]').prop('files')
+        $.each(pictures, async function(idx,img){
+            img['set_id'] = ni_id
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(img);
+            reader.onloadend = async function(oFREvent) {
+                var byteArray = new Uint8Array(oFREvent.target.result)
+                var len = byteArray.byteLength
+                var binary = ''
+                for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                byteArray = window.btoa(binary)
+                let param =  {
+                    'encode':byteArray,
+                    'name':img.name,
+                    'type':img.type,
+                    'set_id':img.set_id
+                }
+                await httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ console.log(result) })
+            };
+        })
+        return true
+    }
 
-        let result_data = await httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ return result })
-        showPNotify('Info',result_data.msg,result_data.notif_type)
-        return result_data
+    openNewsInfo = async (id) => {
+        loadingScreen(true)
+        addNewsInfo()
+        let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
+        $(indentity_form_news_info+' [name=old_data]').val(result.id)
+        $(indentity_form_news_info+' [name=title]').val(result.title)
+        $(indentity_form_news_info+' [name=publish_date]').val(result.publish_date)
+        $(indentity_form_news_info+' [name=language]').val(result.language)
+        $(indentity_form_news_info+' [name=flag_img]').val(result.flag_img)
+        if (result.content != '' && result.content != null) {
+            $(indentity_form_news_info+' [name=content]').summernote('code', result.content)
+        }
+        if (result.img != '' && result.img != null) {
+            $(indentity_form_news_info+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
+        }
+        loadingScreen(false)
     }
 </script>
 @endpush

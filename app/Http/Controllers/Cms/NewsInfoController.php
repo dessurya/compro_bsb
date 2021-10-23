@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NewsInfo;
 
+use Validator;
 use HelperService;
-use Auth;
 
 class NewsInfoController extends Controller
 {
@@ -35,17 +35,19 @@ class NewsInfoController extends Controller
         ]
     ];
     protected $paginate_default = 10;
+    protected $module = 'News & Info';
 
     public function index()
     {
         $table_config = $this->table_config;
         $table_config['table_url'] = route($table_config['table_url']);
         $http_req = [
+            'open' => route('cms.news-info.open'),
             'store-part-one' => route('cms.news-info.store-part-one'),
             'store-img' => route('cms.news-info.store-img'),
         ];
         return view('cms.page.news-info', compact(
-            'table_config'
+            'table_config', 'http_req'
         ));
     }
 
@@ -87,6 +89,15 @@ class NewsInfoController extends Controller
         return response()->json(['response' => true, 'data' => $data]);
     }
 
+    public function open(Request $http_req)
+    {
+        $data = NewsInfo::find($http_req->id);
+        return response()->json([
+            'response' => true,
+            'data' => $data
+        ]);
+    }
+
     public function storePartOne(Request $http_req)
     {
         $rule_validate = [ 'title' => 'required|max:175|unique:news_info,title', ];
@@ -98,6 +109,7 @@ class NewsInfoController extends Controller
                 'title'=>$http_req->title,
                 'publish_date'=>$http_req->publish_date,
                 'language'=>$http_req->language,
+                'content'=>$http_req->content,
                 'flag_img'=>$http_req->flag_img,
             ];
             $store = NewsInfo::updateOrCreate($param_find,$param_store);
@@ -109,12 +121,29 @@ class NewsInfoController extends Controller
 
     public function storeImg(Request $http_req)
     {
-        $param_find = ['id'=>$http_req->id];
+        $find = NewsInfo::find($http_req->set_id);
+        if ($find and !empty($find->img)) {
+            unlink($find->img);
+        }
+        $dir_estimate = 'pict_content_asset/'.date('Y');
+        $dir_file = '';
+        foreach (explode('/',$dir_estimate) as $item) {
+            $dir_file .= $item.'/';
+            if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
+        }
+        $path_file = $dir_file.$http_req->name;
+        try {
+            file_put_contents($path_file, base64_decode($http_req->encode));
+        } catch (Exception $e) {
+            $msg = $e->getMessage();
+            return response()->json([
+                'response' => false,
+                'http_req' => $msg
+            ]);
+        }
+        $param_find = ['id'=>$http_req->set_id];
         $param_store = [
-            'title'=>$http_req->title,
-            'publish_date'=>$http_req->publish_date,
-            'language'=>$http_req->language,
-            'flag_img'=>$http_req->flag_img,
+            'img'=>$path_file,
         ];
         $store = NewsInfo::updateOrCreate($param_find,$param_store);
         return response()->json([

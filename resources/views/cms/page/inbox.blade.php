@@ -50,7 +50,7 @@ Inbox
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
     table_index_config = JSON.parse(atob(table_index_config))
     $( document ).ready(function() {
-        rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        refreshTable()
         $('#'+table_index_config.table_id+' .selected-trigger').remove()
     });
 
@@ -155,7 +155,7 @@ Inbox
     
     updateFlagRead = async (id) => {
         await httpRequest('{{ route("cms.inbox.flag-read") }}','post',{id}).then(function(result){ console.log(result) })
-        await rebuildTableIndex(table_index_config.table_url,table_index_config.table_id,1)
+        await refreshTable()
         getNotifyInbox(inbox_check_url)
     }
 </script>

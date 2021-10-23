@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Auth;
 
 class NewsInfo extends Model
 {
@@ -33,6 +34,7 @@ class NewsInfo extends Model
 		parent::boot();
 		self::creating(function ($selfM) {
             if (empty($selfM->slug)) { $selfM->slug = Str::slug($selfM->title, '-'); }
+            if (empty($selfM->created_by)) { $selfM->created_by = Auth::user()->name; }
 		});
     }
 }
