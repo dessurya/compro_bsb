@@ -127,10 +127,11 @@ class NewsInfoController extends Controller
     public function storeImg(Request $http_req)
     {
         $find = NewsInfo::find($http_req->set_id);
-        if ($find and !empty($find->img)) {
-            unlink($find->img);
+        if ($find) {
+            if ($http_req->for == 'thumbnail' and !empty($find->img_thumbnail)) { unlink($find->img_thumbnail); }
+            else if ($http_req->for == 'banner' and !empty($find->img_banner)) { unlink($find->img_banner); }
         }
-        $dir_estimate = 'pict_content_asset/'.date('Y');
+        $dir_estimate = 'pict_content_asset/news-info/'.date('Y');
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
@@ -159,7 +160,6 @@ class NewsInfoController extends Controller
 
     public function storeFlagPublish(Request $http_req)
     {
-        $slug = '';
         $getData = NewsInfo::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
             if ($http_req->status == 'Y' and $row->flag_publish == 'N') {

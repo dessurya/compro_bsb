@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/store', 'InformationController@store')->name('.store');
         Route::post('/store-img', 'InformationController@storeImg')->name('.store-img');
         Route::post('/store-flag-publish', 'InformationController@storeFlagPublish')->name('.store-flag-publish');
+        Route::post('/delete', 'InformationController@delete')->name('.delete');
     });
     // news info
 
