@@ -27,6 +27,11 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a href="{{ route('cms.information') }}" class="nav-link {{ Route::is('cms.information') ? 'active' : '' }} ">
+						<p>Information</p>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="{{ route('cms.inbox') }}" class="nav-link {{ Route::is('cms.inbox') ? 'active' : '' }} ">
 						<p>Inbox</p>
 					</a>
