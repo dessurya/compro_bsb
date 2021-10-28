@@ -147,10 +147,10 @@ class InformationController extends Controller
         foreach ($getData as $row) {
             if ($row->flag_publish == 'N') {
                 $row->update(['flag_publish' => 'Y']);
-                HelperService::userHistoryStore($this->module,'Publish information || make publish : '.$row->slug);
+                HelperService::userHistoryStore($this->module,'Publish information || make publish : '.$row->content);
             }else if ($row->flag_publish == 'Y') {
                 $row->update(['flag_publish' => 'N']);
-                HelperService::userHistoryStore($this->module,'Publish information || make draft : '.$row->slug);
+                HelperService::userHistoryStore($this->module,'Publish information || make draft : '.$row->content);
             }
         }
         return response()->json([
@@ -162,6 +162,7 @@ class InformationController extends Controller
     {
         $getData = Information::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
+            HelperService::userHistoryStore($this->module,'Delete Information || '.$row->content);
             if (!empty($row->img)) { unlink($row->img); }
             $row->delete();
         }

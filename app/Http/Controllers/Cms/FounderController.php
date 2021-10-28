@@ -4,51 +4,51 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Sustainability;
+use App\Models\Founder;
 
 use HelperService;
 use Auth;
 
-class SustainabilityController extends Controller
+class FounderController extends Controller
 {
     protected $table_config = [
-        'table_id' => 'list_sustainability',
-        'table_title' => 'List Sustainability',
-        'table_url' => 'cms.sustainability.list',
+        'table_id' => 'list_founder',
+        'table_title' => 'List Founder',
+        'table_url' => 'cms.founder.list',
         'table_info' => '*double click for selected row data',
         'data_field_count' => 7,
         'data_field_key' => 'id',
-        'data_order' => ['field'=>'language','value'=>'asc'],
+        'data_order' => ['field'=>'position','value'=>'asc'],
         'data_set' => [
             [ 'field' => 'tools',  'label' => 'Tools', 'order' => false, 'search' => false ],
-            [ 'field' => 'language',  'label' => 'Bahasa', 'order' => true, 'search' => true, 'search_type' => 'text' ],
-            [ 'field' => 'title',  'label' => 'Judul', 'order' => true, 'search' => true, 'search_type' => 'text' ],
+            [ 'field' => 'name',  'label' => 'Name', 'order' => true, 'search' => true, 'search_type' => 'text' ],
+            [ 'field' => 'job_title_en',  'label' => 'Job Title En', 'order' => true, 'search' => true, 'search_type' => 'text' ],
+            [ 'field' => 'job_title_id',  'label' => 'Job Title Id', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'position',  'label' => 'Position', 'order' => true, 'search' => true, 'search_type' => 'text' ],
-            [ 'field' => 'content_shoert',  'label' => 'Deskripsi', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'flag_publish',  'label' => 'Publish', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'created_by',  'label' => 'Ditulis Oleh', 'order' => true, 'search' => true, 'search_type' => 'text' ],
         ],
         'tools' => [
-            [ 'label' => 'Add Sustainability', 'function' => "addSustainability()" ],
-            [ 'label' => 'Publish/Hide Sustainability', 'function' => "publishSustainability()" ],
-            [ 'label' => 'Delete Sustainability', 'function' => "deleteSustainability()" ],
+            [ 'label' => 'Add Founder', 'function' => "addFounder()" ],
+            [ 'label' => 'Publish/Hide Founder', 'function' => "publishFounder()" ],
+            [ 'label' => 'Delete Founder', 'function' => "deleteFounder()" ],
         ]
     ];
     protected $paginate_default = 10;
-    protected $module = 'Sustainability';
+    protected $module = 'Founder';
 
     public function index()
     {
         $table_config = $this->table_config;
         $table_config['table_url'] = route($table_config['table_url']);
         $http_req = [
-            'open' => route('cms.sustainability.open'),
-            'delete' => route('cms.sustainability.delete'),
-            'store' => route('cms.sustainability.store'),
-            'store-img' => route('cms.sustainability.store-img'),
-            'store-flag-publish' => route('cms.sustainability.store-flag-publish'),
+            'open' => route('cms.founder.open'),
+            'delete' => route('cms.founder.delete'),
+            'store' => route('cms.founder.store'),
+            'store-img' => route('cms.founder.store-img'),
+            'store-flag-publish' => route('cms.founder.store-flag-publish'),
         ];
-        return view('cms.page.sustainability', compact(
+        return view('cms.page.founder', compact(
             'table_config', 'http_req'
         ));
     }
@@ -59,15 +59,15 @@ class SustainabilityController extends Controller
         $paginate = $this->paginate_default;
         if (isset($http_req->show) and !empty($http_req->show)) { $paginate = $http_req->show; }
 
-        $data = Sustainability::select('*');
+        $data = Founder::select('*');
         if (isset($http_req->order_key) and !empty($http_req->order_key)) {
             $data->orderBy($http_req->order_key, $http_req->order_val);
         }else{
             $order = $table_config['data_order'];
             $data->orderBy($order['field'], $order['value']);
         }
-        if (isset($http_req->condition['title']) and !empty($http_req->condition['title'])){
-            $data->where('title', 'like', '%'.$http_req->condition['title'].'%');
+        if (isset($http_req->condition['name']) and !empty($http_req->condition['name'])){
+            $data->where('name', 'like', '%'.$http_req->condition['name'].'%');
         }
         if (isset($http_req->condition['position']) and !empty($http_req->condition['position'])){
             $data->where('position', $http_req->condition['position']);
@@ -75,11 +75,11 @@ class SustainabilityController extends Controller
         if (isset($http_req->condition['flag_publish']) and !empty($http_req->condition['flag_publish'])){
             $data->where('flag_publish', $http_req->condition['flag_publish']);
         }
-        if (isset($http_req->condition['language']) and !empty($http_req->condition['language'])){
-            $data->where('language', 'like', '%'.$http_req->condition['language'].'%');
+        if (isset($http_req->condition['job_title_en']) and !empty($http_req->condition['job_title_en'])){
+            $data->where('job_title_en', 'like', '%'.$http_req->condition['job_title_en'].'%');
         }
-        if (isset($http_req->condition['content_shoert']) and !empty($http_req->condition['content_shoert'])){
-            $data->where('content_shoert', 'like', '%'.$http_req->condition['content_shoert'].'%');
+        if (isset($http_req->condition['job_title_id']) and !empty($http_req->condition['job_title_id'])){
+            $data->where('job_title_id', 'like', '%'.$http_req->condition['job_title_id'].'%');
         }
         if (isset($http_req->condition['created_by']) and !empty($http_req->condition['created_by'])){
             $data->where('created_by', 'like', '%'.$http_req->condition['created_by'].'%');
@@ -90,7 +90,7 @@ class SustainabilityController extends Controller
 
     public function open(Request $http_req)
     {
-        $data = Sustainability::find($http_req->id);
+        $data = Founder::find($http_req->id);
         return response()->json([
             'response' => true,
             'data' => $data
@@ -101,14 +101,14 @@ class SustainabilityController extends Controller
     {
         $param_find = ['id'=>$http_req->id];
         $param_store = [
-            'title'=>$http_req->title,
+            'name'=>$http_req->name,
             'position'=>$http_req->position,
-            'language'=>$http_req->language,
-            'content_shoert'=>$http_req->content_shoert,
+            'job_title_en'=>$http_req->job_title_en,
+            'job_title_id'=>$http_req->job_title_id,
             'created_by'=>Auth::user()->name,
         ];
-        $store = Sustainability::updateOrCreate($param_find,$param_store);
-        HelperService::userHistoryStore($this->module,'Store Sustainability || '.json_encode($store));
+        $store = Founder::updateOrCreate($param_find,$param_store);
+        HelperService::userHistoryStore($this->module,'Store Founder || '.json_encode($store));
         return response()->json([
             'response' => true,
             'msg'=> 'success',
@@ -118,11 +118,11 @@ class SustainabilityController extends Controller
 
     public function storeImg(Request $http_req)
     {
-        $find = Sustainability::find($http_req->set_id);
-        if ($find and !empty($find->img_thumnail)) {
-            unlink($find->img_thumnail);
+        $find = Founder::find($http_req->set_id);
+        if ($find and !empty($find->img)) {
+            unlink($find->img);
         }
-        $dir_estimate = 'pict_content_asset/sustainability';
+        $dir_estimate = 'pict_content_asset/founder';
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
@@ -139,23 +139,23 @@ class SustainabilityController extends Controller
             ]);
         }
         $param_find = ['id'=>$http_req->set_id];
-        $param_store = [ 'img_thumnail' => $path_file ];
-        $store = Sustainability::updateOrCreate($param_find,$param_store);
+        $param_store = [ 'img' => $path_file ];
+        $store = Founder::updateOrCreate($param_find,$param_store);
         return response()->json([
             'response' => true
         ]);
     }
-    
+
     public function storeFlagPublish(Request $http_req)
     {
-        $getData = Sustainability::whereIn('id',$http_req->ids)->get();
+        $getData = Founder::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
             if ($row->flag_publish == 'N') {
                 $row->update(['flag_publish' => 'Y']);
-                HelperService::userHistoryStore($this->module,'Publish Sustainability || make publish : '.$row->title);
+                HelperService::userHistoryStore($this->module,'Publish Founder || make publish : '.$row->name);
             }else if ($row->flag_publish == 'Y') {
                 $row->update(['flag_publish' => 'N']);
-                HelperService::userHistoryStore($this->module,'Publish Sustainability || make draft : '.$row->title);
+                HelperService::userHistoryStore($this->module,'Publish Founder || make draft : '.$row->name);
             }
         }
         return response()->json([
@@ -165,10 +165,10 @@ class SustainabilityController extends Controller
 
     public function delete(Request $http_req)
     {
-        $getData = Sustainability::whereIn('id',$http_req->ids)->get();
+        $getData = Founder::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
-            HelperService::userHistoryStore($this->module,'Delete Sustainability || '.$row->title);
-            if (!empty($row->img_thumnail)) { unlink($row->img_thumnail); }
+            HelperService::userHistoryStore($this->module,'Delete Founder || '.$row->name);
+            if (!empty($row->img)) { unlink($row->img); }
             $row->delete();
         }
         return response()->json([ 'response' => true ]);
