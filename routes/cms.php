@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function(){
     });
     // news info
 
-    // news info
+    // information
     Route::name('information')->prefix('information')->group(function(){
         Route::get('/', 'InformationController@index');
         Route::post('/list', 'InformationController@list')->name('.list');
@@ -63,15 +63,27 @@ Route::middleware('auth')->group(function(){
         Route::post('/store-flag-publish', 'InformationController@storeFlagPublish')->name('.store-flag-publish');
         Route::post('/delete', 'InformationController@delete')->name('.delete');
     });
-    // news info
+    // information
+
+    // sustainability
+    Route::name('sustainability')->prefix('sustainability')->group(function(){
+        Route::get('/', 'SustainabilityController@index');
+        Route::post('/list', 'SustainabilityController@list')->name('.list');
+        Route::post('/open', 'SustainabilityController@open')->name('.open');
+        Route::post('/store', 'SustainabilityController@store')->name('.store');
+        Route::post('/store-img', 'SustainabilityController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'SustainabilityController@storeFlagPublish')->name('.store-flag-publish');
+        Route::post('/delete', 'SustainabilityController@delete')->name('.delete');
+    });
+    // sustainability
 
     // inbox
     Route::name('inbox')->prefix('inbox')->group(function(){
-            Route::get('/', 'InboxController@index');
-            Route::post('/list', 'InboxController@list')->name('.list');
-            Route::post('/flag-read', 'InboxController@flagRead')->name('.flag-read');
-            Route::post('/export', 'InboxController@export')->name('.export');
-            Route::post('/check', 'InboxController@check')->name('.check');
-        });
+        Route::get('/', 'InboxController@index');
+        Route::post('/list', 'InboxController@list')->name('.list');
+        Route::post('/flag-read', 'InboxController@flagRead')->name('.flag-read');
+        Route::post('/export', 'InboxController@export')->name('.export');
+        Route::post('/check', 'InboxController@check')->name('.check');
+    });
     // inbox
 });

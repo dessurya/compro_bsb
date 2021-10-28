@@ -1,7 +1,7 @@
 @extends('cms.layout.base')
 
 @section('title')
-Information
+Sustainability
 @endsection
 
 @push('link')
@@ -12,51 +12,52 @@ Information
     
     <div class="row">
         <div class="col-12">
-            <div id="formInformation" style="display:none;">
-                <form onsubmit="return submitFormInformation()"  enctype="multipart/form-data">
+            <div id="formSustainability" style="display:none;">
+                <form onsubmit="return submitFormSustainability()"  enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
-                                <h3>Form Information <b></b></h3>
+                                <h3>Form Sustainability <b></b></h3>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="type">Type</label>
-                                    <select type="text" class="form-control" id="type" name="type">
-                                        <option value="ADDRESS">Address</option>
-                                        <option value="MAIL">Email Address</option>
-                                        <option value="PHONE">Phone Number</option>
-                                        <option value="SOCIAL_MEDIA">Social Media</option>
-                                        <option value="MAPS">Maps</option>
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="language">Language</label>
+                                    <select type="text" class="form-control" id="language" name="language">
+                                        <option value="en">English</option>
+                                        <option value="id">Indonesia</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="position">Position</label>
                                     <input type="number" class="form-control" id="position" name="position" min="1" max="99" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col form-group">
-                                    <label for="content">Content</label>
-                                    <input type="text" class="form-control" id="content" name="content" required>
+                                    <label for="content_shoert">Content</label>
+                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="img">Image</label>
-                                    <input type="file" class="form-control" id="img" name="img" accept="image/*">
+                                    <label for="imgThumnail">Image</label>
+                                    <input type="file" class="form-control" id="imgThumnail" name="imgThumnail" accept="image/*">
                                 </div>
                             </div>
-                            <div id="imgDisplay" class="row">
+                            <div id="imgThumnailDisplay" class="row">
                                 <div class="col" style="display:none"></div>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col">
-                                    <button type="reset" onclick="closeFormInformation()" class="btn btn-sm btn-block btn-outline-danger">Cancel</button>
+                                    <button type="reset" onclick="closeFormSustainability()" class="btn btn-sm btn-block btn-outline-danger">Cancel</button>
                                 </div>
                                 <div class="col">
                                     <input type="hidden" name="old_data">
@@ -79,7 +80,7 @@ Information
 <script src="{{ asset('asset/cms/table-index.js') }}"></script>
 <script>
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
-    let indentity_form_information = '#formInformation'
+    let indentity_form_information = '#formSustainability'
     table_index_config = JSON.parse(atob(table_index_config))
     $( document ).ready(function() {
         refreshTable()
@@ -87,9 +88,10 @@ Information
 
     getConditionTableIndex = (identity) => {
         let condition = {}
-        condition['type'] = $('#'+identity+' [name=search_type]').val()
-        condition['content'] = $('#'+identity+' [name=search_content]').val()
+        condition['title'] = $('#'+identity+' [name=search_title]').val()
+        condition['content_shoert'] = $('#'+identity+' [name=search_content_shoert]').val()
         condition['position'] = $('#'+identity+' [name=search_position]').val()
+        condition['language'] = $('#'+identity+' [name=search_language]').val()
         condition['created_by'] = $('#'+identity+' [name=search_created_by]').val()
         condition['flag_publish'] = $('#'+identity+' [name=search_flag_publish]').val()
         return condition
@@ -105,7 +107,7 @@ Information
                 let render_row = '<tr id="row_data_'+row.id+'" ondblclick="selectedRowData(\'row_data_'+row.id+'\')">'
                 $.each(t_config.data_set, function(c_idx,c_coll){
                     if (c_coll.field == 'tools') {
-                        render_row += '<td><button class="btn btn-info btn-sm" onclick="openInformatin('+row.id+')">Open</button></td>'
+                        render_row += '<td><button class="btn btn-info btn-sm" onclick="openSustainability('+row.id+')">Open</button></td>'
                     }else{
                         render_row += '<td>'+row[c_coll.field]+'</td>'
                     }
@@ -116,7 +118,7 @@ Information
         }
     }
 
-    publishInformation = () => {
+    publishSustainability = () => {
         const ids = getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
@@ -126,7 +128,7 @@ Information
         excuteSelectedAction(ids,'{{ $http_req['store-flag-publish'] }}')
     }
 
-    deleteInformation = () => {
+    deleteSustainability = () => {
         const ids = getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
@@ -144,50 +146,51 @@ Information
         loadingScreen(false)
     }
 
-    closeFormInformation = () => {
+    closeFormSustainability = () => {
         $(indentity_form_information+' .card-title h3 b').html('')
         $(indentity_form_information+' input').val(null)
-        $(indentity_form_information+' #imgDisplay .col').html('').fadeOut()
+        $(indentity_form_information+' #imgThumnailDisplay .col').html('').fadeOut()
         $(indentity_form_information).fadeOut()
     }
 
-    addInformation = () => {
-        closeFormInformation()
+    addSustainability = () => {
+        closeFormSustainability()
         $(indentity_form_information).fadeIn()
-        $(indentity_form_information+' input[name=content]').focus()
+        $(indentity_form_information+' input[name=title]').focus()
     }
 
-    submitFormInformation = () => {
+    submitFormSustainability = () => {
         loadingScreen(true)
-        submitFormInformationExe(indentity_form_information)
+        submitFormSustainabilityExe(indentity_form_information)
         return false
     }
 
-    submitFormInformationExe = async (identity) => {
-        const InformatinStore = await storeInformation(identity)
-        if (InformatinStore.response == true) {
-            let pictures = $(identity+' [name=img]').prop('files')
-            await storeInformationImg(pictures,InformatinStore.id)
+    submitFormSustainabilityExe = async (identity) => {
+        const SustainabilityStore = await storeSustainability(identity)
+        if (SustainabilityStore.response == true) {
+            let pictures = $(identity+' [name=imgThumnail]').prop('files')
+            await storeSustainabilityImg(pictures,SustainabilityStore.id)
             if (pictures.length == 0) {
-                await openInformatin(InformatinStore.id)
+                await openSustainability(SustainabilityStore.id)
                 await refreshTable()
             }
         }
         loadingScreen(false)
     }
 
-    storeInformation = async (identity) => {
+    storeSustainability = async (identity) => {
         let param = {}
-        param['type'] = $(identity+' [name=type]').val()
+        param['title'] = $(identity+' [name=title]').val()
+        param['language'] = $(identity+' [name=language]').val()
         param['position'] = $(identity+' [name=position]').val()
-        param['content'] = $(identity+' [name=content]').val()
+        param['content_shoert'] = $(identity+' [name=content_shoert]').val()
         param['id'] = $(identity+' [name=old_data]').val()
         let result_data = await httpRequest('{{ $http_req['store'] }}','post',param).then(function(result){ return result })
         showPNotify('Info',result_data.msg,result_data.notif_type)
         return result_data
     }
 
-    storeInformationImg = async (pictures, ni_id) => {
+    storeSustainabilityImg = async (pictures, ni_id) => {
         $.each(pictures, async function(idx,img){
             img['set_id'] = ni_id
             var reader = new FileReader();
@@ -202,28 +205,28 @@ Information
                     'encode':byteArray,
                     'name':img.name,
                     'type':img.type,
-                    'for':'thumbnail',
                     'set_id':img.set_id
                 }
                 httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
                     console.log(result)
-                    openInformatin(img.set_id)
+                    openSustainability(img.set_id)
                     refreshTable()
                 })
             };
         })
     }
 
-    openInformatin = async (id) => {
+    openSustainability = async (id) => {
         loadingScreen(true)
-        addInformation()
+        addSustainability()
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_information+' [name=old_data]').val(result.id)
-        $(indentity_form_information+' [name=type]').val(result.type)
+        $(indentity_form_information+' [name=title]').val(result.title)
+        $(indentity_form_information+' [name=language]').val(result.language)
         $(indentity_form_information+' [name=position]').val(result.position)
-        $(indentity_form_information+' [name=content]').val(result.content)
-        if (result.img != '' && result.img != null) {
-            $(indentity_form_information+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
+        $(indentity_form_information+' [name=content_shoert]').val(result.content_shoert)
+        if (result.img_thumnail != '' && result.img_thumnail != null) {
+            $(indentity_form_information+' #imgThumnailDisplay .col').html('<img src="../'+result.img_thumnail+'" class="img-fluid pad">').fadeIn()
         }
         loadingScreen(false)
     }

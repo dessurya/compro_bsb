@@ -20,7 +20,6 @@ class CreateTableSustainability extends Migration
             $table->integer('position')->default(1);
             $table->string('content_shoert',175)->nullable();
             $table->string('img_thumnail',250)->nullable();
-            $table->string('meta_keyword',175)->nullable();
             $table->string('flag_publish',1)->default('N');
             $table->string('created_by',175);
             $table->timestamps();

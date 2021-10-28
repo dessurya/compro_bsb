@@ -22,6 +22,11 @@
     				</a>
     			</li>
 				<li class="nav-item">
+					<a href="{{ route('cms.sustainability') }}" class="nav-link {{ Route::is('cms.sustainability') ? 'active' : '' }} ">
+						<p>Sustainability</p>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="{{ route('cms.news-info') }}" class="nav-link {{ Route::is('cms.news-info') ? 'active' : '' }} ">
 						<p>News & Info</p>
 					</a>
