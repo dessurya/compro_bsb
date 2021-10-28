@@ -5,6 +5,10 @@ selectAllRowTable = (target, param) => {
     else if (param == false) { selection.removeClass("selected") }
 }
 
+selectedRowData = (identity) => {
+    $('table tbody #'+identity).toggleClass('selected')
+}
+
 rebuildTableIndex = async (target, identity, page) => {
     loadingScreen(true)
     let param = {}

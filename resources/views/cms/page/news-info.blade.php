@@ -34,29 +34,47 @@ News & Info
                                         <option value="id">Indonesia</option>
                                     </select>
                                 </div>
-                                <div class="col form-group">
-                                    <label for="flag_publish">Publish</label>
-                                    <input type="text" class="form-control" id="flag_publish" name="flag_publish" disabled>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="img">Image</label>
-                                    <input type="file" class="form-control" id="img" name="img" accept="image/*">
-                                </div>
-                                <div class="col form-group">
-                                    <label for="flag_img">Show Image</label>
-                                    <select class="form-control" id="flag_img" name="flag_img">
-                                        <option value="N">No</option>
-                                        <option value="Y">Yes</option>
-                                    </select>
+                                    <label for="flag_publish">Publish</label>
+                                    <input type="text" class="form-control" id="flag_publish" name="flag_publish" disabled>
                                 </div>
                                 <div class="col form-group">
                                     <label for="publish_date">Publish Date</label>
                                     <input type="date" class="form-control" id="publish_date" name="publish_date" placeholder="Publish date" min="{{ date('Y-m-d') }}">
                                 </div>
                             </div>
-                            <div id="imgDisplay" class="row">
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="img_thumbnail">Image Thumbnail</label>
+                                    <input type="file" class="form-control" id="img_thumbnail" name="img_thumbnail" accept="image/*">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="flag_img_thumbnail">Show Image Thumbnail</label>
+                                    <select class="form-control" id="flag_img_thumbnail" name="flag_img_thumbnail">
+                                        <option value="N">No</option>
+                                        <option value="Y">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="imgThumbnailDisplay" class="row">
+                                <div class="col" style="display:none"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="img_banner">Image Banner</label>
+                                    <input type="file" class="form-control" id="img_banner" name="img_banner" accept="image/*">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="flag_img_banner">Show Image Banner</label>
+                                    <select class="form-control" id="flag_img_banner" name="flag_img_banner">
+                                        <option value="N">No</option>
+                                        <option value="Y">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="imgBannerDisplay" class="row">
                                 <div class="col" style="display:none"></div>
                             </div>
                             <div class="row">
@@ -119,7 +137,7 @@ News & Info
             $('#'+identity+' table tbody').html('<tr><td class="text-center" colspan="'+t_config.data_field_count+'">-- No Data Found --</td></tr>')
         }else{
             $.each(data, function(idx,row){
-                let render_row = '<tr>'
+                let render_row = '<tr id="row_data_'+row.id+'" ondblclick="selectedRowData(\'row_data_'+row.id+'\')">'
                 $.each(t_config.data_set, function(c_idx,c_coll){
                     if (c_coll.field == 'tools') {
                         render_row += '<td><button class="btn btn-info btn-sm" onclick="openNewsInfo('+row.id+')">Open</button></td>'
@@ -133,11 +151,49 @@ News & Info
         }
     }
 
+    getSelectedId = () => {
+        let ids = []
+        $.each($('table tbody tr.selected'), function(){
+            const attr_id = $(this).attr('id')
+            ids.push(attr_id.replace("row_data_", ""))
+        })
+        return ids
+    }
+
+    publishNewsInfo = () => {
+        const ids = getSelectedId()
+        if (ids.length == 0) {
+            showPNotify('Info','Not found data select','danger')
+            return false
+        }
+        loadingScreen(true)
+        updatePublishStatus(ids,'Y')
+    }
+
+    backToDraftNewsInfo = () => {
+        const ids = getSelectedId()
+        if (ids.length == 0) {
+            showPNotify('Info','Not found data select','danger')
+            return false
+        }
+        loadingScreen(true)
+        updatePublishStatus(ids,'N')
+    }
+
+    updatePublishStatus = async (ids,status) => {
+        const param = {ids,status}
+        const result_data = await httpRequest('{{ $http_req['store-flag-publish'] }}','post',param).then(function(result){ return result })
+        showPNotify('Info','Success','info')
+        refreshTable()
+        loadingScreen(false)
+    }
+
     closeFormNewsInfo = () => {
         $(indentity_form_news_info+' #content').summernote('destroy')
         $(indentity_form_news_info+' .card-title h3 b').html('')
         $(indentity_form_news_info+' input').val(null)
-        $(indentity_form_news_info+' #imgDisplay .col').html('').fadeOut()
+        $(indentity_form_news_info+' #imgThumbnailDisplay .col').html('').fadeOut()
+        $(indentity_form_news_info+' #imgBannerDisplay .col').html('').fadeOut()
         $(indentity_form_news_info+' #content').val(null)
         $(indentity_form_news_info).fadeOut()
     }
@@ -158,8 +214,9 @@ News & Info
     submitFormNewsInfoExe = async (identity) => {
         const newsInfoStore = await storeNewsInfo(identity)
         if (newsInfoStore.response == true) {
-            const newsInfoStoreImg = await storeNewsInfoImg(identity,newsInfoStore.id)
-            if (newsInfoStoreImg == 0) {
+            const newsInfoStoreImgBanner = await storeNewsInfoImgBanner(identity,newsInfoStore.id)
+            const newsInfoStoreImgThumbnail = await storeNewsInfoImgThumbnail(identity,newsInfoStore.id,newsInfoStoreImgBanner)
+            if (newsInfoStoreImgBanner == 0 && newsInfoStoreImgThumbnail == 0) {
                 await openNewsInfo(newsInfoStore.id)
                 await refreshTable()
             }
@@ -172,7 +229,8 @@ News & Info
         param['title'] = $(identity+' [name=title]').val()
         param['publish_date'] = $(identity+' [name=publish_date]').val()
         param['language'] = $(identity+' [name=language]').val()
-        param['flag_img'] = $(identity+' [name=flag_img]').val()
+        param['flag_img_thumbnail'] = $(identity+' [name=flag_img_thumbnail]').val()
+        param['flag_img_banner'] = $(identity+' [name=flag_img_banner]').val()
         param['content'] = $(identity+' [name=content]').summernote('code')
         param['id'] = $(identity+' [name=old_data]').val()
         let result_data = await httpRequest('{{ $http_req['store'] }}','post',param).then(function(result){ return result })
@@ -180,8 +238,8 @@ News & Info
         return result_data
     }
 
-    storeNewsInfoImg = async (identity, ni_id) => {
-        let pictures = $(identity+' [name=img]').prop('files')
+    storeNewsInfoImgBanner = async (identity, ni_id) => {
+        let pictures = $(identity+' [name=img_banner]').prop('files')
         $.each(pictures, async function(idx,img){
             img['set_id'] = ni_id
             var reader = new FileReader();
@@ -196,14 +254,48 @@ News & Info
                     'encode':byteArray,
                     'name':img.name,
                     'type':img.type,
+                    'for':'banner',
                     'set_id':img.set_id
                 }
                 httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
+                    console.log(result)
+                })
+            };
+        })
+        return pictures.length
+    }
+
+    storeNewsInfoImgThumbnail = async (identity, ni_id, newsInfoStoreImgBanner) => {
+        let pictures = $(identity+' [name=img_thumbnail]').prop('files')
+        $.each(pictures, async function(idx,img){
+            img['set_id'] = ni_id
+            img['newsInfoStoreImgBanner'] = newsInfoStoreImgBanner
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(img);
+            reader.onloadend = async function(oFREvent) {
+                var byteArray = new Uint8Array(oFREvent.target.result)
+                var len = byteArray.byteLength
+                var binary = ''
+                for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                byteArray = window.btoa(binary)
+                let param =  {
+                    'encode':byteArray,
+                    'name':img.name,
+                    'type':img.type,
+                    'for':'thumbnail',
+                    'set_id':img.set_id
+                }
+                httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
+                    console.log(result)
                     openNewsInfo(img.set_id)
                     refreshTable()
                 })
             };
         })
+        if (pictures.length == 0 && newsInfoStoreImgBanner > 0) {
+            openNewsInfo(ni_id)
+            refreshTable()
+        }
         return pictures.length
     }
 
@@ -215,12 +307,18 @@ News & Info
         $(indentity_form_news_info+' [name=title]').val(result.title)
         $(indentity_form_news_info+' [name=publish_date]').val(result.publish_date)
         $(indentity_form_news_info+' [name=language]').val(result.language)
-        $(indentity_form_news_info+' [name=flag_img]').val(result.flag_img)
+        $(indentity_form_news_info+' [name=flag_img_thumbnail]').val(result.flag_img_thumbnail)
+        $(indentity_form_news_info+' [name=flag_img_banner]').val(result.flag_img_banner)
         if (result.content != '' && result.content != null) {
             $(indentity_form_news_info+' [name=content]').summernote('code', result.content)
+        }else{
+            $(indentity_form_news_info+' [name=content]').summernote()
         }
-        if (result.img != '' && result.img != null) {
-            $(indentity_form_news_info+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
+        if (result.img_thumbnail != '' && result.img_thumbnail != null) {
+            $(indentity_form_news_info+' #imgThumbnailDisplay .col').html('<img src="../'+result.img_thumbnail+'" class="img-fluid pad">').fadeIn()
+        }
+        if (result.img_banner != '' && result.img_banner != null) {
+            $(indentity_form_news_info+' #imgBannerDisplay .col').html('<img src="../'+result.img_banner+'" class="img-fluid pad">').fadeIn()
         }
         loadingScreen(false)
     }

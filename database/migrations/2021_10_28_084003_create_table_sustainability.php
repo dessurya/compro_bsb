@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableNewsInfo extends Migration
+class CreateTableSustainability extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateTableNewsInfo extends Migration
      */
     public function up()
     {
-        Schema::create('news_info', function (Blueprint $table) {
+        Schema::create('sustainability', function (Blueprint $table) {
             $table->id();
             $table->string('title',175)->unique();
-            $table->date('publish_date')->comment('publish date or estimate publish date')->nullable();
             $table->string('language',3)->default('en');
-            $table->text('content')->nullable();
-            $table->string('img_banner',250)->nullable();
-            $table->string('img_thumbnail',250)->nullable();
-            $table->string('slug',175);
+            $table->integer('position')->default(1);
+            $table->string('content_shoert',175)->nullable();
+            $table->string('img_thumnail',250)->nullable();
             $table->string('meta_keyword',175)->nullable();
-            $table->string('flag_img_banner',1)->default('N');
-            $table->string('flag_img_thumbnail',1)->default('N');
             $table->string('flag_publish',1)->default('N');
             $table->string('created_by',175);
             $table->timestamps();
@@ -38,6 +34,6 @@ class CreateTableNewsInfo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_info');
+        Schema::dropIfExists('sustainability');
     }
 }

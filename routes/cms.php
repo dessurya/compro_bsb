@@ -49,6 +49,18 @@ Route::middleware('auth')->group(function(){
         Route::post('/open', 'NewsInfoController@open')->name('.open');
         Route::post('/store', 'NewsInfoController@store')->name('.store');
         Route::post('/store-img', 'NewsInfoController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'NewsInfoController@storeFlagPublish')->name('.store-flag-publish');
+    });
+    // news info
+
+    // news info
+    Route::name('information')->prefix('information')->group(function(){
+        Route::get('/', 'InformationController@index');
+        Route::post('/list', 'InformationController@list')->name('.list');
+        Route::post('/open', 'InformationController@open')->name('.open');
+        Route::post('/store', 'InformationController@store')->name('.store');
+        Route::post('/store-img', 'InformationController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'InformationController@storeFlagPublish')->name('.store-flag-publish');
     });
     // news info
 

@@ -17,11 +17,11 @@
                                 <button type="button" class="btn btn-info dropdown-toggle dropdown-icon other-tools" data-toggle="dropdown" aria-expanded="true" title="tools"><span class="sr-only">Toggle Dropdown</span></button>
                                 <div class="dropdown-menu other-tools" role="menu" style="">
                                     @foreach($table_config['tools'] as $list)
-                                    <a class="dropdown-item action-item" onclick="return {{ $list['function'] }}" href="#">{{$list['label']}}</a>
+                                    <a class="dropdown-item action-item" onclick="return {{ $list['function'] }}" style="cursor:pointer">{{$list['label']}}</a>
                                     @endforeach
                                     <div class="dropdown-divider"></div>
-                                    <a href="#" onclick="return selectAllRowTable('{{ $table_config['table_id'] }}', true)"; class="dropdown-item selected-trigger">Selected All</a>
-                                    <a href="#" onclick="return selectAllRowTable('{{ $table_config['table_id'] }}', false)"; class="dropdown-item selected-trigger">Unselected All</a>
+                                    <a style="cursor:pointer" onclick="return selectAllRowTable('{{ $table_config['table_id'] }}', true)"; class="dropdown-item selected-trigger">Selected All</a>
+                                    <a style="cursor:pointer" onclick="return selectAllRowTable('{{ $table_config['table_id'] }}', false)"; class="dropdown-item selected-trigger">Unselected All</a>
                                 </div>
                             </div>
                         </div>

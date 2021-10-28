@@ -14,9 +14,11 @@ class NewsInfo extends Model
         'publish_date',
         'language',
         'content',
-        'img',
+        'img_thumbnail',
+        'img_banner',
         'created_by',
-        'flag_img',
+        'flag_img_banner',
+        'flag_img_thumbnail',
         'flag_publish',
     ];
     public function getCreatedAtAttribute($date)

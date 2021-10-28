@@ -16,7 +16,7 @@ class NewsInfoController extends Controller
         'table_id' => 'list_news_info',
         'table_title' => 'List News Info',
         'table_url' => 'cms.news-info.list',
-        'table_info' => null,
+        'table_info' => '*double click for selected row data',
         'data_field_count' => 7,
         'data_field_key' => 'id',
         'data_order' => ['field'=>'created_at','value'=>'desc'],
@@ -46,6 +46,7 @@ class NewsInfoController extends Controller
             'open' => route('cms.news-info.open'),
             'store' => route('cms.news-info.store'),
             'store-img' => route('cms.news-info.store-img'),
+            'store-flag-publish' => route('cms.news-info.store-flag-publish'),
         ];
         return view('cms.page.news-info', compact(
             'table_config', 'http_req'
@@ -113,7 +114,8 @@ class NewsInfoController extends Controller
                 'publish_date'=>$http_req->publish_date,
                 'language'=>$http_req->language,
                 'content'=>$http_req->content,
-                'flag_img'=>$http_req->flag_img,
+                'flag_img_thumbnail'=>$http_req->flag_img_thumbnail,
+                'flag_img_banner'=>$http_req->flag_img_banner,
             ];
             $store = NewsInfo::updateOrCreate($param_find,$param_store);
             HelperService::userHistoryStore($this->module,'Store news & info || '.json_encode($store));
@@ -134,7 +136,7 @@ class NewsInfoController extends Controller
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
         }
-        $path_file = $dir_file.$http_req->name;
+        $path_file = $dir_file.$http_req->for.'_'.$http_req->name;
         try {
             file_put_contents($path_file, base64_decode($http_req->encode));
         } catch (Exception $e) {
@@ -145,12 +147,31 @@ class NewsInfoController extends Controller
             ]);
         }
         $param_find = ['id'=>$http_req->set_id];
-        $param_store = [
-            'img'=>$path_file,
-        ];
+        
+        if ($http_req->for == 'thumbnail') { $param_store = [ 'img_thumbnail' => $path_file ]; }
+        else if ($http_req->for == 'banner') { $param_store = [ 'img_banner' => $path_file ]; }
+        
         $store = NewsInfo::updateOrCreate($param_find,$param_store);
         return response()->json([
             'response' => true
+        ]);
+    }
+
+    public function storeFlagPublish(Request $http_req)
+    {
+        $slug = '';
+        $getData = NewsInfo::whereIn('id',$http_req->ids)->get();
+        foreach ($getData as $row) {
+            if ($http_req->status == 'Y' and $row->flag_publish == 'N') {
+                $row->update(['flag_publish' => 'Y', 'publish_date' => date('Y-m-d')]);
+                HelperService::userHistoryStore($this->module,'Publish news & info || make publish : '.$row->slug);
+            }else if ($http_req->status == 'N' and $row->flag_publish == 'Y') {
+                $row->update(['flag_publish' => 'N', 'publish_date' => null]);
+                HelperService::userHistoryStore($this->module,'Publish news & info || make draft : '.$row->slug);
+            }
+        }
+        return response()->json([
+            'response' => true,
         ]);
     }
 
