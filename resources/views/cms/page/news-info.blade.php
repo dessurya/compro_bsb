@@ -151,15 +151,6 @@ News & Info
         }
     }
 
-    getSelectedId = () => {
-        let ids = []
-        $.each($('table tbody tr.selected'), function(){
-            const attr_id = $(this).attr('id')
-            ids.push(attr_id.replace("row_data_", ""))
-        })
-        return ids
-    }
-
     publishNewsInfo = () => {
         const ids = getSelectedId()
         if (ids.length == 0) {

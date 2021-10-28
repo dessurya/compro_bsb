@@ -9,6 +9,15 @@ selectedRowData = (identity) => {
     $('table tbody #'+identity).toggleClass('selected')
 }
 
+getSelectedId = () => {
+    let ids = []
+    $.each($('table tbody tr.selected'), function(){
+        const attr_id = $(this).attr('id')
+        ids.push(attr_id.replace("row_data_", ""))
+    })
+    return ids
+}
+
 rebuildTableIndex = async (target, identity, page) => {
     loadingScreen(true)
     let param = {}

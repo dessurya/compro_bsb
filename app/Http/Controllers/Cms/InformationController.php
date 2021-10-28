@@ -105,8 +105,11 @@ class InformationController extends Controller
         ];
         $store = Information::updateOrCreate($param_find,$param_store);
         HelperService::userHistoryStore($this->module,'Store information || '.json_encode($store));
-        $result['id'] = $store->id;
-        return response()->json($result);
+        return response()->json([
+            'response' => true,
+            'msg'=> 'success',
+            'id' => $store->id,
+        ]);
     }
 
     public function storeImg(Request $http_req)
@@ -143,10 +146,10 @@ class InformationController extends Controller
     {
         $getData = Information::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
-            if ($http_req->status == 'Y' and $row->flag_publish == 'N') {
+            if ($row->flag_publish == 'N') {
                 $row->update(['flag_publish' => 'Y']);
                 HelperService::userHistoryStore($this->module,'Publish information || make publish : '.$row->slug);
-            }else if ($http_req->status == 'N' and $row->flag_publish == 'Y') {
+            }else if ($row->flag_publish == 'Y') {
                 $row->update(['flag_publish' => 'N']);
                 HelperService::userHistoryStore($this->module,'Publish information || make draft : '.$row->slug);
             }
@@ -158,12 +161,11 @@ class InformationController extends Controller
 
     public function delete(Request $http_req)
     {
-        $find = Information::find($http_req->id);
-        if ($find and !empty($find->img)) {
-            unlink($find->img);
-            $find->delete();
-            return response()->json([ 'response' => true ]);
+        $getData = Information::whereIn('id',$http_req->ids)->get();
+        foreach ($getData as $row) {
+            if (!empty($row->img)) { unlink($row->img); }
+            $row->delete();
         }
-        return response()->json([ 'response' => false ]);
+        return response()->json([ 'response' => true ]);
     }
 }
