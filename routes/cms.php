@@ -77,15 +77,15 @@ Route::middleware('auth')->group(function(){
     });
     // sustainability
 
-    // Founder
-    Route::name('founder')->prefix('founder')->group(function(){
-        Route::get('/', 'FounderController@index');
-        Route::post('/list', 'FounderController@list')->name('.list');
-        Route::post('/open', 'FounderController@open')->name('.open');
-        Route::post('/store', 'FounderController@store')->name('.store');
-        Route::post('/store-img', 'FounderController@storeImg')->name('.store-img');
-        Route::post('/store-flag-publish', 'FounderController@storeFlagPublish')->name('.store-flag-publish');
-        Route::post('/delete', 'FounderController@delete')->name('.delete');
+    // management
+    Route::name('management')->prefix('management')->group(function(){
+        Route::get('/', 'ManagementController@index');
+        Route::post('/list', 'ManagementController@list')->name('.list');
+        Route::post('/open', 'ManagementController@open')->name('.open');
+        Route::post('/store', 'ManagementController@store')->name('.store');
+        Route::post('/store-img', 'ManagementController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'ManagementController@storeFlagPublish')->name('.store-flag-publish');
+        Route::post('/delete', 'ManagementController@delete')->name('.delete');
     });
     // Founder
 

@@ -1,7 +1,7 @@
 @extends('cms.layout.base')
 
 @section('title')
-Founder
+Management
 @endsection
 
 @push('link')
@@ -12,12 +12,12 @@ Founder
     
     <div class="row">
         <div class="col-12">
-            <div id="formFounder" style="display:none;">
-                <form onsubmit="return submitFormFounder()"  enctype="multipart/form-data">
+            <div id="formManagement" style="display:none;">
+                <form onsubmit="return submitFormManagement()"  enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
-                                <h3>Form Founder <b></b></h3>
+                                <h3>Management Founder <b></b></h3>
                             </div>
                         </div>
                         <div class="card-body">
@@ -54,7 +54,7 @@ Founder
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col">
-                                    <button type="reset" onclick="closeFormFounder()" class="btn btn-sm btn-block btn-outline-danger">Cancel</button>
+                                    <button type="reset" onclick="closeFormManagement()" class="btn btn-sm btn-block btn-outline-danger">Cancel</button>
                                 </div>
                                 <div class="col">
                                     <input type="hidden" name="old_data">
@@ -77,7 +77,7 @@ Founder
 <script src="{{ asset('asset/cms/table-index.js') }}"></script>
 <script>
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
-    let indentity_form_information = '#formFounder'
+    let indentity_form_management = '#formManagement'
     table_index_config = JSON.parse(atob(table_index_config))
     $( document ).ready(function() {
         refreshTable()
@@ -115,7 +115,7 @@ Founder
         }
     }
 
-    publishFounder = () => {
+    publishManagement = () => {
         const ids = getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
@@ -125,7 +125,7 @@ Founder
         excuteSelectedAction(ids,'{{ $http_req['store-flag-publish'] }}')
     }
 
-    deleteFounder = () => {
+    deleteManagement = () => {
         const ids = getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
@@ -143,39 +143,39 @@ Founder
         loadingScreen(false)
     }
 
-    closeFormFounder = () => {
-        $(indentity_form_information+' .card-title h3 b').html('')
-        $(indentity_form_information+' input').val(null)
-        $(indentity_form_information+' #imgDisplay .col').html('').fadeOut()
-        $(indentity_form_information).fadeOut()
+    closeFormManagement = () => {
+        $(indentity_form_management+' .card-title h3 b').html('')
+        $(indentity_form_management+' input').val(null)
+        $(indentity_form_management+' #imgDisplay .col').html('').fadeOut()
+        $(indentity_form_management).fadeOut()
     }
 
-    addFounder = () => {
-        closeFormFounder()
-        $(indentity_form_information).fadeIn()
-        $(indentity_form_information+' input[name=name]').focus()
+    addManagement = () => {
+        closeFormManagement()
+        $(indentity_form_management).fadeIn()
+        $(indentity_form_management+' input[name=name]').focus()
     }
 
-    submitFormFounder = () => {
+    submitFormManagement = () => {
         loadingScreen(true)
-        submitFormFounderExe(indentity_form_information)
+        submitFormManagementExe(indentity_form_management)
         return false
     }
 
-    submitFormFounderExe = async (identity) => {
-        const FounderStore = await storeFounder(identity)
-        if (FounderStore.response == true) {
+    submitFormManagementExe = async (identity) => {
+        const ManagementStore = await storeManagement(identity)
+        if (ManagementStore.response == true) {
             let pictures = $(identity+' [name=img]').prop('files')
-            await storeFounderImg(pictures,FounderStore.id)
+            await storeManagementImg(pictures,ManagementStore.id)
             if (pictures.length == 0) {
-                await openFounder(FounderStore.id)
+                await openFounder(ManagementStore.id)
                 await refreshTable()
             }
         }
         loadingScreen(false)
     }
 
-    storeFounder = async (identity) => {
+    storeManagement = async (identity) => {
         let param = {}
         param['name'] = $(identity+' [name=name]').val()
         param['job_title_en'] = $(identity+' [name=job_title_en]').val()
@@ -187,7 +187,7 @@ Founder
         return result_data
     }
 
-    storeFounderImg = async (pictures, ni_id) => {
+    storeManagementImg = async (pictures, ni_id) => {
         $.each(pictures, async function(idx,img){
             img['set_id'] = ni_id
             var reader = new FileReader();
@@ -215,15 +215,15 @@ Founder
 
     openFounder = async (id) => {
         loadingScreen(true)
-        addFounder()
+        addManagement()
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
-        $(indentity_form_information+' [name=old_data]').val(result.id)
-        $(indentity_form_information+' [name=name]').val(result.name)
-        $(indentity_form_information+' [name=position]').val(result.position)
-        $(indentity_form_information+' [name=job_title_en]').val(result.job_title_en)
-        $(indentity_form_information+' [name=job_title_id]').val(result.job_title_id)
+        $(indentity_form_management+' [name=old_data]').val(result.id)
+        $(indentity_form_management+' [name=name]').val(result.name)
+        $(indentity_form_management+' [name=position]').val(result.position)
+        $(indentity_form_management+' [name=job_title_en]').val(result.job_title_en)
+        $(indentity_form_management+' [name=job_title_id]').val(result.job_title_id)
         if (result.img != '' && result.img != null) {
-            $(indentity_form_information+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
+            $(indentity_form_management+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
         }
         loadingScreen(false)
     }

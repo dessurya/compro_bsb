@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableFounder extends Migration
+class CreateTableManagement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableFounder extends Migration
      */
     public function up()
     {
-        Schema::create('founder', function (Blueprint $table) {
+        Schema::create('management', function (Blueprint $table) {
             $table->id();
             $table->string('name',175)->unique();
             $table->string('job_title_en',175)->nullable();
@@ -33,6 +33,6 @@ class CreateTableFounder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('founder');
+        Schema::dropIfExists('management');
     }
 }

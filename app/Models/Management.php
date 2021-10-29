@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Founder extends Model
+class Management extends Model
 {
-    protected $table = 'founder';
+    protected $table = 'management';
     protected $fillable = [
         'name',
         'job_title_en',

@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Founder;
+use App\Models\Management;
 
 use HelperService;
 use Auth;
 
-class FounderController extends Controller
+class ManagementController extends Controller
 {
     protected $table_config = [
-        'table_id' => 'list_founder',
-        'table_title' => 'List Founder',
-        'table_url' => 'cms.founder.list',
+        'table_id' => 'list_management',
+        'table_title' => 'List Management',
+        'table_url' => 'cms.management.list',
         'table_info' => '*double click for selected row data',
         'data_field_count' => 7,
         'data_field_key' => 'id',
@@ -29,26 +29,26 @@ class FounderController extends Controller
             [ 'field' => 'created_by',  'label' => 'Ditulis Oleh', 'order' => true, 'search' => true, 'search_type' => 'text' ],
         ],
         'tools' => [
-            [ 'label' => 'Add Founder', 'function' => "addFounder()" ],
-            [ 'label' => 'Publish/Hide Founder', 'function' => "publishFounder()" ],
-            [ 'label' => 'Delete Founder', 'function' => "deleteFounder()" ],
+            [ 'label' => 'Add Management', 'function' => "addManagement()" ],
+            [ 'label' => 'Publish/Hide Management', 'function' => "publishManagement()" ],
+            [ 'label' => 'Delete Management', 'function' => "deleteManagement()" ],
         ]
     ];
     protected $paginate_default = 10;
-    protected $module = 'Founder';
+    protected $module = 'Management';
 
     public function index()
     {
         $table_config = $this->table_config;
         $table_config['table_url'] = route($table_config['table_url']);
         $http_req = [
-            'open' => route('cms.founder.open'),
-            'delete' => route('cms.founder.delete'),
-            'store' => route('cms.founder.store'),
-            'store-img' => route('cms.founder.store-img'),
-            'store-flag-publish' => route('cms.founder.store-flag-publish'),
+            'open' => route('cms.management.open'),
+            'delete' => route('cms.management.delete'),
+            'store' => route('cms.management.store'),
+            'store-img' => route('cms.management.store-img'),
+            'store-flag-publish' => route('cms.management.store-flag-publish'),
         ];
-        return view('cms.page.founder', compact(
+        return view('cms.page.management', compact(
             'table_config', 'http_req'
         ));
     }
@@ -59,7 +59,7 @@ class FounderController extends Controller
         $paginate = $this->paginate_default;
         if (isset($http_req->show) and !empty($http_req->show)) { $paginate = $http_req->show; }
 
-        $data = Founder::select('*');
+        $data = Management::select('*');
         if (isset($http_req->order_key) and !empty($http_req->order_key)) {
             $data->orderBy($http_req->order_key, $http_req->order_val);
         }else{
@@ -90,7 +90,7 @@ class FounderController extends Controller
 
     public function open(Request $http_req)
     {
-        $data = Founder::find($http_req->id);
+        $data = Management::find($http_req->id);
         return response()->json([
             'response' => true,
             'data' => $data
@@ -107,7 +107,7 @@ class FounderController extends Controller
             'job_title_id'=>$http_req->job_title_id,
             'created_by'=>Auth::user()->name,
         ];
-        $store = Founder::updateOrCreate($param_find,$param_store);
+        $store = Management::updateOrCreate($param_find,$param_store);
         HelperService::userHistoryStore($this->module,'Store Founder || '.json_encode($store));
         return response()->json([
             'response' => true,
@@ -118,11 +118,11 @@ class FounderController extends Controller
 
     public function storeImg(Request $http_req)
     {
-        $find = Founder::find($http_req->set_id);
+        $find = Management::find($http_req->set_id);
         if ($find and !empty($find->img)) {
             unlink($find->img);
         }
-        $dir_estimate = 'pict_content_asset/founder';
+        $dir_estimate = 'pict_content_asset/management';
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
@@ -140,7 +140,7 @@ class FounderController extends Controller
         }
         $param_find = ['id'=>$http_req->set_id];
         $param_store = [ 'img' => $path_file ];
-        $store = Founder::updateOrCreate($param_find,$param_store);
+        $store = Management::updateOrCreate($param_find,$param_store);
         return response()->json([
             'response' => true
         ]);
@@ -148,14 +148,14 @@ class FounderController extends Controller
 
     public function storeFlagPublish(Request $http_req)
     {
-        $getData = Founder::whereIn('id',$http_req->ids)->get();
+        $getData = Management::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
             if ($row->flag_publish == 'N') {
                 $row->update(['flag_publish' => 'Y']);
-                HelperService::userHistoryStore($this->module,'Publish Founder || make publish : '.$row->name);
+                HelperService::userHistoryStore($this->module,'Publish Management || make publish : '.$row->name);
             }else if ($row->flag_publish == 'Y') {
                 $row->update(['flag_publish' => 'N']);
-                HelperService::userHistoryStore($this->module,'Publish Founder || make draft : '.$row->name);
+                HelperService::userHistoryStore($this->module,'Publish Management || make draft : '.$row->name);
             }
         }
         return response()->json([
@@ -165,9 +165,9 @@ class FounderController extends Controller
 
     public function delete(Request $http_req)
     {
-        $getData = Founder::whereIn('id',$http_req->ids)->get();
+        $getData = Management::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
-            HelperService::userHistoryStore($this->module,'Delete Founder || '.$row->name);
+            HelperService::userHistoryStore($this->module,'Delete Management || '.$row->name);
             if (!empty($row->img)) { unlink($row->img); }
             $row->delete();
         }

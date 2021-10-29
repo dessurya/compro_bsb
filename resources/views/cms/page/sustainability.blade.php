@@ -41,7 +41,7 @@ Sustainability
                                 </div>
                                 <div class="col form-group">
                                     <label for="content_shoert">Content</label>
-                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" required>
+                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert">
                                 </div>
                             </div>
                             <div class="row">
