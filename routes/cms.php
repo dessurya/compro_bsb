@@ -87,7 +87,18 @@ Route::middleware('auth')->group(function(){
         Route::post('/store-flag-publish', 'ManagementController@storeFlagPublish')->name('.store-flag-publish');
         Route::post('/delete', 'ManagementController@delete')->name('.delete');
     });
-    // Founder
+    // management
+
+    // Product
+    Route::name('product')->prefix('product')->group(function(){
+        Route::get('/', 'ProductController@index');
+        Route::post('/list', 'ProductController@list')->name('.list');
+        Route::post('/open', 'ProductController@open')->name('.open');
+        Route::post('/store', 'ProductController@store')->name('.store');
+        Route::post('/store-img', 'ProductController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'ProductController@storeFlagPublish')->name('.store-flag-publish');
+    });
+    // Product
 
     // inbox
     Route::name('inbox')->prefix('inbox')->group(function(){
