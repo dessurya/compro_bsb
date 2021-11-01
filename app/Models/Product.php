@@ -31,6 +31,6 @@ class Product extends Model
     }
     public function setSlugAttribute($value)
     { 
-        return $this->attributes['slug'] = Str::slug($value, '-');; 
+        return $this->attributes['slug'] = Str::slug($value, '-');
     }
 }

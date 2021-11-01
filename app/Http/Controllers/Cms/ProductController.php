@@ -30,8 +30,8 @@ class ProductController extends Controller
         ],
         'tools' => [
             [ 'label' => 'Add Product', 'function' => "addProduct()" ],
-            [ 'label' => 'Publish/Hide Product', 'function' => "publishProduct()" ],
-            [ 'label' => 'Delete Product', 'function' => "deleteProduct()" ],
+            [ 'label' => 'Publish Product', 'function' => "publishProduct()" ],
+            [ 'label' => 'Back To Draft', 'function' => "draftProduct()" ],
         ]
     ];
     protected $paginate_default = 10;
@@ -158,7 +158,7 @@ class ProductController extends Controller
         }
         $param_find = ['id'=>$http_req->set_id];
         
-        if ($http_req->for == 'thumnail') { $param_store = [ 'img_thumnail' => $path_file ]; }
+        if ($http_req->for == 'thumbnail') { $param_store = [ 'img_thumnail' => $path_file ]; }
         else if ($http_req->for == 'banner') { $param_store = [ 'img_banner' => $path_file ]; }
         
         $store = Product::updateOrCreate($param_find,$param_store);
@@ -171,10 +171,10 @@ class ProductController extends Controller
     {
         $getData = Product::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
-            if ($row->flag_publish == 'N') {
+            if ($row->flag_publish == 'N' AND $http_req->status == 'Y') {
                 $row->update(['flag_publish' => 'Y']);
                 HelperService::userHistoryStore($this->module,'Publish Product || make publish : '.$row->slug);
-            }else if ($row->flag_publish == 'Y') {
+            }else if ($row->flag_publish == 'Y' AND $http_req->status == 'N') {
                 $row->update(['flag_publish' => 'N']);
                 HelperService::userHistoryStore($this->module,'Publish Product || make draft : '.$row->slug);
             }

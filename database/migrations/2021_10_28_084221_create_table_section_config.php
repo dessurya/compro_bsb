@@ -17,6 +17,7 @@ class CreateTableSectionConfig extends Migration
             $table->id();
             $table->string('identity',175);
             $table->string('flag_visible',1)->default('Y');
+            $table->text('value_of_json')->nullable();
             $table->timestamps();
         });
     }
