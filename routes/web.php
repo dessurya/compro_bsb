@@ -16,17 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $locale = App::currentLocale();
-    return response()->json([
-        'res' => true,
-        'locale' => $locale
-    ]);
-});
-
-Route::get('/set-language/{locale}', function ($locale) {
-    if (array_key_exists($locale, Config::get('language'))) {
-        Session::put('applocale', $locale);
-    }
-    return Redirect::back();
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/language-change', 'HomeController@changeLanguage')->name('language.change');
