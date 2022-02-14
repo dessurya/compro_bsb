@@ -27,9 +27,9 @@ class HomeController extends Controller
         //     url('pict_content_asset/_default/gambar 1.jpg'),
         // ];
         $banner = [
-            'https://drive.google.com/file/d/1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H/view?usp=sharing',
-            'https://drive.google.com/file/d/1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX/view?usp=sharing',
-            'https://drive.google.com/file/d/1bQt9Tq2ARtyZHfJsGB4obaYwVjXeXLC5/view?usp=sharing',
+            'https://drive.google.com/uc?export=view&id=1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H',
+            'https://drive.google.com/uc?export=view&id=1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX',
+            'https://drive.google.com/uc?export=view&id=1bQt9Tq2ARtyZHfJsGB4obaYwVjXeXLC5',
         ];
         $quotes_img = [
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 4.jpg')],
