@@ -20,11 +20,16 @@ class HomeController extends Controller
     public function index()
     {
         $config = null;
+        // $banner = [
+        //     url('pict_content_asset/_default/banner.jpg'),
+        //     url('pict_content_asset/_default/gambar 4.jpg'),
+        //     url('pict_content_asset/_default/gambar 2.jpg'),
+        //     url('pict_content_asset/_default/gambar 1.jpg'),
+        // ];
         $banner = [
-            url('pict_content_asset/_default/banner.jpg'),
-            url('pict_content_asset/_default/gambar 4.jpg'),
-            url('pict_content_asset/_default/gambar 2.jpg'),
-            url('pict_content_asset/_default/gambar 1.jpg'),
+            'https://drive.google.com/file/d/1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H/view?usp=sharing',
+            'https://drive.google.com/file/d/1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX/view?usp=sharing',
+            'https://drive.google.com/file/d/1bQt9Tq2ARtyZHfJsGB4obaYwVjXeXLC5/view?usp=sharing',
         ];
         $quotes_img = [
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 4.jpg')],
