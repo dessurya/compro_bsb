@@ -29,13 +29,12 @@ class HomeController extends Controller
         $banner = [
             'https://drive.google.com/uc?export=view&id=1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H',
             'https://drive.google.com/uc?export=view&id=1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX',
-            'https://drive.google.com/uc?export=view&id=1bQt9Tq2ARtyZHfJsGB4obaYwVjXeXLC5',
         ];
         $quotes_img = [
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 4.jpg')],
+            ['title' => 'title 4', 'img'=>'https://drive.google.com/uc?export=view&id=1-PEIhn5CxFFzzoYqnVj1wP-ypsE1zVWC'],
             ['title' => 'title 3', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
-            ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/gambar 2.jpg')],
-            ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/gambar 1.jpg')],
+            ['title' => 'title 2', 'img'=>'https://drive.google.com/uc?export=view&id=1aEscsKk8J6vvVLJ-oWsSXiQ8ETwLtaxL'],
+            ['title' => 'title 1', 'img'=>'https://drive.google.com/uc?export=view&id=1bQt9Tq2ARtyZHfJsGB4obaYwVjXeXLC5'],
         ];
         $product = [
             [
