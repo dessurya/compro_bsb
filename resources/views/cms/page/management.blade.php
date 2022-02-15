@@ -27,15 +27,6 @@ Management
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col form-group">
-                                    <label for="type">Struktur</label>
-                                    <select type="type" class="form-control" id="type" name="type"required>
-                                        <option value="Direktur">Direktur</option>
-                                        <option value="Komisaris">Komisaris</option>
-                                    </select>
-                                </div>
                                 <div class="col form-group">
                                     <label for="queues">Queues</label>
                                     <input type="number" class="form-control" id="queues" name="queues" min="1" max="99" required>
@@ -222,7 +213,6 @@ Management
         param['type'] = $(identity+' [name=type]').val()
         param['job_title_en'] = $(identity+' [name=job_title_en]').val()
         param['job_title_id'] = $(identity+' [name=job_title_id]').val()
-        param['type'] = $(identity+' [name=type]').val()
         param['queues'] = $(identity+' [name=queues]').val()
         param['quotes_en'] = $(identity+' [name=quotes_en]').val()
         param['quotes_id'] = $(identity+' [name=quotes_id]').val()
@@ -266,7 +256,6 @@ Management
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_management+' [name=old_data]').val(result.id)
         $(indentity_form_management+' [name=name]').val(result.name)
-        $(indentity_form_management+' [name=type]').val(result.type)
         $(indentity_form_management+' [name=queues]').val(result.position)
         $(indentity_form_management+' [name=job_title_en]').val(result.job_title_en)
         $(indentity_form_management+' [name=job_title_id]').val(result.job_title_id)

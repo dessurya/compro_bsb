@@ -16,7 +16,6 @@ class CreateTableManagement extends Migration
         Schema::create('management', function (Blueprint $table) {
             $table->id();
             $table->string('name',175)->unique();
-            $table->string('type',50);
             $table->string('job_title_en',175)->nullable();
             $table->string('job_title_id',175)->nullable();
             $table->integer('queues')->nullable();

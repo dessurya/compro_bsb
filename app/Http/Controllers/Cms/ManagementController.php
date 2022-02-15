@@ -24,7 +24,7 @@ class ManagementController extends Controller
             [ 'field' => 'name',  'label' => 'Name', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'job_title_en',  'label' => 'Job Title En', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'job_title_id',  'label' => 'Job Title Id', 'order' => true, 'search' => true, 'search_type' => 'text' ],
-            [ 'field' => 'position',  'label' => 'Position', 'order' => true, 'search' => true, 'search_type' => 'text' ],
+            [ 'field' => 'queues',  'label' => 'Queues', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'flag_publish',  'label' => 'Publish', 'order' => true, 'search' => true, 'search_type' => 'text' ],
             [ 'field' => 'created_by',  'label' => 'Ditulis Oleh', 'order' => true, 'search' => true, 'search_type' => 'text' ],
         ],
@@ -69,8 +69,8 @@ class ManagementController extends Controller
         if (isset($http_req->condition['name']) and !empty($http_req->condition['name'])){
             $data->where('name', 'like', '%'.$http_req->condition['name'].'%');
         }
-        if (isset($http_req->condition['position']) and !empty($http_req->condition['position'])){
-            $data->where('position', $http_req->condition['position']);
+        if (isset($http_req->condition['queues']) and !empty($http_req->condition['queues'])){
+            $data->where('queues', $http_req->condition['queues']);
         }
         if (isset($http_req->condition['flag_publish']) and !empty($http_req->condition['flag_publish'])){
             $data->where('flag_publish', $http_req->condition['flag_publish']);
@@ -102,7 +102,6 @@ class ManagementController extends Controller
         $param_find = ['id'=>$http_req->id];
         $param_store = [
             'name'=>$http_req->name,
-            'type'=>$http_req->type,
             'queues'=>$http_req->queues,
             'job_title_en'=>$http_req->job_title_en,
             'job_title_id'=>$http_req->job_title_id,
