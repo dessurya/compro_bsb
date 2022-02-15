@@ -14,13 +14,13 @@ class SeederInboxData extends Seeder
      */
     public function run()
     {
-        // for ($i=0; $i <= 25; $i++) { 
-        //     Inbox::create([
-        //         'name' => 'name-'.$i,
-        //         'email' => 'email-'.$i.'@mail.dummy',
-        //         'subject' => 'subject-'.$i,
-        //         'message' => 'dummy message '.$i,
-        //     ]);
-        // }
+        for ($i=0; $i <= 25; $i++) { 
+            Inbox::create([
+                'name' => 'name-'.$i,
+                'email' => 'email-'.$i.'@mail.dummy',
+                'subject' => 'subject-'.$i,
+                'message' => 'dummy message '.$i,
+            ]);
+        }
     }
 }
