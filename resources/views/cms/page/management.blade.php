@@ -174,6 +174,7 @@ Management
         $(indentity_form_management+' #text_id').summernote('destroy')
         $(indentity_form_management+' .card-title h3 b').html('')
         $(indentity_form_management+' input').val(null)
+        $(indentity_form_management+' textarea').val(null)
         $(indentity_form_management+' #imgDisplay .col').html('').fadeOut()
         $(indentity_form_management).fadeOut()
     }
@@ -204,7 +205,6 @@ Management
                 await refreshTable()
             }
         }
-        loadingScreen(false)
     }
 
     storeManagement = async (identity) => {

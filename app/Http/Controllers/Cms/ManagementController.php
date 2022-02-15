@@ -123,16 +123,14 @@ class ManagementController extends Controller
     public function storeImg(Request $http_req)
     {
         $find = Management::find($http_req->set_id);
-        if ($find and !empty($find->img)) {
-            unlink($find->img);
-        }
+        if ($find and !empty($find->img)) { unlink($find->img); }
         $dir_estimate = 'pict_content_asset/management';
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
         }
-        $path_file = $dir_file.$http_req->name;
+        $path_file = $dir_file.date().$http_req->name;
         try {
             file_put_contents($path_file, base64_decode($http_req->encode));
         } catch (Exception $e) {
