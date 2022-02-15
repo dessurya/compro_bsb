@@ -237,9 +237,9 @@ Management
                 byteArray = window.btoa(binary)
                 let param =  {
                     'name':img.name,
-                    'set_id':img.set_id
+                    'set_id':img.set_id,
                     'type':img.type,
-                    'encode':byteArray,
+                    'encode':byteArray
                 }
                 httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
                     console.log(result)
