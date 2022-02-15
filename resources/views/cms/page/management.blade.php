@@ -177,7 +177,8 @@ Management
     }
 
     closeFormManagement = () => {
-        $(indentity_form_management+' form').summernote('destroy')
+        $(indentity_form_management+' #text_en').summernote('destroy')
+        $(indentity_form_management+' #text_id').summernote('destroy')
         $(indentity_form_management+' .card-title h3 b').html('')
         $(indentity_form_management+' input').val(null)
         $(indentity_form_management+' #imgDisplay .col').html('').fadeOut()
@@ -188,7 +189,8 @@ Management
         closeFormManagement()
         $(indentity_form_management).fadeIn()
         $(indentity_form_management+' input[name=name]').focus()
-        $(indentity_form_management+' form').summernote()
+        $(indentity_form_management+' #text_en').summernote()
+        $(indentity_form_management+' #text_id').summernote()
     }
 
     submitFormManagement = () => {
