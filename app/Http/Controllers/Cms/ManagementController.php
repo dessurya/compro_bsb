@@ -18,7 +18,7 @@ class ManagementController extends Controller
         'table_info' => '*double click for selected row data',
         'data_field_count' => 7,
         'data_field_key' => 'id',
-        'data_order' => ['field'=>'position','value'=>'asc'],
+        'data_order' => ['field'=>'queues','value'=>'asc'],
         'data_set' => [
             [ 'field' => 'tools',  'label' => 'Tools', 'order' => false, 'search' => false ],
             [ 'field' => 'name',  'label' => 'Name', 'order' => true, 'search' => true, 'search_type' => 'text' ],
