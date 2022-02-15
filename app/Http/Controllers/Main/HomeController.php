@@ -21,6 +21,7 @@ class HomeController extends Controller
     {
         $config = null;
         $banner = [
+            'https://drive.google.com/uc?export=view&id=1GkyGt3-VRLuuG1Uu-nxIEKJ_ma5ASH-A',
             url('pict_content_asset/_default/img (2).jpg'),
             url('pict_content_asset/_default/img (7).jpg'),
             // url('pict_content_asset/_default/gambar 2.jpg'),
