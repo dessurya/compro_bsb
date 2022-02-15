@@ -130,7 +130,7 @@ class ManagementController extends Controller
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
         }
-        $path_file = $dir_file.date().$http_req->name;
+        $path_file = $dir_file.$http_req->name;
         try {
             file_put_contents($path_file, base64_decode($http_req->encode));
         } catch (Exception $e) {
