@@ -384,7 +384,7 @@
 <script>
     $(document).ready(function(){ 
         const owlBanner = {
-            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:2500, pagination: false,
+            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:7500, pagination: false,
             transitionStyle : "fadeUp"
         }
         $("#banner #owl").owlCarousel(owlBanner) 
