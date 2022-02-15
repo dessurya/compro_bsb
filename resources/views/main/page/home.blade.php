@@ -382,16 +382,16 @@
 <script src="{{ $data }}"></script>
 @endforeach
 <script>
-    const owlBanner = {
-        items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:2500, pagination: false,
-        transitionStyle : "fadeUp"
-    }
-    let owlNewsInfo = owlBanner
-    owlNewsInfo.autoPlay = false
-    owlNewsInfo.transitionStyle = 'backSlide'
     $(document).ready(function(){ 
+        const owlBanner = {
+            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:2500, pagination: false,
+            transitionStyle : "fadeUp"
+        }
         $("#banner #owl").owlCarousel(owlBanner) 
-        $("#news_info #owl").owlCarousel(owlBanner) 
+        let owlNewsInfo = owlBanner
+        owlNewsInfo.autoPlay = false
+        owlNewsInfo.transitionStyle = 'backSlide'
+        $("#news_info #owl").owlCarousel(owlNewsInfo) 
     })
     owlNavigate = (owlContent, action) => {
         $(owlContent).trigger(action)
