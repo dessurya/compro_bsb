@@ -43,6 +43,26 @@ Management
                             </div>
                             <div class="row">
                                 <div class="col form-group">
+                                    <label for="quotes_en">Quotes En</label>
+                                    <input type="text" class="form-control" id="quotes_en" name="quotes_en" max="250">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="quotes_id">Quotes Id</label>
+                                    <input type="text" class="form-control" id="quotes_id" name="quotes_id" max="250">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="text_en">Text Content En</label>
+                                    <textarea class="form-control" id="text_en" name="text_en"></textarea>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="text_id">Text Content Id</label>
+                                    <textarea class="form-control" id="text_id" name="text_id"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
                                     <label for="img">Image</label>
                                     <input type="file" class="form-control" id="img" name="img" accept="image/*">
                                 </div>
