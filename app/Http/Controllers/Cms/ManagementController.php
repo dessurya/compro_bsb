@@ -140,12 +140,12 @@ class ManagementController extends Controller
                 'http_req' => $msg
             ]);
         }
-        $param_store = [ 'img' => $path_file ];
-        $res = $find->update($param_store);
+        $find->img = $path_file;
+        $find->save();
         return response()->json([
             'response' => true,
-            'data' => $res,
-            'http_req' => $http_req->input,
+            'data' => $find,
+            'http_req' => $http_req->input(),
         ]);
     }
 
