@@ -5,6 +5,7 @@ Management
 @endsection
 
 @push('link')
+<link rel="stylesheet" href="{{ asset('vendors/summernote/summernote.min.css') }}">
 @endpush
 
 @push('content')
@@ -26,9 +27,18 @@ Management
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
-                                    <label for="position">Position</label>
-                                    <input type="number" class="form-control" id="position" name="position" min="1" max="99" required>
+                                    <label for="type">Struktur</label>
+                                    <select type="type" class="form-control" id="type" name="type"required>
+                                        <option value="Direktur">Direktur</option>
+                                        <option value="Komisaris">Komisaris</option>
+                                    </select>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="queues">Queues</label>
+                                    <input type="number" class="form-control" id="queues" name="queues" min="1" max="99" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -46,6 +56,8 @@ Management
                                     <label for="quotes_en">Quotes En</label>
                                     <input type="text" class="form-control" id="quotes_en" name="quotes_en" max="250">
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="quotes_id">Quotes Id</label>
                                     <input type="text" class="form-control" id="quotes_id" name="quotes_id" max="250">
@@ -94,6 +106,7 @@ Management
 @endpush
 
 @push('script')
+<script src="{{ asset('vendors/summernote/summernote.min.js') }}"></script>
 <script src="{{ asset('asset/cms/table-index.js') }}"></script>
 <script>
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
@@ -164,6 +177,7 @@ Management
     }
 
     closeFormManagement = () => {
+        $(indentity_form_management+' #content').summernote('destroy')
         $(indentity_form_management+' .card-title h3 b').html('')
         $(indentity_form_management+' input').val(null)
         $(indentity_form_management+' #imgDisplay .col').html('').fadeOut()
@@ -174,6 +188,7 @@ Management
         closeFormManagement()
         $(indentity_form_management).fadeIn()
         $(indentity_form_management+' input[name=name]').focus()
+        $(indentity_form_management+' #content').summernote()
     }
 
     submitFormManagement = () => {
@@ -200,7 +215,12 @@ Management
         param['name'] = $(identity+' [name=name]').val()
         param['job_title_en'] = $(identity+' [name=job_title_en]').val()
         param['job_title_id'] = $(identity+' [name=job_title_id]').val()
-        param['position'] = $(identity+' [name=position]').val()
+        param['type'] = $(identity+' [name=type]').val()
+        param['queues'] = $(identity+' [name=queues]').val()
+        param['quotes_en'] = $(identity+' [name=quotes_en]').val()
+        param['quotes_id'] = $(identity+' [name=quotes_id]').val()
+        param['text_en'] = $(identity+' [name=text_en]').summernote('code')
+        param['text_id'] = $(identity+' [name=text_id]').summernote('code')
         param['id'] = $(identity+' [name=old_data]').val()
         let result_data = await httpRequest('{{ $http_req['store'] }}','post',param).then(function(result){ return result })
         showPNotify('Info',result_data.msg,result_data.notif_type)

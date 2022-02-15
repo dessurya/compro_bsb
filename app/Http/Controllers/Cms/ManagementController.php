@@ -102,10 +102,14 @@ class ManagementController extends Controller
         $param_find = ['id'=>$http_req->id];
         $param_store = [
             'name'=>$http_req->name,
-            'position'=>$http_req->position,
+            'queues'=>$http_req->queues,
             'job_title_en'=>$http_req->job_title_en,
             'job_title_id'=>$http_req->job_title_id,
             'created_by'=>Auth::user()->name,
+            'quotes_en'=>$http_req->quotes_en,
+            'quotes_id'=>$http_req->quotes_id,
+            'text_en'=>$http_req->text_en,
+            'text_id'=>$http_req->text_id,
         ];
         $store = Management::updateOrCreate($param_find,$param_store);
         HelperService::userHistoryStore($this->module,'Store Founder || '.json_encode($store));
