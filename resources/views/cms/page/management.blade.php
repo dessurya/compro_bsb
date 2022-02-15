@@ -256,7 +256,7 @@ Management
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_management+' [name=old_data]').val(result.id)
         $(indentity_form_management+' [name=name]').val(result.name)
-        $(indentity_form_management+' [name=queues]').val(result.position)
+        $(indentity_form_management+' [name=queues]').val(result.queues)
         $(indentity_form_management+' [name=job_title_en]').val(result.job_title_en)
         $(indentity_form_management+' [name=job_title_id]').val(result.job_title_id)
         $(indentity_form_management+' [name=quotes_en]').val(result.quotes_en)
