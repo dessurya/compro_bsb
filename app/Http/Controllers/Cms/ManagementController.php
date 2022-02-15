@@ -141,7 +141,7 @@ class ManagementController extends Controller
             ]);
         }
         $param_store = [ 'img' => $path_file ];
-        $res = $find->update($param_store)->save();
+        $res = $find->update($param_store);
         return response()->json([
             'response' => true,
             'data' => $res,
