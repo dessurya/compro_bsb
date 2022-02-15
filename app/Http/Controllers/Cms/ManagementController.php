@@ -140,11 +140,12 @@ class ManagementController extends Controller
                 'http_req' => $msg
             ]);
         }
-        $param_find = ['id'=>$http_req->set_id];
         $param_store = [ 'img' => $path_file ];
-        $store = Management::updateOrCreate($param_find,$param_store);
+        $res = $find->update($param_store)->save();
         return response()->json([
-            'response' => true
+            'response' => true,
+            'data' => $res,
+            'http_req' => $http_req->input,
         ]);
     }
 

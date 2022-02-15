@@ -236,10 +236,10 @@ Management
                 for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
                 byteArray = window.btoa(binary)
                 let param =  {
-                    'encode':byteArray,
                     'name':img.name,
-                    'type':img.type,
                     'set_id':img.set_id
+                    'type':img.type,
+                    'encode':byteArray,
                 }
                 httpRequest('{{ $http_req['store-img'] }}','post',param).then(function(result){ 
                     console.log(result)
