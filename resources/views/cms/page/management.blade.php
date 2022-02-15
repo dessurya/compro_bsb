@@ -68,6 +68,8 @@ Management
                                     <label for="text_en">Text Content En</label>
                                     <textarea class="form-control" id="text_en" name="text_en"></textarea>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="text_id">Text Content Id</label>
                                     <textarea class="form-control" id="text_id" name="text_id"></textarea>
@@ -185,12 +187,14 @@ Management
         $(indentity_form_management).fadeOut()
     }
 
-    addManagement = () => {
+    addManagement = (summer=true) => {
         closeFormManagement()
         $(indentity_form_management).fadeIn()
         $(indentity_form_management+' input[name=name]').focus()
-        $(indentity_form_management+' #text_en').summernote()
-        $(indentity_form_management+' #text_id').summernote()
+        if (summer == true) {
+            $(indentity_form_management+' #text_en').summernote()
+            $(indentity_form_management+' #text_id').summernote()
+        }
     }
 
     submitFormManagement = () => {
@@ -215,6 +219,7 @@ Management
     storeManagement = async (identity) => {
         let param = {}
         param['name'] = $(identity+' [name=name]').val()
+        param['type'] = $(identity+' [name=type]').val()
         param['job_title_en'] = $(identity+' [name=job_title_en]').val()
         param['job_title_id'] = $(identity+' [name=job_title_id]').val()
         param['type'] = $(identity+' [name=type]').val()
@@ -257,13 +262,27 @@ Management
 
     openFounder = async (id) => {
         loadingScreen(true)
-        addManagement()
+        addManagement(false)
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_management+' [name=old_data]').val(result.id)
         $(indentity_form_management+' [name=name]').val(result.name)
-        $(indentity_form_management+' [name=position]').val(result.position)
+        $(indentity_form_management+' [name=type]').val(result.type)
+        $(indentity_form_management+' [name=queues]').val(result.position)
         $(indentity_form_management+' [name=job_title_en]').val(result.job_title_en)
         $(indentity_form_management+' [name=job_title_id]').val(result.job_title_id)
+        $(indentity_form_management+' [name=quotes_en]').val(result.quotes_en)
+        $(indentity_form_management+' [name=quotes_id]').val(result.quotes_id)
+        if (result.text_en != '' && result.text_en != null) {
+            $(indentity_form_management+' [name=text_en]').summernote('code', result.text_en)
+        }else{
+            $(indentity_form_management+' [name=text_en]').summernote()
+        }
+        if (result.text_id != '' && result.text_id != null) {
+            $(indentity_form_management+' [name=text_id]').summernote('code', result.text_id)
+        }else{
+            $(indentity_form_management+' [name=text_id]').summernote()
+        }
+
         if (result.img != '' && result.img != null) {
             $(indentity_form_management+' #imgDisplay .col').html('<img src="../'+result.img+'" class="img-fluid pad">').fadeIn()
         }

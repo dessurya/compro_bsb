@@ -169,11 +169,11 @@ Product
         $(indentity_form_news_info).fadeOut()
     }
 
-    addProduct = () => {
+    addProduct = (summer = true) => {
         closeFormProduct()
         $(indentity_form_news_info).fadeIn()
         $(indentity_form_news_info+' input[name=title]').focus()
-        $(indentity_form_news_info+' #content').summernote()
+        if (summer == true) { $(indentity_form_news_info+' #content').summernote() }
     }
 
     submitFormProduct = () => {
@@ -270,7 +270,7 @@ Product
 
     openProduct = async (id) => {
         loadingScreen(true)
-        addProduct()
+        addProduct(false)
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_news_info+' [name=old_data]').val(result.id)
         $(indentity_form_news_info+' [name=title]').val(result.title)

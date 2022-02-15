@@ -102,6 +102,7 @@ class ManagementController extends Controller
         $param_find = ['id'=>$http_req->id];
         $param_store = [
             'name'=>$http_req->name,
+            'type'=>$http_req->type,
             'queues'=>$http_req->queues,
             'job_title_en'=>$http_req->job_title_en,
             'job_title_id'=>$http_req->job_title_id,
