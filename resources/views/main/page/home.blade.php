@@ -276,29 +276,27 @@
     <div id="bc-light" class="pos-abs"></div>
     <div id="quotes" class="section">
         <div class="container-fluid">
-            <div class="dis-tab">
-                <div class="dis-tab-row">
-                    <div id="img-show" class="dis-tab-cell">
-                        <div class="d-flex flex-row flex-wrap justify-content-center">
-                            @foreach($quotes_img as $data)
-                                @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
-                                <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>
-                                @if($loop->iteration % 2 == 0) </div> @endif
-                            @endforeach
-                        </div>
+            <div class="row">
+                <div id="img-show" class="col-6">
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        @foreach($quotes_img as $data)
+                            @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
+                            <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>
+                            @if($loop->iteration % 2 == 0) </div> @endif
+                        @endforeach
                     </div>
-                    <div id="content" class="dis-tab-cell">
-                        <div class="dis-tab">
-                            <div class="dis-tab-row">
-                                <div class="dis-tab-cell valg-mid">
-                                    <div class="d-flex">
-                                        <div id="frase-0" class="p-0"><img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-"></div>
-                                        <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
-                                        </div>
+                </div>
+                <div id="content" class="col-6">
+                    <div class="dis-tab">
+                        <div class="dis-tab-row">
+                            <div class="dis-tab-cell valg-mid">
+                                <div class="d-flex">
+                                    <div id="frase-0" class="p-0"><img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-"></div>
+                                    <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
                                     </div>
                                 </div>
                             </div>
