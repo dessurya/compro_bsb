@@ -76,7 +76,7 @@
         }
         #quotes #img-show .flex-column .img{
             height:245px;
-            width:255px;
+            width:250px;
             margin: 5px;
             background-position: center center;
             background-repeat: no-repeat;
@@ -86,13 +86,13 @@
             max-width: 260px;
         }
         #quotes #content{
-            padding:0 3.6em 0 0;
+            padding:0 3.2em 0 0;
         }
         #quotes #content .dis-tab,
         #quotes #content .dis-tab .dis-tab-row,
         #quotes #content .dis-tab .dis-tab-row .dis-tab-cell{
             width:100%;
-            height:460px;
+            height:480px;
             line-height: 1.1;
         }
         #quotes #frase-0 img{
@@ -100,7 +100,7 @@
         }
         #quotes #frase-1 p{
             font-weight: 300;
-            font-size: 30pt;
+            font-size: 26pt;
             font-style: italic;
             margin:0;
             padding:0;
@@ -108,7 +108,7 @@
         }
         #quotes #frase-2{
             font-weight: 700;
-            font-size: 28pt;
+            font-size: 26pt;
             font-style: italic;
         }
     /* #quotes */
@@ -298,7 +298,7 @@
                                     <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-8">
+                                    <div class="col-10">
                                         <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
                                     </div>
                                 </div>
