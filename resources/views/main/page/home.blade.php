@@ -276,8 +276,8 @@
     <div id="bc-light" class="pos-abs"></div>
     <div id="quotes" class="section">
         <div class="container-fluid">
-            <div class="row">
-                <div id="img-show" class="col-7">
+            <div class="d-flex flex-row flex-wrap">
+                <div id="img-show" class="d-flex flex-column">
                     <div class="d-flex flex-row flex-wrap justify-content-center">
                         @foreach($quotes_img as $data)
                             @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
@@ -286,7 +286,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div id="content" class="col-5">
+                <div id="content" class="d-flex flex-column">
                     <div class="dis-tab">
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid">
