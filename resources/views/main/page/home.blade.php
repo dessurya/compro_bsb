@@ -72,8 +72,8 @@
             color: rgba(1,160,228,1);
         }
         #quotes #img-show .flex-column .img{
-            height:220px;
-            width:240px;
+            height:240px;
+            width:260px;
             margin: 5px;
             background-position: center center;
             background-repeat: no-repeat;
@@ -93,11 +93,12 @@
             line-height: 1.1;
         }
         #quotes #frase-0 img{
-            height:140px;
+            height:160px;
         }
         #quotes #frase-1 p{
-            font-weight: 300;
-            font-size: 28pt;
+            font-weight: 400;
+            font-size: 30pt;
+            font-style: italic;
             margin:0;
             padding:0;
             padding-left:.2em;

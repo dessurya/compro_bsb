@@ -21,20 +21,23 @@ class HomeController extends Controller
     {
         $config = null;
         $banner = [
-            'https://drive.google.com/uc?export=view&id=1GkyGt3-VRLuuG1Uu-nxIEKJ_ma5ASH-A',
-            url('pict_content_asset/_default/img (2).jpg'),
+            // 'https://drive.google.com/uc?export=view&id=1GkyGt3-VRLuuG1Uu-nxIEKJ_ma5ASH-A',
+            // url('pict_content_asset/_default/img (2).jpg'),
             // url('pict_content_asset/_default/img (7).jpg'),
-            // url('pict_content_asset/_default/gambar 2.jpg'),
-            // url('pict_content_asset/_default/gambar 1.jpg'),
+            url('pict_content_asset/_default/gambar 2.jpg'),
+            url('pict_content_asset/_default/gambar 1.jpg'),
         ];
         // $banner = [
         //     'https://drive.google.com/uc?export=view&id=1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H',
         //     'https://drive.google.com/uc?export=view&id=1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX',
         // ];
         $quotes_img = [
-            ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/img (3).jpg')],
-            ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/img (4).jpg')],
-            ['title' => 'title 3', 'img'=>url('pict_content_asset/_default/img (1).jpg')],
+            // ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/img (3).jpg')],
+            // ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/img (4).jpg')],
+            // ['title' => 'title 3', 'img'=>url('pict_content_asset/_default/img (1).jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
         ];
         $product = [
