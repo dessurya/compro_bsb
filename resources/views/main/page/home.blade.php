@@ -73,7 +73,7 @@
         }
         #quotes #img-show .flex-column .img{
             height:240px;
-            width:260px;
+            width:250px;
             margin: 5px;
             background-position: center center;
             background-repeat: no-repeat;
