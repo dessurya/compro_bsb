@@ -108,7 +108,7 @@
         }
         #quotes #frase-2{
             font-weight: 700;
-            font-size: 26pt;
+            font-size: 30pt;
             font-style: italic;
         }
     /* #quotes */
@@ -298,7 +298,7 @@
                                     <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-10">
                                         <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
                                     </div>
                                 </div>
