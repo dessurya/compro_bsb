@@ -71,6 +71,9 @@
         #quotes{
             color: rgba(1,160,228,1);
         }
+        #quotes #img-show{
+            padding-left: .5em;
+        }
         #quotes #img-show .flex-column .img{
             height:245px;
             width:255px;
@@ -105,7 +108,7 @@
         }
         #quotes #frase-2{
             font-weight: 700;
-            font-size: 26pt;
+            font-size: 28pt;
             font-style: italic;
         }
     /* #quotes */
@@ -277,7 +280,7 @@
     <div id="quotes" class="section">
         <div class="container-fluid">
             <div class="row">
-                <div id="img-show" class="col-6">
+                <div id="img-show" class="col-5">
                     <div class="d-flex flex-row flex-wrap justify-content-center">
                         @foreach($quotes_img as $data)
                             @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
@@ -286,7 +289,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div id="content" class="col-6">
+                <div id="content" class="col-7">
                     <div class="dis-tab">
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid">
