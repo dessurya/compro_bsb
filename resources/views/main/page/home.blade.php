@@ -93,7 +93,7 @@
             line-height: 1.1;
         }
         #quotes #frase-0 img{
-            height:160px;
+            height:180px;
         }
         #quotes #frase-1 p{
             font-weight: 300;
@@ -275,7 +275,7 @@
     <div id="bc-dark" class="pos-abs"></div>
     <div id="bc-light" class="pos-abs"></div>
     <div id="quotes" class="section">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div id="img-show" class="col-6">
                     <div class="d-flex flex-row flex-wrap justify-content-center">
