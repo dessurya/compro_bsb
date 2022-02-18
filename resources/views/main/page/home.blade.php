@@ -96,11 +96,11 @@
             line-height: 1.1;
         }
         #quotes #frase-0 img{
-            height:180px;
+            height:160px;
         }
         #quotes #frase-1 p{
             font-weight: 300;
-            font-size: 26pt;
+            font-size: 30pt;
             font-style: italic;
             margin:0;
             padding:0;
