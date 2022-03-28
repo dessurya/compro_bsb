@@ -62,6 +62,8 @@
     }
 
     #mom{
+        position: relative;
+        top: -10vh;
         padding-bottom:10vh;
     }
     #mom #person{
@@ -86,7 +88,9 @@
         font-size:12pt;
     }
     #mom #other img{
-        width: 80%;
+        border-radius: 100%;
+        width: 300px;
+        height: 300px;
     }
     #mom #other h3{
         color: rgb(19 169 229);
