@@ -308,10 +308,10 @@
             <div class="row">
                 @foreach($product as $data)
                 <div class="col">
-                    <img src="{{ $data['img'] }}" alt="{{ $data['title'] }}">
-                    <h3>{{ $data['title'] }}</h3>
+                    <img src="{{ url($data->img_thumnail) }}" alt="{{ $data->title }}">
+                    <h3>{{ $data->title }}</h3>
                     <div class="text">
-                        <p>{{ $data['desc'] }}</p>
+                        <p>{{ $data->content_shoert }}</p>
                     </div>
                 </div>
                 @endforeach
