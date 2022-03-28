@@ -27,7 +27,7 @@
         font-size: 32pt;
     }
     #hvm{
-        padding-bottom: 12.5vh;
+        padding-bottom: 10vh;
         position: relative;
         background-image: linear-gradient(rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(255,255,255));
         background-color:rgb(217, 234, 224);
@@ -37,7 +37,10 @@
         width: 100vw;
         background-color:white;
         height:158vh;
-        border-radius: 0 0 78% 0;
+        border-radius: 0 0 72% 0;
+    }
+    #hvm #mom_title{
+        padding-top: 10vh;
     }
     #hvm #conten{
         padding-top: 17.25vh;
@@ -130,8 +133,8 @@
                     </div>
                 </div>
             </div>
+            <h2 id="mom_title" class="title-section text-center"><span>MEET</span> OUR MANAGEMENT</h2>
         </div>
-        <h2 class="title-section text-center"><span>MEET</span> OUR MANAGEMENT</h2>
     </div>
 </div>
 <div id="mom" class="fullWidth">
