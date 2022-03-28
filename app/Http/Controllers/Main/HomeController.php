@@ -113,7 +113,7 @@ class HomeController extends Controller
     {
         $icon = url('pict_content_asset/_default/logo.png');
         $menu = [
-            [ 'label' => 'About Us', 'route' => '#' ],
+            [ 'label' => 'About Us', 'route' => 'about-us' ],
             [ 'label' => 'Our Product', 'route' => '#' ],
             [ 'label' => 'Sustainability', 'route' => '#' ],
             [ 'label' => 'Our Client', 'route' => '#' ],

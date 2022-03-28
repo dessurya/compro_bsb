@@ -80,13 +80,13 @@
             height: 84px;
         }
         nav#header a{
-            font-weight: 400;
-            color: white !important;
+            font-weight: 600;
+            color: rgb(19 169 229) !important;
             transition: all .51s;
         }
         nav#header a:hover{
             text-decoration: none;
-            color: rgba(1,160,228,1) !important;
+            color: white !important;
         }
         nav#header #lang{
             position: absolute;

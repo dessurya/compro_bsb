@@ -4,7 +4,7 @@
         <div class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
-                    <a class="navbar-brand" href="#"><img src="{{ $icon }}" alt="bsb" class="d-inline-block"></a>
+                    <a class="navbar-brand" href="{{ route('main.home') }}"><img src="{{ $icon }}" alt="bsb" class="d-inline-block"></a>
                 </div>
             </div>
         </div>

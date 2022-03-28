@@ -2,7 +2,7 @@
 
 @push('meta')
 <meta name="author" content="">
-<meta name="title" content="">
+<meta name="title" content="Bima Sakti Bahari">
 <meta name="description" content="">
 <meta name="keywords" content="">
 @endpush
