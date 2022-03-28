@@ -27,7 +27,17 @@
         font-size: 32pt;
     }
     #hvm{
-        padding-bottom: 10vh;
+        margin-bottom: 10vh;
+        position: relative;
+        background-image: linear-gradient(rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(255,255,255));
+        background-color:rgb(217, 234, 224);
+    }
+    #hvm #white-loops{
+        top:0;
+        width: 100vw;
+        background-color:white;
+        height:122vh;
+        border-radius: 0 0 59% 0;
     }
     #hvm #conten{
         padding-top: 17.25vh;
@@ -86,6 +96,7 @@
 
 @section('content')
 <div id="hvm" class="fullWidth">
+    <div id="white-loops"></div>
     <div class="section">
         <div id="conten" class="container">
             <div class="row">
