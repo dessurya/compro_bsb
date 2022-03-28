@@ -112,7 +112,7 @@ class AboutUsController extends Controller
             $management[] = $set;
         }
 
-        dd($management);
+        dd([$getManagement,$management]);
         $css = [
         ];
         $js = [
