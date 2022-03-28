@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function(){
     // Product
 
     // Banner
-    Route::name('Banner')->prefix('Banner')->group(function(){
+    Route::name('banner')->prefix('banner')->group(function(){
         Route::get('/', 'BannerController@index');
         Route::post('/list', 'BannerController@list')->name('.list');
         Route::post('/open', 'BannerController@open')->name('.open');
