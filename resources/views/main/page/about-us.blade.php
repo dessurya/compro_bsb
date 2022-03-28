@@ -132,7 +132,7 @@
             @endif
             <h3>{{ $management[0]['name'] }}</h3>
             <h6>{{ $management[0]['title'] }}</h6>
-            <h2 class="mb-3">"{!! $management[0]['quotes'] !!}"</h2>
+            <h2 class="mb-3">{!! $management[0]['quotes'] !!}</h2>
             <div id="msg">{!! $management[0]['msg'] !!}</div>
         </div>
         <div class="container">
