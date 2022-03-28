@@ -97,7 +97,7 @@ class AboutUsController extends Controller
             ],
         ];
         $management = [];
-        $getManagement = Management::where('flag_publish','Y')->orderBy('queues','ASC');
+        $getManagement = Management::where('flag_publish','Y')->orderBy('queues','ASC')->get();
         foreach ($getManagement as $idx => $data) {
             $set = [];
             $set['name'] = $data->name;
