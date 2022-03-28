@@ -63,7 +63,7 @@
 
     #mom{
         position: relative;
-        top: -10vh;
+        top: -15vh;
         padding-bottom:10vh;
     }
     #mom #person{
