@@ -89,8 +89,8 @@
     }
     #mom #other img{
         border-radius: 100%;
-        width: 90%;
-        /* height: 300px; */
+        width: 240px;
+        height: 230px;
     }
     #mom #other h3{
         color: rgb(19 169 229);
