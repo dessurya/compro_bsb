@@ -108,6 +108,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/store', 'BannerController@store')->name('.store');
         Route::post('/store-img', 'BannerController@storeImg')->name('.store-img');
         Route::post('/store-flag-publish', 'BannerController@storeFlagPublish')->name('.store-flag-publish');
+        Route::post('/delete', 'BannerController@delete')->name('.delete');
     });
     // Banner
 
