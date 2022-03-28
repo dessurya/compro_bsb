@@ -232,20 +232,22 @@
     <div id="owl" class="owl-carousel owl-theme fullScrenn">
         @foreach($banner as $data)
         <div class="item background fullScrenn">
-            <div class="img fullScrenn" style="background-image: url('{{ $data }}');">
+            <div class="img fullScrenn" style="background-image: url('{{ url($data->img) }}');">
                 <div class="content container-fluid fullScrenn dis-tab">
                     <div class="row dis-tab-row">
                         <div class="col-6 dis-tab-cell valg-bot">
                             <div class="row">
                                 <div class="col-6">
-                                    <h3>Pearl</h3>
-                                    <p>Budi daya Mutiara PT. Bima Sakti Bahari merupakan satu-satunya budi daya mutiara terbesar</p>
-                                    <a class="btn btn-cstm-one" href="#">Read More</a>
+                                    <h3>{{ $data->title }}</h3>
+                                    <p>{{ $data->description }}</p>
+                                    @if(!empty($data->link))
+                                    <a class="btn btn-cstm-one" href="{{ $data->link }}">Read More</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="col-5 dis-tab-cell valg-mid text-right">
-                            <h2>EXPLORE MORE</h2>
+                            <h2>{{ $data->text }}</h2>
                             <a href="#teksture"><img id="chev-down" src="{{ url('pict_content_asset/_default/scrol.png') }}" alt="scroll-down"></a>
                         </div>
                         <div class="col-1 dis-tab-cell valg-mid text-center">

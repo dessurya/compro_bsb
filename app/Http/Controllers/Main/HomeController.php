@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
+use App\Models\Banner;
+
 Use Redirect;
 
 class HomeController extends Controller
@@ -15,13 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         $config = null;
-        $banner = [
-            // 'https://drive.google.com/uc?export=view&id=1GkyGt3-VRLuuG1Uu-nxIEKJ_ma5ASH-A',
-            // url('pict_content_asset/_default/img (2).jpg'),
-            // url('pict_content_asset/_default/img (7).jpg'),
-            url('pict_content_asset/_default/gambar 2.jpg'),
-            url('pict_content_asset/_default/gambar 1.jpg'),
-        ];
+
+        $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->get();
         // $banner = [
         //     'https://drive.google.com/uc?export=view&id=1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H',
         //     'https://drive.google.com/uc?export=view&id=1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX',
