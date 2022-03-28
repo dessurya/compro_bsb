@@ -127,7 +127,7 @@
     <div id="top" class="text-center">
         <h2 class="title-section"><span>MEET</span> OUR MANAGEMENT</h2>
         <div id="person" class="mb-5">
-            @if($data['img'] != null)
+            @if($management[0]['img'] != null)
             <img src="{{ $management[0]['img'] }}" alt="{{ $management[0]['name'] }}">
             @endif
             <h3>{{ $management[0]['name'] }}</h3>
