@@ -100,6 +100,17 @@ Route::middleware('auth')->group(function(){
     });
     // Product
 
+    // Banner
+    Route::name('Banner')->prefix('Banner')->group(function(){
+        Route::get('/', 'BannerController@index');
+        Route::post('/list', 'BannerController@list')->name('.list');
+        Route::post('/open', 'BannerController@open')->name('.open');
+        Route::post('/store', 'BannerController@store')->name('.store');
+        Route::post('/store-img', 'BannerController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'BannerController@storeFlagPublish')->name('.store-flag-publish');
+    });
+    // Banner
+
     // inbox
     Route::name('inbox')->prefix('inbox')->group(function(){
         Route::get('/', 'InboxController@index');
