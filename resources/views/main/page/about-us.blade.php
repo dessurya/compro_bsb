@@ -27,7 +27,7 @@
         font-size: 32pt;
     }
     #hvm{
-        padding-bottom: 10vh;
+        padding-bottom: 12.5vh;
         position: relative;
         background-image: linear-gradient(rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(255,255,255));
         background-color:rgb(217, 234, 224);
@@ -64,7 +64,6 @@
     #mom #person{
         margin: 0 auto;
         width: 62.5vw;
-        padding-top: 10vh;
     }
 
     #mom #person img{
