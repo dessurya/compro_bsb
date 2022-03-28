@@ -36,8 +36,8 @@
         top:0;
         width: 100vw;
         background-color:white;
-        height:122vh;
-        border-radius: 0 0 59% 0;
+        height:145vh;
+        border-radius: 0 0 78% 0;
     }
     #hvm #conten{
         padding-top: 17.25vh;
@@ -132,11 +132,11 @@
                 </div>
             </div>
         </div>
+        <h2 class="title-section"><span>MEET</span> OUR MANAGEMENT</h2>
     </div>
 </div>
 <div id="mom" class="fullWidth">
     <div id="top" class="text-center">
-        <h2 class="title-section"><span>MEET</span> OUR MANAGEMENT</h2>
         <div id="person" class="mb-5">
             @if($management[0]['img'] != null)
             <img src="{{ $management[0]['img'] }}" alt="{{ $management[0]['name'] }}">
