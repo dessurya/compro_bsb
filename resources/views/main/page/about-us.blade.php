@@ -127,7 +127,9 @@
     <div id="top" class="text-center">
         <h2 class="title-section"><span>MEET</span> OUR MANAGEMENT</h2>
         <div id="person" class="mb-5">
+            @if($data['img'] != null)
             <img src="{{ $management[0]['img'] }}" alt="{{ $management[0]['name'] }}">
+            @endif
             <h3>{{ $management[0]['name'] }}</h3>
             <h6>{{ $management[0]['title'] }}</h6>
             <h2 class="mb-3">"{!! $management[0]['quotes'] !!}"</h2>
@@ -138,7 +140,11 @@
                 @foreach($management as $idx => $data)
                 @if($idx > 0)
                 <div class="row">
-                    <div class="col-md-3 text-center"><img src="{{ $data['img'] }}" alt="{{ $data['name'] }}"></div>
+                    <div class="col-md-3 text-center">
+                        @if($data['img'] != null)
+                        <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
+                        @endif
+                    </div>
                     <div class="col-md-9">
                         <h3>{{ $data['name'] }}</h3>
                         <h6>{{ $data['title'] }}</h6>

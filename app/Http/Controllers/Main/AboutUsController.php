@@ -101,7 +101,8 @@ class AboutUsController extends Controller
         foreach ($getManagement as $idx => $data) {
             $set = [];
             $set['name'] = $data->name;
-            $set['img'] = asset($data->img);
+            $set['img'] = null;
+            if (!empty($data->img)) {$set['img'] = asset($data->img);}
             if ($lang == 'id') { $set['title'] = $data->job_title_id; }
             else { $set['title'] = $data->job_title_en; }
             if ($lang == 'id') { $set['quotes'] = $data->quotes_id; }
