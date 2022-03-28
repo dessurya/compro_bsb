@@ -96,7 +96,7 @@
 
 @section('content')
 <div id="hvm" class="fullWidth">
-    <div id="white-loops"></div>
+    <div id="white-loops" class="pos-abs"></div>
     <div class="section">
         <div id="conten" class="container">
             <div class="row">
