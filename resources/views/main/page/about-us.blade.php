@@ -127,22 +127,22 @@
     <div id="top" class="text-center">
         <h2 class="title-section"><span>MEET</span> OUR MANAGEMENT</h2>
         <div id="person" class="mb-5">
-            <img src="{{ $pict }}" alt="{{ $management[0]['name'] }}">
+            <img src="{{ $management[0]['img'] }}" alt="{{ $management[0]['name'] }}">
             <h3>{{ $management[0]['name'] }}</h3>
-            <h6>{{ $management[0]['title'][$lang] }}</h6>
-            <h2 class="mb-3">"{!! $management[0]['quotes'][$lang] !!}"</h2>
-            <div id="msg">{!! $management[0]['msg'][$lang] !!}</div>
+            <h6>{{ $management[0]['title'] }}</h6>
+            <h2 class="mb-3">"{!! $management[0]['quotes'] !!}"</h2>
+            <div id="msg">{!! $management[0]['msg'] !!}</div>
         </div>
         <div class="container">
             <div id="other" class="text-left">
                 @foreach($management as $idx => $data)
                 @if($idx > 0)
                 <div class="row">
-                    <div class="col-md-3 text-center"><img src="{{ $pict }}" alt="{{ $data['name'] }}"></div>
+                    <div class="col-md-3 text-center"><img src="{{ $data['img'] }}" alt="{{ $data['name'] }}"></div>
                     <div class="col-md-9">
                         <h3>{{ $data['name'] }}</h3>
-                        <h6>{{ $data['title'][$lang] }}</h6>
-                        <div id="msg">{!! $data['msg'][$lang] !!}</div>
+                        <h6>{{ $data['title'] }}</h6>
+                        <div id="msg">{!! $data['msg'] !!}</div>
                     </div>
                 </div>
                 @endif

@@ -18,6 +18,7 @@ class Management extends Model
         'text_id',
         'flag_publish',
         'created_by',
+        'img',
     ];
     public function getCreatedAtAttribute($date)
     {

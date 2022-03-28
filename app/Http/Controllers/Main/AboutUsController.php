@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MAin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Models\Management;
 
 class AboutUsController extends Controller
 {
@@ -95,13 +96,26 @@ class AboutUsController extends Controller
                 ]
             ],
         ];
+        $management = [];
+        $getManagement = Management::where('flag_publish','Y')->orderBy('queues','ASC');
+        foreach ($getManagement as $idx => $data) {
+            $set = [];
+            $set['name'] = $data->name;
+            $set['img'] = asset($data->img);
+            if ($lang == 'id') { $set['title'] = $data->job_title_id; }
+            else { $set['title'] = $data->job_title_en; }
+            if ($lang == 'id') { $set['quotes'] = $data->quotes_id; }
+            else { $set['quotes'] = $data->quotes_en; }
+            if ($lang == 'id') { $set['msg'] = $data->text_id; }
+            else { $set['msg'] = $data->text_en; }
+            $management[] = $set;
+        }
 
         $css = [
         ];
         $js = [
         ];
 
-        $pict = asset('pict_content_asset/_default/about-1.png');
-        return view('main.page.about-us', compact('history','visi','misi','management','lang','css','js','title_page','pict'));
+        return view('main.page.about-us', compact('history','visi','misi','management','lang','css','js','title_page'));
     }
 }
