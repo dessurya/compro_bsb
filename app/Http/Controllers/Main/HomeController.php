@@ -8,15 +8,10 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
+Use Redirect;
+
 class HomeController extends Controller
 {
-    protected $lang;
-
-    function __construct()
-    {
-        $this->lang = App::currentLocale();
-    }
-
     public function index()
     {
         $config = null;
@@ -93,8 +88,8 @@ class HomeController extends Controller
 
     public function changeLanguage()
     {
-        // $arrLang = Config::get('language');
-        if ($this->lang == 'id') { Session::put('applocale', 'en'); }
+        $brfore = Session::get('applocale');
+        if ($brfore == 'id') { Session::put('applocale', 'en'); }
         else { Session::put('applocale', 'id'); }
         return Redirect::back();
     }
@@ -111,6 +106,7 @@ class HomeController extends Controller
 
     public static function getHeader()
     {
+        $lang = App::currentLocale();
         $icon = url('pict_content_asset/_default/logo.png');
         $menu = [
             [ 'label' => 'About Us', 'route' => 'about-us' ],
@@ -122,7 +118,7 @@ class HomeController extends Controller
             [ 'label' => 'Career', 'route' => '#' ],
             [ 'label' => 'Contact Us', 'route' => '#' ],
         ];
-        echo view('main._struct.header', compact('menu','icon'))->render();
+        echo view('main._struct.header', compact('menu','icon','lang'))->render();
     }
 
     public static function getFooter()

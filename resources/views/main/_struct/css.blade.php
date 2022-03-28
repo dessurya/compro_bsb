@@ -12,6 +12,13 @@
         overflow-x: hidden;
         color: rgb(98 98 98);
     }
+    .section{
+        position: relative;
+        width:100vw;
+        padding: 4.4em 0;
+        position: relative;
+        margin: 0 auto;
+    }
     .pos-abs{
         position: absolute;
     }
@@ -24,6 +31,9 @@
     }
     .fullHeight{
         height:100vh;
+    }
+    .fullHeightPerc{
+        height:100%;
     }
     .fullWidth{
         width:100vw;
@@ -74,6 +84,7 @@
 
     /* navbar */
         nav#header{
+            color: rgb(19 169 229) !important;
             transition: all .51s;
         }
         nav#header .navbar-brand img{

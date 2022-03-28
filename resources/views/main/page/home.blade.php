@@ -12,16 +12,6 @@
 <link rel="stylesheet" href="{{ $data }}">
 @endforeach
 <style>
-    /* public */
-        .section{
-            position: relative;
-            width:100vw;
-            padding: 4.4em 0;
-            position: relative;
-            margin: 0 auto;
-        }
-    /* public */
-
     /* #banner */
         #banner{
             position: relative;
