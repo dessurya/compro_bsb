@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 
+use HelperService;
+use Auth;
+
 class BannerController extends Controller
 {
     protected $table_config = [
