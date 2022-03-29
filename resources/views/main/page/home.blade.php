@@ -364,7 +364,7 @@
                 <div class="col">
                     <h3>{{ $data->title }}</h3>
                     <p>{{ $data->img_thumnail }}</p>
-                    <p>{{ $data->content</p>
+                    <p>{{ $data->content }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
                 </div>
             </div>
