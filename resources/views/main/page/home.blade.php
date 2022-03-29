@@ -356,10 +356,10 @@
         <div id="owl" class="owl-carousel owl-theme p-3">
             @foreach($product as $data)
             <div class="item row">
-                <div class="col text-center"><img src="{{ $data['img'] }}" alt=""></div>
+                <div class="col text-center"><img src="{{ $data->img_thumnail }}" alt=""></div>
                 <div class="col">
-                    <h3>{{ $data['title'] }}</h3>
-                    <p>{{ $data['desc'] }}</p>
+                    <h3>{{ $data->title }}</h3>
+                    <p>{{ $data->content_shoert }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
                 </div>
             </div>
