@@ -358,13 +358,14 @@
             <div class="item row">
                 <div class="col text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
-                    <img src="" alt="{{ $data->title }}">
+                    <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}">
                     @endif
                 </div>
                 <div class="col">
                     <h3>{{ $data->title }}</h3>
-                    <p>{{ $data->img_thumnail }}</p>
                     <p>{{ $data->content }}</p>
+                    <p>{{ strip_tags($data->content) }}</p>
+                    <?php // <p>{{ Str::words(, 20, ' ...') }}</p> ?>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
                 </div>
             </div>
