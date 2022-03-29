@@ -52,11 +52,12 @@
         margin-bottom: 2.5em;
     }
     #hvm #loops-dark{
-        top:0;
-        left:0;
-        width: 450px;
-        height: 210px;
-        border-radius: 100px / 50px;
+        top:-130px;
+        left:-350px;
+        transform: rotate(39deg);
+        width: 800px;
+        height: 600px;
+        border-radius: 100%;
         background-color: rgb(217,234,224);
     }
 
@@ -112,9 +113,9 @@
 
 @section('content')
 <div id="hvm" class="fullWidth">
+    <div id="white-loops" class="pos-abs"></div>
     <div id="loops-dark" class="pos-abs"></div>
     <div id="loops-light" class="pos-abs"></div>
-    <div id="white-loops" class="pos-abs"></div>
     <div class="section">
         <div id="conten" class="container">
             <div class="row">
