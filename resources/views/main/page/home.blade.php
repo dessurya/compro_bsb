@@ -358,7 +358,7 @@
             <div class="item row">
                 <div class="col text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
-                    <img src="{{ $data->img_thumnail }}" alt="">
+                    <img src="{{ url($data->img_thumnail) }}" alt="{{ $data->title }}">
                     @endif
                 </div>
                 <div class="col">
