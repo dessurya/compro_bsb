@@ -51,6 +51,14 @@
     #hvm #conten #misi .poin{
         margin-bottom: 2.5em;
     }
+    #hvm #loops-dark{
+        top:0;
+        left:0;
+        width: 450px;
+        height: 210px;
+        border-radius: 100px / 50px;
+        background-color: rgb(217,234,224);
+    }
 
     .round-poin{
         width:18px;
@@ -60,48 +68,52 @@
         background-color: rgb(19 169 229);
         border-radius:100%;
     }
+    /* mom */
+        #mom{
+            position: relative;
+            top: -15vh;
+            padding-bottom:10vh;
+        }
+        #mom #person{
+            margin: 0 auto;
+            width: 62.5vw;
+        }
 
-    #mom{
-        position: relative;
-        top: -15vh;
-        padding-bottom:10vh;
-    }
-    #mom #person{
-        margin: 0 auto;
-        width: 62.5vw;
-    }
+        #mom #person img{
+            width: 60%;
+        }
+        #mom #person h3{
+            font-weight: 700;
+        }
+        #mom #person h2{
+            font-style: italic;
+        }
+        #mom #person h3,
+        #mom #person h2{
+            color: rgb(19 169 229);
+        }
+        #mom #person #msg{
+            font-size:12pt;
+        }
+        #mom #other img{
+            border-radius: 100%;
+            width: 240px;
+            height: 230px;
+        }
+        #mom #other h3{
+            color: rgb(19 169 229);
+            font-weight: 600;
+        }
+    /* mom */
 
-    #mom #person img{
-        width: 60%;
-    }
-    #mom #person h3{
-        font-weight: 700;
-    }
-    #mom #person h2{
-        font-style: italic;
-    }
-    #mom #person h3,
-    #mom #person h2{
-        color: rgb(19 169 229);
-    }
-    #mom #person #msg{
-        font-size:12pt;
-    }
-    #mom #other img{
-        border-radius: 100%;
-        width: 240px;
-        height: 230px;
-    }
-    #mom #other h3{
-        color: rgb(19 169 229);
-        font-weight: 600;
-    }
 </style>
 @endpush
 
 
 @section('content')
 <div id="hvm" class="fullWidth">
+    <div id="loops-dark" class="pos-abs"></div>
+    <div id="loops-light" class="pos-abs"></div>
     <div id="white-loops" class="pos-abs"></div>
     <div class="section">
         <div id="conten" class="container">
