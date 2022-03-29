@@ -60,6 +60,15 @@
         border-radius: 100%;
         background-color: rgb(217,234,224);
     }
+    #hvm #loops-light{
+        top:-90px;
+        left:-320px;
+        transform: rotate(39deg);
+        width: 600px;
+        height: 400px;
+        border-radius: 100%;
+        background-color: rgb(229,240,234);
+    }
 
     .round-poin{
         width:18px;
