@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Sustainability;
+use App\Models\NewsInfo;
 
 Use Redirect;
 
@@ -19,13 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $lang = App::getLocale();
-        $config = null;
 
         $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->get();
-        // $banner = [
-        //     'https://drive.google.com/uc?export=view&id=1JNPR6Wq67EjaSZmiS2OTKeMwKzLKxv5H',
-        //     'https://drive.google.com/uc?export=view&id=1aw0lzdxhIjlgqd6nJffygYhtSyyi0bkX',
-        // ];
         $quotes_img = [
             // ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/img (3).jpg')],
             // ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/img (4).jpg')],
@@ -44,6 +40,11 @@ class HomeController extends Controller
             'flag_publish' => 'Y',
             'language' => $lang
         ])->orderBy('position','asc')->get();
+
+        $news = NewsInfo::where([
+            'flag_publish' => 'Y',
+            'language' => $lang
+        ])->orderBy('publish_date','desc')->limit(5)->get();
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
             url('vendors\owlcarousel\owl.theme.css'),
@@ -52,7 +53,7 @@ class HomeController extends Controller
             url('vendors\owlcarousel\owl.carousel.js'),
         ];
         return view('main.page.home', compact(
-            'config','banner','product','sustainability','css','js','quotes_img'
+            'banner','product','sustainability','css','js','quotes_img','news'
         ));
     }
 

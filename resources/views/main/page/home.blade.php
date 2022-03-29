@@ -354,12 +354,16 @@
             </div>
         </div>
         <div id="owl" class="owl-carousel owl-theme p-3">
-            @foreach($product as $data)
+            @foreach($news as $data)
             <div class="item row">
-                <div class="col text-center"><img src="{{ $data->img_thumnail }}" alt=""></div>
+                <div class="col text-center">
+                    @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
+                    <img src="{{ $data->img_thumnail }}" alt="">
+                    @endif
+                </div>
                 <div class="col">
                     <h3>{{ $data->title }}</h3>
-                    <p>{{ $data->content_shoert }}</p>
+                    <p>{{ Str::words(strip_tags($data->content), 20, ' ...') }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
                 </div>
             </div>
