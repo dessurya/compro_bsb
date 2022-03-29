@@ -363,8 +363,7 @@
                 </div>
                 <div class="col">
                     <h3>{{ $data->title }}</h3>
-                    <p>{{ $data->content }}</p>
-                    <p>{{ Str::words(strip_tags($data->content), 20, ' ...') }}</p>
+                    <p>{{ Str::words(strip_tags($data->content), 5, ' ...') }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
                 </div>
             </div>
