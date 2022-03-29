@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 
 use App\Models\Banner;
 use App\Models\Product;
+use App\Models\Sustainability;
 
 Use Redirect;
 
@@ -34,50 +35,15 @@ class HomeController extends Controller
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
         ];
-        // $product = [
-            //     [
-            //         'img' => url('pict_content_asset/_default/mutiara.png'),
-            //         'title' => 'Mutiara',
-            //         'desc' => 'Budi daya Mutiara PT. Bima Sakti Bahari merupakan satu-satunya budi daya mutiara terbesar'
-            //     ],
-            //     [
-            //         'img' => url('pict_content_asset/_default/lobster.png'),
-            //         'title' => 'Lobster',
-            //         'desc' => 'Kegiatan budi daya Lobster di lokasi PT. Bima Sakti Bahari diterapkan secara mandiri maupun dengan'
-            //     ],
-            //     [
-            //         'img' => url('pict_content_asset/_default/weed.png'),
-            //         'title' => 'Rumput Laut',
-            //         'desc' => 'Salah satu komoditi perairan yang cukup memiliki potensial di Indonesia adalah rumput laut. Lokasi'
-            //     ],
-            //     [
-            //         'img' => url('pict_content_asset/_default/tripang.png'),
-            //         'title' => 'Teripang',
-            //         'desc' => 'Salah satu komoditi perairan yang cukup memiliki potensial di Indonesia adalah rumput laut. Lokasi'
-            //     ]
-        // ];
         $product = Product::where([
             'flag_publish'=>'Y',
             'language'=>$lang
         ])->orderBy('position','asc')->get();
 
-        $sustainability = [
-            [
-                'img' => url('pict_content_asset/_default/5.jpg'),
-                'title' => 'People',
-                'desc' => 'lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet'
-            ],
-            [
-                'img' => url('pict_content_asset/_default/6.jpg'),
-                'title' => 'Planet',
-                'desc' => 'lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet'
-            ],
-            [
-                'img' => url('pict_content_asset/_default/7.jpg'),
-                'title' => 'Profit',
-                'desc' => 'lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet lorem ipsum dolar si amet'
-            ]
-        ];
+        $sustainability = Sustainability::where([
+            'flag_publish' => 'Y',
+            'language' => $lang
+        ])->orderBy('position','asc')->get();
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
             url('vendors\owlcarousel\owl.theme.css'),

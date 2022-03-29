@@ -328,10 +328,10 @@
         <div class="row">
             @foreach($sustainability as $data)
             <div class="col">
-                <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>
+                <div class="img" style="background-image: url('{{ url($data->img_thumnail) }}');"></div>
                 <br>
-                <h3 class="p-2">{{ $data['title'] }}</h3>
-                <p class="p-2">{{ $data['desc'] }}</p>
+                <h3 class="p-2">{{ $data->title }}</h3>
+                <p class="p-2">{{ $data->content_shoert }}</p>
             </div>
             @endforeach
         </div>
