@@ -45,6 +45,9 @@ class HomeController extends Controller
             'flag_publish' => 'Y',
             'language' => $lang
         ])->orderBy('publish_date','desc')->limit(5)->get();
+
+        dd($news);
+
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
             url('vendors\owlcarousel\owl.theme.css'),
