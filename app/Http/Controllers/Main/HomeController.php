@@ -26,10 +26,10 @@ class HomeController extends Controller
             // ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/img (3).jpg')],
             // ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/img (4).jpg')],
             // ['title' => 'title 3', 'img'=>url('pict_content_asset/_default/img (1).jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 1.jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 2.jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_1.jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_2.jpg')],
             ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 4.jpg')],
+            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_3.jpg')],
         ];
         $product = Product::where([
             'flag_publish'=>'Y',
