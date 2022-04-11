@@ -99,7 +99,7 @@
         }
         nav#header #lang{
             position: absolute;
-            top:20px;
+            top:10px;
             right:40px;
             color: rgb(1 160 228);
         }
@@ -111,7 +111,7 @@
         }
         nav#header.change .navbar-brand img{
             height: 60px;
-            filter: drop-shadow(6px 6px 6px black);
+            /* filter: drop-shadow(6px 6px 6px black); */
         }
         nav#header.change #lang{
             top:50px;
