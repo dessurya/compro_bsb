@@ -114,7 +114,7 @@
             filter: drop-shadow(6px 6px 6px black);
         }
         nav#header.change #lang{
-            top:-20px;
+            top:50px;
         }
     /* navbar */
 
