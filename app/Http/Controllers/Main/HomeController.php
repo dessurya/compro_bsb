@@ -105,8 +105,8 @@ class HomeController extends Controller
         if (date('Y') != 2022) { $crYear .= ' - '.date('Y'); }
         $arr['copyright'] = $crYear;
         $find = [
-            url('pict_content_asset/_default/fb.png'),
-            url('pict_content_asset/_default/ig.png'),
+            url('pict_content_asset/_default/fb-dark.png'),
+            url('pict_content_asset/_default/ig-dark.png'),
         ];
         $arr['find'] = $find;
         echo view('main._struct.footer', compact('arr'))->render();

@@ -15,6 +15,7 @@
                         @foreach($menu as $data)
                         <a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a>
                         @endforeach
+                        <a href="">{{ Route::currentRouteName() }}</a>
                     </div>
                 </div>
             </div>
