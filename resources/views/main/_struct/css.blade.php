@@ -92,12 +92,12 @@
         }
         nav#header a{
             font-weight: 600;
-            color: rgb(19 169 229) !important;
+            color: white !important;
             transition: all .51s;
         }
         nav#header a:hover{
             text-decoration: none;
-            color: white !important;
+            color: rgb(19 169 229) !important;
         }
         nav#header #lang{
             position: absolute;
