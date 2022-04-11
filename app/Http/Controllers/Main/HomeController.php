@@ -76,6 +76,11 @@ class HomeController extends Controller
         return null;
     }
 
+    public static function getLangIcon($lang)
+    {
+        return url('pict_content_asset/_default/lang_'.$lang.'.png');
+    }
+
     public static function getHeader()
     {
         $lang = App::currentLocale();

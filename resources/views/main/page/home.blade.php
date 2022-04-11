@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="{{ $data }}">
 @endforeach
 <style>
+    nav#header a{
+        color: white !important;
+    }
+    nav#header a:hover{
+        color: rgb(19 169 229) !important;
+    }
     /* #banner */
         #banner{
             position: relative;
