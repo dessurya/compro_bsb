@@ -76,9 +76,11 @@ class HomeController extends Controller
         return null;
     }
 
-    public static function getLangIcon($lang)
+    public static function getLangIcon($route,$lang)
     {
-        return url('pict_content_asset/_default/lang_'.$lang.'.png');
+        $clr = 'blue';
+        if ($route == 'main.home') { $clr = 'white'; }
+        return url('pict_content_asset/_default/lang_'.$clr.'_'.$lang.'.png');
     }
 
     public static function getHeader()

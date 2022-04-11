@@ -338,7 +338,6 @@
                 <br>
                 <h3 class="p-2">{{ $data->title }}</h3>
                 <p class="p-2">{{ $data->content_shoert }}</p>
-                <img src="{{ url('pict_content_asset/_default/garis.png') }}">
             </div>
             @endforeach
         </div>

@@ -1,5 +1,5 @@
 <nav id="header" class="fixed-top p-4">
-    <a id="lang" href="{{ route('main.language.change') }}"><div></div><img src="{!! App\Http\Controllers\Main\HomeController::getLangIcon($lang) !!}"></a>
+    <a id="lang" href="{{ route('main.language.change') }}"><div></div><img src="{!! App\Http\Controllers\Main\HomeController::getLangIcon(Route::currentRouteName(),$lang) !!}"></a>
     <div class="d-flex flex-row flex-wrap justify-content-between">
         <div class="dis-tab">
             <div class="dis-tab-row">
@@ -15,7 +15,6 @@
                         @foreach($menu as $data)
                         <a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a>
                         @endforeach
-                        <a href="">{{ Route::currentRouteName() }}</a>
                     </div>
                 </div>
             </div>
