@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SeederInboxData::class,
-            SeederUserData::class
+            SeederUserData::class,
+            SeederNavigationConfig::class,
         ]);
     }
 }

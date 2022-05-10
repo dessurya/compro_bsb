@@ -22,4 +22,19 @@ class NavigationConfigController extends Controller
         $data = NavigationConfig::orderBy('position','asc')->get();
         return response()->json(['response' => true, 'data' => $data]);
     }
+    
+    public function storeFlagShow(Request $http_req)
+    {
+        $getData = NavigationConfig::whereIn('id',$http_req->ids)->get();
+        foreach ($getData as $row) {
+            if ($row->flag_show == 'N') {
+                $row->update(['flag_show' => 'Y']);
+            }else if ($row->flag_show == 'Y') {
+                $row->update(['flag_show' => 'N']);
+            }
+        }
+        return response()->json([
+            'response' => true,
+        ]);
+    }
 }
