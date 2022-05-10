@@ -25,7 +25,6 @@ Route::middleware('auth')->group(function(){
     Route::name('navigation-config')->prefix('navigation-config')->group(function(){
         Route::get('/', 'NavigationConfigController@index');
         Route::post('/list', 'NavigationConfigController@list')->name('.list');
-        Route::post('/open', 'NavigationConfigController@open')->name('.open');
         Route::post('/store', 'NavigationConfigController@store')->name('.store');
         Route::post('/store-flag-show', 'NavigationConfigController@storeFlagShow')->name('.store-flag-show');
     });

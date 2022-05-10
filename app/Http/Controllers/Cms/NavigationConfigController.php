@@ -37,4 +37,20 @@ class NavigationConfigController extends Controller
             'response' => true,
         ]);
     }
+
+    public function store(Request $http_req)
+    {
+        $param_find = ['id'=>$http_req->id];
+        $param_store = [
+            'meta_author'=>$http_req->meta_author,
+            'name'=>$http_req->name,
+            'meta_description'=>$http_req->meta_description,
+            'meta_keywords'=>$http_req->meta_keywords,
+            'meta_title'=>$http_req->meta_title,
+        ];
+        $store = NavigationConfig::where($param_find)->update($param_store);
+        return response()->json([
+            'response' => true,
+        ]);
+    }
 }

@@ -100,6 +100,7 @@ Navigasi Config
                                 <div class="col">
                                     <div class="input-group">
                                         <div class="input-group-append">
+                                            <button class="btn btn-info" onclick="return refreshTable()">Refresh</button>
                                             <button class="btn btn-info" onclick="return selectAllRowTable(true)">Selected All</button>
                                             <button class="btn btn-info" onclick="return selectAllRowTable(false)">Unselected All</button>
                                             <button class="btn btn-info" onclick="return triggerShowHideNavPage()">Show/Hide Navigation & Page</button>
@@ -172,11 +173,11 @@ Navigasi Config
         $('#'+identity+' table tbody').html('')
         $.each(data, function(idx,row){
             let encode_data = btoa(JSON.stringify(row))
-            let render_row = '<tr id="\'row_data_'+row.id+'\'" onclick="selectedRowData(\'row_data_'+row.id+'\')">'
+            let render_row = '<tr id="row_data_'+row.id+'" onclick="selectedRowData(\'row_data_'+row.id+'\')">'
             render_row += '<td>'+row.identity+'</td>'
             render_row += '<td>'+row.name+'</td>'
             render_row += '<td>'+row.meta_title+'</td>'
-            render_row += '<td>'+row.meta_keyword+'</td>'
+            render_row += '<td>'+row.meta_keywords+'</td>'
             render_row += '<td>'+row.flag_show+'</td>'
             render_row += '<td><button class="btn btn-info btn-sm" onclick="openData(\''+encode_data+'\')">Open</button></td>'
             render_row += '</tr>'
@@ -192,12 +193,50 @@ Navigasi Config
     openData = (encode_data) => {
         let decode_data = JSON.parse(atob(encode_data))
         $('#ConfigPageShow').fadeIn("slow")
-        $('#ConfigPageShow .card-body #email').html(decode_data.email)
-        $('#ConfigPageShow .card-body #name').html(decode_data.name)
-        $('#ConfigPageShow .card-body #phone').html(decode_data.phone)
-        $('#ConfigPageShow .card-body #subject').html(decode_data.subject)
-        $('#ConfigPageShow .card-body #date').html(decode_data.created_at)
-        $('#ConfigPageShow .card-body #message').html(decode_data.message)
+        $('#ConfigPageShow .card-body #identity').html(decode_data.identity)
+        $('#ConfigPageShow .card-body #meta_author').html(decode_data.meta_author)
+
+        let name = JSON.parse(decode_data.name)
+        $('#ConfigPageShow .card-body #name_id').html(decode_data.name.id)
+        $('#ConfigPageShow .card-body #name_en').html(decode_data.name.en)
+
+        if (decode_data.meta_description != null && decode_data.meta_description != '') {
+            let meta_description = JSON.parse(decode_data.meta_description)
+            $('#ConfigPageShow .card-body #meta_description_id').html(decode_data.meta_description.id)
+            $('#ConfigPageShow .card-body #meta_description_en').html(decode_data.meta_description.en)
+        }
+        if (decode_data.meta_keywords != null && decode_data.meta_keywords != '') {
+            let meta_keywords = JSON.parse(decode_data.meta_keywords)
+            $('#ConfigPageShow .card-body #meta_keywords_id').html(decode_data.meta_keywords.id)
+            $('#ConfigPageShow .card-body #meta_keywords_en').html(decode_data.meta_keywords.en)
+        }
+        if (decode_data.meta_title != null && decode_data.meta_title != '') {
+            let meta_title = JSON.parse(decode_data.meta_title)
+            $('#ConfigPageShow .card-body #meta_title_id').html(decode_data.meta_title.id)
+            $('#ConfigPageShow .card-body #meta_title_en').html(decode_data.meta_title.en)
+        }
+    }
+
+    submitFormConfigPage = () => {
+        let param = {}
+        param.id = $('#ConfigPageShow .card-body [name=id]').val()
+        param.identity = $('#ConfigPageShow .card-body [name=identity]').val()
+        param.meta_author = $('#ConfigPageShow .card-body [name=meta_author]').val()
+        param.name = {}
+        param.name.id = $('#ConfigPageShow .card-body [name=name_id]').val()
+        param.name.en = $('#ConfigPageShow .card-body [name=name_en]').val()
+        param.meta_description = {}
+        param.meta_description.id = $('#ConfigPageShow .card-body [name=meta_description_id]').val()
+        param.meta_description.en = $('#ConfigPageShow .card-body [name=meta_description_en]').val()
+        param.meta_keywords = {}
+        param.meta_keywords.id = $('#ConfigPageShow .card-body [name=meta_keywords_id]').val()
+        param.meta_keywords.en = $('#ConfigPageShow .card-body [name=meta_keywords_en]').val()
+        param.meta_title = {}
+        param.meta_title.id = $('#ConfigPageShow .card-body [name=meta_title_id]').val()
+        param.meta_title.en = $('#ConfigPageShow .card-body [name=meta_title_en]').val()
+        await httpRequest('{{ route("cms.navigation-config.store") }}','post',param).then(function(result){ return result })
+        await refreshTable()
+        showPNotify('Info','Success')
     }
     
     updateFlagShow = async (id) => {
