@@ -64,7 +64,7 @@ Public Config
     }
     submitPublicConfigExe = async () =>{
         const storeString = await submitPublicConfigExeSend()
-        if (storeString == true) { storeImgWebIcon() }
+        if (storeString == true) { await storeImgWebIcon() }
     }
     submitPublicConfigExeSend = async () =>{
         let param = {}
