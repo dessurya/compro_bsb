@@ -22,6 +22,11 @@
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="{{ route('navigation-config') }}" class="nav-link {{ Route::is('navigation-config') ? 'active' : '' }} ">
+    					<p>Navigation Config</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.banner') }}" class="nav-link {{ Route::is('cms.banner') ? 'active' : '' }} ">
     					<p>Banner</p>
     				</a>

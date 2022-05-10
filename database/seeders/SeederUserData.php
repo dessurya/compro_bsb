@@ -18,6 +18,6 @@ class SeederUserData extends Seeder
             ['name' => 'Adam Surya Des', 'email' => 'fourline66@gmail.com', 'password' => 'asdasd', 'flag_active' => 'Y', 'flag_notif_inbox' => 'Y']
         ];
         
-        foreach ($stores as $store) { User::create($store); }
+        foreach ($stores as $store) { User::updateOrCreate(['email' => $store['email']],$store); }
     }
 }
