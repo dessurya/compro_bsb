@@ -251,8 +251,8 @@ Navigasi Config
     }
     
     updateFlagShowExe = async (ids) => {
-        httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',ids).then(function(result){ console.log(result) })
-        await refreshTable()
+        await httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',{ids}).then(function(result){ console.log(result) })
+        refreshTable()
     }
 </script>
 @endpush
