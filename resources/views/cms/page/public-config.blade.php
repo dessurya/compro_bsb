@@ -64,17 +64,7 @@ Public Config
     }
     submitPublicConfigExe = async () =>{
         const storeString = await submitPublicConfigExeSend()
-        if (storeString == true) {
-            const storeImgWebIcon = await storeImgWebIcon()
-            if (storeImgWebIcon == true) {
-                const storeImgNavigasiIcon = await storeImgNavigasiIcon()
-                if (storeImgNavigasiIcon == true) {
-                    showPNotify('Info','Success','info')
-                    loadingScreen(false)
-                    location.reload()
-                }
-            }
-        }
+        if (storeString == true) { storeImgWebIcon() }
     }
     submitPublicConfigExeSend = async () =>{
         let param = {}
@@ -87,7 +77,7 @@ Public Config
         let pictures = $('[name=web_icon]').prop('files')
         let count_img = pictures.length
         if (count_img == 0) {
-            return true
+            storeImgNavigasiIcon()
         }else{
             $.each(pictures, async function(idx,img){
                 var reader = new FileReader();
@@ -107,7 +97,7 @@ Public Config
                         'for':'web'
                     }
                     httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
-                        return true
+                        storeImgNavigasiIcon()
                     })
                 };
             })
@@ -117,7 +107,9 @@ Public Config
         let pictures = $('[name=navigasi_icon]').prop('files')
         let count_img = pictures.length
         if (count_img == 0) {
-            return true
+            showPNotify('Info','Success','info')
+            loadingScreen(false)
+            location.reload()
         }else{
             $.each(pictures, async function(idx,img){
                 var reader = new FileReader();
@@ -137,7 +129,9 @@ Public Config
                         'for':'navigasi'
                     }
                     httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
-                        return true
+                        showPNotify('Info','Success','info')
+                        loadingScreen(false)
+                        location.reload()
                     })
                 };
             })
