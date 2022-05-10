@@ -22,6 +22,11 @@
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="{{ route('cms.public-config') }}" class="nav-link {{ Route::is('cms.public-config') ? 'active' : '' }} ">
+    					<p>Public Config</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.navigation-config') }}" class="nav-link {{ Route::is('cms.navigation-config') ? 'active' : '' }} ">
     					<p>Navigation Config</p>
     				</a>

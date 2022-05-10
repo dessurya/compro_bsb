@@ -20,6 +20,13 @@ Route::post('/login', 'AuthController@loginExe')->name('loginexe');
 Route::middleware('auth')->group(function(){
     Route::get('/log-out', 'AuthController@logOutExe')->name('logout');
     Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
+
+    // public config
+    Route::name('public-config')->prefix('public-config')->group(function(){
+        Route::get('/', 'PublicConfigController@index');
+        Route::post('/store', 'PublicConfigController@store')->name('.store');
+    });
+    // public config
     
     // navigation config
     Route::name('navigation-config')->prefix('navigation-config')->group(function(){
