@@ -37,6 +37,47 @@ Route::middleware('auth')->group(function(){
     });
     // navigation config
 
+    // page config
+    Route::name('page-config')->prefix('page-config')->group(function(){
+        Route::name('home')->prefix('home')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('about-us')->prefix('about-us')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('our-product')->prefix('our-product')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('sustainability')->prefix('sustainability')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('our-client')->prefix('our-client')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('news-info')->prefix('news-info')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('investor')->prefix('investor')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('career')->prefix('career')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+        Route::name('contact-us')->prefix('contact-us')->group(function(){
+            Route::get('/', 'PageConfigController@index');
+            Route::post('/store', 'PageConfigController@store')->name('.store');
+        });
+    });
+    // page config
+
     // user
     Route::name('user')->prefix('user')->group(function(){
         Route::get('/', 'UserController@index');

@@ -31,14 +31,54 @@
     					<p>Navigation Config</p>
     				</a>
     			</li>
-				<li class="nav-item">
-    				<a href="#" class="nav-link {{ Route::is('cms.navigation-config') ? 'active' : '' }} ">
-    					<p>Page Config {{ Route::currentRouteName() }}</p>
+				<li class="nav-item {{ Route::is('cms.page-config.*') ? 'menu-open' : '' }}">
+    				<a href="#" class="nav-link {{ Route::is('cms.page-config.*') ? 'active' : '' }} ">
+    					<p>Page Config</p>
     				</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="{{ route('cms.navigation-config') }}" class="nav-link {{ Route::is('cms.navigation-config') ? 'active' : '' }} ">
-								<p>Navigation Config</p>
+							<a href="{{ route('cms.page-config.home') }}" class="nav-link {{ Route::is('cms.page-config.home') ? 'active' : '' }} ">
+								<p>Home</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.about-us') }}" class="nav-link {{ Route::is('cms.page-config.about-us') ? 'active' : '' }} ">
+								<p>About Us</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.our-product') }}" class="nav-link {{ Route::is('cms.page-config.our-product') ? 'active' : '' }} ">
+								<p>Our Product</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.sustainability') }}" class="nav-link {{ Route::is('cms.page-config.sustainability') ? 'active' : '' }} ">
+								<p>Sustainability</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.our-client') }}" class="nav-link {{ Route::is('cms.page-config.our-client') ? 'active' : '' }} ">
+								<p>Our Client</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.news-info') }}" class="nav-link {{ Route::is('cms.page-config.news-info') ? 'active' : '' }} ">
+								<p>News Info</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.investor') }}" class="nav-link {{ Route::is('cms.page-config.investor') ? 'active' : '' }} ">
+								<p>investor</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.career') }}" class="nav-link {{ Route::is('cms.page-config.career') ? 'active' : '' }} ">
+								<p>Career</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('cms.page-config.contact-us') }}" class="nav-link {{ Route::is('cms.page-config.contact-us') ? 'active' : '' }} ">
+								<p>Contact Us</p>
 							</a>
 						</li>
 					</ul>
