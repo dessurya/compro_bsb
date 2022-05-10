@@ -11,7 +11,7 @@ class PublicConfigController extends Controller
 {
     public function index()
     {
-        $files = File::get('\public\config_json\public.json');
+        $files = File::get('config_json\public.json');
         return $files;
     }
 }
