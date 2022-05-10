@@ -17,5 +17,9 @@ class NavigationConfigController extends Controller
         ));
     }
 
-    
+    public function list(Request $http_req)
+    {
+        $data = Management::orderBy('position','asc')->get();
+        return response()->json(['response' => true, 'data' => $data]);
+    }
 }
