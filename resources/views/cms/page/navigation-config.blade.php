@@ -245,12 +245,13 @@ Navigasi Config
     }
     
     updateFlagShowExe = async (ids) => {
+        console.log(ids)
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
             return false
         }
         loadingScreen(true)
-        await httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',{id}).then(function(result){ console.log(result) })
+        httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',{id}).then(function(result){ console.log(result) })
         await refreshTable()
     }
 </script>
