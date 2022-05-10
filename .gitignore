@@ -1,5 +1,3 @@
-!public/config_json/public.json
-
 /vendor/
 node_modules/
 npm-debug.log
