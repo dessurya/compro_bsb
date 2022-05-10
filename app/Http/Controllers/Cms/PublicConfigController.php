@@ -37,6 +37,7 @@ class PublicConfigController extends Controller
     {
         if (isset($arrConf[$input['for']][$input['key']]) and !empty($arrConf[$input['for']][$input['key']])) { unlink($arrConf[$input['for']][$input['key']]); }
         $dir_estimate = 'config_img';
+        $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
