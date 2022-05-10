@@ -64,7 +64,7 @@ class SeederNavigationConfig extends Seeder
 
         foreach ($setDefData as $key => $arr) {
             NavigationConfig::updateOrCreate(
-                ['identity', $arr['identity']],
+                ['identity' => $arr['identity']],
                 $arr
             );
         }
