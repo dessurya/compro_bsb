@@ -28,7 +28,7 @@ class PublicConfigController extends Controller
 
     private function storeString($arrConf,$input)
     {
-        dd([$arrConf,$input]);
+        dd($input->web_name);
         $arrConf['web']['name'] = $input->web_name;
         return $arrConf;
     }
