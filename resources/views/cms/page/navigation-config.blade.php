@@ -136,7 +136,11 @@ Navigasi Config
 <script>
     $( document ).ready(function() {
         refreshTable()
-    });
+    })
+
+    refreshTable = () => {
+        rebuildTableIndex()
+    }
 
     selectAllRowTable = (param) => {
         var selection = $("#nav-conf-list table tbody tr");
@@ -155,10 +159,6 @@ Navigasi Config
             ids.push(attr_id.replace("row_data_", ""))
         })
         return ids
-    }
-
-    refreshTable = () => {
-        rebuildTableIndex()
     }
 
     rebuildTableIndex = async () => {
