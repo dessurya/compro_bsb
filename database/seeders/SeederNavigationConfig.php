@@ -17,47 +17,47 @@ class SeederNavigationConfig extends Seeder
         $setDefData = [
             [
                 'identity' => 'Home',
-                'name' => ['id' => 'Beranda', 'en' => 'Home'],
+                'name' => json_encode(['id' => 'Beranda', 'en' => 'Home']),
                 'position' => 1,
             ],
             [
                 'identity' => 'About Us',
-                'name' => ['id' => 'Tentang Kami', 'en' => 'About Us'],
+                'name' => json_encode(['id' => 'Tentang Kami', 'en' => 'About Us']),
                 'position' => 2,
             ],
             [
                 'identity' => 'Our Product',
-                'name' => ['id' => 'Produk Kami', 'en' => 'Our Product'],
+                'name' => json_encode(['id' => 'Produk Kami', 'en' => 'Our Product']),
                 'position' => 3,
             ],
             [
                 'identity' => 'Sustainability',
-                'name' => ['id' => 'Sustainability', 'en' => 'Sustainability'],
+                'name' => json_encode(['id' => 'Sustainability', 'en' => 'Sustainability']),
                 'position' => 4,
             ],
             [
                 'identity' => 'Our Client',
-                'name' => ['id' => 'Our Client', 'en' => 'Our Client'],
+                'name' => json_encode(['id' => 'Our Client', 'en' => 'Our Client']),
                 'position' => 5,
             ],
             [
                 'identity' => 'News & Info',
-                'name' => ['id' => 'News & Info', 'en' => 'News & Info'],
+                'name' => json_encode(['id' => 'News & Info', 'en' => 'News & Info']),
                 'position' => 6,
             ],
             [
                 'identity' => 'Investor',
-                'name' => ['id' => 'Investor', 'en' => 'Investor'],
+                'name' => json_encode(['id' => 'Investor', 'en' => 'Investor']),
                 'position' => 7,
             ],
             [
                 'identity' => 'Career',
-                'name' => ['id' => 'Career', 'en' => 'Career'],
+                'name' => json_encode(['id' => 'Career', 'en' => 'Career']),
                 'position' => 8,
             ],
             [
                 'identity' => 'Contact Us',
-                'name' => ['id' => 'Contact Us', 'en' => 'Contact Us'],
+                'name' => json_encode(['id' => 'Contact Us', 'en' => 'Contact Us']),
                 'position' => 9,
             ],
         ];
