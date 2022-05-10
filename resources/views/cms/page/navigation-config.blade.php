@@ -173,7 +173,7 @@ Navigasi Config
         $('#'+identity+' table tbody').html('')
         $.each(data, function(idx,row){
             let encode_data = btoa(JSON.stringify(row))
-            let render_row = '<tr id="row_data_'+row.id+'" onclick="selectedRowData(\'row_data_'+row.id+'\')">'
+            let render_row = '<tr id="row_data_'+row.id+'" ondbclick="selectedRowData(\'row_data_'+row.id+'\')">'
             render_row += '<td>'+row.identity+'</td>'
             render_row += '<td>'+row.name+'</td>'
             render_row += '<td>'+row.meta_title+'</td>'
@@ -193,27 +193,27 @@ Navigasi Config
     openData = (encode_data) => {
         let decode_data = JSON.parse(atob(encode_data))
         $('#ConfigPageShow').fadeIn("slow")
-        $('#ConfigPageShow .card-body #identity').html(decode_data.identity)
-        $('#ConfigPageShow .card-body #meta_author').html(decode_data.meta_author)
+        $('#ConfigPageShow .card-body [name=identity]').val(decode_data.identity)
+        $('#ConfigPageShow .card-body [name=meta_author]').val(decode_data.meta_author)
 
         let name = JSON.parse(decode_data.name)
-        $('#ConfigPageShow .card-body #name_id').html(decode_data.name.id)
-        $('#ConfigPageShow .card-body #name_en').html(decode_data.name.en)
+        $('#ConfigPageShow .card-body [name=name_id]').val(decode_data.name.id)
+        $('#ConfigPageShow .card-body [name=name_en]').val(decode_data.name.en)
 
         if (decode_data.meta_description != null && decode_data.meta_description != '') {
             let meta_description = JSON.parse(decode_data.meta_description)
-            $('#ConfigPageShow .card-body #meta_description_id').html(decode_data.meta_description.id)
-            $('#ConfigPageShow .card-body #meta_description_en').html(decode_data.meta_description.en)
+            $('#ConfigPageShow .card-body [name=meta_description_id]').val(decode_data.meta_description.id)
+            $('#ConfigPageShow .card-body [name=meta_description_en]').val(decode_data.meta_description.en)
         }
         if (decode_data.meta_keywords != null && decode_data.meta_keywords != '') {
             let meta_keywords = JSON.parse(decode_data.meta_keywords)
-            $('#ConfigPageShow .card-body #meta_keywords_id').html(decode_data.meta_keywords.id)
-            $('#ConfigPageShow .card-body #meta_keywords_en').html(decode_data.meta_keywords.en)
+            $('#ConfigPageShow .card-body [name=meta_keywords_id]').val(decode_data.meta_keywords.id)
+            $('#ConfigPageShow .card-body [name=meta_keywords_en]').val(decode_data.meta_keywords.en)
         }
         if (decode_data.meta_title != null && decode_data.meta_title != '') {
             let meta_title = JSON.parse(decode_data.meta_title)
-            $('#ConfigPageShow .card-body #meta_title_id').html(decode_data.meta_title.id)
-            $('#ConfigPageShow .card-body #meta_title_en').html(decode_data.meta_title.en)
+            $('#ConfigPageShow .card-body [name=meta_title_id]').val(decode_data.meta_title.id)
+            $('#ConfigPageShow .card-body [name=meta_title_en]').val(decode_data.meta_title.en)
         }
     }
 
