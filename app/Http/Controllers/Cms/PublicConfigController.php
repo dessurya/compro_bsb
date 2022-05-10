@@ -11,7 +11,7 @@ class PublicConfigController extends Controller
 {
     public function index()
     {
-        $files = Storage::get(public_path());
+        $files = Storage::get('config_json/public.json');
         return $files;
     }
 }
