@@ -241,17 +241,17 @@ Navigasi Config
     }
     
     updateFlagShow = () => {
-        updateFlagShowExe(getSelectedId())
-    }
-    
-    updateFlagShowExe = async (ids) => {
-        console.log(ids)
+        const ids = getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
             return false
         }
         loadingScreen(true)
-        httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',{id}).then(function(result){ console.log(result) })
+        updateFlagShowExe(ids)
+    }
+    
+    updateFlagShowExe = async (ids) => {
+        httpRequest('{{ route("cms.navigation-config.store-flag-show") }}','post',ids).then(function(result){ console.log(result) })
         await refreshTable()
     }
 </script>
