@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function(){
     // navigation config
 
     // page config
-    Route::name('page-config')->prefix('page-config')->group(function(){
+    Route::name('page-config.')->prefix('page-config')->group(function(){
         Route::name('home')->prefix('home')->group(function(){
             Route::get('/', 'PageConfigController@index');
             Route::post('/store', 'PageConfigController@store')->name('.store');
