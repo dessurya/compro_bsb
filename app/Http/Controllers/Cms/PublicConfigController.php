@@ -24,6 +24,7 @@ class PublicConfigController extends Controller
         }
         unlink($file);
         file_put_contents($file, json_encode($res));
+        return response()->json(['response' => true]);
     }
 
     private function storeString($arrConf,$input)
