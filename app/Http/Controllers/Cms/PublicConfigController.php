@@ -13,7 +13,7 @@ class PublicConfigController extends Controller
     {
         $file = $this->getFileDir;
         $arrConf = ['web'=>['name' => null],'navigasi'=>[]];
-        if (file_exists($dir_file)){ $arrConf = json_decode(file_get_contents($file),true); }
+        if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
         else{file_put_contents($file, json_encode($arrConf));}
         return view('cms.page.public-config', compact( 'arrConf' ));
     }
