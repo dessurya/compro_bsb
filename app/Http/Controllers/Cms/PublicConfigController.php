@@ -18,9 +18,9 @@ class PublicConfigController extends Controller
         $file = 'config_json/public.json';
         $arrConf = json_decode(file_get_contents($file),true);
         if ($httpRequest->type == 'string') {
-            $res = $this->storeString($arrConf,$httpRequest->all());
+            $res = $this->storeString($arrConf,$httpRequest->input());
         }else if ($httpRequest->type == 'img') {
-            $res = $this->storeImg($arrConf,$httpRequest->all());
+            $res = $this->storeImg($arrConf,$httpRequest->input());
         }
         unlink($file);
         file_put_contents($file, json_encode($res));
@@ -28,7 +28,7 @@ class PublicConfigController extends Controller
 
     private function storeString($arrConf,$input)
     {
-        dd($input->web_name);
+        dd($input['web_name']);
         $arrConf['web']['name'] = $input->web_name;
         return $arrConf;
     }
