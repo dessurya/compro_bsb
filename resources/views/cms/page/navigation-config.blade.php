@@ -169,7 +169,6 @@ Navigasi Config
     }
 
     renderedTableIndex = (identity,data) => {
-        let t_config = table_index_config
         $('#'+identity+' table tbody').html('')
         $.each(data, function(idx,row){
             let encode_data = btoa(JSON.parse(row))
@@ -183,6 +182,7 @@ Navigasi Config
             render_row += '</tr>'
             $('#'+identity+' table tbody').append(render_row)
         })
+        loadingScreen(false)
     }
 
     closeData = () => {
