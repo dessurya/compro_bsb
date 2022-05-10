@@ -10,7 +10,7 @@ class PublicConfigController extends Controller
     public function index()
     {
         $arrConf = json_decode(file_get_contents('config_json/public.json'),true);
-        return view('main.cms.public-config', compact( 'arrConf' ));
+        return view('cms.page.public-config', compact( 'arrConf' ));
     }
     
     public function store(Request $httpRequest)
