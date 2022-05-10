@@ -29,13 +29,13 @@ Public Config
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="web_icon">Web Icon @if(isset($arrConf['web']['icon']) and $arrConf['web']['icon'] != null and $arrConf['web']['icon'] != '')<a href="{{ $arrConf['web']['icon'] }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
+                                    <label for="web_icon">Web Icon @if(isset($arrConf['web']['icon']) and $arrConf['web']['icon'] != null and $arrConf['web']['icon'] != '')<a href="{{ url($arrConf['web']['icon']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
                                     <input type="file" class="form-control" id="web_icon" name="web_icon" accept="image/*">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="navigasi_icon">Navigasi Icon @if(isset($arrConf['navigasi']['icon']) and $arrConf['navigasi']['icon'] != null and $arrConf['navigasi']['icon'] != '')<a href="{{ $arrConf['web']['icon'] }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
+                                    <label for="navigasi_icon">Navigasi Icon @if(isset($arrConf['navigasi']['icon']) and $arrConf['navigasi']['icon'] != null and $arrConf['navigasi']['icon'] != '')<a href="{{ url($arrConf['navigasi']['icon']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
                                     <input type="file" class="form-control" id="navigasi_icon" name="navigasi_icon" accept="image/*">
                                 </div>
                             </div>
