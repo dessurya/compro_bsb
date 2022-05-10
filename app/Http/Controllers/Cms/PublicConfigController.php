@@ -28,22 +28,21 @@ class PublicConfigController extends Controller
 
     private function storeString($arrConf,$input)
     {
-        dd($input['web_name']);
-        $arrConf['web']['name'] = $input->web_name;
+        $arrConf['web']['name'] = $input['web_name'];
         return $arrConf;
     }
 
     private function storeImg($arrConf,$input)
     {
-        if (isset($arrConf[$input->for][$input->key]) and !empty($arrConf[$input->for][$input->key])) { unlink($arrConf[$input->for][$input->key]); }
+        if (isset($arrConf[$input['for']][$input['key']]) and !empty($arrConf[$input['for']][$input['key']])) { unlink($arrConf[$input['for']][$input['key']]); }
         $dir_estimate = 'config_img';
         foreach (explode('/',$dir_estimate) as $item) {
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
         }
-        $path_file = $dir_file.$input->for.'_'.$input->key.'_'.$input->img_name;
+        $path_file = $dir_file.$input['for'].'_'.$input['key'].'_'.$input['img_name'];
         try {
-            file_put_contents($path_file, base64_decode($input->img_encode));
+            file_put_contents($path_file, base64_decode($input['img_encode']));
         } catch (Exception $e) {
             $msg = $e->getMessage();
             return response()->json([
@@ -51,7 +50,7 @@ class PublicConfigController extends Controller
                 'http_req' => $msg
             ]);
         }
-        $arrConf[$input->for][$input->key] = $path_file;
+        $arrConf[$input['for']][$input['key']] = $path_file;
         return $arrConf;
     }
 }
