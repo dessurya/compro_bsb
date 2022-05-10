@@ -7,15 +7,20 @@ use Illuminate\Http\Request;
 
 class PublicConfigController extends Controller
 {
+    protected $getFileDir = 'config_json/public.json';
+
     public function index()
     {
-        $arrConf = json_decode(file_get_contents('config_json/public.json'),true);
+        $file = $this->getFileDir;
+        $arrConf = ['web'=>['name' => null],'navigasi'=>[]];
+        if (file_exists($dir_file)){ $arrConf = json_decode(file_get_contents($file),true); }
+        else{file_put_contents($file, json_encode($arrConf));}
         return view('cms.page.public-config', compact( 'arrConf' ));
     }
     
     public function store(Request $httpRequest)
     {
-        $file = 'config_json/public.json';
+        $file = $this->getFileDir;
         $arrConf = json_decode(file_get_contents($file),true);
         if ($httpRequest->type == 'string') {
             $res = $this->storeString($arrConf,$httpRequest->input());
