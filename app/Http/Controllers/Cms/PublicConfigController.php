@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Storage;
+use File;
 
 class PublicConfigController extends Controller
 {
     public function index()
     {
-        $files = Storage::get('\public\config_json\public.json');
+        $files = File::get('\public\config_json\public.json');
         return $files;
     }
 }
