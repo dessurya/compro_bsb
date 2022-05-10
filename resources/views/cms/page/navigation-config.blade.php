@@ -103,7 +103,7 @@ Navigasi Config
                                             <button class="btn btn-info" onclick="return refreshTable()">Refresh</button>
                                             <button class="btn btn-info" onclick="return selectAllRowTable(true)">Selected All</button>
                                             <button class="btn btn-info" onclick="return selectAllRowTable(false)">Unselected All</button>
-                                            <button class="btn btn-info" onclick="return triggerShowHideNavPage()">Show/Hide Navigation & Page</button>
+                                            <button class="btn btn-info" onclick="return updateFlagShow()">Show/Hide Navigation & Page</button>
                                         </div>
                                     </div>
                                 </div>
@@ -240,8 +240,8 @@ Navigasi Config
         showPNotify('Info','Success')
     }
     
-    updateFlagShow = async (id) => {
-        const ids = getSelectedId()
+    updateFlagShow = async () => {
+        const ids = await getSelectedId()
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
             return false
