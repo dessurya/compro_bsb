@@ -171,7 +171,7 @@ Navigasi Config
     renderedTableIndex = (identity,data) => {
         $('#'+identity+' table tbody').html('')
         $.each(data, function(idx,row){
-            let encode_data = btoa(JSON.parse(row))
+            let encode_data = btoa(JSON.stringify(row))
             let render_row = '<tr id="\'row_data_'+row.id+'\'" onclick="selectedRowData(\'row_data_'+row.id+'\')">'
             render_row += '<td>'+row.identity+'</td>'
             render_row += '<td>'+row.name+'</td>'
