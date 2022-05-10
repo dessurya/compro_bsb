@@ -17,7 +17,6 @@ class NavigationConfig extends Model
         'meta_keywords',
         'position',
         'flag_show',
-        'last_modify_by'
     ];
 
     public function getCreatedAtAttribute($date)

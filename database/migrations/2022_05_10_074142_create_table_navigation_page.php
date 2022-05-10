@@ -23,7 +23,6 @@ class CreateTableNavigationPage extends Migration
             $table->text('meta_keywords')->nullable();
             $table->integer('position')->nullable();
             $table->string('flag_show',1)->default('Y');
-            $table->string('last_modify_by')->nullable();
             $table->timestamps();
         });
     }
