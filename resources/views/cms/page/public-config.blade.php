@@ -60,6 +60,7 @@ Public Config
     submitPublicConfig = () => {
         loadingScreen(true)
         submitPublicConfigExe()
+        return false
     }
     submitPublicConfigExe = async () =>{
         const storeString = await submitPublicConfigExeSend()
