@@ -240,8 +240,11 @@ Navigasi Config
         showPNotify('Info','Success')
     }
     
-    updateFlagShow = async () => {
-        const ids = await getSelectedId()
+    updateFlagShow = () => {
+        updateFlagShowExe(getSelectedId())
+    }
+    
+    updateFlagShowExe = async (ids) => {
         if (ids.length == 0) {
             showPNotify('Info','Not found data select','danger')
             return false
