@@ -13,7 +13,7 @@ class PublicConfigController extends Controller
         $arrConf = json_decode(File::get(storage_path('config_json/public.json')),true);
         // File::delete(storage_path('config_json/public.json'));
         $arrConf['asdasdsd'] = ['asdas','asdadasdasdas'];
-        File::put(public_path('config_json/public.json'),json_encode($arrConf));
+        File::put(public_path('config_json/public_asdasd.json'),json_encode($arrConf));
         return $arrConf;
     }
 }
