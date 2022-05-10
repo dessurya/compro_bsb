@@ -32,6 +32,18 @@
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="#" class="nav-link {{ Route::is('cms.navigation-config') ? 'active' : '' }} ">
+    					<p>Page Config {{ Route::currentRouteName() }}</p>
+    				</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="{{ route('cms.navigation-config') }}" class="nav-link {{ Route::is('cms.navigation-config') ? 'active' : '' }} ">
+								<p>Navigation Config</p>
+							</a>
+						</li>
+					</ul>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.banner') }}" class="nav-link {{ Route::is('cms.banner') ? 'active' : '' }} ">
     					<p>Banner</p>
     				</a>
