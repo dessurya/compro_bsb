@@ -217,7 +217,7 @@ Navigasi Config
         }
     }
 
-    submitFormConfigPage = () => {
+    submitFormConfigPage = async () => {
         let param = {}
         param.id = $('#ConfigPageShow .card-body [name=id]').val()
         param.identity = $('#ConfigPageShow .card-body [name=identity]').val()
