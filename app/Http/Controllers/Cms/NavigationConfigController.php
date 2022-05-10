@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\NavigationController;
+use App\Models\NavigationConfig;
 
 class NavigationConfigController extends Controller
 {
