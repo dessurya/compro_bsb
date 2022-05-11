@@ -64,69 +64,52 @@ Home Page Config
                 <div id="mediaSocialWrapp" class="card">
                     <div class="card-header">
                         <div class="card-title">
-                            Social Media <span onclick="addMediaSocial()" class="btn btn-sm btn-block btn-outline-info">Add</span>
+                            Social Media
                         </div>
                     </div>
                     <div class="card-body">
-                        <form onsubmit="return submitMediaSocial()"  enctype="multipart/form-data" style="display:none">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Add Media Social
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <label for="identity">Media Sosial Name</label>
-                                            <input type="text" class="form-control" id="identity" name="identity" placeholder="Media Sosial Name" required>
-                                        </div>
-                                        <div class="col form-group">
-                                            <label for="url">Media Sosial Url</label>
-                                            <input type="url" class="form-control" id="url" name="url" placeholder="Media Sosial Url" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <label for="img_dark">Img Dark</label>
-                                            <input type="file" class="form-control" id="img_dark" name="img_dark" accept="image/*" required>
-                                        </div>
-                                        <div class="col form-group">
-                                            <label for="img_light">Img Light</label>
-                                            <input type="file" class="form-control" id="img_light" name="img_light" accept="image/*" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col"><button type="reset" onclick="closeMediaSocial()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
-                                        <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <table class="table">
-                            <thead>
-                                <th>Media Sosial Name</th>
-                                <th>Media Sosial Url</th>
-                                <th>Img Dark</th>
-                                <th>Img Light</th>
-                                <th>-</th>
-                            </thead>
-                            <tbody>
-                                @foreach($arrConf['media_social'] as $idx => $data)
-                                @if(isset($data['identity']))
-                                <tr id="ms_{{$idx}}">
-                                    <td>{{$data['identity']}}</td>
-                                    <td><a href="{{$data['url']}}" target="_blank" rel="noopener noreferrer">{{$data['url']}}</a></td>
-                                    <td><a href="{{url($data['img_dark'])}}" target="_blank" rel="noopener noreferrer">show</a></td>
-                                    <td><a href="{{url($data['img_light'])}}" target="_blank" rel="noopener noreferrer">show</a></td>
-                                    <td><button onclick="removeMediaSocial('{{$idx}}')" class="btn btn-sm btn-block btn-outline-danger">Delete</button></td>
-                                </tr>
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Quotes Img 1</h5>
+                                @if($arrConf['quotes']['imgs_1'] != null and $arrConf['quotes']['imgs_1'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_1']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_1']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
                                 @endif
-                                @endforeach
-                            </tbody>
-                        </table>
+                                <label for="quotes_imgs_1" class="btn btn-sm btn-block btn-outline-info">Update</label>
+                                <input type="file" class="form-control" id="quotes_imgs_1" name="quotes_imgs_1" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 2</h5>
+                                @if($arrConf['quotes']['imgs_2'] != null and $arrConf['quotes']['imgs_2'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_2']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_2']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_2" class="btn btn-sm btn-block btn-outline-info">Update</label>
+                                <input type="file" class="form-control" id="quotes_imgs_2" name="quotes_imgs_2" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 3</h5>
+                                @if($arrConf['quotes']['imgs_3'] != null and $arrConf['quotes']['imgs_3'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_3']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_3']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_3" class="btn btn-sm btn-block btn-outline-info">Update</label>
+                                <input type="file" class="form-control" id="quotes_imgs_3" name="quotes_imgs_3" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 4</h5>
+                                @if($arrConf['quotes']['imgs_4'] != null and $arrConf['quotes']['imgs_4'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_4']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_4']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_4" class="btn btn-sm btn-block btn-outline-info">Update</label>
+                                <input type="file" class="form-control" id="quotes_imgs_4" name="quotes_imgs_4" accept="image/*" style="display:none;">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
