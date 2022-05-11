@@ -171,21 +171,18 @@ Public Config
         return false
     }
 
-    submitMediaSocialExe = async () => {
-        const storeString = await submitMediaSocialExeSend()
-        if (storeString.res == true) { await storeImgDarkMediaSocial(storeString.idx) }
-    }
-
-    submitMediaSocialExeSend = async () => {
+    submitMediaSocialExe = () => {
+        if (storeString.res == true) {  }
         let param = {}
         param.type = 'string_media_social'
         param.identity = $('#mediaSocialWrapp form [name=identity]').val()
         param.url = $('#mediaSocialWrapp form [name=url]').val()
-        const resStore = await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ return result })
-        return resStore
+        httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
+            storeImgDarkMediaSocial(result.idx)
+        })
     }
 
-    storeImgDarkMediaSocial = async (idx) => {
+    storeImgDarkMediaSocial = (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_dark]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
@@ -212,7 +209,7 @@ Public Config
         })
     }
 
-    storeImgLightMediaSocial = async (idx) => {
+    storeImgLightMediaSocial = (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_light]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
