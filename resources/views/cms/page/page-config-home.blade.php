@@ -76,8 +76,8 @@ Home Page Config
                                     <img src="{{ url($arrConf['quotes']['imgs_1']) }}" alt="" style="height:125px;margin:auto;">
                                 </a>
                                 @endif
-                                <label for="quotes_imgs_1" class="btn btn-sm btn-block btn-outline-info">Update</label>
-                                <input type="file" class="form-control" id="quotes_imgs_1" name="quotes_imgs_1" accept="image/*" style="display:none;">
+                                <label for="quotes_imgs_1" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(1)" type="file" class="form-control" id="quotes_imgs_1" name="quotes_imgs_1" accept="image/*" style="display:none;">
                             </div>
                             <div class="col text-center">
                                 <h5>Quotes Img 2</h5>
@@ -86,8 +86,8 @@ Home Page Config
                                     <img src="{{ url($arrConf['quotes']['imgs_2']) }}" alt="" style="height:125px;margin:auto;">
                                 </a>
                                 @endif
-                                <label for="quotes_imgs_2" class="btn btn-sm btn-block btn-outline-info">Update</label>
-                                <input type="file" class="form-control" id="quotes_imgs_2" name="quotes_imgs_2" accept="image/*" style="display:none;">
+                                <label for="quotes_imgs_2" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(2)" type="file" class="form-control" id="quotes_imgs_2" name="quotes_imgs_2" accept="image/*" style="display:none;">
                             </div>
                             <div class="col text-center">
                                 <h5>Quotes Img 3</h5>
@@ -96,8 +96,8 @@ Home Page Config
                                     <img src="{{ url($arrConf['quotes']['imgs_3']) }}" alt="" style="height:125px;margin:auto;">
                                 </a>
                                 @endif
-                                <label for="quotes_imgs_3" class="btn btn-sm btn-block btn-outline-info">Update</label>
-                                <input type="file" class="form-control" id="quotes_imgs_3" name="quotes_imgs_3" accept="image/*" style="display:none;">
+                                <label for="quotes_imgs_3" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(3)" type="file" class="form-control" id="quotes_imgs_3" name="quotes_imgs_3" accept="image/*" style="display:none;">
                             </div>
                             <div class="col text-center">
                                 <h5>Quotes Img 4</h5>
@@ -106,8 +106,8 @@ Home Page Config
                                     <img src="{{ url($arrConf['quotes']['imgs_4']) }}" alt="" style="height:125px;margin:auto;">
                                 </a>
                                 @endif
-                                <label for="quotes_imgs_4" class="btn btn-sm btn-block btn-outline-info">Update</label>
-                                <input type="file" class="form-control" id="quotes_imgs_4" name="quotes_imgs_4" accept="image/*" style="display:none;">
+                                <label for="quotes_imgs_4" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(4)" type="file" class="form-control" id="quotes_imgs_4" name="quotes_imgs_4" accept="image/*" style="display:none;">
                             </div>
                         </div>
                     </div>
@@ -120,45 +120,13 @@ Home Page Config
 
 @push('script')
 <script>
-    closeMediaSocial = () => {
-        $('#mediaSocialWrapp form').fadeOut()
-    }
-    addMediaSocial = () => {
-        $('#mediaSocialWrapp form button[type=reset]').click()
-        $('#mediaSocialWrapp form').fadeIn()
-    }
-
-    removeMediaSocial = (idx) => {
+    uploadQuotesImg = (queue) => {
+        let pictures = $('[name=quotes_imgs_'+queue+']').prop('files')
+        let count_img = pictures.length
+        if (count_img == 0) { return false }
         loadingScreen(true)
-        let param = {}
-        param.type = 'remove_media_social'
-        param.idx = idx
-        httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){
-            loadingScreen(false)
-            location.reload()
-        })
-    }
-
-    submitMediaSocial = () => {
-        loadingScreen(true)
-        submitMediaSocialExe()
-        return false
-    }
-
-    submitMediaSocialExe = async () => {
-        let param = {}
-        param.type = 'string_media_social'
-        param.identity = $('#mediaSocialWrapp form [name=identity]').val()
-        param.url = $('#mediaSocialWrapp form [name=url]').val()
-        await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
-            storeImgDarkMediaSocial(result.idx)
-        })
-    }
-
-    storeImgDarkMediaSocial = async (id_idx) => {
-        let pictures = $('#mediaSocialWrapp form [name=img_dark]').prop('files')
         $.each(pictures, async function(idx,img){
-            img.idx = id_idx
+            img.queue = queue
             var reader = new FileReader();
             reader.readAsArrayBuffer(img);
             reader.onloadend = async function(oFREvent) {
@@ -171,38 +139,11 @@ Home Page Config
                     'img_encode':byteArray,
                     'img_name':img.name,
                     'img_type':img.type,
-                    'type':'img_media_social',
-                    'key' : 'dark',
-                    'idx':img.idx
+                    'type':'img',
+                    'key':'imgs_'+img.queue,
+                    'for':'quotes'
                 }
-                await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
-                    storeImgLightMediaSocial(result.idx)
-                })
-            };
-        })
-    }
-
-    storeImgLightMediaSocial = async (id_idx) => {
-        let pictures = $('#mediaSocialWrapp form [name=img_light]').prop('files')
-        $.each(pictures, async function(idx,img){
-            img.idx = id_idx
-            var reader = new FileReader();
-            reader.readAsArrayBuffer(img);
-            reader.onloadend = async function(oFREvent) {
-                var byteArray = new Uint8Array(oFREvent.target.result)
-                var len = byteArray.byteLength
-                var binary = ''
-                for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
-                byteArray = window.btoa(binary)
-                let param =  {
-                    'img_encode':byteArray,
-                    'img_name':img.name,
-                    'img_type':img.type,
-                    'type':'img_media_social',
-                    'key' : 'light',
-                    'idx':img.idx
-                }
-                await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
+                httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
                     showPNotify('Info','Success','info')
                     loadingScreen(false)
                     location.reload()
