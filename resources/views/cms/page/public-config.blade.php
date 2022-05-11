@@ -119,6 +119,7 @@ Public Config
                             </thead>
                             <tbody>
                                 @foreach($arrConf['media_social'] as $idx => $data)
+                                @if(isset($data['identity']))
                                 <tr id="ms_{{$idx}}">
                                     <td>{{$data['identity']}}</td>
                                     <td><a href="{{$data['url']}}" target="_blank" rel="noopener noreferrer">{{$data['url']}}</a></td>
@@ -126,6 +127,7 @@ Public Config
                                     <td><a href="{{$data['img_light']}}" target="_blank" rel="noopener noreferrer">show</a></td>
                                     <td><button onclick="removeMediaSocial('{{$idx}}')" class="btn btn-sm btn-block btn-outline-danger">Delete</button></td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
