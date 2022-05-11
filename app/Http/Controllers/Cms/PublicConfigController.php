@@ -15,9 +15,9 @@ class PublicConfigController extends Controller
         $arrConf = [
             'web'=>['name' => null],
             'navigasi'=>[],
-            'email'=>null,
-            'phone'=>null,
-            'address'=>null,
+            'email'=>'<p>info.bsb@arseri.co.id</p>',
+            'phone'=>'<p>021 83796375</p>',
+            'address'=>'<p>Perkantoran Crown Place Block B 02-03</p><p>Jl. Prof. Dr Soepomo no 231</p><p>Jakarta 12870 - Indonesia</p>',
             'media_social'=>[],
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
