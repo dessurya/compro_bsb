@@ -40,40 +40,40 @@ Route::middleware('auth')->group(function(){
     // page config
     Route::name('page-config.')->prefix('page-config')->group(function(){
         Route::name('home')->prefix('home')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigHomeController@index');
+            Route::post('/store', 'PageConfigHomeController@store')->name('.store');
         });
         Route::name('about-us')->prefix('about-us')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigAboutUsController@index');
+            Route::post('/store', 'PageConfigAboutUsController@store')->name('.store');
         });
         Route::name('our-product')->prefix('our-product')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigOurProductController@index');
+            Route::post('/store', 'PageConfigOurProductController@store')->name('.store');
         });
         Route::name('sustainability')->prefix('sustainability')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigSustainabilityController@index');
+            Route::post('/store', 'PageConfigSustainabilityController@store')->name('.store');
         });
         Route::name('our-client')->prefix('our-client')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigOurClientController@index');
+            Route::post('/store', 'PageConfigOurClientController@store')->name('.store');
         });
         Route::name('news-info')->prefix('news-info')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigNewsInfoController@index');
+            Route::post('/store', 'PageConfigNewsInfoController@store')->name('.store');
         });
         Route::name('investor')->prefix('investor')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigInvestorController@index');
+            Route::post('/store', 'PageConfigInvestorController@store')->name('.store');
         });
         Route::name('career')->prefix('career')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigCareerController@index');
+            Route::post('/store', 'PageConfigCareerController@store')->name('.store');
         });
         Route::name('contact-us')->prefix('contact-us')->group(function(){
-            Route::get('/', 'DashboardController@dashboard');
-            Route::post('/store', 'PageConfigController@store')->name('.store');
+            Route::get('/', 'PageConfigContactUsController@index');
+            Route::post('/store', 'PageConfigContactUsController@store')->name('.store');
         });
     });
     // page config
