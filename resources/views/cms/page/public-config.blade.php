@@ -233,7 +233,7 @@ Public Config
                 await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
                     showPNotify('Info','Success','info')
                     loadingScreen(false)
-                    location.reload()
+                    // location.reload()
                 })
             };
         })
