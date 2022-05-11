@@ -72,36 +72,38 @@ Public Config
                         </div>
                         <div class="card-body">
                             <form onsubmit="return submitMediaSocial()"  enctype="multipart/form-data" style="display:none">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Add Media Social
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col form-group">
-                                                <label for="identity">Media Sosial Name</label>
-                                                <input type="text" class="form-control" id="identity" name="identity" placeholder="Media Sosial Name" required>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">
+                                            Add Media Social
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col form-group">
+                                                    <label for="identity">Media Sosial Name</label>
+                                                    <input type="text" class="form-control" id="identity" name="identity" placeholder="Media Sosial Name" required>
+                                                </div>
+                                                <div class="col form-group">
+                                                    <label for="url">Media Sosial Url</label>
+                                                    <input type="url" class="form-control" id="url" name="url" placeholder="Media Sosial Url" required>
+                                                </div>
                                             </div>
-                                            <div class="col form-group">
-                                                <label for="url">Media Sosial Url</label>
-                                                <input type="url" class="form-control" id="url" name="url" placeholder="Media Sosial Url" required>
+                                            <div class="row">
+                                                <div class="col form-group">
+                                                    <label for="img_dark">Img Dark</label>
+                                                    <input type="file" class="form-control" id="img_dark" name="img_dark" accept="image/*" required>
+                                                </div>
+                                                <div class="col form-group">
+                                                    <label for="img_light">Img Light</label>
+                                                    <input type="file" class="form-control" id="img_light" name="img_light" accept="image/*" required>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col form-group">
-                                                <label for="img_dark">Img Dark</label>
-                                                <input type="file" class="form-control" id="img_dark" name="img_dark" accept="image/*" required>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col"><button type="reset" onclick="closeMediaSocial()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
+                                                <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
                                             </div>
-                                            <div class="col form-group">
-                                                <label for="img_light">Img Light</label>
-                                                <input type="file" class="form-control" id="img_light" name="img_light" accept="image/*" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col"><button type="reset" onclick="closeMediaSocial()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
-                                            <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
                                         </div>
                                     </div>
                                 </div>
