@@ -172,7 +172,6 @@ Public Config
     }
 
     submitMediaSocialExe = async () => {
-        if (storeString.res == true) {  }
         let param = {}
         param.type = 'string_media_social'
         param.identity = $('#mediaSocialWrapp form [name=identity]').val()
