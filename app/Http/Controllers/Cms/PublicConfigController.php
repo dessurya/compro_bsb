@@ -79,7 +79,7 @@ class PublicConfigController extends Controller
                 'http_req' => $msg
             ]);
         }
-        $arrConf['media_social'][$idx]['img_'.$input['key']] = null;
+        $arrConf['media_social'][$idx]['img_'.$input['key']] = $path_file;
         return ['new_arr' => $arrConf, 'idx' => $idx];
     }
 

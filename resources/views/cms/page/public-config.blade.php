@@ -123,8 +123,8 @@ Public Config
                                 <tr id="ms_{{$idx}}">
                                     <td>{{$data['identity']}}</td>
                                     <td><a href="{{$data['url']}}" target="_blank" rel="noopener noreferrer">{{$data['url']}}</a></td>
-                                    <td><a href="{{$data['img_dark']}}" target="_blank" rel="noopener noreferrer">show</a></td>
-                                    <td><a href="{{$data['img_light']}}" target="_blank" rel="noopener noreferrer">show</a></td>
+                                    <td><a href="{{url($data['img_dark'])}}" target="_blank" rel="noopener noreferrer">show</a></td>
+                                    <td><a href="{{url($data['img_light'])}}" target="_blank" rel="noopener noreferrer">show</a></td>
                                     <td><button onclick="removeMediaSocial('{{$idx}}')" class="btn btn-sm btn-block btn-outline-danger">Delete</button></td>
                                 </tr>
                                 @endif
@@ -183,10 +183,10 @@ Public Config
         })
     }
 
-    storeImgDarkMediaSocial = async (idx) => {
+    storeImgDarkMediaSocial = async (id_idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_dark]').prop('files')
         $.each(pictures, async function(idx,img){
-            img.idx = idx
+            img.idx = id_idx
             var reader = new FileReader();
             reader.readAsArrayBuffer(img);
             reader.onloadend = async function(oFREvent) {
@@ -210,10 +210,10 @@ Public Config
         })
     }
 
-    storeImgLightMediaSocial = async (idx) => {
+    storeImgLightMediaSocial = async (id_idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_light]').prop('files')
         $.each(pictures, async function(idx,img){
-            img.idx = idx
+            img.idx = id_idx
             var reader = new FileReader();
             reader.readAsArrayBuffer(img);
             reader.onloadend = async function(oFREvent) {
@@ -233,7 +233,7 @@ Public Config
                 await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
                     showPNotify('Info','Success','info')
                     loadingScreen(false)
-                    // location.reload()
+                    location.reload()
                 })
             };
         })
