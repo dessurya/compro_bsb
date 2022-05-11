@@ -89,8 +89,8 @@ class PublicConfigController extends Controller
         $medSos = $arrConf['media_social'];
         foreach ($medSos as $idx => $data) {
             if ($idx == $input['idx']) {
-                unlink($data['img_dark']);
-                unlink($data['img_light']);
+                if (file_exists($data['img_dark'])){ unlink($data['img_dark']); }
+                if (file_exists($data['img_light'])){ unlink($data['img_light']); }
             }else{
                 $newMedSos[$idx] = $data;
             }
