@@ -171,18 +171,18 @@ Public Config
         return false
     }
 
-    submitMediaSocialExe = () => {
+    submitMediaSocialExe = async () => {
         if (storeString.res == true) {  }
         let param = {}
         param.type = 'string_media_social'
         param.identity = $('#mediaSocialWrapp form [name=identity]').val()
         param.url = $('#mediaSocialWrapp form [name=url]').val()
-        httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
+        await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
             storeImgDarkMediaSocial(result.idx)
         })
     }
 
-    storeImgDarkMediaSocial = (idx) => {
+    storeImgDarkMediaSocial = async (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_dark]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
@@ -202,14 +202,14 @@ Public Config
                     'key' : 'dark',
                     'idx':img.idx
                 }
-                httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
+                await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
                     storeImgLightMediaSocial(result.idx)
                 })
             };
         })
     }
 
-    storeImgLightMediaSocial = (idx) => {
+    storeImgLightMediaSocial = async (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_light]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
@@ -229,7 +229,7 @@ Public Config
                     'key' : 'light',
                     'idx':img.idx
                 }
-                httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
+                await httpRequest('{{ route("cms.public-config.store") }}','post',param).then(function(result){ 
                     showPNotify('Info','Success','info')
                     loadingScreen(false)
                     location.reload()
