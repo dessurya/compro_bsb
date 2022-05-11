@@ -161,12 +161,12 @@ Public Config
         return false
     }
 
-    submitMediaSocialExe = () => {
+    submitMediaSocialExe = async () => {
         const storeString = await submitMediaSocialExeSend()
         if (storeString.res == true) { await storeImgDarkMediaSocial(storeString.idx) }
     }
 
-    submitMediaSocialExeSend = () => {
+    submitMediaSocialExeSend = async () => {
         let param = {}
         param.type = 'string_media_social'
         param.identity = $('#mediaSocialWrapp form [name=identity]').val()
@@ -175,7 +175,7 @@ Public Config
         return resStore
     }
 
-    storeImgDarkMediaSocial = (idx) => {
+    storeImgDarkMediaSocial = async (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_dark]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
@@ -202,7 +202,7 @@ Public Config
         })
     }
 
-    storeImgLightMediaSocial = (idx) => {
+    storeImgLightMediaSocial = async (idx) => {
         let pictures = $('#mediaSocialWrapp form [name=img_light]').prop('files')
         $.each(pictures, async function(idx,img){
             img.idx = idx
