@@ -70,65 +70,65 @@ Public Config
                         <div class="card-title">
                             Social Media <span onclick="addMediaSocial()" class="btn btn-sm btn-block btn-outline-info">Add</span>
                         </div>
-                        <div class="card-body">
-                            <form onsubmit="return submitMediaSocial()"  enctype="multipart/form-data" style="display:none">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            Add Media Social
+                    </div>
+                    <div class="card-body">
+                        <form onsubmit="return submitMediaSocial()"  enctype="multipart/form-data" style="display:none">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        Add Media Social
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col form-group">
+                                            <label for="identity">Media Sosial Name</label>
+                                            <input type="text" class="form-control" id="identity" name="identity" placeholder="Media Sosial Name" required>
                                         </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col form-group">
-                                                    <label for="identity">Media Sosial Name</label>
-                                                    <input type="text" class="form-control" id="identity" name="identity" placeholder="Media Sosial Name" required>
-                                                </div>
-                                                <div class="col form-group">
-                                                    <label for="url">Media Sosial Url</label>
-                                                    <input type="url" class="form-control" id="url" name="url" placeholder="Media Sosial Url" required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col form-group">
-                                                    <label for="img_dark">Img Dark</label>
-                                                    <input type="file" class="form-control" id="img_dark" name="img_dark" accept="image/*" required>
-                                                </div>
-                                                <div class="col form-group">
-                                                    <label for="img_light">Img Light</label>
-                                                    <input type="file" class="form-control" id="img_light" name="img_light" accept="image/*" required>
-                                                </div>
-                                            </div>
+                                        <div class="col form-group">
+                                            <label for="url">Media Sosial Url</label>
+                                            <input type="url" class="form-control" id="url" name="url" placeholder="Media Sosial Url" required>
                                         </div>
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col"><button type="reset" onclick="closeMediaSocial()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
-                                                <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col form-group">
+                                            <label for="img_dark">Img Dark</label>
+                                            <input type="file" class="form-control" id="img_dark" name="img_dark" accept="image/*" required>
+                                        </div>
+                                        <div class="col form-group">
+                                            <label for="img_light">Img Light</label>
+                                            <input type="file" class="form-control" id="img_light" name="img_light" accept="image/*" required>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <table class="table">
-                                <thead>
-                                    <th>Media Sosial Name</th>
-                                    <th>Media Sosial Url</th>
-                                    <th>Img Dark</th>
-                                    <th>Img Light</th>
-                                    <th>-</th>
-                                </thead>
-                                <tbody>
-                                    @foreach($arrConf['media_social'] as $idx => $data)
-                                    <tr id="ms_{{$idx}}">
-                                        <td>{{$data['identity']}}</td>
-                                        <td><a href="{{$data['url']}}" target="_blank" rel="noopener noreferrer">{{$data['url']}}</a></td>
-                                        <td><a href="{{$data['img_dark']}}" target="_blank" rel="noopener noreferrer">show</a></td>
-                                        <td><a href="{{$data['img_light']}}" target="_blank" rel="noopener noreferrer">show</a></td>
-                                        <td><button onclick="removeMediaSocial('{{$idx}}')" class="btn btn-sm btn-block btn-outline-danger">Delete</button></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col"><button type="reset" onclick="closeMediaSocial()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
+                                        <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <table class="table">
+                            <thead>
+                                <th>Media Sosial Name</th>
+                                <th>Media Sosial Url</th>
+                                <th>Img Dark</th>
+                                <th>Img Light</th>
+                                <th>-</th>
+                            </thead>
+                            <tbody>
+                                @foreach($arrConf['media_social'] as $idx => $data)
+                                <tr id="ms_{{$idx}}">
+                                    <td>{{$data['identity']}}</td>
+                                    <td><a href="{{$data['url']}}" target="_blank" rel="noopener noreferrer">{{$data['url']}}</a></td>
+                                    <td><a href="{{$data['img_dark']}}" target="_blank" rel="noopener noreferrer">show</a></td>
+                                    <td><a href="{{$data['img_light']}}" target="_blank" rel="noopener noreferrer">show</a></td>
+                                    <td><button onclick="removeMediaSocial('{{$idx}}')" class="btn btn-sm btn-block btn-outline-danger">Delete</button></td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
