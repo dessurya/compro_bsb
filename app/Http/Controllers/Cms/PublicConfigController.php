@@ -51,13 +51,17 @@ class PublicConfigController extends Controller
     }
 
     private function storeMediaSocial($arrConf,$input){
+        $newMedSos = [];
+        $medSos = $arrConf['media_social'];
+        foreach ($medSos as $idx => $data) { if (isset($data['identity'])) { $newMedSos[$idx] = $data; } }
         $idx = date('Ymdhis');
-        $arrConf['media_social'][$idx] = [
+        $newMedSos[$idx] = [
             'identity' => $input['identity'],
             'url' => $input['url'],
             'img_dark' => null,
             'img_light' => null,
         ];
+        $arrConf['media_social'] = $newMedSos;
         return ['new_arr' => $arrConf, 'idx' => $idx];
     }
 
