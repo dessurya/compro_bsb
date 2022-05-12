@@ -71,8 +71,8 @@ class PageConfigAboutUsController extends Controller
         $arrConf['intruduction']['en']['content'] = $input['intruduction_en_content'];
         $arrConf['visi']['id'] = $input['visi_id'];
         $arrConf['visi']['en'] = $input['visi_en'];
-        $arrConf['misi']['id'] = json_deocede($input['misi_id'],true);
-        $arrConf['misi']['en'] = json_deocede($input['misi_en'],true);
+        $arrConf['misi']['id'] = json_decode($input['misi_id'],true);
+        $arrConf['misi']['en'] = json_decode($input['misi_en'],true);
         return $arrConf;
     }
 
