@@ -68,7 +68,7 @@ About Us Page Config
                                         <div class="card-body">
                                             @foreach($arrConf['misi']['id'] as $idx => $data)
                                             <div id="row_misi_id_{{ $idx }}" class="input-group input-group-sm mb-2">
-                                                <input type="text" class="form-control misi_id" requred value="{{$data}}">
+                                                <input type="text" class="form-control misi_id" data-idx="{{ $idx }}" requred value="{{$data}}">
                                                 <span class="input-group-append">
                                                     <span onclick="removeMisi('row_misi_id_{{ $idx }}')" class="btn btn-danger btn-flat">delete</span>
                                                 </span>
@@ -87,7 +87,7 @@ About Us Page Config
                                         <div class="card-body">
                                             @foreach($arrConf['misi']['en'] as $idx => $data)
                                             <div id="row_misi_en_{{ $idx }}" class="input-group input-group-sm mb-2">
-                                                <input type="text" class="form-control misi_en" requred value="{{$data}}">
+                                                <input type="text" class="form-control misi_en" data-idx="{{ $idx }}" requred value="{{$data}}">
                                                 <span class="input-group-append">
                                                     <span onclick="removeMisi('row_misi_en_{{ $idx }}')" class="btn btn-danger btn-flat">delete</span>
                                                 </span>
@@ -124,10 +124,10 @@ About Us Page Config
     addMisi = (append_to, type) => {
         let renderd = ''
         let temp_id = Math.floor(Math.random() * 10000)
-        renderd += '<div id="row_misi_'+type+'_'+temp_id+'" class="input-group input-group-sm mb-2">'
-        renderd += '<input type="text" class="form-control misi_'+type+'" requred value="">'
+        renderd += '<div id="row_misi_temp_'+type+'_'+temp_id+'" class="input-group input-group-sm mb-2">'
+        renderd += '<input type="text" data-idx="'+temp_id+'" class="form-control misi_'+type+'" requred value="">'
         renderd += '<span class="input-group-append">'
-        renderd += '<span onclick="removeMisi(\'row_misi_'+type+'_'+temp_id+'\')" class="btn btn-danger btn-flat">delete</span>'
+        renderd += '<span onclick="removeMisi(\'row_misi_temp_'+type+'_'+temp_id+'\')" class="btn btn-danger btn-flat">delete</span>'
         renderd += '</span>'
         renderd += '</div>'
         $(append_to).append(renderd)
@@ -141,16 +141,22 @@ About Us Page Config
         return false
     }
     submitPageConfigExe = async () =>{
-        const storeString = await submitPageConfigExeSend()
+        let misi_id = {}
+        $.each($('.misi_id'), function(){ misi_id[$(this).data('idx')] = $(this).val() })
+        let misi_en = {}
+        $.each($('.misi_en'), function(){ misi_en[$(this).data('idx')] = $(this).val() })
+        const storeString = await submitPageConfigExeSend(misi_id,misi_en)
         if (storeString == true) { await storeImg() }
     }
-    submitPageConfigExeSend = async () =>{
+    submitPageConfigExeSend = async (arr_misi_id,arr_misi_en) =>{
         let param = {}
         param.type = 'string'
         param.intruduction_id_title = $('[name=intruduction_id_title]').val()
         param.intruduction_en_title = $('[name=intruduction_en_title]').val()
         param.intruduction_id_content = $('[name=intruduction_id_content]').summernote('code')
         param.intruduction_en_content = $('[name=intruduction_en_content]').summernote('code')
+        param.misi_id = JSON.stringify(arr_misi_id)
+        param.misi_en = JSON.stringify(arr_misi_en)
         const resStore = await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ return result })
         return true
     }
