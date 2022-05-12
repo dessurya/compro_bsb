@@ -59,10 +59,10 @@ About Us Page Config
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="card">
+                                    <div id="misi_id" class="card">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                Misi Indonesia
+                                                Misi Indonesia <span onclick="addMisi('#misi_id .card-body','id')" class="btn btn-sm btn-block btn-outline-info">Add</span>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -78,10 +78,10 @@ About Us Page Config
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="card">
+                                    <div id="misi_en" class="card">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                Misi English
+                                                Misi English  <span onclick="addMisi('#misi_en .card-body', 'en')" class="btn btn-sm btn-block btn-outline-info">Add</span>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -120,6 +120,18 @@ About Us Page Config
         $('[name=intruduction_id_content]').summernote()
         $('[name=intruduction_en_content]').summernote()
     });
+
+    addMisi = (append_to, type) => {
+        let renderd = ''
+        let temp_id = Math.floor(Math.random() * 10000)
+        renderd += '<div id="row_misi_'+type+'_'+temp_id+'" class="input-group input-group-sm mb-2">'
+        renderd += '<input type="text" class="form-control misi_'+type+'" requred value="">'
+        renderd += '<span class="input-group-append">'
+        renderd += '<span onclick="removeMisi(\'row_misi_'+type+'_'+temp_id+'\')" class="btn btn-danger btn-flat">delete</span>'
+        renderd += '</span>'
+        renderd += '</div>'
+        $(append_to).append(renderd)
+    }
 
     removeMisi = (target) => { $('#'+target).remove() }
 

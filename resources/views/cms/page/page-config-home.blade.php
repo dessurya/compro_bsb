@@ -74,7 +74,7 @@ Home Page Config
                 <div id="mediaSocialWrapp" class="card">
                     <div class="card-header">
                         <div class="card-title">
-                            Social Media
+                            Quotes Img
                         </div>
                     </div>
                     <div class="card-body">
