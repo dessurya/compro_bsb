@@ -5,6 +5,7 @@ About Us Page Config
 @endsection
 
 @push('link')
+<link rel="stylesheet" href="{{ asset('vendors/summernote/summernote.min.css') }}">
 @endpush
 
 @push('content')
@@ -66,10 +67,10 @@ About Us Page Config
                                         </div>
                                         <div class="card-body">
                                             @foreach($arrConf['misi']['id'] as $idx => $data)
-                                            <div id="row_misi_id_{{ $idx }}" class="input-group input-group-sm">
+                                            <div id="row_misi_id_{{ $idx }}" class="input-group input-group-sm mb-2">
                                                 <input type="text" class="form-control misi_id" requred value="{{$data}}">
                                                 <span class="input-group-append">
-                                                    <button onclick="removeMisi('row_misi_id_{{ $idx }}')" type="button" class="btn btn-info btn-flat"><i class="far fa-trash"></i></button>
+                                                    <span onclick="removeMisi('row_misi_id_{{ $idx }}')" class="btn btn-danger btn-flat">delete</span>
                                                 </span>
                                             </div>
                                             @endforeach
@@ -85,10 +86,10 @@ About Us Page Config
                                         </div>
                                         <div class="card-body">
                                             @foreach($arrConf['misi']['en'] as $idx => $data)
-                                            <div id="row_misi_en_{{ $idx }}" class="input-group input-group-sm">
+                                            <div id="row_misi_en_{{ $idx }}" class="input-group input-group-sm mb-2">
                                                 <input type="text" class="form-control misi_en" requred value="{{$data}}">
                                                 <span class="input-group-append">
-                                                    <button onclick="removeMisi('row_misi_en_{{ $idx }}')" type="button" class="btn btn-info btn-flat"><i class="far fa-trash"></i></button>
+                                                    <span onclick="removeMisi('row_misi_en_{{ $idx }}')" class="btn btn-danger btn-flat">delete</span>
                                                 </span>
                                             </div>
                                             @endforeach
@@ -113,6 +114,7 @@ About Us Page Config
 @endpush
 
 @push('script')
+<script src="{{ asset('vendors/summernote/summernote.min.js') }}"></script>
 <script>
     $( document ).ready(function() {
         $('[name=intruduction_id_content]').summernote()
