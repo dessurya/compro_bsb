@@ -45,7 +45,7 @@ class PageConfigAboutUsController extends Controller
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
         else{file_put_contents($file, json_encode($arrConf));}
-        return view('cms.page.page-config-home', compact( 'arrConf' ));
+        return view('cms.page.page-config-about-us', compact( 'arrConf' ));
     }
 
     public function store(Request $httpRequest)
