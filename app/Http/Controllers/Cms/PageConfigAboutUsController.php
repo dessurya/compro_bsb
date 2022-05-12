@@ -26,7 +26,7 @@ class PageConfigAboutUsController extends Controller
             ],
             'visi' => [
                 'id' => 'Participate in making Indonesia a world power in the field of fisheries and marine.',
-                'em' => 'Participate in making Indonesia a world power in the field of fisheries and marine.',
+                'en' => 'Participate in making Indonesia a world power in the field of fisheries and marine.',
             ],
             'misi' => [
                 'id' => [
