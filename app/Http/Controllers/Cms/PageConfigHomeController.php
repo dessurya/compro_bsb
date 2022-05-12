@@ -20,8 +20,16 @@ class PageConfigHomeController extends Controller
                 'max_item' => 3,
             ],
             'quotes' => [
-                'line_1' => 'Kami tidak hanya mengejar keuntungan',
-                'line_2' => 'Tetapi reputasi yang layak dibanggakan bangsa dan negara',
+                'line' => [
+                    'id' => [
+                        1 => 'Kami tidak hanya mengejar keuntungan',
+                        2 => 'Tetapi reputasi yang layak dibanggakan bangsa dan negara',
+                    ],
+                    'en' => [
+                        1 => 'Kami tidak hanya mengejar keuntungan',
+                        2 => 'Tetapi reputasi yang layak dibanggakan bangsa dan negara',
+                    ]
+                ],
                 'imgs_1' => null,
                 'imgs_2' => null,
                 'imgs_3' => null,
@@ -56,8 +64,10 @@ class PageConfigHomeController extends Controller
     {
         $arrConf['banner']['max_item'] = $input['banner_max_item'];
         $arrConf['news_info']['max_item'] = $input['news_info_max_item'];
-        $arrConf['quotes']['line_1'] = $input['quotes_line_1'];
-        $arrConf['quotes']['line_2'] = $input['quotes_line_2'];
+        $arrConf['quotes']['line']['id'][1] = $input['quotes_line_id_1'];
+        $arrConf['quotes']['line']['id'][2] = $input['quotes_line_id_2'];
+        $arrConf['quotes']['line']['en'][1] = $input['quotes_line_en_1'];
+        $arrConf['quotes']['line']['en'][2] = $input['quotes_line_en_2'];
         return $arrConf;
     }
 

@@ -42,12 +42,22 @@ Home Page Config
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="quotes_line_1">Quotes Line 1</label>
-                                    <input type="text" class="form-control" id="quotes_line_1" name="quotes_line_1" value="{{ $arrConf['quotes']['line_1'] }}" required>
+                                    <label for="quotes_line_id_1">Quotes Indonesia Line 1</label>
+                                    <input type="text" class="form-control" id="quotes_line_id_1" name="quotes_line_id_1" value="{{ $arrConf['quotes']['line']['id'][1] }}" required>
                                 </div>
                                 <div class="col form-group">
-                                    <label for="quotes_line_2">Quotes Line 2</label>
-                                    <input type="text" class="form-control" id="quotes_line_2" name="quotes_line_2" value="{{ $arrConf['quotes']['line_2'] }}" required>
+                                    <label for="quotes_line_id_2">Quotes Indonesia Line 2</label>
+                                    <input type="text" class="form-control" id="quotes_line_id_2" name="quotes_line_id_2" value="{{ $arrConf['quotes']['line']['id'][2] }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="quotes_line_en_1">Quotes English Line 1</label>
+                                    <input type="text" class="form-control" id="quotes_line_en_1" name="quotes_line_en_1" value="{{ $arrConf['quotes']['line']['en'][1] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="quotes_line_en_2">Quotes English Line 2</label>
+                                    <input type="text" class="form-control" id="quotes_line_en_2" name="quotes_line_en_2" value="{{ $arrConf['quotes']['line']['en'][2] }}" required>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +176,10 @@ Home Page Config
         param.type = 'string'
         param.banner_max_item = $('[name=banner_max_item]').val()
         param.news_info_max_item = $('[name=news_info_max_item]').val()
-        param.quotes_line_1 = $('[name=quotes_line_1]').val()
-        param.quotes_line_2 = $('[name=quotes_line_2]').val()
+        param.quotes_line_id_1 = $('[name=quotes_line_id_1]').val()
+        param.quotes_line_id_2 = $('[name=quotes_line_id_2]').val()
+        param.quotes_line_en_1 = $('[name=quotes_line_en_1]').val()
+        param.quotes_line_en_2 = $('[name=quotes_line_en_2]').val()
         const resStore = await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ return result })
         return true
     }
