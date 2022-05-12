@@ -157,7 +157,7 @@ About Us Page Config
         param.intruduction_en_content = $('[name=intruduction_en_content]').summernote('code')
         param.misi_id = JSON.stringify(arr_misi_id)
         param.misi_en = JSON.stringify(arr_misi_en)
-        const resStore = await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ return result })
+        const resStore = await httpRequest('{{ route("cms.page-config.about-us.store") }}','post',param).then(function(result){ return result })
         return true
     }
     storeImg = async () => {
@@ -185,7 +185,7 @@ About Us Page Config
                         'key':'img',
                         'for':'intruduction'
                     }
-                    httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
+                    httpRequest('{{ route("cms.page-config.about-us.store") }}','post',param).then(function(result){ 
                         showPNotify('Info','Success','info')
                         loadingScreen(false)
                         location.reload()
