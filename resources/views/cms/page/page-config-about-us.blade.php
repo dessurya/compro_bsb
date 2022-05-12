@@ -151,6 +151,8 @@ About Us Page Config
     submitPageConfigExeSend = async (arr_misi_id,arr_misi_en) =>{
         let param = {}
         param.type = 'string'
+        param.visi_id = $('[name=visi_id]').val()
+        param.visi_en = $('[name=visi_en]').val()
         param.intruduction_id_title = $('[name=intruduction_id_title]').val()
         param.intruduction_en_title = $('[name=intruduction_en_title]').val()
         param.intruduction_id_content = $('[name=intruduction_id_content]').summernote('code')
