@@ -12,11 +12,19 @@
 <link rel="stylesheet" href="{{ $data }}">
 @endforeach
 <style>
+    body{
+        color: rgb(109 109 109);
+        font-weight: 500;
+    }
     nav#header a{
         color: rgb(19 169 229) !important;
     }
     nav#header a:hover{
         color: white !important;
+    }
+    .title-section{
+        color: rgb(19 169 229);
+        font-weight: 300;
     }
 </style>
 @endpush
@@ -27,10 +35,10 @@
         <div class="img fullScrenn" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
-        <h1 class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
+        <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div class="container">
             @foreach($products as $row)
-            <div class="row mb-3">
+            <div class="row mb-5">
                 @if($loop->iteration % 2 == 0)
                 <div class="col text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
