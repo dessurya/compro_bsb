@@ -75,7 +75,9 @@
             @foreach($NewsInfo as $row)
             <div class="row mb-5">
                 <div class="col text-center">
+                    @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
                     <img src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
+                    @endif
                 </div>
                 <div class="col text-left">
                     <h3 class="title-section">{{ $row->title }}</h3>
