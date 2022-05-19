@@ -49,7 +49,7 @@
 @section('content')
 <div class="fullWidth">
     <div id="gradient"></div>
-    @if($row->flag_img_banner == 'Y' AND !empty($row->img_banner))
+    @if($NewsInfo->flag_img_banner == 'Y' AND !empty($NewsInfo->img_banner))
     <div id="banner" class="background fullWidth">
         <div class="img fullWidth" style="background-image: url('{{ url($NewsInfo->img_banner) }}');"></div>
     </div>
@@ -57,7 +57,7 @@
     <div class="section">
         <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($NewsInfo->title) !!}</h1>
         <div class="container">
-            @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
+            @if($NewsInfo->flag_img_thumbnail == 'Y' AND !empty($NewsInfo->img_thumbnail))
             <img src="{{ url($NewsInfo->img_thumbnail) }}" alt="{{ $NewsInfo->title }}">
             @endif
             {!! $NewsInfo->content !!}
