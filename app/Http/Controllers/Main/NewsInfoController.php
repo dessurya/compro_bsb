@@ -30,7 +30,6 @@ class NewsInfoController extends Controller
         ];
         $js = [
         ];
-        return $NewsInfo;
         return view('main.page.news-info-detail', compact('css','js','NewsInfo'));
     }
 }
