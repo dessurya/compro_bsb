@@ -29,12 +29,15 @@
     #product-list h4{
         font-weight: 700;
     }
+    #product-list img{
+        max-width: 100%;
+    }
     #banner .img{
         height: 80vh;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-bottom-left-radius: 50% 100%;
+        border-bottom-left-radius: 70% 100%;
     }
     #gradient{
         position: absolute;
