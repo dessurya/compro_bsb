@@ -41,7 +41,7 @@
         top:0;
         left:0;
         width:100vw;
-        height:135vh;
+        height:155vh;
         background-color: rgb(217,234,224);
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
