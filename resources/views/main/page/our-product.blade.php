@@ -30,16 +30,18 @@
         font-weight: 700;
     }
     #banner .img{
+        height: 85vh;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
     #gradient{
         position: absolute;
+        z-index: -1;
         top:0;
         left:0;
         width:100vw;
-        height:115vh;
+        height:135vh;
         background-color: rgb(217,234,224);
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
@@ -49,8 +51,8 @@
 @section('content')
 <div class="fullWidth">
     <div id="gradient"></div>
-    <div id="banner" class="background fullScrenn mb-3">
-        <div class="img fullScrenn" style="background-image: url('{{ url($banner) }}');"></div>
+    <div id="banner" class="background fullWidth mb-3">
+        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
         <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
