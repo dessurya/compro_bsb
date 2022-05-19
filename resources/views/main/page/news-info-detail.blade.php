@@ -55,7 +55,7 @@
     <div class="section">
         <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($NewsInfo->title) !!}</h1>
         <div class="container">
-            <img src="{{ url($NewsInfo->img_banner) }}" alt="{{ $NewsInfo->title }}">
+            <img src="{{ url($NewsInfo->img_thumbnail) }}" alt="{{ $NewsInfo->title }}">
             {!! $NewsInfo->content !!}
         </div>
     </div>
