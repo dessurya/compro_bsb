@@ -70,6 +70,7 @@
             @endif
             {!! $NewsInfo->content !!}
         </div>
+        <div class="clearboth"></div>
     </div>
 </div>
 @endsection
