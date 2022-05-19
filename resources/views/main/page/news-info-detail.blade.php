@@ -26,6 +26,9 @@
         color: rgb(19 169 229);
         font-weight: 300;
     }
+    #banner{
+        height: 80vh;
+    }
     #banner .img{
         height: 80vh;
         background-position: center center;
@@ -43,18 +46,23 @@
         background-color: rgb(217,234,224);
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
+    #news img{
+        float: left;
+        margin: 0em 3em 2em 3em;
+        max-width: 450px;
+    }
 </style>
 @endpush
 
 @section('content')
 <div class="fullWidth">
     <div id="gradient"></div>
-    @if($NewsInfo->flag_img_banner == 'Y' AND !empty($NewsInfo->img_banner))
     <div id="banner" class="background fullWidth">
+        @if($NewsInfo->flag_img_banner == 'Y' AND !empty($NewsInfo->img_banner))
         <div class="img fullWidth" style="background-image: url('{{ url($NewsInfo->img_banner) }}');"></div>
+        @endif
     </div>
-    @endif
-    <div class="section">
+    <div id="news" class="section">
         <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($NewsInfo->title) !!}</h1>
         <div class="container">
             @if($NewsInfo->flag_img_thumbnail == 'Y' AND !empty($NewsInfo->img_thumbnail))
