@@ -14,7 +14,7 @@ class NewsInfoController extends Controller
         $lang = App::getLocale();
         $title_page = 'News & Info';
         $banner = url('pict_content_asset/_default/home_1.jpg');
-        $NewsInfo = NewsInfo::where(['language'=>$lang,'flag_publish'=>'Y'])->orderBy('publish_date','desc')->paginate(1);
+        $NewsInfo = NewsInfo::where(['language'=>$lang,'flag_publish'=>'Y'])->orderBy('publish_date','desc')->paginate(8);
         $css = [
         ];
         $js = [
@@ -23,5 +23,9 @@ class NewsInfoController extends Controller
         return view('main.page.news-info', compact('lang','css','js','title_page','NewsInfo','banner'));
     }
 
-
+    public function detail($slug)
+    {
+        $NewsInfo = NewsInfo::where(['flag_publish'=>'Y','slug'=>$slug])->firstOrFail();
+        return $NewsInfo;
+    }
 }
