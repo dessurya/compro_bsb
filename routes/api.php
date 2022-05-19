@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/trial-web-servis', 'Api\TrialController@index');
+Route::get('/trial-web-servis/call-data', 'Api\TrialController@callData');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class TrialController extends Controller
 {
@@ -42,5 +43,15 @@ class TrialController extends Controller
                 ]
             ]
         ]]);
+    }
+
+    public function callData(Request $http_req)
+    {
+        $product = Product::select(*);
+        if (isset($http_req->id) and !empty($http_req->id)) {
+            $product->where('id',$http_req->id);
+        }
+        $product = $product->get();
+        return response()->json(['response'=>true,'data'=>$product]);
     }
 }
