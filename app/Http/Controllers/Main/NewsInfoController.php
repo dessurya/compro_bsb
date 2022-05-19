@@ -22,4 +22,6 @@ class NewsInfoController extends Controller
 
         return view('main.page.news-info', compact('lang','css','js','title_page','NewsInfo','banner'));
     }
+
+    
 }

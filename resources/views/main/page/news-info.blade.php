@@ -75,6 +75,10 @@
                 </div>
             </div>
             @endforeach
+
+            <div class="text-center d-flex">
+                {!! $NewsInfo->links() !!}
+            </div>
         </div>
     </div>
 </div>
