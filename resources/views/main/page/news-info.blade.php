@@ -43,7 +43,7 @@
         background-color: rgb(217,234,224);
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
-    #news-list h4{
+    #news-list h3{
         font-weight: 700;
     }
     #news-list img{
@@ -67,8 +67,10 @@
                     <img src="{{ url($row->flag_img_thumbnail) }}" alt="{{ $row->title }}">
                 </div>
                 <div class="col text-left">
-                    <h4 class="title-section">{{ $row->title }}</h4>
-                    {{ Str::words($row->content, ' ...', 50) }}
+                    <h3 class="title-section">{{ $row->title }}</h3>
+                    <div class="mb-4">
+                        {{ Str::words(strip_tags($row->content), ' ...', 50) }}
+                    </div>
                     <a class="btn btn-cstm-one" href="{{ route('main.news-info.detail', ['slug'=>$row->slug]) }}">Read More</a>
                 </div>
             </div>
