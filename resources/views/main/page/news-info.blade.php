@@ -49,6 +49,14 @@
     #news-list img{
         max-width: 100%;
     }
+    #pagination-container {
+        float:right;
+        color: rgba(1,160,228,1) !important;
+    }
+    #pagination-container .page-item.active .page-link{
+        background-color: rgba(1,160,228,1) !important;
+        border-color: rgba(1,160,228,1) !important;
+    }
 </style>
 @endpush
 
@@ -76,7 +84,7 @@
             </div>
             @endforeach
 
-            <div class="text-center d-flex">
+            <div id="pagination-container">
                 {!! $NewsInfo->links() !!}
             </div>
         </div>
