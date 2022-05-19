@@ -30,7 +30,7 @@
         font-weight: 700;
     }
     #banner .img{
-        height: 85vh;
+        height: 80vh;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -51,7 +51,7 @@
 @section('content')
 <div class="fullWidth">
     <div id="gradient"></div>
-    <div id="banner" class="background fullWidth mb-3">
+    <div id="banner" class="background fullWidth">
         <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
