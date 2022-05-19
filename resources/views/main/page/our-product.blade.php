@@ -26,17 +26,25 @@
         color: rgb(19 169 229);
         font-weight: 300;
     }
+    #product-list h4{
+        font-weight: 700;
+    }
+    #banner .img{
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 </style>
 @endpush
 
 @section('content')
 <div class="fullWidth">
-    <div class="background fullScrenn mb-3">
+    <div id="banner" class="background fullScrenn mb-3">
         <div class="img fullScrenn" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
         <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
-        <div class="container">
+        <div id="product-list" class="container">
             @foreach($products as $row)
             <div class="row mb-5">
                 @if($loop->iteration % 2 == 0)
