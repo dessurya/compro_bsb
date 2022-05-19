@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about-us', 'AboutUsController@index')->name('about-us');
+Route::get('/our-product', 'OurProductController@index')->name('our-product');
 Route::get('/language-change', 'HomeController@changeLanguage')->name('language.change');
