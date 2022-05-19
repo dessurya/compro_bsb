@@ -26,6 +26,11 @@ class NewsInfoController extends Controller
     public function detail($slug)
     {
         $NewsInfo = NewsInfo::where(['flag_publish'=>'Y','slug'=>$slug])->firstOrFail();
-        return $NewsInfo;
+        $css = [
+        ];
+        $js = [
+        ];
+
+        return view('main.page.news-info-detail', compact('css','js','NewsInfo'));
     }
 }
