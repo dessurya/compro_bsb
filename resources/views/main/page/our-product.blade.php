@@ -44,12 +44,12 @@
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
                 </div>
                 <div class="col text-right">
-                    <h4>{{ $row->title }}</h4>
+                    <h4 class="title-section">{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
                 @else
                 <div class="col text-left">
-                    <h4>{{ $row->title }}</h4>
+                    <h4 class="title-section">{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
                 <div class="col text-center">
