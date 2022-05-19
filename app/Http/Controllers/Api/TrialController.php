@@ -47,7 +47,7 @@ class TrialController extends Controller
 
     public function callData(Request $http_req)
     {
-        $product = Product::select(*);
+        $product = Product::select('*');
         if (isset($http_req->id) and !empty($http_req->id)) {
             $product->where('id',$http_req->id);
         }
