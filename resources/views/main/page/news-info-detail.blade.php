@@ -2,7 +2,7 @@
 
 @push('meta')
 <meta name="author" content="">
-<meta name="title" content="Bima Sakti Bahari - {{ $title_page }}">
+<meta name="title" content="Bima Sakti Bahari - {{ $NewsInfo->title }}">
 <meta name="description" content="">
 <meta name="keywords" content="">
 @endpush
