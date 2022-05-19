@@ -56,10 +56,10 @@
         color: rgba(1,160,228,1) !important;
     }
     #pagination-container .page-item.active .page-link{
+        color: #fff !important;
         background-color: rgba(1,160,228,1) !important;
         border-color: rgba(1,160,228,1) !important;
     }
-    /*  */
 </style>
 @endpush
 
