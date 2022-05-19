@@ -34,7 +34,7 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-bottom-left-radius: 47% 90%;
+        border-bottom-left-radius: 50% 100%;
     }
     #gradient{
         position: absolute;
