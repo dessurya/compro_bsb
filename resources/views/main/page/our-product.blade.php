@@ -34,11 +34,21 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    #gradient{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100vw;
+        height:115vh;
+        background-color: rgb(217,234,224);
+        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
+    }
 </style>
 @endpush
 
 @section('content')
 <div class="fullWidth">
+    <div id="gradient"></div>
     <div id="banner" class="background fullScrenn mb-3">
         <div class="img fullScrenn" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
