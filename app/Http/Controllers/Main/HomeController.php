@@ -92,7 +92,7 @@ class HomeController extends Controller
             [ 'label' => 'Our Product', 'route' => 'our-product' ],
             [ 'label' => 'Sustainability', 'route' => '#' ],
             [ 'label' => 'Our Client', 'route' => '#' ],
-            [ 'label' => 'News & Info', 'route' => '#' ],
+            [ 'label' => 'News & Info', 'route' => 'news-info' ],
             [ 'label' => 'Investor', 'route' => '#' ],
             [ 'label' => 'Career', 'route' => '#' ],
             [ 'label' => 'Contact Us', 'route' => '#' ],
