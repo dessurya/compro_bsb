@@ -30,21 +30,21 @@
         <h1 class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div class="container">
             @foreach($products as $row)
-            <div class="row">
+            <div class="row mb-3">
                 @if($loop->iteration % 2 == 0)
-                <div class="col">
+                <div class="col text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
                 </div>
-                <div class="col">
+                <div class="col text-right">
                     <h4>{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
                 @else
-                <div class="col">
+                <div class="col text-left">
                     <h4>{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
-                <div class="col">
+                <div class="col text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
                 </div>
                 @endif
