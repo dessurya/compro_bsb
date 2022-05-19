@@ -18,6 +18,12 @@
     nav#header a:hover{
         color: rgb(19 169 229) !important;
     }
+    nav#header.change a{
+        color: rgb(19 169 229) !important;
+    }
+    nav#header.change a:hover{
+        color: white !important;
+    }
     /* #banner */
         #banner{
             position: relative;
