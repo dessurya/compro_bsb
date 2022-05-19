@@ -49,8 +49,10 @@
     #news-list img{
         max-width: 100%;
     }
-    #pagination-container {
+    #pagination-container{
         float:right;
+    }
+    #pagination-container .page-link{
         color: rgba(1,160,228,1) !important;
     }
     #pagination-container .page-item.active .page-link{
