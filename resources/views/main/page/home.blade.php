@@ -262,9 +262,6 @@
         #teksture #bc-light{
             display: none;
         }
-        #teksture{
-            margin-top: 30px;
-        }
         #quotes #img-show{
             margin-bottom: 1rem;
         }
@@ -282,6 +279,13 @@
         #quotes #frase-2{
             text-align:right;
             font-size: 22pt;
+        }
+        #quotes #content .dis-tab, #quotes #content .dis-tab .dis-tab-row, #quotes #content .dis-tab .dis-tab-row .dis-tab-cell{
+            height: auto;
+        }
+
+        #sustainability h1{
+            font-size: 20pt;
         }
     }
 </style>
