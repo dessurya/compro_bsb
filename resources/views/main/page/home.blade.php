@@ -245,10 +245,10 @@
         #banner .fullScrenn{
             height: 70vh;
         }
-        #banner #owl .item .content-item p{
+        #banner #owl .item .content-item{
             display: none;
         }
-        #banner #owl .item .content-item .line-teks .valg-mid{
+        #banner #owl .item .line-teks .valg-mid{
             vertical-align: top;
         }
         #banner .background .img .content h2{
