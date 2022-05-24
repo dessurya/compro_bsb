@@ -26,6 +26,9 @@
         color: rgb(19 169 229);
         font-weight: 300;
     }
+    #banner{
+        margin-top:135px;
+    }
     #banner .img{
         height: 80vh;
         background-position: center center;

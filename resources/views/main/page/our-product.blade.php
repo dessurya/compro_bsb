@@ -32,6 +32,9 @@
     #product-list img{
         max-width: 100%;
     }
+    #banner{
+        margin-top:135px;
+    }
     #banner .img{
         height: 80vh;
         background-position: center center;
