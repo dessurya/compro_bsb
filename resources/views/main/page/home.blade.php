@@ -263,7 +263,7 @@
             display: none;
         }
         #quotes #img-show{
-            margin-bottom: 1rem;
+            margin-bottom: 4rem;
         }
         #quotes #img-show .flex-column .img{
             height: 100px;
@@ -279,6 +279,7 @@
         #quotes #frase-2{
             text-align:right;
             font-size: 22pt;
+            margin-top: 2rem;
         }
         #quotes #content .dis-tab, #quotes #content .dis-tab .dis-tab-row, #quotes #content .dis-tab .dis-tab-row .dis-tab-cell{
             height: auto;
