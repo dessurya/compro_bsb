@@ -243,7 +243,7 @@
         }
         #banner.fullScrenn,
         #banner .fullScrenn{
-            height: 45vh;
+            height: 70vh;
         }
         #banner #owl .item .content-item p{
             display: none;
@@ -252,6 +252,13 @@
         #teksture #bc-dark,
         #teksture #bc-light{
             display: none;
+        }
+        #teksture{
+            padding-top: 30px;
+        }
+        #quotes #img-show .flex-column .img{
+            height: 100px;
+            width: 115px;
         }
     }
 </style>
@@ -302,7 +309,7 @@
     <div id="quotes" class="section">
         <div class="container">
             <div class="row">
-                <div id="img-show" class="col-6">
+                <div id="img-show" class="col-md-6 col-sm-12">
                     <div class="d-flex flex-row flex-wrap justify-content-center">
                         @foreach($quotes_img as $data)
                             @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
@@ -311,7 +318,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div id="content" class="col-6">
+                <div id="content" class="col-md-6 col-sm-12">
                     <div class="dis-tab">
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid">
