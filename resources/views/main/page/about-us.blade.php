@@ -125,11 +125,11 @@
 
     @media (max-width: 568px){
         #hvm #mom_title{
-            font-size:24pt;
+            font-size:28pt;
         }
         #mom #other h3,
         #mom #person h3, #mom #person h2{
-            font-size:16pt;
+            font-size:18pt;
         }
         #hvm {
             overflow-x: hidden;
@@ -194,7 +194,7 @@
             <div id="msg">{!! $management[0]['msg'] !!}</div>
         </div>
         <div class="container">
-            <div id="other" class="text-left">
+            <div id="other" class="text-left mb-5">
                 @foreach($management as $idx => $data)
                 @if($idx > 0)
                 <div class="row">
