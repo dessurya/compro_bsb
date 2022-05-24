@@ -183,5 +183,14 @@
         body {
             padding-top: 135px;
         }
+        nav#header {
+            background-color: rgba(229,240,234,.95);
+            box-shadow: -2px 5px 8px rgba(229,240,234,40%);
+        }
+        #header #menu .dis-tab,
+        #header #menu .dis-tab .dis-tab-row,
+        #header #menu .dis-tab .dis-tab-row .dis-tab-cell{
+            display: block;
+        }
     }
 </style>

@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        <div id="navbarTogglerMenu" class="dis-tab collapse navbar-collapse">
+        <div id="menu" class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
                     <div id="menu-list" class="d-flex flex-row flex-wrap justify-content-end">
@@ -19,8 +19,5 @@
                 </div>
             </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerMenu" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
 </nav>
