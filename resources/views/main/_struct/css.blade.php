@@ -262,7 +262,7 @@
             height:unset;
         }
         nav#header a{
-            color: rgba(1,160,228,1);
+            color: rgba(1,160,228,1) !important;
         }
         nav#header .navbar-brand img,
         nav#header.change .navbar-brand img{
@@ -273,7 +273,7 @@
             top: -10vh !important;
         }
         #header.show #lang{
-            top: 90vh !important;
+            top: 77vh !important;
         }
     }
 </style>
