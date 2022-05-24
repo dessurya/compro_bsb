@@ -241,6 +241,9 @@
         #banner {
             padding-top: 135px;
         }
+        #banner .fullScrenn{
+            height: 45vh;
+        }
     }
 </style>
 @endpush

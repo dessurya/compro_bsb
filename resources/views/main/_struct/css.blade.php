@@ -183,6 +183,7 @@
         nav#header {
             background-color: rgba(229,240,234,.95);
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
+            padding: 0.5rem!important;
         }
         #header .dis-tab,
         #header .dis-tab .dis-tab-row,
@@ -203,6 +204,13 @@
         #header #menu.show div{
             height : auto;
             opacity: 1;
+        }
+        nav#header .navbar-brand img {
+            height : 50px;
+        }
+        nav#header #lang{
+            top: unset;
+            bottom: 2rem;
         }
     }
 </style>
