@@ -284,9 +284,16 @@
         #quotes #content .dis-tab, #quotes #content .dis-tab .dis-tab-row, #quotes #content .dis-tab .dis-tab-row .dis-tab-cell{
             height: auto;
         }
-
+        #product h1{
+            padding-top: 0;
+            padding-bottom: 1rem;
+            margin-top: -2rem;
+        }
         #sustainability h1{
             font-size: 20pt;
+        }
+        #sustainability #content .col{
+            margin-bottom: 1rem;
         }
     }
 </style>
