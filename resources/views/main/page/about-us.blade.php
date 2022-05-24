@@ -123,6 +123,14 @@
         }
     /* mom */
 
+    @media (max-width: 568px){
+        #hvm #mom_title{
+            font-size:24pt;
+        }
+        #mom #person h3, #mom #person h2{
+            font-size:16pt;
+        }
+    }
 </style>
 @endpush
 
@@ -148,14 +156,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="com-md-12">
+                <div class="col-md-12">
                     <div id="misi">
                         <h2 class="title-section mb-4"><span>MISI</span></h2>
                         <div class="row">
                         @foreach($misi as $row)
                         <div class="col-md-6 poin">
                             <div class="row">
-                                <div class="col-md-1">
+                                <div class="col-md-1 col-2">
                                     <div class="round-poin"></div>
                                 </div>
                                 <div class="col">{{ $row }}</div>
