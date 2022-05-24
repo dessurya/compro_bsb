@@ -239,10 +239,13 @@
 
     @media (max-width: 568px){
         #banner {
-            padding-top: 135px;
+            padding-top: 75px;
         }
         #banner .fullScrenn{
             height: 45vh;
+        }
+        #banner #owl .item .content-item p{
+            display: none;
         }
     }
 </style>
@@ -256,7 +259,7 @@
             <div class="img fullScrenn" style="background-image: url('{{ url($data->img) }}');">
                 <div class="content container-fluid fullScrenn dis-tab">
                     <div class="row dis-tab-row">
-                        <div class="col-6 dis-tab-cell valg-bot">
+                        <div id="content-item" class="col-6 dis-tab-cell valg-bot">
                             <div class="row">
                                 <div class="col-6">
                                     <h3>{{ $data->title }}</h3>
