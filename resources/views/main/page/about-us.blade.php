@@ -131,6 +131,9 @@
         #mom #person h3, #mom #person h2{
             font-size:16pt;
         }
+        #hvm {
+            overflow-x: hidden;
+        }
     }
 </style>
 @endpush
