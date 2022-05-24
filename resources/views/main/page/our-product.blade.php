@@ -52,6 +52,11 @@
         background-color: rgb(217,234,224);
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
+    @media (max-width: 568px){
+        #banner{
+            margin-top:65px;
+        }
+    }
 </style>
 @endpush
 

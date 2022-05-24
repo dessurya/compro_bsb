@@ -52,6 +52,14 @@
         margin: 0em 3em 2em 3em;
         max-width: 450px;
     }
+    @media (max-width: 568px){
+        #banner{
+            margin-top:65px;
+        }
+        #news img{
+            max-width: 45%;
+        }
+    }
 </style>
 @endpush
 
