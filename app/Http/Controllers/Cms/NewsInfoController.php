@@ -114,6 +114,9 @@ class NewsInfoController extends Controller
                 'publish_date'=>$http_req->publish_date,
                 'language'=>$http_req->language,
                 'content'=>$http_req->content,
+                'meta_title'=>$http_req->meta_title,
+                'meta_keyword'=>$http_req->meta_keyword,
+                'meta_description'=>$http_req->meta_description,
                 'flag_img_thumbnail'=>$http_req->flag_img_thumbnail,
                 'flag_img_banner'=>$http_req->flag_img_banner,
             ];

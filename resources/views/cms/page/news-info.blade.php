@@ -83,6 +83,22 @@ News & Info
                                     <textarea id="content" name="content"></textarea>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="meta_title">Meta Title</label>
+                                    <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title" max="250">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="meta_keyword">Meta Keyword</label>
+                                    <input type="text" class="form-control" id="meta_keyword" name="meta_keyword" placeholder="Meta Keyword" max="250">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="meta_description">Meta Description</label>
+                                    <input type="text" class="form-control" id="meta_description" name="meta_description" placeholder="Meta Description" max="250">
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -218,6 +234,9 @@ News & Info
     storeNewsInfo = async (identity) => {
         let param = {}
         param['title'] = $(identity+' [name=title]').val()
+        param['meta_title'] = $(identity+' [name=meta_title]').val()
+        param['meta_keyword'] = $(identity+' [name=meta_keyword]').val()
+        param['meta_description'] = $(identity+' [name=meta_description]').val()
         param['publish_date'] = $(identity+' [name=publish_date]').val()
         param['language'] = $(identity+' [name=language]').val()
         param['flag_img_thumbnail'] = $(identity+' [name=flag_img_thumbnail]').val()
@@ -296,6 +315,9 @@ News & Info
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_news_info+' [name=old_data]').val(result.id)
         $(indentity_form_news_info+' [name=title]').val(result.title)
+        $(indentity_form_news_info+' [name=meta_description]').val(result.meta_description)
+        $(indentity_form_news_info+' [name=meta_keyword]').val(result.meta_keyword)
+        $(indentity_form_news_info+' [name=meta_title]').val(result.meta_title)
         $(indentity_form_news_info+' [name=publish_date]').val(result.publish_date)
         $(indentity_form_news_info+' [name=language]').val(result.language)
         $(indentity_form_news_info+' [name=flag_img_thumbnail]').val(result.flag_img_thumbnail)
