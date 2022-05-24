@@ -186,6 +186,9 @@
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
             padding: 0.5rem!important;
         }
+        nav#header.change.p-4 {
+            padding: unset !important;
+        }
         #header .dis-tab,
         #header .dis-tab .dis-tab-row,
         #header .dis-tab .dis-tab-row .dis-tab-cell{
@@ -207,18 +210,16 @@
             top: unset;
             height:unset;
         }
+        nav#header.change .navbar-brand img,
         nav#header .navbar-brand img {
-            height : 50px;
+            height : 50px !important;
         }
         nav#header.change #lang,
         nav#header #lang{
-            top: -10vh;
+            top: -10vh !important;
         }
         #header.show #lang{
             top: unset;
-        }
-        nav#header.change.p-4 {
-            padding: unset !important;
         }
     }
 </style>
