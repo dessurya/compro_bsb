@@ -187,7 +187,7 @@
             padding: 0.5rem!important;
         }
         nav#header.change.p-4 {
-            padding: unset !important;
+            padding: 0.5rem!important;
         }
         #header .dis-tab,
         #header .dis-tab .dis-tab-row,
@@ -210,8 +210,8 @@
             top: unset;
             height:unset;
         }
-        nav#header.change .navbar-brand img,
-        nav#header .navbar-brand img {
+        nav#header .navbar-brand img,
+        nav#header.change .navbar-brand img{
             height : 50px !important;
         }
         nav#header.change #lang,
