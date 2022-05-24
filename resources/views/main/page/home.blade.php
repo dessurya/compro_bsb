@@ -245,11 +245,11 @@
         #banner .fullScrenn{
             height: 70vh;
         }
-        #banner #owl .item .content-item{
+        #banner #owl .item .content-item row{
             display: none;
         }
-        #banner #owl .item .line-teks .valg-mid{
-            vertical-align: top;
+        #banner #owl .item .line-teks{
+            padding-right: 10px;
         }
         #banner .background .img .content h2{
             font-size: 20pt;
@@ -278,7 +278,7 @@
             <div class="img fullScrenn" style="background-image: url('{{ url($data->img) }}');">
                 <div class="content container-fluid fullScrenn dis-tab">
                     <div class="row dis-tab-row">
-                        <div class="content-item col-md-6 col-7 dis-tab-cell valg-bot">
+                        <div class="content-item col-md-6 col-2 dis-tab-cell valg-bot">
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <h3>{{ $data->title }}</h3>
@@ -289,11 +289,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="line-teks col-md-5 col-4 dis-tab-cell valg-mid text-right">
+                        <div class="line-teks col-md-5 col-8 dis-tab-cell valg-mid text-right">
                             <h2>{{ $data->text }}</h2>
                             <a href="#teksture"><img id="chev-down" src="{{ url('pict_content_asset/_default/scrol.png') }}" alt="scroll-down"></a>
                         </div>
-                        <div class="col-1 dis-tab-cell valg-mid text-center">
+                        <div class="col-2 dis-tab-cell valg-mid text-center">
                             <div class="vertical-line"></div>
                             <span class="icon"><i class="fab fa-instagram" aria-hidden="true"></i></span>
                             <br><br>
