@@ -200,10 +200,12 @@
         #header #menu{
             position: relative;
             top: -100vh;
+            height: 0;
             transition: all .51s;
         }
-        #header.show #menu div{
+        #header.show #menu{
             top: unset;
+            height:unset;
         }
         nav#header .navbar-brand img {
             height : 50px;
