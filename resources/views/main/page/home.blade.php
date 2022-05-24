@@ -243,7 +243,7 @@
         }
         #banner.fullScrenn,
         #banner .fullScrenn{
-            height: 70vh;
+            height: 90vh;
         }
         #banner #owl .item .content-item .row{
             display: none;
@@ -252,7 +252,7 @@
             padding-right: 10px;
         }
         #banner .background .img .content{
-            height: 100vh;
+            height: 90vh;
         }
         #banner .background .img .content h2{
             font-size: 20pt;
