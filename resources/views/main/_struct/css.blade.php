@@ -210,11 +210,15 @@
         nav#header .navbar-brand img {
             height : 50px;
         }
+        nav#header.change #lang,
         nav#header #lang{
             top: -10vh;
         }
         #header.show #lang{
             top: unset;
+        }
+        nav#header.change.p-4 {
+            padding: unset !important;
         }
     }
 </style>
