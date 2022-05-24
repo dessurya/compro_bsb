@@ -248,6 +248,9 @@
         #banner #owl .item .content-item p{
             display: none;
         }
+        #banner .background .img .content h2{
+            font-size: 20pt;
+        }
         #teksture #bc-white,
         #teksture #bc-dark,
         #teksture #bc-light{
@@ -272,9 +275,9 @@
             <div class="img fullScrenn" style="background-image: url('{{ url($data->img) }}');">
                 <div class="content container-fluid fullScrenn dis-tab">
                     <div class="row dis-tab-row">
-                        <div id="content-item" class="col-6 dis-tab-cell valg-bot">
+                        <div class="content-item col-md-6 col-7 dis-tab-cell valg-bot">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-12">
                                     <h3>{{ $data->title }}</h3>
                                     <p>{{ $data->description }}</p>
                                     @if(!empty($data->link))
@@ -283,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 dis-tab-cell valg-mid text-right">
+                        <div class="col-md-5 col-4 dis-tab-cell valg-mid text-right">
                             <h2>{{ $data->text }}</h2>
                             <a href="#teksture"><img id="chev-down" src="{{ url('pict_content_asset/_default/scrol.png') }}" alt="scroll-down"></a>
                         </div>
