@@ -245,7 +245,7 @@
         #banner .fullScrenn{
             height: 70vh;
         }
-        #banner #owl .item .content-item row{
+        #banner #owl .item .content-item .row{
             display: none;
         }
         #banner #owl .item .line-teks{
