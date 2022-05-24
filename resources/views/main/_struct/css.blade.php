@@ -195,5 +195,14 @@
             -ms-flex-direction: column!important;
             flex-direction: column!important;
         }
+        #header #menu div{
+            height : 0;
+            opacity: 0;
+            transition: all .51s;
+        }
+        #header #menu.show div{
+            height : auto;
+            opacity: 1;
+        }
     }
 </style>
