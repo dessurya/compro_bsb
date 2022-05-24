@@ -102,6 +102,7 @@
             top:10px;
             right:40px;
             color: rgb(1 160 228);
+            transition: all .51s;
         }
         
         nav#header.change.p-4 {
@@ -196,21 +197,22 @@
             -ms-flex-direction: column!important;
             flex-direction: column!important;
         }
-        #header #menu div{
-            height : 0;
-            opacity: 0;
+        #header #menu{
+            position: relative;
+            top: -100vh;
             transition: all .51s;
         }
-        #header #menu.show div{
-            height : auto;
-            opacity: 1;
+        #header.show #menu div{
+            top: unset;
         }
         nav#header .navbar-brand img {
             height : 50px;
         }
         nav#header #lang{
+            top: -10vh;
+        }
+        #header.show #lang{
             top: unset;
-            bottom: 2rem;
         }
     }
 </style>
