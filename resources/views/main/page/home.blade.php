@@ -236,6 +236,8 @@
             cursor: pointer;
         }
     /* #news_info */
+
+    
 </style>
 @endpush
 

@@ -178,4 +178,10 @@
             }
         /* Handle */
     /* scroll bar */
+
+    @media (max-width: 568px){
+        body {
+            padding-top: 135px;
+        }
+    }
 </style>
