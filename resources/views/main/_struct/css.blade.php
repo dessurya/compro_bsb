@@ -106,7 +106,7 @@
             transition: all .51s;
         }
         
-        nav#header.change.p-4 {
+        nav#header.change {
             padding: 0 1.8rem !important;
             background-color: rgba(229,240,234,.95);
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
@@ -238,7 +238,7 @@
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
             padding: 0.5rem!important;
         }
-        nav#header.change.p-4 {
+        nav#header.change {
             padding: 0.5rem!important;
         }
         #header .dis-tab,
