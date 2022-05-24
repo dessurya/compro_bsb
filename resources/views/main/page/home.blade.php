@@ -248,6 +248,9 @@
         #banner #owl .item .content-item p{
             display: none;
         }
+        #banner #owl .item .content-item .line-teks .valg-mid{
+            vertical-align: top;
+        }
         #banner .background .img .content h2{
             font-size: 20pt;
         }
@@ -286,7 +289,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5 col-4 dis-tab-cell valg-mid text-right">
+                        <div class="line-teks col-md-5 col-4 dis-tab-cell valg-mid text-right">
                             <h2>{{ $data->text }}</h2>
                             <a href="#teksture"><img id="chev-down" src="{{ url('pict_content_asset/_default/scrol.png') }}" alt="scroll-down"></a>
                         </div>
