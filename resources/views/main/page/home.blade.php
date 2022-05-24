@@ -247,6 +247,11 @@
         #banner #owl .item .content-item p{
             display: none;
         }
+        #teksture #bc-white,
+        #teksture #bc-dark,
+        #teksture #bc-light{
+            display: none;
+        }
     }
 </style>
 @endpush
