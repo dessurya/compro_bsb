@@ -261,6 +261,8 @@
             top: unset;
             height:unset;
         }
+        nav#header.show.change a,
+        nav#header.show a,
         nav#header a{
             color: rgba(1,160,228,1) !important;
         }
