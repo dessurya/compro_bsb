@@ -412,20 +412,20 @@
 <div id="news_info" class="section">
     <div class="container">
         <div class="row p-3">
-            <div class="col"></div>
-            <div class="col">
+            <div class="col-md"></div>
+            <div class="col-md col-12">
                 <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle('NEWS & INFO') !!}</h1>
             </div>
         </div>
         <div id="owl" class="owl-carousel owl-theme p-3">
             @foreach($news as $data)
             <div class="item row">
-                <div class="col text-center">
+                <div class="col-md col-12 text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
                     <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}">
                     @endif
                 </div>
-                <div class="col">
+                <div class="col-md col-12">
                     <h3>{{ $data->title }}</h3>
                     <p>{{ Str::words(strip_tags($data->content), 35, ' ...') }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
