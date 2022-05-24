@@ -192,7 +192,7 @@
     }
     .btn-menu-toggle .line {
         fill: none;
-        stroke: black;
+        stroke: rgba(1,160,228,1);
         stroke-width: 6;
         transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
             stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
