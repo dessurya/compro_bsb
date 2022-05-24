@@ -100,10 +100,13 @@
         }
         nav#header #lang{
             position: absolute;
-            top:10px;
-            right:40px;
+            top:45px;
+            right:70px;
             color: rgb(1 160 228);
             transition: all .51s;
+        }
+        nav#header #lang img{
+            height: 30px;
         }
         
         nav#header.change {
