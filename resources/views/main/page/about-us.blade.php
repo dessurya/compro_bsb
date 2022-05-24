@@ -127,6 +127,7 @@
         #hvm #mom_title{
             font-size:24pt;
         }
+        #mom #other h3,
         #mom #person h3, #mom #person h2{
             font-size:16pt;
         }
