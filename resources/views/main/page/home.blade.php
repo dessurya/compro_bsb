@@ -277,9 +277,10 @@
         }
         #quotes #frase-1 p{
             font-size: 22pt;
+            margin-bottom: 1rem;
         }
         #quotes #frase-2{
-            text-align:center;
+            text-align:right;
             font-size: 22pt;
         }
     }
@@ -349,7 +350,7 @@
                                     <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-10">
+                                    <div class="col-md-10 col-12">
                                         <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
                                     </div>
                                 </div>
