@@ -193,36 +193,36 @@
     .btn-menu-toggle .line {
         fill: none;
         stroke: rgba(1,160,228,1);
-        stroke-width: 6;
+        stroke-width: 4;
         transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
             stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     .btn-menu-toggle .line1 {
         stroke-dasharray: 60 207;
-        stroke-width: 6;
+        stroke-width: 4;
     }
     .btn-menu-toggle .line2 {
         stroke-dasharray: 60 60;
-        stroke-width: 6;
+        stroke-width: 4;
     }
     .btn-menu-toggle .line3 {
         stroke-dasharray: 60 207;
-        stroke-width: 6;
+        stroke-width: 4;
     }
     .btn-menu-toggle.opened .line1 {
         stroke-dasharray: 90 207;
         stroke-dashoffset: -134;
-        stroke-width: 6;
+        stroke-width: 4;
     }
     .btn-menu-toggle.opened .line2 {
         stroke-dasharray: 1 60;
         stroke-dashoffset: -30;
-        stroke-width: 6;
+        stroke-width: 4;
     }
     .btn-menu-toggle.opened .line3 {
         stroke-dasharray: 90 207;
         stroke-dashoffset: -134;
-        stroke-width: 6;
+        stroke-width: 4;
     }
 
     @media (max-width: 568px){
