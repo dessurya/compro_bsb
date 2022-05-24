@@ -141,6 +141,7 @@
     
     /* #teksture */
         #teksture{
+            overflow-x: hidden;
             position: relative;
             background-image: linear-gradient(rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(255,255,255));
             background-color:rgb(217, 234, 224);
