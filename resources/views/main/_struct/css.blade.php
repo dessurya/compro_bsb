@@ -86,6 +86,7 @@
         nav#header{
             color: rgb(19 169 229) !important;
             transition: all .51s;
+            padding:3rem 4rem;
         }
         nav#header .navbar-brand img{
             height: 84px;

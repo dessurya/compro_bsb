@@ -27,6 +27,7 @@
         font-weight: 300;
     }
     #banner{
+        margin-top:135px;
         height: 80vh;
     }
     #banner .img{

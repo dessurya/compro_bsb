@@ -1,4 +1,4 @@
-<nav id="header" class="fixed-top p-4">
+<nav id="header" class="fixed-top">
     <a id="lang" href="{{ route('main.language.change') }}"><div></div><img src="{!! App\Http\Controllers\Main\HomeController::getLangIcon(Route::currentRouteName(),$lang) !!}"></a>
     <div id="wrapper-btn-menu-toggle">
         <button class="btn-menu-toggle" onclick="$('nav#header').toggleClass('show');this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
