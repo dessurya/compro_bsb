@@ -88,11 +88,11 @@ class HomeController extends Controller
         $lang = App::currentLocale();
         $icon = url('pict_content_asset/_default/logo.png');
         $menu = [
-            [ 'label' => 'About Us', 'route' => 'about-us' ],
-            [ 'label' => 'Our Product', 'route' => 'our-product' ],
+            [ 'label' => 'About Us', 'route' => route('main.about-us') ],
+            [ 'label' => 'Our Product', 'route' => route('main.our-product') ],
             [ 'label' => 'Sustainability', 'route' => '#' ],
             [ 'label' => 'Our Client', 'route' => '#' ],
-            [ 'label' => 'News & Info', 'route' => 'news-info' ],
+            [ 'label' => 'News & Info', 'route' => route('main.news-info') ],
             [ 'label' => 'Investor', 'route' => '#' ],
             [ 'label' => 'Career', 'route' => '#' ],
             [ 'label' => 'Contact Us', 'route' => '#' ],

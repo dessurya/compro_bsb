@@ -93,6 +93,7 @@
         }
         nav#header a{
             font-weight: 600;
+            font-size: 12pt;
             transition: all .51s;
         }
         nav#header a:hover{
@@ -119,7 +120,7 @@
             /* filter: drop-shadow(6px 6px 6px black); */
         }
         nav#header.change #lang{
-            top:50px;
+            top:55px;
         }
     /* navbar */
 
