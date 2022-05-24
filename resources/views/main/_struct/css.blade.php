@@ -272,6 +272,7 @@
         nav#header #lang{
             top: -10vh !important;
         }
+        nav#header.show.change #lang,
         #header.show #lang{
             top: 77vh !important;
         }
