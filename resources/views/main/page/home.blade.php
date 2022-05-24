@@ -241,6 +241,7 @@
         #banner {
             padding-top: 75px;
         }
+        #banner.fullScrenn,
         #banner .fullScrenn{
             height: 45vh;
         }
