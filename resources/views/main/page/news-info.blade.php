@@ -63,6 +63,11 @@
         background-color: rgba(1,160,228,1) !important;
         border-color: rgba(1,160,228,1) !important;
     }
+    @media (max-width: 568px){
+        #banner{
+            margin-top:65px;
+        }
+    }
 </style>
 @endpush
 
