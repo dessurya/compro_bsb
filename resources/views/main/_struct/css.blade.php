@@ -180,9 +180,6 @@
     /* scroll bar */
 
     @media (max-width: 568px){
-        body {
-            margin-top: 135px;
-        }
         nav#header {
             background-color: rgba(229,240,234,.95);
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
@@ -191,6 +188,12 @@
         #header .dis-tab .dis-tab-row,
         #header .dis-tab .dis-tab-row .dis-tab-cell{
             display: block;
+        }
+        #header .flex-row{
+            -webkit-box-orient: vertical!important;
+            -webkit-box-direction: normal!important;
+            -ms-flex-direction: column!important;
+            flex-direction: column!important;
         }
     }
 </style>

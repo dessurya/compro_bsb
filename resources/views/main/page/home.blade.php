@@ -237,7 +237,11 @@
         }
     /* #news_info */
 
-    
+    @media (max-width: 568px){
+        #banner {
+            padding-top: 135px;
+        }
+    }
 </style>
 @endpush
 
