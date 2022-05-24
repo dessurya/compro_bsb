@@ -239,7 +239,7 @@
 
     @media (max-width: 568px){
         #banner {
-            padding-top: 75px;
+            margin-top: 75px;
         }
         #banner.fullScrenn,
         #banner .fullScrenn{
@@ -251,6 +251,9 @@
         #banner #owl .item .line-teks{
             padding-right: 10px;
         }
+        #banner .background .img .content{
+            height: 100vh;
+        }
         #banner .background .img .content h2{
             font-size: 20pt;
         }
@@ -260,11 +263,24 @@
             display: none;
         }
         #teksture{
-            padding-top: 30px;
+            margin-top: 30px;
+        }
+        #quotes #img-show{
+            margin-bottom: 1rem;
         }
         #quotes #img-show .flex-column .img{
             height: 100px;
             width: 115px;
+        }
+        #quotes #frase-0 img{
+            height: 44px;
+        }
+        #quotes #frase-1 p{
+            font-size: 22pt;
+        }
+        #quotes #frase-2{
+            text-align:center;
+            font-size: 22pt;
         }
     }
 </style>
