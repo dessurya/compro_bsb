@@ -16,6 +16,16 @@
         color: rgb(109 109 109);
         font-weight: 500;
     }
+    nav#header a{
+        color: rgb(19 169 229) !important;
+    }
+    nav#header a:hover{
+        color: white !important;
+    }
+    .title-section{
+        color: rgb(19 169 229);
+        font-weight: 300;
+    }
     #ourclient{
         margin-top:190px;
     }
