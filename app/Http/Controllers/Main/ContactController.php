@@ -29,4 +29,9 @@ class ContactController extends Controller
         ];
         return view('main.page.contact', compact('lang','css','js','title_page','page_data'));
     }
+
+    public function store(Request $httpRequest)
+    {
+        return $httpRequest->input();
+    }
 }

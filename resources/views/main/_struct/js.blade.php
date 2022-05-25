@@ -5,7 +5,7 @@
 <script>
     $(document).scroll(function() {
         var y = $(this).scrollTop()
-        if (y > 450) { $('nav#header').addClass('change')}
+        if (y > 250) { $('nav#header').addClass('change')}
         else { $('nav#header').removeClass('change') }
     })
 </script>

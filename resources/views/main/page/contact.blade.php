@@ -32,8 +32,21 @@
         background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
     #gradient .container{
-        padding-top: 2rem;
-        padding-bottom: 1rem;
+        padding-top: 6rem;
+        padding-bottom: 0;
+    }
+    #background .img{
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #background .img .container{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    #background .img .container .msg{
+        background-color: rgba(255 255 255 .4);
+        padding: 3rem 5rem;
     }
     @media (max-width: 568px){
         #gradient{
@@ -60,8 +73,23 @@
         </div>
     </div>
     
-    <div class="section">
-        <div class="container">
+    <div class="fullWidth background">
+        <div class="img fullWidth" style="background-image: url('{{ $page_data['message']['img'] }}');">
+            <div class="container">
+                <div class="fullWidth msg">
+                    <form action="{{ route('main.contact.store') }}" method="post">
+                        @csrf
+                        <input max="150" type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <input max="25" type="text" class="form-control" id="phone" name="phone" placeholder="Handphone" required>
+                        <input max="150" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <input max="150" type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea max="450" class="form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-cstm-one">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
