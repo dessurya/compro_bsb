@@ -22,11 +22,11 @@ Our Product Page Config
                         <div class="card-body">
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="title_id">titles Indonesia</label>
+                                    <label for="title_id">Titles Indonesia</label>
                                     <input type="text" class="form-control" id="title_id" name="title_id" value="{{ $arrConf['title']['id'] }}" required>
                                 </div>
                                 <div class="col form-group">
-                                    <label for="title_en">titles English</label>
+                                    <label for="title_en">Titles English</label>
                                     <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $arrConf['title']['en'] }}" required>
                                 </div>
                             </div>
