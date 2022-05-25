@@ -55,6 +55,9 @@
     #investor img{
         width: 100%;
     }
+    #investor h3{
+        font-weight: 700;
+    }
     @media (max-width: 568px){
         #banner{
             margin-top:65px;
@@ -70,7 +73,7 @@
         <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
-        <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
+        <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="investor" class="container">
             @foreach($investor as $row)
             <div class="row">
