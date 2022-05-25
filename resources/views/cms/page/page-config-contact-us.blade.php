@@ -1,7 +1,7 @@
 @extends('cms.layout.base')
 
 @section('title')
-Sustainability Page Config
+Contact Us Page Config
 @endsection
 
 @push('link')
@@ -92,7 +92,7 @@ Sustainability Page Config
         param.description_en = $('[name=description_en]').val()
         param.link = $('[name=link]').val()
         param.embed = $('[name=embed]').val()
-        const resStore = await httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ return result })
+        const resStore = await httpRequest('{{ route("cms.page-config.contact-us.store") }}','post',param).then(function(result){ return result })
         return true
     }
     storeImg = async () => {
@@ -120,7 +120,7 @@ Sustainability Page Config
                         'key':'img',
                         'for':'message'
                     }
-                    httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ 
+                    httpRequest('{{ route("cms.page-config.contact-us.store") }}','post',param).then(function(result){ 
                         showPNotify('Info','Success','info')
                         loadingScreen(false)
                         location.reload()
