@@ -44,7 +44,7 @@
         <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div class="container text-center">
             <p>{{ $page_data['content'] }}</p>
-            <div class="text-center"><img src="{{ $page_data['img'] }}" alt="maps"></div>
+            <div class="text-center mt-5"><img src="{{ $page_data['img'] }}" alt="maps"></div>
         </div>
     </div>
 </div>
