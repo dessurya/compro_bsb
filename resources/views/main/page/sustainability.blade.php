@@ -80,23 +80,23 @@
     <div class="section">
         <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="investor" class="container">
-            @foreach($investor as $row)
+            @foreach($Sustainability as $row)
             <div class="row">
                 @if($loop->iteration % 2 == 0)
                 <div class="col text-center">
-                    <img src="{{ $row['img'] }}" alt="{{ $row['name'] }}">
+                    <img src="{{ $row->img_thumnail }}" alt="{{ $row->title }}">
                 </div>
                 <div class="col">
-                    <h3 class="title-section">{{ $row['name'] }}</h3>
-                    {!! $row['content'] !!}
+                    <h3 class="title-section">{{ $row->title }}</h3>
+                    {!! $row->content_shoert !!}
                 </div>
                 @else
                 <div class="col">
-                    <h3 class="title-section">{{ $row['name'] }}</h3>
-                    {!! $row['content'] !!}
+                    <h3 class="title-section">{{ $row->title }}</h3>
+                    {!! $row->content_shoert !!}
                 </div>
                 <div class="col text-center">
-                    <img src="{{ $row['img'] }}" alt="{{ $row['name'] }}">
+                    <img src="{{ $row->img_thumnail }}" alt="{{ $row->title }}">
                 </div>
                 @endif
             </div>

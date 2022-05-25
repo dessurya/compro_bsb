@@ -90,7 +90,7 @@ class HomeController extends Controller
         $menu = [
             [ 'label' => 'About Us', 'route' => route('main.about-us') ],
             [ 'label' => 'Our Product', 'route' => route('main.our-product') ],
-            [ 'label' => 'Sustainability', 'route' => '#' ],
+            [ 'label' => 'Sustainability', 'route' => route('main.sustainability') ],
             [ 'label' => 'Our Client', 'route' => '#' ],
             [ 'label' => 'News & Info', 'route' => route('main.news-info') ],
             [ 'label' => 'Investor', 'route' => route('main.investor') ],
