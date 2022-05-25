@@ -41,7 +41,7 @@
 
 @section('content')
 <div class="fullWidth">
-    <div id="gradient fullWidth">
+    <div id="gradient" class="fullWidth">
         <div class="container">
             <div class="row">
                 <div class="col">
