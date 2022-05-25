@@ -29,6 +29,8 @@ Investor Page Config
                                     <label for="title_en">Titles English</label>
                                     <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $arrConf['title']['en'] }}" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="description_id">Descriptions Indonesia</label>
                                     <input type="text" class="form-control" id="description_id" name="description_id" value="{{ $arrConf['description']['id'] }}">
