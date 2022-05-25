@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about-us', 'AboutUsController@index')->name('about-us');
 Route::get('/our-product', 'OurProductController@index')->name('our-product');
 Route::get('/investor', 'InvestorController@index')->name('investor');
+Route::get('/sustainability', 'SustainabilityController@index')->name('sustainability');
 Route::get('/news-info', 'NewsInfoController@index')->name('news-info');
 Route::get('/news-info/{slug}', 'NewsInfoController@detail')->name('news-info.detail');
 Route::get('/language-change', 'HomeController@changeLanguage')->name('language.change');
