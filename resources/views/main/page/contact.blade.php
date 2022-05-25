@@ -42,7 +42,8 @@
         padding: 5rem;
     }
     .background .img .msg{
-        background-color: rgba(255 255 255 .4);
+        width: 100%;
+        background-color: rgba(255,255,255,.8);
         padding: 3rem 5rem;
     }
     @media (max-width: 568px){
@@ -73,14 +74,14 @@
     <div class="fullWidth background">
         <div class="img fullWidth" style="background-image: url('{{ $page_data['message']['img'] }}');">
             <div class="container">
-                <div class="fullWidth msg">
+                <div class="msg">
                     <form action="{{ route('main.contact.store') }}" method="post">
                         @csrf
-                        <input max="150" type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                        <input max="25" type="text" class="form-control" id="phone" name="phone" placeholder="Handphone" required>
-                        <input max="150" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                        <input max="150" type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                        <textarea max="450" class="form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
+                        <input max="150" type="text" class="mb-3 form-control" id="name" name="name" placeholder="Name" required>
+                        <input max="25" type="text" class="mb-3 form-control" id="phone" name="phone" placeholder="Handphone" required>
+                        <input max="150" type="email" class="mb-3 form-control" id="email" name="email" placeholder="Email" required>
+                        <input max="150" type="text" class="mb-3 form-control" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea max="450" class="mb-3 form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
                         <div class="text-center">
                             <button type="submit" class="btn btn-cstm-one">SUBMIT</button>
                         </div>
