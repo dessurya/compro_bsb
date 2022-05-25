@@ -76,10 +76,12 @@
     h1.title-section span:nth-child(odd),
     h1.title-section-reverse span:nth-child(even){
         font-weight: 300;
+        color: rgb(19 169 229);
     }
     h1.title-section span:nth-child(even),
     h1.title-section-reverse span:nth-child(odd){
         font-weight: 700;
+        color: rgb(19 169 229);
     }
 
     /* navbar */
