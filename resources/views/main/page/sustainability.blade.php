@@ -79,7 +79,7 @@
     </div>
     <div class="section">
         <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
-        <div id="investor" class="container">
+        <div id="investor" class="container mt-5">
             @foreach($Sustainability as $row)
             <div class="row mb-5">
                 @if($loop->iteration % 2 == 0)
