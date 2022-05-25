@@ -33,18 +33,19 @@
     }
     #gradient .container{
         padding-top: 6rem;
-        padding-bottom: 0;
+        padding-bottom: 5rem;
     }
     #background .img{
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+        padding: 5rem;
     }
     #background .img .container{
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
-    #background .img .container .msg{
+    #background .img .msg{
         background-color: rgba(255 255 255 .4);
         padding: 3rem 5rem;
     }
