@@ -61,7 +61,7 @@
             padding: 0;
         }
         .background .img .msg{
-            padding: .5rem 1rem;
+            padding: 2.5rem 1.5rem;
         }
     }
 </style>
@@ -72,10 +72,10 @@
     <div id="gradient" class="fullWidth">
         <div class="container">
             <div class="row">
-                <div class="col-md">
+                <div class="col-md mb-3">
                     <iframe src="{{ $page_data['location']['embed'] }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="col-md">
+                <div class="col-md mb-3">
                     <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['location']['title']) !!}</h1>
                     <p class="mb-5">{{ $page_data['location']['content'] }}</p>
                     <a class="btn btn-cstm-one" href="{{ $page_data['location']['link'] }}">GET DIRECTION</a>
