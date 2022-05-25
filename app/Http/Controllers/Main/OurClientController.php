@@ -20,6 +20,6 @@ class OurClientController extends Controller
         ];
         $js = [
         ];
-        return view('main.page.sustainability', compact('lang','css','js','title_page','page_data'));
+        return view('main.page.our-client', compact('lang','css','js','title_page','page_data'));
     }
 }
