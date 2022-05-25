@@ -46,6 +46,13 @@
         background-color: rgba(255,255,255,.8);
         padding: 3rem 5rem;
     }
+    form input,
+    form textarea{
+        background-color: rgba(0,0,0,0);
+        border: 0;
+        border-bottom: 1px solid black;
+        border-radius: 0;
+    }
     @media (max-width: 568px){
         #gradient{
             margin-top:65px;
