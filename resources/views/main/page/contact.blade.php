@@ -88,9 +88,9 @@
                         <input max="25" type="text" class="mb-3 form-control" id="phone" name="phone" placeholder="Handphone" required>
                         <input max="150" type="email" class="mb-3 form-control" id="email" name="email" placeholder="Email" required>
                         <input max="150" type="text" class="mb-3 form-control" id="subject" name="subject" placeholder="Subject" required>
-                        <textarea max="450" class="mb-3 form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
+                        <textarea max="450" class="mb-5 form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-cstm-one">SUBMIT</button>
+                            <button type="submit" class="mt-3 btn btn-cstm-one">SUBMIT</button>
                         </div>
                     </form>
                 </div>

@@ -29,6 +29,9 @@
     #ourclient{
         margin-top:190px;
     }
+    #ourclient img{
+        max-width: 90%;
+    }
     @media (max-width: 568px){
         #ourclient{
             margin-top:65px;
