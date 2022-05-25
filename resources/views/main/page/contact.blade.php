@@ -58,7 +58,7 @@
             margin-top:65px;
         }
         .background .img{
-            padding: 0;
+            padding: 2.5rem 0;
         }
         .background .img .msg{
             padding: 2.5rem 1.5rem;
