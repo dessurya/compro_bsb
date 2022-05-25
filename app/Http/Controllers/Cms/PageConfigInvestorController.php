@@ -63,7 +63,7 @@ class PageConfigInvestorController extends Controller
             $dir_file .= $item.'/';
             if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
         }
-        $path_file = $dir_file.$input['for'].'_'.$input['key'].'_'.$input['img_name'];
+        $path_file = $dir_file.'investor_'.$input['for'].'_'.$input['key'].'_'.$input['img_name'];
         try {
             file_put_contents($path_file, base64_decode($input['img_encode']));
         } catch (Exception $e) {
