@@ -57,6 +57,7 @@
     }
     #investor h3{
         font-weight: 700;
+        margin-bottom: 2rem;
     }
     @media (max-width: 568px){
         #banner{
