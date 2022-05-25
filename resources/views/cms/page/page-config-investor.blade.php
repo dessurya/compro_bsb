@@ -80,7 +80,7 @@ Investor Page Config
         param.title_en = $('[name=title_en]').val()
         param.description_id = $('[name=description_id]').val()
         param.description_en = $('[name=description_en]').val()
-        const resStore = await httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ return result })
+        const resStore = await httpRequest('{{ route("cms.page-config.investor.store") }}','post',param).then(function(result){ return result })
         return true
     }
     storeImg = async () => {
@@ -108,7 +108,7 @@ Investor Page Config
                         'key':'img',
                         'for':'banner'
                     }
-                    httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ 
+                    httpRequest('{{ route("cms.page-config.investor.store") }}','post',param).then(function(result){ 
                         showPNotify('Info','Success','info')
                         loadingScreen(false)
                         location.reload()
