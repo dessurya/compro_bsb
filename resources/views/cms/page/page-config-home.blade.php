@@ -36,7 +36,7 @@ Home Page Config
                                     <input type="file" class="form-control" id="our_client_img" name="our_client_img" accept="image/*">
                                 </div>
                                 <div class="col form-group">
-                                    <label for="our_client_background">Our Client Img @if(isset($arrConf['our_client']['background']) and $arrConf['our_client']['background'] != null and $arrConf['our_client']['background'] != '')<a href="{{ url($arrConf['our_client']['background']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
+                                    <label for="our_client_background">Our Client Background Img @if(isset($arrConf['our_client']['background']) and $arrConf['our_client']['background'] != null and $arrConf['our_client']['background'] != '')<a href="{{ url($arrConf['our_client']['background']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
                                     <input type="file" class="form-control" id="our_client_background" name="our_client_background" accept="image/*">
                                 </div>
                             </div>
