@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PageConfigContactUsController extends Controller
 {
-    protected $getFileDir = 'config_json/investor.json';
+    protected $getFileDir = 'config_json/contact.json';
 
     public function index()
     {
