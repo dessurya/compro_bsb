@@ -29,23 +29,19 @@
     #gradient{
         margin-top:190px;
         background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
+        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
     }
     #gradient .container{
         padding-top: 6rem;
         padding-bottom: 5rem;
     }
-    #background .img{
+    .background .img{
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 5rem;
     }
-    #background .img .container{
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-    #background .img .msg{
+    .background .img .msg{
         background-color: rgba(255 255 255 .4);
         padding: 3rem 5rem;
     }
