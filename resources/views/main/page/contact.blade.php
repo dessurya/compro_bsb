@@ -48,10 +48,10 @@
     }
     form input,
     form textarea{
-        background-color: rgba(0,0,0,0);
-        border: 0;
-        border-bottom: 1px solid black;
-        border-radius: 0;
+        background-color: rgba(0,0,0,0) !important;
+        border: 0 !important;
+        border-bottom: 1px solid black !important;
+        border-radius: 0 !important;
     }
     @media (max-width: 568px){
         #gradient{
