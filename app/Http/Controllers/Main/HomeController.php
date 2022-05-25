@@ -95,7 +95,7 @@ class HomeController extends Controller
             [ 'label' => 'News & Info', 'route' => route('main.news-info') ],
             [ 'label' => 'Investor', 'route' => route('main.investor') ],
             [ 'label' => 'Career', 'route' => '#' ],
-            [ 'label' => 'Contact Us', 'route' => '#' ],
+            [ 'label' => 'Contact Us', 'route' => route('main.contact') ],
         ];
         echo view('main._struct.header', compact('menu','icon','lang'))->render();
     }
