@@ -29,7 +29,7 @@
     #gradient{
         margin-top:190px;
         background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
+        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255),rgb(255,255,255));
     }
     #gradient .container{
         padding-top: 6rem;
@@ -53,9 +53,15 @@
         border-bottom: 1px solid black !important;
         border-radius: 0 !important;
     }
+    #gradient #contain{
+        padding-left: 4.5rem;
+    }
     @media (max-width: 568px){
         #gradient{
             margin-top:65px;
+        }
+        #gradient #contain{
+            padding-left: unset;
         }
         .background .img{
             padding: 2.5rem 0;
@@ -75,8 +81,8 @@
                 <div class="col-md mb-3">
                     <iframe src="{{ $page_data['location']['embed'] }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="col-md mb-3">
-                    <h1 class="title-section mb-5 text-left">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['location']['title']) !!}</h1>
+                <div id="contain" class="col-md mb-3">
+                    <h1 class="title-section-reverse mb-5 text-left">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['location']['title']) !!}</h1>
                     <p class="mb-5 text-justify">{{ $page_data['location']['content'] }}</p>
                     <a class="btn btn-cstm-one" href="{{ $page_data['location']['link'] }}">GET DIRECTION</a>
                 </div>
