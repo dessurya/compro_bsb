@@ -76,8 +76,8 @@
                     <iframe src="{{ $page_data['location']['embed'] }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-md mb-3">
-                    <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['location']['title']) !!}</h1>
-                    <p class="mb-5">{{ $page_data['location']['content'] }}</p>
+                    <h1 class="title-section mb-5 text-left">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['location']['title']) !!}</h1>
+                    <p class="mb-5 text-justify">{{ $page_data['location']['content'] }}</p>
                     <a class="btn btn-cstm-one" href="{{ $page_data['location']['link'] }}">GET DIRECTION</a>
                 </div>
             </div>
@@ -89,6 +89,7 @@
             <div class="container">
                 <div class="msg">
                     <form action="{{ route('main.contact.store') }}" method="post">
+                        <h1 class="title-section mb-5 text-left">{!! App\Http\Controllers\Main\HomeController::buildTitle('Message') !!}</h1>
                         @csrf
                         <input max="150" type="text" class="mb-3 form-control" id="name" name="name" placeholder="Name" required>
                         <input max="25" type="text" class="mb-3 form-control" id="phone" name="phone" placeholder="Handphone" required>

@@ -103,7 +103,7 @@
         }
         nav#header #lang{
             position: absolute;
-            top:45px;
+            top:20px;
             right:70px;
             color: rgb(1 160 228);
             transition: all .51s;
