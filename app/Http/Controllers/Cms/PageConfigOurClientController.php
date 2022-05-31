@@ -14,7 +14,7 @@ class PageConfigOurClientController extends Controller
         $file = $this->getFileDir;
         $arrConf = [
             'title' => [
-                'id' => 'Our Client',
+                'id' => 'Klien Kami',
                 'en' => 'Our Client',
             ],
             'description' => [

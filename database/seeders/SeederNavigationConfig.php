@@ -37,12 +37,12 @@ class SeederNavigationConfig extends Seeder
             ],
             [
                 'identity' => 'Our Client',
-                'name' => json_encode(['id' => 'Our Client', 'en' => 'Our Client']),
+                'name' => json_encode(['id' => 'Klien Kami', 'en' => 'Our Client']),
                 'position' => 5,
             ],
             [
                 'identity' => 'News & Info',
-                'name' => json_encode(['id' => 'News & Info', 'en' => 'News & Info']),
+                'name' => json_encode(['id' => 'Berita & Info', 'en' => 'News & Info']),
                 'position' => 6,
             ],
             [
@@ -52,12 +52,12 @@ class SeederNavigationConfig extends Seeder
             ],
             [
                 'identity' => 'Career',
-                'name' => json_encode(['id' => 'Career', 'en' => 'Career']),
+                'name' => json_encode(['id' => 'Karier', 'en' => 'Career']),
                 'position' => 8,
             ],
             [
                 'identity' => 'Contact Us',
-                'name' => json_encode(['id' => 'Contact Us', 'en' => 'Contact Us']),
+                'name' => json_encode(['id' => 'Hubungin Kami', 'en' => 'Contact Us']),
                 'position' => 9,
             ],
         ];

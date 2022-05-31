@@ -13,7 +13,7 @@ class PublicConfigController extends Controller
     {
         $file = $this->getFileDir;
         $arrConf = [
-            'web'=>['name' => null],
+            'web'=>['name' => 'BIMA SAKTI BAHARI'],
             'navigasi'=>[],
             'email'=>'<p>info.bsb@arseri.co.id</p>',
             'phone'=>'<p>021 83796375</p>',

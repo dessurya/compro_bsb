@@ -14,8 +14,8 @@ class PageConfigInvestorController extends Controller
         $file = $this->getFileDir;
         $arrConf = [
             'title' => [
-                'id' => 'investor',
-                'en' => 'investor',
+                'id' => 'Investor',
+                'en' => 'Investor',
             ],
             'description' => [
                 'id' => null,

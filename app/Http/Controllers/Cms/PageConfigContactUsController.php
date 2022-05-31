@@ -15,7 +15,7 @@ class PageConfigContactUsController extends Controller
         $arrConf = [
             'location' => [
                 'title' => [
-                    'id' => 'OUR LOCATION',
+                    'id' => 'LOKASI KAMI',
                     'en' => 'OUR LOCATION',
                 ],
                 'content' => [
