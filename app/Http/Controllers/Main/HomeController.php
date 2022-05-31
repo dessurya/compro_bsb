@@ -58,12 +58,11 @@ class HomeController extends Controller
         
         $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->limit($config['banner']['max_item'])->get();
         $quotes = $config['quotes']['line'][$lang];
-        $quotes_img = [
-            ['title' => 'img 1', 'img'=>url($config['quotes']['imgs_1'])],
-            ['title' => 'img 2', 'img'=>url($config['quotes']['imgs_2'])],
-            ['title' => 'img 3', 'img'=>url($config['quotes']['imgs_3'])],
-            ['title' => 'img 4', 'img'=>url($config['quotes']['imgs_4'])],
-        ];
+        $quotes_img = [];
+        if ($config['quotes']['imgs_1'] != null) { $quotes_img[] = ['title' => 'img 1', 'img'=>url($config['quotes']['imgs_1'])]; }
+        if ($config['quotes']['imgs_2'] != null) { $quotes_img[] = ['title' => 'img 2', 'img'=>url($config['quotes']['imgs_2'])]; }
+        if ($config['quotes']['imgs_3'] != null) { $quotes_img[] = ['title' => 'img 3', 'img'=>url($config['quotes']['imgs_3'])]; }
+        if ($config['quotes']['imgs_4'] != null) { $quotes_img[] = ['title' => 'img 4', 'img'=>url($config['quotes']['imgs_4'])]; }
         $product = Product::where([
             'flag_publish'=>'Y',
             'language'=>$lang
