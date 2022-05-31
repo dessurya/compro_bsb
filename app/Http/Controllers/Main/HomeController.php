@@ -99,9 +99,9 @@ class HomeController extends Controller
         return Redirect::back();
     }
 
-    public static function getWebName(HomeController $selfClass)
+    public static function getWebName()
     {
-        $config = $selfClass->getConfigJSON($selfClass->dirPublicConfig);
+        $config = self::getConfigJSON(self::dirPublicConfig);
         return $config['web']['name'];
     }
 
@@ -143,7 +143,7 @@ class HomeController extends Controller
         echo view('main._struct.header', compact('menu','icon','lang'))->render();
     }
 
-    public static function getFooter(HomeController $selfClass)
+    public static function getFooter()
     {
         $arr = [];
         $crYear = '2022';
@@ -154,7 +154,7 @@ class HomeController extends Controller
             url('pict_content_asset/_default/ig-dark.png'),
         ];
         $arr['find'] = $find;
-        $config = $selfClass->getConfigJSON($selfClass->dirPublicConfig);
+        $config = self::getConfigJSON(self::dirPublicConfig);
         $arr['address'] = $config['address'];
         $arr['email'] = $config['email'];
         $arr['phone'] = $config['phone'];
