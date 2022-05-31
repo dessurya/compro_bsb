@@ -19,7 +19,7 @@ Use Redirect;
 
 class HomeController extends Controller
 {
-    protected $dirPublicConfig = 'config_json/public.json';
+    protected static $dirPublicConfig = 'config_json/public.json';
     protected $dirHomeConfig = 'config_json/home.json';
 
     private function getConfigJSON($dirFile)
