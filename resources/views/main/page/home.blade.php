@@ -350,7 +350,7 @@
                     <div class="d-flex flex-row flex-wrap justify-content-center">
                         @foreach($quotes_img as $data)
                             @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
-                            <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>
+                            @if($data['img'] != null) <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>@endif
                             @if($loop->iteration % 2 == 0) </div> @endif
                         @endforeach
                     </div>
