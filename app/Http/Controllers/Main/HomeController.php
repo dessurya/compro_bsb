@@ -13,23 +13,56 @@ use App\Models\Product;
 use App\Models\Sustainability;
 use App\Models\NewsInfo;
 
+use App\Models\NavigationConfig;
+
 Use Redirect;
 
 class HomeController extends Controller
 {
+    protected $dirPublicConfig = 'config_json/public.json';
+    protected $dirHomeConfig = 'config_json/home.json';
+
+    private function getConfigJSON($dirFile)
+    {
+        if (file_exists($file)){ return json_decode(file_get_contents($dirFile),true); }
+        else { return false; }
+    }
+    
     public function index()
     {
+        $config = $this->getConfigJSON($this->dirHomeConfig);
+        if ($config == false) {
+            return response()->json([
+                'response' => true,
+                'msg' => 'This underconstruction'
+            ]);
+        }
         $lang = App::getLocale();
-
-        $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->get();
+        $pageConfig = [];
+        $arrConfig = NavigationConfig::whereIn('identity',['Home','Our Product','Sustainability','Our Client','News & Info'])->get();
+        foreach ($arrConfig as $key => $value) {
+            $label = json_decode($value->name,true);
+            $pageConfig[$value->identity] = $label[$lang];
+            if ($value->identity == 'Home') {
+                $meta_title = json_decode($value->meta_title,true);
+                $meta_description = json_decode($value->meta_description,true);
+                $meta_keywords = json_decode($value->meta_keywords,true);
+                $meta = [
+                    'author' => $value->meta_author,
+                    'title' => $meta_title[$lang],
+                    'description' => $meta_description[$lang],
+                    'keywords' => $meta_keywords[$lang],
+                ];
+            }
+        }
+        
+        $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->limit($config['banner']['max_item'])->get();
+        $quotes = $config['quotes']['line'][$lang];
         $quotes_img = [
-            // ['title' => 'title 1', 'img'=>url('pict_content_asset/_default/img (3).jpg')],
-            // ['title' => 'title 2', 'img'=>url('pict_content_asset/_default/img (4).jpg')],
-            // ['title' => 'title 3', 'img'=>url('pict_content_asset/_default/img (1).jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_1.jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_2.jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/gambar 3.jpg')],
-            ['title' => 'title 4', 'img'=>url('pict_content_asset/_default/home_3.jpg')],
+            ['title' => 'img 1', 'img'=>url($config['quotes']['imgs_1'])],
+            ['title' => 'img 2', 'img'=>url($config['quotes']['imgs_2'])],
+            ['title' => 'img 3', 'img'=>url($config['quotes']['imgs_3'])],
+            ['title' => 'img 4', 'img'=>url($config['quotes']['imgs_4'])],
         ];
         $product = Product::where([
             'flag_publish'=>'Y',
@@ -44,7 +77,7 @@ class HomeController extends Controller
         $news = NewsInfo::where([
             'flag_publish' => 'Y',
             'language' => $lang
-        ])->orderBy('publish_date','desc')->limit(5)->get();
+        ])->orderBy('publish_date','desc')->limit($config['news_info']['max_item'])->get();
 
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
@@ -54,7 +87,8 @@ class HomeController extends Controller
             url('vendors\owlcarousel\owl.carousel.js'),
         ];
         return view('main.page.home', compact(
-            'banner','product','sustainability','css','js','quotes_img','news'
+            'banner','product','sustainability','css','js','quotes_img','quotes','news','pageConfig',
+            'meta'
         ));
     }
 
@@ -68,7 +102,8 @@ class HomeController extends Controller
 
     public static function getWebName()
     {
-        return 'Trial';
+        $config = $this->getConfigJSON($this->dirPublicConfig);
+        return $config['web']['name'];
     }
 
     public static function getWebIcon()
@@ -87,16 +122,25 @@ class HomeController extends Controller
     {
         $lang = App::currentLocale();
         $icon = url('pict_content_asset/_default/logo.png');
-        $menu = [
-            [ 'label' => 'About Us', 'route' => route('main.about-us') ],
-            [ 'label' => 'Our Product', 'route' => route('main.our-product') ],
-            [ 'label' => 'Sustainability', 'route' => route('main.sustainability') ],
-            [ 'label' => 'Our Client', 'route' => route('main.our-client') ],
-            [ 'label' => 'News & Info', 'route' => route('main.news-info') ],
-            [ 'label' => 'Investor', 'route' => route('main.investor') ],
-            [ 'label' => 'Career', 'route' => '#' ],
-            [ 'label' => 'Contact Us', 'route' => route('main.contact') ],
+        $route = [
+            'Our Product' => route('main.about-us') ,
+            'Our Product' => route('main.our-product') ,
+            'Sustainability' => route('main.sustainability') ,
+            'Our Client' => route('main.our-client') ,
+            'News & Info' => route('main.news-info') ,
+            'Investor' => route('main.investor') ,
+            'Career' => '#' ,
+            'Contact Us' => route('main.contact') ,
         ];
+        $nav = NavigationConfig::where('flag_show','Y')->orderBy('position','asc')->get();
+        $menu = [];
+        foreach ($nav as $key => $value) {
+            if ($nav->identity != 'Home') {
+                $label = json_decode($value->name,true);
+                $menu[] = [ 'label' => $label[$lang], 'route' => $route[$nav->identity] ];
+            }
+        }
+        
         echo view('main._struct.header', compact('menu','icon','lang'))->render();
     }
 
@@ -111,6 +155,10 @@ class HomeController extends Controller
             url('pict_content_asset/_default/ig-dark.png'),
         ];
         $arr['find'] = $find;
+        $config = $this->getConfigJSON($this->dirPublicConfig);
+        $arr['address'] = $config['address'];
+        $arr['email'] = $config['email'];
+        $arr['phone'] = $config['phone'];
         echo view('main._struct.footer', compact('arr'))->render();
     }
 

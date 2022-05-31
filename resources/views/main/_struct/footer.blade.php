@@ -8,24 +8,21 @@
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid"><i class="fas fa-phone" aria-hidden="true"></i></div>
                             <div class="dis-tab-cell valg-mid">
-                                <p>021 83796375</p>
-                                <p>021 83796375</p>
+                                {!! $arr['email'] !!}
                             </div>
                         </div>
                         <div class="m-2"></div>
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                             <div class="dis-tab-cell valg-mid">
-                                <p>info.bsb@arseri.co.id</p>
+                                {!! $arr['phone'] !!}
                             </div>
                         </div>
                         <div class="m-2"></div>
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                             <div class="dis-tab-cell valg-mid">
-                                <p>Perkantoran Crown Place Block B 02-03</p>
-                                <p>Jl. Prof. Dr Soepomo no 231</p>
-                                <p>Jakarta 12870 - Indonesia</p>
+                                {!! $arr['address'] !!}
                             </div>
                         </div>
                     </div>

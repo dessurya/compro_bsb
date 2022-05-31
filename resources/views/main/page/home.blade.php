@@ -1,10 +1,10 @@
 @extends('main._struct.base')
 
 @push('meta')
-<meta name="author" content="">
-<meta name="title" content="Bima Sakti Bahari">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="author" content="{{ $meta['author'] }}">
+<meta name="title" content="{{ $meta['title'] }}">
+<meta name="description" content="{{ $meta['description'] }}">
+<meta name="keywords" content="{{ $meta['keywords'] }}">
 @endpush
 
 @push('link')
@@ -361,11 +361,11 @@
                             <div class="dis-tab-cell valg-mid">
                                 <div class="d-flex">
                                     <div id="frase-0" class="p-0"><img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-"></div>
-                                    <div id="frase-1" class="mt-auto"><p>Kami tidak hanya mengejar keuntungan</p></div>
+                                    <div id="frase-1" class="mt-auto"><p>{{ $quotes[1] }}</p></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-10 col-12">
-                                        <p id="frase-2">Tetapi reputasi yang layak dibanggakan bangsa dan negara</p>
+                                        <p id="frase-2">{{ $quotes[2] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -377,7 +377,7 @@
     </div>
     
     <div id="product" class="section text-center">
-        <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle('OUR PRODUCT') !!}</h1>
+        <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Product']) !!}</h1>
         <div class="container-fluid">
             <div class="row">
                 @foreach($product as $data)
@@ -397,7 +397,7 @@
 
 <div id="sustainability" class="section">
     <img id="img" src="{{ url('pict_content_asset/_default/lengkung 3.png') }}">
-    <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle('SUSTAINABILITY') !!}</h1>
+    <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Sustainability']) !!}</h1>
     <div id="content" class="container">
         <div class="row">
             @foreach($sustainability as $data)
@@ -413,7 +413,7 @@
 </div>
 
 <div id="client" class="section fullWidth text-center" style="background-image: url('{{ url('pict_content_asset/_default/gambar 5.jpg') }}');">
-    <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle('OUR CLIENT') !!}</h1>
+    <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1>
     <div class="container">
         <img src="{{ url('pict_content_asset/_default/peta pin.png') }}" alt="">
     </div>
@@ -424,7 +424,7 @@
         <div class="row p-3">
             <div class="col-md"></div>
             <div class="col-md col-12">
-                <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle('NEWS & INFO') !!}</h1>
+                <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['News & Info']) !!}</h1>
             </div>
         </div>
         <div id="owl" class="owl-carousel owl-theme p-3">
