@@ -1,10 +1,10 @@
 @extends('main._struct.base')
 
 @push('meta')
-<meta name="author" content="">
-<meta name="title" content="Bima Sakti Bahari - {{ $NewsInfo->title }}">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="author" content="{{ $meta['author'] }}">
+<meta name="title" content="{{ $meta['title'] }}">
+<meta name="description" content="{{ $meta['description'] }}">
+<meta name="keywords" content="{{ $meta['keywords'] }}">
 @endpush
 
 @push('link')
