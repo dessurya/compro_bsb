@@ -20,7 +20,7 @@ class AboutUsController extends Controller
 
     public function index()
     {
-        $config = $this->getConfigJSON($this->dirHomeConfig);
+        $config = $this->getConfigJSON($this->dirConfig);
         if ($config == false) {
             return response()->json([
                 'response' => true,
