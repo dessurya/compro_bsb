@@ -134,9 +134,9 @@ class HomeController extends Controller
         $nav = NavigationConfig::where('flag_show','Y')->orderBy('position','asc')->get();
         $menu = [];
         foreach ($nav as $key => $value) {
-            if ($nav->identity != 'Home') {
+            if ($value->identity != 'Home') {
                 $label = json_decode($value->name,true);
-                $menu[] = [ 'label' => $label[$lang], 'route' => $route[$nav->identity] ];
+                $menu[] = [ 'label' => $label[$lang], 'route' => $route[$value->identity] ];
             }
         }
         
