@@ -20,7 +20,7 @@
         color: rgb(19 169 229) !important;
     }
     nav#header a:hover{
-        color: white !important;
+        color: #008a3c !important;
     }
     .title-section{
         color: rgb(19 169 229);
@@ -77,7 +77,8 @@
         box-shadow: 0px 0px 10px grey;
     }
     #hvm img{
-        width:60%;
+        width:90%;
+        margin-top: 0.8rem;
     }
 
     .round-poin{
@@ -136,6 +137,10 @@
         }
         #hvm {
             overflow-x: hidden;
+        }
+        #hvm img{
+            width:100%;
+            margin-top: unset;
         }
     }
 </style>

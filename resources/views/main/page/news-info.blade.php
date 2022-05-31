@@ -20,7 +20,7 @@
         color: rgb(19 169 229) !important;
     }
     nav#header a:hover{
-        color: white !important;
+        color: #008a3c !important;
     }
     .title-section{
         color: rgb(19 169 229);
