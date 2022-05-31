@@ -1,10 +1,10 @@
 @extends('main._struct.base')
 
 @push('meta')
-<meta name="author" content="">
-<meta name="title" content="Bima Sakti Bahari - {{ $title_page }}">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="author" content="{{ $meta['author'] }}">
+<meta name="title" content="{{ $meta['title'] }}">
+<meta name="description" content="{{ $meta['description'] }}">
+<meta name="keywords" content="{{ $meta['keywords'] }}">
 @endpush
 
 @push('link')
@@ -75,6 +75,9 @@
         border-radius: 100%;
         background-color: rgb(229,240,234);
         box-shadow: 0px 0px 10px grey;
+    }
+    #hvm img{
+        width:60%;
     }
 
     .round-poin{
@@ -147,14 +150,14 @@
     <div class="section">
         <div id="conten" class="container">
             <div class="row">
-                <div class="col-md-6"></div>
+                <div class="col-md-6"><img src="{{ url($history_img) }}" alt=""></div>
                 <div class="col-md-6">
                     <div id="history">
-                        <h2 class="title-section"><span>HI</span>STORY</h2>
+                        <h2 class="title-section"><span>{{$title_page['intruduction']['bold']}}</span>{{$title_page['intruduction']['light']}}</h2>
                         {!! $history !!}
                     </div>
                     <div id="visi">
-                        <h2 class="title-section mb-4"><span>VISI</span></h2>
+                        <h2 class="title-section mb-4"><span>{{$title_page['visi']}}</span></h2>
                         {!! $visi !!}
                     </div>
                 </div>
@@ -162,7 +165,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="misi">
-                        <h2 class="title-section mb-4"><span>MISI</span></h2>
+                        <h2 class="title-section mb-4"><span>{{$title_page['misi']}}</span></h2>
                         <div class="row">
                         @foreach($misi as $row)
                         <div class="col-md-6 poin">
@@ -178,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <h2 id="mom_title" class="title-section text-center"><span>MEET</span> OUR MANAGEMENT</h2>
+            <h2 id="mom_title" class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle('MEET OUR MANAGEMENT') !!}</h2>
         </div>
     </div>
 </div>
