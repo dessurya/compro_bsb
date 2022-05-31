@@ -122,7 +122,7 @@ class HomeController extends Controller
         $lang = App::currentLocale();
         $icon = url('pict_content_asset/_default/logo.png');
         $route = [
-            'Our Product' => route('main.about-us') ,
+            'About Us' => route('main.about-us') ,
             'Our Product' => route('main.our-product') ,
             'Sustainability' => route('main.sustainability') ,
             'Our Client' => route('main.our-client') ,
