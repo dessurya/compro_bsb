@@ -55,7 +55,6 @@ class HomeController extends Controller
                 ];
             }
         }
-        
         $banner = Banner::where('flag_publish','Y')->orderBy('queues','ASC')->limit($config['banner']['max_item'])->get();
         $quotes = $config['quotes']['line'][$lang];
         $quotes_img = [];
@@ -63,6 +62,9 @@ class HomeController extends Controller
         if ($config['quotes']['imgs_2'] != null) { $quotes_img[] = ['title' => 'img 2', 'img'=>url($config['quotes']['imgs_2'])]; }
         if ($config['quotes']['imgs_3'] != null) { $quotes_img[] = ['title' => 'img 3', 'img'=>url($config['quotes']['imgs_3'])]; }
         if ($config['quotes']['imgs_4'] != null) { $quotes_img[] = ['title' => 'img 4', 'img'=>url($config['quotes']['imgs_4'])]; }
+
+        $our_client = $config['our_client'];
+
         $product = Product::where([
             'flag_publish'=>'Y',
             'language'=>$lang
@@ -87,7 +89,7 @@ class HomeController extends Controller
         ];
         return view('main.page.home', compact(
             'banner','product','sustainability','css','js','quotes_img','quotes','news','pageConfig',
-            'meta'
+            'meta', 'our_client'
         ));
     }
 

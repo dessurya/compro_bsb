@@ -412,10 +412,10 @@
     </div>
 </div>
 
-<div id="client" class="section fullWidth text-center" style="background-image: url('{{ url('pict_content_asset/_default/gambar 5.jpg') }}');">
+<div id="client" class="section fullWidth text-center" style="background-image: url('{{ url($our_client['background']) }}');">
     <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1>
     <div class="container">
-        <img src="{{ url('pict_content_asset/_default/peta pin.png') }}" alt="">
+        <img src="{{ url($our_client['img']) }}" alt="">
     </div>
 </div>
 
