@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     private function getConfigJSON($dirFile)
     {
-        if (file_exists($file)){ return json_decode(file_get_contents($dirFile),true); }
+        if (file_exists($dirFile)){ return json_decode(file_get_contents($dirFile),true); }
         else { return false; }
     }
     
