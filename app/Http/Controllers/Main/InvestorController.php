@@ -52,6 +52,6 @@ class InvestorController extends Controller
         ];
         $js = [
         ];
-        return view('main.page.investor', compact('lang','css','js','title_page','banner','investor'));
+        return view('main.page.investor', compact('lang','css','js','title_page','banner','investor','meta'));
     }
 }
