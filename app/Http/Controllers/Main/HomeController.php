@@ -101,7 +101,7 @@ class HomeController extends Controller
 
     public static function getWebName()
     {
-        $config = self::getConfigJSON(self::dirPublicConfig);
+        $config = self::getConfigJSON(self::$dirPublicConfig);
         return $config['web']['name'];
     }
 
@@ -154,7 +154,7 @@ class HomeController extends Controller
             url('pict_content_asset/_default/ig-dark.png'),
         ];
         $arr['find'] = $find;
-        $config = self::getConfigJSON(self::dirPublicConfig);
+        $config = self::getConfigJSON(self::$dirPublicConfig);
         $arr['address'] = $config['address'];
         $arr['email'] = $config['email'];
         $arr['phone'] = $config['phone'];
