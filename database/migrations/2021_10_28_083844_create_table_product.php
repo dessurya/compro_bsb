@@ -18,7 +18,7 @@ class CreateTableProduct extends Migration
             $table->string('title',175)->unique();
             $table->string('language',3)->default('en');
             $table->integer('position')->default(1);
-            $table->string('content_shoert',175)->nullable();
+            $table->string('content_shoert',250)->nullable();
             $table->text('content')->nullable();
             $table->string('img_thumnail',250)->nullable();
             $table->string('img_banner',250)->nullable();
