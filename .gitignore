@@ -17,3 +17,4 @@ Homestead.json
 /.vagrant
 
 public/config_json/*
+public/config_img/*
