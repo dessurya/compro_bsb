@@ -20,7 +20,7 @@ class CreateTableInformation extends Migration
             $table->string('content',250);
             $table->string('img',250)->nullable();
             $table->string('flag_publish',1)->default('N');
-            $table->string('created_by',175);
+            $table->string('created_by',175)->nullable();
             $table->timestamps();
         });
     }

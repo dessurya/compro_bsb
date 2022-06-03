@@ -28,7 +28,7 @@ class CreateTableNewsInfo extends Migration
             $table->string('flag_img_banner',1)->default('N');
             $table->string('flag_img_thumbnail',1)->default('N');
             $table->string('flag_publish',1)->default('N');
-            $table->string('created_by',175);
+            $table->string('created_by',175)->nullable();
             $table->timestamps();
         });
     }
