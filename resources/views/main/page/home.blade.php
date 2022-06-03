@@ -378,7 +378,7 @@
     
     <div id="product" class="section text-center">
         <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Product']) !!}</h1>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 @foreach($product as $data)
                 <div class="col">
