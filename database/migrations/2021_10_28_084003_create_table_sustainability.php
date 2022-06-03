@@ -18,7 +18,7 @@ class CreateTableSustainability extends Migration
             $table->string('title',175)->unique();
             $table->string('language',3)->default('en');
             $table->integer('position')->default(1);
-            $table->string('content_shoert',175)->nullable();
+            $table->string('content_shoert',250)->nullable();
             $table->string('img_thumnail',250)->nullable();
             $table->string('flag_publish',1)->default('N');
             $table->string('created_by',175)->nullable();
