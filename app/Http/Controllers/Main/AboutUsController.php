@@ -54,6 +54,7 @@ class AboutUsController extends Controller
             'misi' => $title_misi[$lang],
         ];
 
+        $management_title = $config['management'][$lang]['title'];
         $management = [];
         $getManagement = Management::where('flag_publish','Y')->orderBy('queues','ASC')->get();
         foreach ($getManagement as $idx => $data) {
@@ -75,6 +76,6 @@ class AboutUsController extends Controller
         $js = [
         ];
 
-        return view('main.page.about-us', compact('history','visi','misi','management','lang','css','js','title_page','meta','history_img'));
+        return view('main.page.about-us', compact('history','visi','misi','management','management_title','lang','css','js','title_page','meta','history_img'));
     }
 }

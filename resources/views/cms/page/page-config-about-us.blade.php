@@ -97,6 +97,16 @@ About Us Page Config
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="management_id_title">Management Title Indonesia</label>
+                                    <input type="text" class="form-control" id="management_id_title" name="management_id_title" value="{{ $arrConf['management']['id']['title'] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="management_en_title">Management Title English</label>
+                                    <input type="text" class="form-control" id="management_en_title" name="management_en_title" value="{{ $arrConf['management']['en']['title'] }}" required>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -153,6 +163,8 @@ About Us Page Config
         param.type = 'string'
         param.visi_id = $('[name=visi_id]').val()
         param.visi_en = $('[name=visi_en]').val()
+        param.management_id_title = $('[name=management_id_title]').val()
+        param.management_en_title = $('[name=management_en_title]').val()
         param.intruduction_id_title = $('[name=intruduction_id_title]').val()
         param.intruduction_en_title = $('[name=intruduction_en_title]').val()
         param.intruduction_id_content = $('[name=intruduction_id_content]').summernote('code')

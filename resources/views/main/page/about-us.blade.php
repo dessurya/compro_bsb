@@ -186,7 +186,7 @@
                     </div>
                 </div>
             </div>
-            <h2 id="mom_title" class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle('MEET OUR MANAGEMENT') !!}</h2>
+            <h2 id="mom_title" class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($management_title) !!}</h2>
         </div>
     </div>
 </div>

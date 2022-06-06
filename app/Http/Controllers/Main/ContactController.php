@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NavigationConfig;
+use App\Models\Inbox;
 
 class ContactController extends Controller
 {
@@ -61,6 +62,20 @@ class ContactController extends Controller
 
     public function store(Request $httpRequest)
     {
-        return $httpRequest->input();
+        $cek = Inbox::where('email',$httpRequest->email)->whereDate('created_at','now()')->count();
+        return $cek;
+        if ($cek > 5) {
+            $msg = json_encode(['res' => false, 'class' => 'danger', 'msg'=>'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan']);
+        }else{
+            Inbox::create([
+                'name' => $httpRequest->name,
+                'email' => $httpRequest->email,
+                'subject' => $httpRequest->subject,
+                'phone' => $httpRequest->phone,
+                'message' => $httpRequest->message,
+            ]);
+            $msg = json_encode(['res' => true, 'class' => 'success', 'msg'=>'Berhasil terkirim']);
+        }
+        return redirect()->back()->with('msg', 'your message,here');
     }
 }

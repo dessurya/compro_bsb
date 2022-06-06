@@ -42,6 +42,14 @@ class PageConfigAboutUsController extends Controller
                     40 => "Run a sustainable business model about the environmental conditions and the welfare of the company's human resources.",
                 ]
             ],
+            'management' => [
+                'id' => [
+                    'title' => 'TEMUI MANAJEMEN KAMI',
+                ],
+                'en' => [
+                    'title' => 'MEET OUR MANAGEMENT',
+                ],
+            ],
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
         else{file_put_contents($file, json_encode($arrConf));}
@@ -65,6 +73,8 @@ class PageConfigAboutUsController extends Controller
 
     private function storeString($arrConf,$input)
     {
+        $arrConf['management']['id']['title'] = $input['management_id_title'];
+        $arrConf['management']['en']['title'] = $input['management_en_title'];
         $arrConf['intruduction']['id']['title'] = $input['intruduction_id_title'];
         $arrConf['intruduction']['id']['content'] = $input['intruduction_id_content'];
         $arrConf['intruduction']['en']['title'] = $input['intruduction_en_title'];
