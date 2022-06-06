@@ -65,7 +65,7 @@ class ContactController extends Controller
         $cek = Inbox::where('email',$httpRequest->email)->whereDate('created_at','now()')->count();
         return $cek;
         if ($cek > 5) {
-            $msg = json_encode(['res' => false, 'class' => 'danger', 'msg'=>'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan']);
+            Session::flash('message', 'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan');
         }else{
             Inbox::create([
                 'name' => $httpRequest->name,
@@ -74,8 +74,8 @@ class ContactController extends Controller
                 'phone' => $httpRequest->phone,
                 'message' => $httpRequest->message,
             ]);
-            $msg = json_encode(['res' => true, 'class' => 'success', 'msg'=>'Berhasil terkirim']);
+            Session::flash('message', 'Berhasil terkirim'); 
         }
-        return redirect()->back()->with('msg', 'your message,here');
+        return redirect()->back();
     }
 }

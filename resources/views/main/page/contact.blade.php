@@ -104,6 +104,9 @@
                         <textarea max="450" class="mb-5 form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
                         <div class="text-center">
                             <button type="submit" class="mt-3 btn btn-cstm-one">SUBMIT</button>
+                            @if(Session::has('message'))
+                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                            @endif
                         </div>
                     </form>
                 </div>
