@@ -65,9 +65,7 @@ class ContactController extends Controller
     public function store(Request $httpRequest)
     {
         $cek = Inbox::where('email',$httpRequest->email)->whereDate('created_at',now())->count();
-        if ($cek > 5) {
-            Session::flash('message', 'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan');
-        }else{
+        if ($cek <= 5) {
             Inbox::create([
                 'name' => $httpRequest->name,
                 'email' => $httpRequest->email,
@@ -77,6 +75,8 @@ class ContactController extends Controller
             ]);
             $cek++;
             Session::flash('message', 'Berhasil terkirim! Hari ini anda sudah mengirimkan '.$cek.' pesan'); 
+        }else{
+            Session::flash('message', 'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan');
         }
         return redirect()->back();
     }
