@@ -96,6 +96,9 @@
                 <div class="msg">
                     <form action="{{ route('main.contact.store') }}" method="post">
                         <h1 class="title-section mb-5 text-left">{!! App\Http\Controllers\Main\HomeController::buildTitle('Message') !!}</h1>
+                        @if(Session::has('message'))
+                            <p class="alert alert-info mt-5 mb-5">{{ Session::get('message') }}</p>
+                            @endif
                         @csrf
                         <input max="150" type="text" class="mb-3 form-control" id="name" name="name" placeholder="Name" required>
                         <input max="25" type="text" class="mb-3 form-control" id="phone" name="phone" placeholder="Handphone" required>
@@ -104,9 +107,6 @@
                         <textarea max="450" class="mb-5 form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
                         <div class="text-center">
                             <button type="submit" class="mt-3 btn btn-cstm-one">SUBMIT</button>
-                            @if(Session::has('message'))
-                            <p class="alert alert-info">{{ Session::get('message') }}</p>
-                            @endif
                         </div>
                     </form>
                 </div>
