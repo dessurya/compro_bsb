@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NavigationConfig;
+use App\Models\Investor;
 
 class InvestorController extends Controller
 {
@@ -41,13 +42,8 @@ class InvestorController extends Controller
         $title_page = $config['title'][$lang];
         $banner = url($config['banner']['img']);
 
-        $investor = [
-            [
-                'name' => 'PT. BIMA SAKTI BAHARI',
-                'content' => '<p>Perkantoran Crown Place Block B 02-03</p><p>Jl. Prof. Dr Soepomo no 231</p><p>Jakarta 12870 - Indonesia</p>',
-                'img' => url('pict_content_asset/_default/home_1.jpg')
-            ]
-        ];
+        $content = 'content_'.$lang.' AS content';
+        $investor = Investor::select('name','img',$content)->where('flag_publish','Y')->orderBy('id','asc')->paginate(15);
         $css = [
         ];
         $js = [

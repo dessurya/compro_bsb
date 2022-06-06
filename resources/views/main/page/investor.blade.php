@@ -84,19 +84,19 @@
             <div class="row mb-5">
                 @if($loop->iteration % 2 == 0)
                 <div class="col text-center">
-                    <img src="{{ $row['img'] }}" alt="{{ $row['name'] }}">
+                    <img src="{{ $row->img }}" alt="{{ $row->name }}">
                 </div>
                 <div class="col">
-                    <h3 class="title-section">{{ $row['name'] }}</h3>
-                    {!! $row['content'] !!}
+                    <h3 class="title-section">{{ $row->name }}</h3>
+                    {!! $row->content !!}
                 </div>
                 @else
                 <div class="col">
-                    <h3 class="title-section">{{ $row['name'] }}</h3>
-                    {!! $row['content'] !!}
+                    <h3 class="title-section">{{ $row->name }}</h3>
+                    {!! $row->content !!}
                 </div>
                 <div class="col text-center">
-                    <img src="{{ $row['img'] }}" alt="{{ $row['name'] }}">
+                    <img src="{{ $row->img }}" alt="{{ $row->name }}">
                 </div>
                 @endif
             </div>

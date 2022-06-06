@@ -146,6 +146,18 @@ Route::middleware('auth')->group(function(){
     });
     // management
 
+    // management
+    Route::name('investor')->prefix('investor')->group(function(){
+        Route::get('/', 'InvestorController@index');
+        Route::post('/list', 'InvestorController@list')->name('.list');
+        Route::post('/open', 'InvestorController@open')->name('.open');
+        Route::post('/store', 'InvestorController@store')->name('.store');
+        Route::post('/store-img', 'InvestorController@storeImg')->name('.store-img');
+        Route::post('/store-flag-publish', 'InvestorController@storeFlagPublish')->name('.store-flag-publish');
+        Route::post('/delete', 'InvestorController@delete')->name('.delete');
+    });
+    // management
+
     // Product
     Route::name('product')->prefix('product')->group(function(){
         Route::get('/', 'ProductController@index');
