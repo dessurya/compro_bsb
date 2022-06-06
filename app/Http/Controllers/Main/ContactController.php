@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\NavigationConfig;
 use App\Models\Inbox;
 
+use Session;
+
 class ContactController extends Controller
 {
     protected $dirConfig = 'config_json/contact.json';
