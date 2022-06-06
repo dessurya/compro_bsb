@@ -155,7 +155,7 @@
     <div class="section">
         <div id="conten" class="container">
             <div class="row">
-                <div class="col-md-6"><img src="{{ url($history_img) }}" alt=""></div>
+                <div class="col-md-6">@if(!empty($history_img))<img src="{{ url($history_img) }}" alt="">@endif</div>
                 <div class="col-md-6">
                     <div id="history">
                         <h2 class="title-section"><span>{{$title_page['intruduction']['bold']}}</span>{{$title_page['intruduction']['light']}}</h2>
