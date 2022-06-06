@@ -64,7 +64,7 @@ class ContactController extends Controller
 
     public function store(Request $httpRequest)
     {
-        $cek = Inbox::where('email',$httpRequest->email)->whereDate('created_at','now()')->count();
+        $cek = Inbox::where('email',$httpRequest->email)->whereDate('created_at',now())->count();
         if ($cek > 5) {
             Session::flash('message', 'Dalam 1 hari untuk sebuah alamat email hanya dapat mengirim 5 pesan');
         }else{
