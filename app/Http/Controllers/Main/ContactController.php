@@ -73,7 +73,8 @@ class ContactController extends Controller
                 'phone' => $httpRequest->phone,
                 'message' => $httpRequest->message,
             ]);
-            Session::flash('message', 'Berhasil terkirim'); 
+            $cek++;
+            Session::flash('message', 'Berhasil terkirim! Hari ini anda sudah mengirimkan '.$cek.' pesan'); 
         }
         return redirect()->back();
     }
