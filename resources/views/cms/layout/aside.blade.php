@@ -68,7 +68,7 @@
 						</li>
 						<li class="nav-item">
 							<a href="{{ route('cms.page-config.investor') }}" class="nav-link {{ Route::is('cms.page-config.investor') ? 'active' : '' }} ">
-								<i class="far fa-circle nav-icon"></i><p>investor</p>
+								<i class="far fa-circle nav-icon"></i><p>Investor</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -108,6 +108,11 @@
 						<p>News & Info</p>
 					</a>
 				</li>
+				<li class="nav-item">
+    				<a href="{{ route('cms.investor') }}" class="nav-link {{ Route::is('cms.investor') ? 'active' : '' }} ">
+    					<p>Investor</p>
+    				</a>
+    			</li>
 				{{--
 				<li class="nav-item">
 					<a href="{{ route('cms.information') }}" class="nav-link {{ Route::is('cms.information') ? 'active' : '' }} ">

@@ -146,7 +146,7 @@ Route::middleware('auth')->group(function(){
     });
     // management
 
-    // management
+    // investor
     Route::name('investor')->prefix('investor')->group(function(){
         Route::get('/', 'InvestorController@index');
         Route::post('/list', 'InvestorController@list')->name('.list');
@@ -156,7 +156,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/store-flag-publish', 'InvestorController@storeFlagPublish')->name('.store-flag-publish');
         Route::post('/delete', 'InvestorController@delete')->name('.delete');
     });
-    // management
+    // investor
 
     // Product
     Route::name('product')->prefix('product')->group(function(){
