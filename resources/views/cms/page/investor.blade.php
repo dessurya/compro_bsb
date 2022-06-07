@@ -18,7 +18,7 @@ Investor
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
-                                <h3>Investor Founder <b></b></h3>
+                                <h3>Investor <b></b></h3>
                             </div>
                         </div>
                         <div class="card-body">
@@ -217,7 +217,7 @@ Investor
 
     openInvstor = async (id) => {
         loadingScreen(true)
-        addManagement(false)
+        addInvestor(false)
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form+' [name=old_data]').val(result.id)
         $(indentity_form+' [name=name]').val(result.name)
