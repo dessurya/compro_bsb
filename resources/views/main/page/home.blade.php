@@ -60,12 +60,7 @@
             margin: 2em auto;
         }
         #banner .icon{
-            cursor: pointer;
-            font-size: 12pt;
-            vertical-align: middle;
-            padding: .5em .8em;
-            border: solid 1px white;
-            border-radius: 100%;
+            width: 40px;
         }
     /* #banner */
 
@@ -328,7 +323,7 @@
                             <div class="vertical-line"></div>
                             @foreach($configMedsos as $img)
                             <a href="{{ $img['url'] }}" target="_blank" rel="noopener noreferrer">
-                                <img src="{{ $img['img_light'] }}" alt="">
+                                <img class="icon" src="{{ $img['img_light'] }}" alt="{{ $img['identity'] }}">
                             </a>
                             @endforeach
                             <div class="vertical-line"></div>
