@@ -206,8 +206,7 @@
         <div class="container">
             <div id="management" class="text-left mb-5">
                 @foreach($management['management'] as $idx => $data)
-                @if($idx > 0)
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col-md-4 text-center">
                         @if($data['img'] != null)
                         <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
@@ -219,7 +218,6 @@
                         <div id="msg">{!! $data['msg'] !!}</div>
                     </div>
                 </div>
-                @endif
                 @endforeach
             </div>
         </div>
