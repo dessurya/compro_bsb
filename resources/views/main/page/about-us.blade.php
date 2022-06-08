@@ -206,7 +206,7 @@
     </div>
 </div>
 <div id="mom" class="fullWidth">
-    <div id="top" class="text-center">
+    <div id="top" class="container text-center">
         <div id="person" class="mb-5">
             @if(count($management['founder']) > 0)
             @if($management['founder'][0]['img'] != null)
