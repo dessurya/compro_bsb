@@ -64,12 +64,12 @@ class AboutUsController extends Controller
             'staff' => $this->buildArrManagement($staff,$lang),
         ];
 
-        // return response()->json([
-        //     'founder' => $founder,
-        //     'head' => $head,
-        //     'staff' => $staff,
-        //     'management' => $management,
-        // ]);
+        return response()->json([
+            'founder' => $founder,
+            'head' => $head,
+            'staff' => $staff,
+            'management' => $management,
+        ]);
         
 
         $css = [
