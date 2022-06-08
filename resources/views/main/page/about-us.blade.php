@@ -125,6 +125,15 @@
             color: rgb(19 169 229);
             font-weight: 600;
         }
+        #mom #staff h3{
+            color: rgb(19 169 229);
+            font-weight: 500;
+        }
+        #mom #staff img{
+            border-radius: 100%;
+            width: 200px;
+            height: 190px;
+        }
     /* mom */
 
     @media (max-width: 568px){
