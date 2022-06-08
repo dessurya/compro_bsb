@@ -326,7 +326,7 @@
                         </div>
                         <div class="col-2 dis-tab-cell valg-mid text-center">
                             <div class="vertical-line"></div>
-                            @foreach($arr['find'] as $img)
+                            @foreach($configMedsos as $img)
                             <a href="{{ $img['url'] }}" target="_blank" rel="noopener noreferrer">
                                 <img src="{{ $img['img_light'] }}" alt="">
                             </a>
