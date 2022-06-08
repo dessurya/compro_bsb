@@ -80,6 +80,9 @@ class HomeController extends Controller
             'language' => $lang
         ])->orderBy('publish_date','desc')->limit($config['news_info']['max_item'])->get();
 
+        $configMedsos = self::getConfigJSON(self::$dirPublicConfig);
+        $configMedsos = $configMedsos['media_social'];
+
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
             url('vendors\owlcarousel\owl.theme.css'),
@@ -88,7 +91,7 @@ class HomeController extends Controller
             url('vendors\owlcarousel\owl.carousel.js'),
         ];
         return view('main.page.home', compact(
-            'banner','product','sustainability','css','js','quotes_img','quotes','news','pageConfig',
+            'banner','product','sustainability','css','js','quotes_img','quotes','news','pageConfig','configMedsos',
             'meta', 'our_client'
         ));
     }
@@ -151,12 +154,8 @@ class HomeController extends Controller
         $crYear = '2022';
         if (date('Y') != 2022) { $crYear .= ' - '.date('Y'); }
         $arr['copyright'] = $crYear;
-        $find = [
-            url('pict_content_asset/_default/fb-dark.png'),
-            url('pict_content_asset/_default/ig-dark.png'),
-        ];
-        $arr['find'] = $find;
         $config = self::getConfigJSON(self::$dirPublicConfig);
+        $arr['find'] = $config['media_social'];
         $arr['address'] = $config['address'];
         $arr['email'] = $config['email'];
         $arr['phone'] = $config['phone'];

@@ -116,12 +116,12 @@
         #mom #person #msg{
             font-size:12pt;
         }
-        #mom #other img{
+        #mom #management img{
             border-radius: 100%;
             width: 240px;
             height: 230px;
         }
-        #mom #other h3{
+        #mom #management h3{
             color: rgb(19 169 229);
             font-weight: 600;
         }
@@ -131,7 +131,7 @@
         #hvm #mom_title{
             font-size:28pt;
         }
-        #mom #other h3,
+        #mom #management h3,
         #mom #person h3, #mom #person h2{
             font-size:18pt;
         }
@@ -193,17 +193,19 @@
 <div id="mom" class="fullWidth">
     <div id="top" class="text-center">
         <div id="person" class="mb-5">
-            @if($management[0]['img'] != null)
-            <img src="{{ $management[0]['img'] }}" alt="{{ $management[0]['name'] }}">
+            @if(count($management['founder']) > 0)
+            @if($management['founder'][0]['img'] != null)
+            <img src="{{ $management['founder'][0]['img'] }}" alt="{{ $management['founder'][0]['name'] }}">
             @endif
-            <h3>{{ $management[0]['name'] }}</h3>
-            <h6>{{ $management[0]['title'] }}</h6>
-            <h2 class="mb-3">{!! $management[0]['quotes'] !!}</h2>
-            <div id="msg">{!! $management[0]['msg'] !!}</div>
+            <h3>{{ $management['founder'][0]['name'] }}</h3>
+            <h6>{{ $management['founder'][0]['title'] }}</h6>
+            <h2 class="mb-3">{!! $management['founder'][0]['quotes'] !!}</h2>
+            <div id="msg">{!! $management['founder'][0]['msg'] !!}</div>
+            @endif
         </div>
         <div class="container">
-            <div id="other" class="text-left mb-5">
-                @foreach($management as $idx => $data)
+            <div id="management" class="text-left mb-5">
+                @foreach($management['management'] as $idx => $data)
                 @if($idx > 0)
                 <div class="row">
                     <div class="col-md-4 text-center">
@@ -219,6 +221,21 @@
                 </div>
                 @endif
                 @endforeach
+            </div>
+        </div>
+        <div class="container">
+            <div id="staff" class="mb-5">
+                <div class="row row-cols-4">
+                    @foreach($management['staff'] as $idx => $data)
+                    <div class="col text-center align-self-center">
+                        @if($data['img'] != null)
+                        <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
+                        @endif
+                        <h4>{{ $data['name'] }}</h4>
+                        <h6>{{ $data['title'] }}</h6>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

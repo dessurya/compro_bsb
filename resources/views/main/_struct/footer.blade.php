@@ -30,7 +30,9 @@
                 <div id="find" class="col-4 text-right">
                     <h3>Find Us</h3>
                     @foreach($arr['find'] as $img)
-                    <img src="{{ $img }}" alt="">
+                    <a href="{{ $img['url'] }}" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ $img['img_dark'] }}" alt="">
+                    </a>
                     @endforeach
                 </div>
             </div>

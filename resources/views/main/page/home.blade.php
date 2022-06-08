@@ -326,9 +326,11 @@
                         </div>
                         <div class="col-2 dis-tab-cell valg-mid text-center">
                             <div class="vertical-line"></div>
-                            <span class="icon"><i class="fab fa-instagram" aria-hidden="true"></i></span>
-                            <br><br>
-                            <span class="icon"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+                            @foreach($arr['find'] as $img)
+                            <a href="{{ $img['url'] }}" target="_blank" rel="noopener noreferrer">
+                                <img src="{{ $img['img_light'] }}" alt="">
+                            </a>
+                            @endforeach
                             <div class="vertical-line"></div>
                         </div>
                     </div>

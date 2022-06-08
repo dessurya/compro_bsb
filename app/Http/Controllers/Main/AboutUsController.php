@@ -55,9 +55,28 @@ class AboutUsController extends Controller
         ];
 
         $management_title = $config['management'][$lang]['title'];
-        $management = [];
-        $getManagement = Management::where('flag_publish','Y')->orderBy('queues','ASC')->get();
-        foreach ($getManagement as $idx => $data) {
+        $founder = Management::where('flag_publish','Y')->whereNotNull('quotes_en')->whereNotNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
+        $management = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
+        $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNull('text_id')->whereNull('text_en')->orderBy('queues','ASC')->get();
+        $management = [
+            'founder' => $this->buildArrManagement($founder),
+            'management' => $this->buildArrManagement($management),
+            'staff' => $this->buildArrManagement($staff),
+        ];
+        
+
+        $css = [
+        ];
+        $js = [
+        ];
+
+        return view('main.page.about-us', compact('history','visi','misi','management','management_title','lang','css','js','title_page','meta','history_img'));
+    }
+
+    private function buildArrManagement($objct)
+    {
+        $res = [];
+        foreach ($objct as $idx => $data) {
             $set = [];
             $set['name'] = $data->name;
             $set['img'] = null;
@@ -68,14 +87,8 @@ class AboutUsController extends Controller
             else { $set['quotes'] = $data->quotes_en; }
             if ($lang == 'id') { $set['msg'] = $data->text_id; }
             else { $set['msg'] = $data->text_en; }
-            $management[] = $set;
+            $res[] = $set;
         }
-
-        $css = [
-        ];
-        $js = [
-        ];
-
-        return view('main.page.about-us', compact('history','visi','misi','management','management_title','lang','css','js','title_page','meta','history_img'));
+        return $res;
     }
 }
