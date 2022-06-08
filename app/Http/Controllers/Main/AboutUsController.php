@@ -56,8 +56,8 @@ class AboutUsController extends Controller
 
         $management_title = $config['management'][$lang]['title'];
         $founder = Management::where('flag_publish','Y')->whereNotNull('quotes_en')->whereNotNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
-        $head = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
-        $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNull('text_id')->whereNull('text_en')->orderBy('queues','ASC')->get();
+        $head = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->where('text_id', '<>', '<p><br></p>')->where('text_en', '<>', '<p><br></p>')->orderBy('queues','ASC')->get();
+        $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->where('text_id','<p><br></p>')->where('text_en','<p><br></p>')->orderBy('queues','ASC')->get();
         $management = [
             'founder' => $this->buildArrManagement($founder,$lang),
             'management' => $this->buildArrManagement($head,$lang),
