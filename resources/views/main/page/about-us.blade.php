@@ -140,6 +140,9 @@
     /* mom */
 
     @media (max-width: 568px){
+        #mom #person{
+            width: 100%;
+        }
         #hvm #mom_title{
             font-size:28pt;
         }
@@ -210,8 +213,8 @@
             <img src="{{ $management['founder'][0]['img'] }}" alt="{{ $management['founder'][0]['name'] }}">
             @endif
             <h3>{{ $management['founder'][0]['name'] }}</h3>
-            <h6>{{ $management['founder'][0]['title'] }}</h6>
-            <h2 class="mb-3">{!! $management['founder'][0]['quotes'] !!}</h2>
+            <h5>{{ $management['founder'][0]['title'] }}</h5>
+            <h2 class="mb-4">{!! $management['founder'][0]['quotes'] !!}</h2>
             <div id="msg">{!! $management['founder'][0]['msg'] !!}</div>
             @endif
         </div>
@@ -227,7 +230,7 @@
                     </div>
                     <div class="col">
                         <h3>{{ $data['name'] }}</h3>
-                        <h6>{{ $data['title'] }}</h6>
+                        <h5>{{ $data['title'] }}</h5>
                         <div id="msg">{!! $data['msg'] !!}</div>
                     </div>
                 </div>
@@ -244,7 +247,7 @@
                         <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
                         @endif
                         <h4>{{ $data['name'] }}</h4>
-                        <h6>{{ $data['title'] }}</h6>
+                        <h5>{{ $data['title'] }}</h5>
                     </div>
                     @endforeach
                 </div>
