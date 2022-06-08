@@ -60,8 +60,7 @@
             margin: 2em auto;
         }
         #banner .icon{
-            width: 50px;
-            display: block;
+            width: 60px;
         }
     /* #banner */
 
