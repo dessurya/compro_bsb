@@ -59,9 +59,9 @@ class AboutUsController extends Controller
         $management = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
         $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNull('text_id')->whereNull('text_en')->orderBy('queues','ASC')->get();
         $management = [
-            'founder' => $this->buildArrManagement($founder),
-            'management' => $this->buildArrManagement($management),
-            'staff' => $this->buildArrManagement($staff),
+            'founder' => $this->buildArrManagement($founder,$lang),
+            'management' => $this->buildArrManagement($management,$lang),
+            'staff' => $this->buildArrManagement($staff,$lang),
         ];
         
 
@@ -73,7 +73,7 @@ class AboutUsController extends Controller
         return view('main.page.about-us', compact('history','visi','misi','management','management_title','lang','css','js','title_page','meta','history_img'));
     }
 
-    private function buildArrManagement($objct)
+    private function buildArrManagement($objct,$lang)
     {
         $res = [];
         foreach ($objct as $idx => $data) {
