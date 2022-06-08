@@ -99,6 +99,8 @@ class ManagementController extends Controller
 
     public function store(Request $http_req)
     {
+        if ($http_req->text_en == '<p><br></p>') { $http_req->text_en = null; }
+        if ($http_req->text_id == '<p><br></p>') { $http_req->text_id = null; }
         $param_find = ['id'=>$http_req->id];
         $param_store = [
             'name'=>$http_req->name,
