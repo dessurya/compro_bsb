@@ -240,7 +240,7 @@
         <div class="container">
             <div id="staff" class="mb-5">
                 <h2 class="title-section text-center mb-5">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['staff']) !!}</h2>
-                <div class="row row-cols-4">
+                <div class="row row-cols-md-4  row-cols-2 row-cols-sm-2">
                     @foreach($management['staff'] as $idx => $data)
                     <div class="col text-center align-self-center mb-4">
                         @if($data['img'] != null)
