@@ -56,13 +56,20 @@ class AboutUsController extends Controller
 
         $management_title = $config['management'][$lang]['title'];
         $founder = Management::where('flag_publish','Y')->whereNotNull('quotes_en')->whereNotNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
-        $management = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
+        $head = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
         $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNull('text_id')->whereNull('text_en')->orderBy('queues','ASC')->get();
         $management = [
             'founder' => $this->buildArrManagement($founder,$lang),
-            'management' => $this->buildArrManagement($management,$lang),
+            'management' => $this->buildArrManagement($head,$lang),
             'staff' => $this->buildArrManagement($staff,$lang),
         ];
+
+        return response()->json([
+            'founder' => $founder,
+            'head' => $head,
+            'staff' => $staff,
+            'management' => $management,
+        ]);
         
 
         $css = [
