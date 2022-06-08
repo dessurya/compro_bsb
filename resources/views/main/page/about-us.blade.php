@@ -121,6 +121,9 @@
             width: 240px;
             height: 230px;
         }
+        #mom #management h2{
+            margin-bottom: 5rem;
+        }
         #mom #management h3{
             color: rgb(19 169 229);
             font-weight: 600;
@@ -214,7 +217,7 @@
         </div>
         <div class="container">
             <div id="management" class="text-left mb-5">
-                <h2 class="title-section text-center mb-5">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['management']) !!}</h2>
+                <h2 class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['management']) !!}</h2>
                 @foreach($management['management'] as $idx => $data)
                 <div class="row mb-5">
                     <div class="col-md-4 text-center">
