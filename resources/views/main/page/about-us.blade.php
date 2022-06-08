@@ -234,7 +234,7 @@
             <div id="staff" class="mb-5">
                 <div class="row row-cols-4">
                     @foreach($management['staff'] as $idx => $data)
-                    <div class="col text-center align-self-center">
+                    <div class="col text-center align-self-center mb-4">
                         @if($data['img'] != null)
                         <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
                         @endif
