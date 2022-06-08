@@ -42,12 +42,28 @@ class PageConfigAboutUsController extends Controller
                     40 => "Run a sustainable business model about the environmental conditions and the welfare of the company's human resources.",
                 ]
             ],
+            'founder' => [
+                'id' => [
+                    'title' => 'TEMUI PENDIRI KAMI',
+                ],
+                'en' => [
+                    'title' => 'MEET OUR FOUNDER',
+                ],
+            ],
             'management' => [
                 'id' => [
                     'title' => 'TEMUI MANAJEMEN KAMI',
                 ],
                 'en' => [
                     'title' => 'MEET OUR MANAGEMENT',
+                ],
+            ],
+            'staff' => [
+                'id' => [
+                    'title' => 'TEMUI PEKERJA KAMI',
+                ],
+                'en' => [
+                    'title' => 'MEET OUR STAFF',
                 ],
             ],
         ];
@@ -73,8 +89,12 @@ class PageConfigAboutUsController extends Controller
 
     private function storeString($arrConf,$input)
     {
+        $arrConf['founder']['id']['title'] = $input['founder_id_title'];
+        $arrConf['founder']['en']['title'] = $input['founder_en_title'];
         $arrConf['management']['id']['title'] = $input['management_id_title'];
         $arrConf['management']['en']['title'] = $input['management_en_title'];
+        $arrConf['staff']['id']['title'] = $input['staff_id_title'];
+        $arrConf['staff']['en']['title'] = $input['staff_en_title'];
         $arrConf['intruduction']['id']['title'] = $input['intruduction_id_title'];
         $arrConf['intruduction']['id']['content'] = $input['intruduction_id_content'];
         $arrConf['intruduction']['en']['title'] = $input['intruduction_en_title'];

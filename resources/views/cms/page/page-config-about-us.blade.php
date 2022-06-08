@@ -99,12 +99,32 @@ About Us Page Config
                             </div>
                             <div class="row">
                                 <div class="col form-group">
+                                    <label for="founder_id_title">Founder Title Indonesia</label>
+                                    <input type="text" class="form-control" id="founder_id_title" name="founder_id_title" value="{{ $arrConf['founder']['id']['title'] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="founder_en_title">Founder Title English</label>
+                                    <input type="text" class="form-control" id="founder_en_title" name="founder_en_title" value="{{ $arrConf['founder']['en']['title'] }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
                                     <label for="management_id_title">Management Title Indonesia</label>
                                     <input type="text" class="form-control" id="management_id_title" name="management_id_title" value="{{ $arrConf['management']['id']['title'] }}" required>
                                 </div>
                                 <div class="col form-group">
                                     <label for="management_en_title">Management Title English</label>
                                     <input type="text" class="form-control" id="management_en_title" name="management_en_title" value="{{ $arrConf['management']['en']['title'] }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="staff_id_title">Staff Title Indonesia</label>
+                                    <input type="text" class="form-control" id="staff_id_title" name="staff_id_title" value="{{ $arrConf['staff']['id']['title'] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="staff_en_title">Staff Title English</label>
+                                    <input type="text" class="form-control" id="staff_en_title" name="staff_en_title" value="{{ $arrConf['staff']['en']['title'] }}" required>
                                 </div>
                             </div>
                         </div>
@@ -163,8 +183,12 @@ About Us Page Config
         param.type = 'string'
         param.visi_id = $('[name=visi_id]').val()
         param.visi_en = $('[name=visi_en]').val()
+        param.founder_id_title = $('[name=founder_id_title]').val()
+        param.founder_en_title = $('[name=founder_en_title]').val()
         param.management_id_title = $('[name=management_id_title]').val()
         param.management_en_title = $('[name=management_en_title]').val()
+        param.staff_id_title = $('[name=staff_id_title]').val()
+        param.staff_en_title = $('[name=staff_en_title]').val()
         param.intruduction_id_title = $('[name=intruduction_id_title]').val()
         param.intruduction_en_title = $('[name=intruduction_en_title]').val()
         param.intruduction_id_content = $('[name=intruduction_id_content]').summernote('code')

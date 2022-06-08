@@ -195,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            <h2 id="mom_title" class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($management_title) !!}</h2>
+            <h2 id="mom_title" class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['founder']) !!}</h2>
         </div>
     </div>
 </div>
@@ -214,6 +214,7 @@
         </div>
         <div class="container">
             <div id="management" class="text-left mb-5">
+                <h2 class="title-section text-center mb-5">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['management']) !!}</h2>
                 @foreach($management['management'] as $idx => $data)
                 <div class="row mb-5">
                     <div class="col-md-4 text-center">
@@ -232,6 +233,7 @@
         </div>
         <div class="container">
             <div id="staff" class="mb-5">
+                <h2 class="title-section text-center mb-5">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['staff']) !!}</h2>
                 <div class="row row-cols-4">
                     @foreach($management['staff'] as $idx => $data)
                     <div class="col text-center align-self-center mb-4">

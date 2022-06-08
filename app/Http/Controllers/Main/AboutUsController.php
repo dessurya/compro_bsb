@@ -54,7 +54,11 @@ class AboutUsController extends Controller
             'misi' => $title_misi[$lang],
         ];
 
-        $management_title = $config['management'][$lang]['title'];
+        $title_section = [
+            'founder' => $config['founder'][$lang]['title'],
+            'management' => $config['management'][$lang]['title'],
+            'staff' => $config['staff'][$lang]['title'],
+        ];
         $founder = Management::where('flag_publish','Y')->whereNotNull('quotes_en')->whereNotNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
         $head = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNotNull('text_id')->whereNotNull('text_en')->orderBy('queues','ASC')->get();
         $staff = Management::where('flag_publish','Y')->whereNull('quotes_en')->whereNull('quotes_id')->whereNull('text_id')->whereNull('text_en')->orderBy('queues','ASC')->get();
@@ -69,7 +73,7 @@ class AboutUsController extends Controller
         $js = [
         ];
 
-        return view('main.page.about-us', compact('history','visi','misi','management','management_title','lang','css','js','title_page','meta','history_img'));
+        return view('main.page.about-us', compact('history','visi','misi','management','title_section','lang','css','js','title_page','meta','history_img'));
     }
 
     private function buildArrManagement($objct,$lang)
