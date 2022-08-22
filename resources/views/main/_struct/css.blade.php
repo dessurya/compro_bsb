@@ -189,9 +189,9 @@
 
     #wrapper-btn-menu-toggle{
         display: block;
-        position: absolute;
+        /* position: absolute;
         right: 10px;
-        top: 10px;
+        top: 10px; */
     }
 
     .btn-menu-toggle {
@@ -203,7 +203,8 @@
     }
     .btn-menu-toggle .line {
         fill: none;
-        stroke: rgba(1,160,228,1);
+        /* stroke: rgba(1,160,228,1); */
+        stroke: white;
         stroke-width: 4;
         transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
             stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
