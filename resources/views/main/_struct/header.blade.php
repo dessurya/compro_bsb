@@ -10,7 +10,7 @@
         <div id="menu" class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
-                    <div id="menu-list" class="d-flex flex-row flex-wrap justify-content-end">
+                    <div id="menu-list" class="d-flex flex-row flex-wrap justify-content-end align-items-center">
                         <a id="lang" href="{{ route('main.language.change') }}"><div></div><img src="{!! App\Http\Controllers\Main\HomeController::getLangIcon(Route::currentRouteName(),$lang) !!}"></a>
                         <div id="wrapper-btn-menu-toggle">
                             <button class="btn-menu-toggle" onclick="$('nav#header').toggleClass('show');this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
