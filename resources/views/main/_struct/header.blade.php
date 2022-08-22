@@ -1,6 +1,11 @@
 <nav id="header" class="fixed-top">
     <div id="float-toggle-menu" class="d-flex flex-row-reverse">
         <div id="list" class="fullHeight p-3">
+            <div class="fullHeight dis-tab">
+                <div class="fullHeight dis-tab-row">
+                    <div class="fullHeight dis-tab-cell valg-mid"></div>
+                </div>
+            </div>
             <ul class="list-group">
                 @foreach($menu as $data)
                 <li class="list-group-item"><a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a></li>
