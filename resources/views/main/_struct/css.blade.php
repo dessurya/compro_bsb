@@ -111,7 +111,7 @@
         
         nav#header.change {
             padding: 0 1.8rem !important;
-            background-color: rgba(229,240,234,.95);
+            background-color: #01a0e4;
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
         }
         nav#header.change .navbar-brand img{
