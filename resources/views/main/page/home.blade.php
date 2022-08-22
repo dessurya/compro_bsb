@@ -73,16 +73,10 @@
                 <div id="content" class="col-md-6 col-sm-12">
                     <div class="dis-tab">
                         <div class="dis-tab-row">
-                            <div class="dis-tab-cell valg-mid">
-                                <div class="d-flex">
-                                    <div id="frase-0" class="p-0"><img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-"></div>
-                                    <div id="frase-1" class="mt-auto"><p>{{ $quotes[1] }}</p></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-10 col-12">
-                                        <p id="frase-2">{{ $quotes[2] }}</p>
-                                    </div>
-                                </div>
+                            <div class="dis-tab-cell valg-mid text-center">
+                                <img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-">
+                                <p>{{ $quotes[1] }}</p>
+                                <p id="frase-2">{{ $quotes[2] }}</p>
                             </div>
                         </div>
                     </div>
