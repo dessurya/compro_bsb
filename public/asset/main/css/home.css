@@ -19,14 +19,17 @@ nav#header.change a:hover{
         font-weight: 700;
         font-size: 26pt; 
     }
+    #banner .background{
+        height: 115vh !important;
+    }
     #banner .background .img{
-        height: 120vh !important;
+        height: 115vh !important;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
     #banner .background .img .content{
-        height: 120vh !important;
+        height: 115vh !important;
         padding:0 4em;
     }
     #banner .background .img .content h2{
