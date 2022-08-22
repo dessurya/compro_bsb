@@ -127,18 +127,22 @@
             right: 0;
         }
         nav#header #float-toggle-menu.close #space{
+            transition: all .51s;
             width: 0vw;
             background-color: rgba(0,0,0,0);
         }
         nav#header #float-toggle-menu.close #list{
+            transition: all .51s;
             width: 0vw;
             background-color: rgba(0,0,0,0);
         }
         nav#header #float-toggle-menu #space{
+            transition: all .51s;
             width: 68vw;
             background-color: rgba(0,0,0,.8);
         }
         nav#header #float-toggle-menu #list{
+            transition: all .51s;
             width: 32vw;
             background-color: #01a0e4;
         }
