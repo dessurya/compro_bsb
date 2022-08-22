@@ -138,6 +138,10 @@
             background-color: rgba(0,0,0,0) !important;
             border: 0 !important;
         }
+        nav#header #tools{
+            position: relative;
+            z-index: 100;
+        }
     /* navbar */
 
     /* footer */

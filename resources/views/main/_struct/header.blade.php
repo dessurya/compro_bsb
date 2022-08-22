@@ -9,7 +9,7 @@
         </div>
         <div id="space" class="fullHeight bd-highlight"></div>
     </div>
-    <div class="d-flex flex-row flex-wrap justify-content-between" style="z-index: 1">
+    <div id="tools" class="d-flex flex-row flex-wrap justify-content-between">
         <div class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
