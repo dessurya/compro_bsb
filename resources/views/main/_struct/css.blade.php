@@ -121,6 +121,14 @@
         nav#header.change #lang{
             top:55px;
         }
+        nav#header #float-toggle-menu #space{
+            width: 68vw;
+            background-color: rgba(0,0,0,.8);
+        }
+        nav#header #float-toggle-menu #list{
+            width: 32vw;
+            background-color: #01a0e4;
+        }
     /* navbar */
 
     /* footer */

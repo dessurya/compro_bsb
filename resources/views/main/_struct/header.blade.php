@@ -1,6 +1,7 @@
 <nav id="header" class="fixed-top">
-    <div class="d-flex flex-row-reverse" style="background-color: #01a0e4;">
-        <div class="fullHeight">
+    <div id="float-toggle-menu" class="d-flex flex-row-reverse">
+        <div id="space" class="fullHeight bd-highlight"></div>
+        <div id="list" class="fullHeight">
             <ul class="list-group">
                 @foreach($menu as $data)
                 <li class="list-group-item"><a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a></li>
@@ -8,7 +9,7 @@
             </ul>
         </div>
     </div>
-    <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="d-flex flex-row flex-wrap justify-content-between" style="z-index: 1">
         <div class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
