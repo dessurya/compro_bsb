@@ -3,14 +3,15 @@
         <div id="list" class="fullHeight p-3">
             <div class="fullHeight dis-tab">
                 <div class="fullHeight dis-tab-row">
-                    <div class="fullHeight dis-tab-cell valg-mid"></div>
+                    <div class="fullHeight dis-tab-cell valg-mid">
+                        <ul class="list-group">
+                            @foreach($menu as $data)
+                            <li class="list-group-item"><a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <ul class="list-group">
-                @foreach($menu as $data)
-                <li class="list-group-item"><a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a></li>
-                @endforeach
-            </ul>
         </div>
         <div id="space" class="fullHeight bd-highlight"></div>
     </div>
