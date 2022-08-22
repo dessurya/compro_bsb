@@ -1,4 +1,13 @@
 <nav id="header" class="fixed-top">
+    <div class="d-flex flex-row-reverse" style="background-color: #01a0e4;">
+        <div class="fullHeight">
+            <div class="d-flex align-items-center">
+                @foreach($menu as $data)
+                <div class="row"><div class="col-3"><a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a></div></div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     <div class="d-flex flex-row flex-wrap justify-content-between">
         <div class="dis-tab">
             <div class="dis-tab-row">
@@ -21,11 +30,6 @@
                                 </svg>
                             </button>
                         </div>
-                        {{--
-                        @foreach($menu as $data)
-                        <a class="p-3" href="{{ $data['route'] }}">{{ $data['label'] }}</a>
-                        @endforeach
-                        --}}
                     </div>
                 </div>
             </div>
