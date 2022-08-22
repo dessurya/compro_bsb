@@ -13,10 +13,7 @@
                 </div>
             </div>
         </div>
-        <div 
-        onclick="$('nav#header #float-toggle-menu').toggleClass('close');$('nav#header #wrapper-btn-menu-toggle button').classList.toggle('opened');$('nav#header #wrapper-btn-menu-toggle button').setAttribute('aria-expanded', this.classList.contains('opened'))"
-            id="space" 
-            class="fullHeight bd-highlight"></div>
+        <div id="space" class="fullHeight bd-highlight"></div>
     </div>
     <div id="tools" class="d-flex flex-row flex-wrap justify-content-between">
         <div class="dis-tab">

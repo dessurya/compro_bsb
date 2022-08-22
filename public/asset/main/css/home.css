@@ -1,5 +1,6 @@
 /* #banner */
     #banner{
+        height: 115vh !important;
         position: relative;
         z-index: 100;
     }
