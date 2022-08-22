@@ -102,9 +102,6 @@
             text-decoration: none;
         }
         nav#header #lang{
-            position: absolute;
-            top:20px;
-            right:70px;
             color: rgb(1 160 228);
             transition: all .51s;
         }
@@ -278,11 +275,11 @@
         }
         nav#header.change #lang,
         nav#header #lang{
-            top: -10vh !important;
+            /* top: -10vh !important; */
         }
         nav#header.show.change #lang,
         #header.show #lang{
-            top: 77vh !important;
+            /* top: 77vh !important; */
         }
     }
 </style>
