@@ -20,13 +20,13 @@ nav#header.change a:hover{
         font-size: 26pt; 
     }
     #banner .background .img{
-        height: 110vh !important;
+        height: 120vh !important;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
     #banner .background .img .content{
-        height: 110vh !important;
+        height: 120vh !important;
         padding:0 4em;
     }
     #banner .background .img .content h2{
