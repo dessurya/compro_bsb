@@ -1,5 +1,5 @@
 <nav id="header" class="fixed-top">
-    <div id="float-toggle-menu" class="d-flex flex-row-reverse">
+    <div id="float-toggle-menu" class="d-flex flex-row-reverse close">
         <div id="list" class="fullHeight p-3">
             <div class="fullHeight dis-tab">
                 <div class="fullHeight dis-tab-row">
