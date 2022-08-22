@@ -76,7 +76,7 @@
                             <div class="dis-tab-cell valg-mid text-center">
                                 <img src="{{ url('pict_content_asset/_default/kutip.png') }}" alt="-">
                                 <p>{{ $quotes[1] }}</p>
-                                <p id="frase-2">{{ $quotes[2] }}</p>
+                                <p>{{ $quotes[2] }}</p>
                             </div>
                         </div>
                     </div>

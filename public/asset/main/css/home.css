@@ -73,21 +73,16 @@
         height:480px;
         line-height: 1.1;
     }
-    #quotes #frase-0 img{
+    #quotes #content img{
         height:160px;
     }
-    #quotes #frase-1 p{
-        font-weight: 300;
+    #quotes #content p{
+        font-weight: 700;
         font-size: 30pt;
         font-style: italic;
         margin:0;
         padding:0;
         padding-left:.2em;
-    }
-    #quotes #frase-2{
-        font-weight: 700;
-        font-size: 30pt;
-        font-style: italic;
     }
 /* #quotes */
 
