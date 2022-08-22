@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        {{--
         <div id="menu" class="dis-tab">
             <div class="dis-tab-row">
                 <div class="dis-tab-cell valg-mid">
@@ -28,5 +29,6 @@
                 </div>
             </div>
         </div>
+        --}}
     </div>
 </nav>

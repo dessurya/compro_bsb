@@ -188,8 +188,12 @@
     /* scroll bar */
 
     #wrapper-btn-menu-toggle{
-        display: none;
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
     }
+
     .btn-menu-toggle {
         background-color: transparent;
         border: none;
@@ -233,12 +237,6 @@
     }
 
     @media (max-width: 568px){
-        #wrapper-btn-menu-toggle{
-            display: block;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-        }
         nav#header {
             background-color: rgba(229,240,234,.95);
             box-shadow: -2px 5px 8px rgba(229,240,234,40%);
