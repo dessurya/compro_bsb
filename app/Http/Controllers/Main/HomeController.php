@@ -86,6 +86,7 @@ class HomeController extends Controller
         $css = [
             url('vendors\owlcarousel\owl.carousel.css'),
             url('vendors\owlcarousel\owl.theme.css'),
+            url('asset\main\css\home.css'),
         ];
         $js = [
             url('vendors\owlcarousel\owl.carousel.js'),
