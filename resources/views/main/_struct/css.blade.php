@@ -86,7 +86,6 @@
 
     /* navbar */
         nav#header{
-            color: rgb(19 169 229) !important;
             transition: all .51s;
             padding:3rem 4rem;
         }
@@ -94,6 +93,7 @@
             height: 84px;
         }
         nav#header a{
+            color: white !important;
             font-weight: 600;
             font-size: 12pt;
             transition: all .51s;
@@ -133,6 +133,10 @@
         nav#header #float-toggle-menu #list{
             width: 32vw;
             background-color: #01a0e4;
+        }
+        nav#header .list-group-item{
+            background-color: rgba(0,0,0,0) !important;
+            border: 0 !important;
         }
     /* navbar */
 
