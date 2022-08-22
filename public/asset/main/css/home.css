@@ -190,7 +190,7 @@
         color: rgba(1,160,228,1);
     }
     #sustainability #content p{
-        border-bottom: double 4px;
+        border-bottom: solid 2px;
         border-color: rgba(1,160,228,1);
     }
 /* #sustainability */
