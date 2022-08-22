@@ -121,6 +121,11 @@
         nav#header.change #lang{
             top:55px;
         }
+        nav#header #float-toggle-menu{
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
         nav#header #float-toggle-menu #space{
             width: 68vw;
             background-color: rgba(0,0,0,.8);
