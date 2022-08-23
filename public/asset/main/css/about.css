@@ -1,0 +1,147 @@
+body{
+    color: rgb(109 109 109);
+    font-weight: 500;
+}
+nav#header .btn-menu-toggle .line{
+    stroke: #01a0e4;
+}
+.title-section{
+    color: rgb(19 169 229);
+    font-weight: 300;
+}
+.title-section span{
+    font-weight: 700;
+}
+h2{
+    font-size: 32pt;
+}
+#hvm{
+    padding-bottom: 10vh;
+    position: relative;
+    background-image: linear-gradient(rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(217, 234, 224), rgb(255,255,255));
+    background-color:rgb(217, 234, 224);
+}
+#hvm #white-loops{
+    top:0;
+    width: 100vw;
+    background-color:white;
+    height:158vh;
+    border-radius: 0 0 72% 0;
+}
+#hvm #img_intro{
+    width: 100%;
+    border-radius: 12px;
+}
+#hvm #mom_title{
+    padding-top: 10vh;
+}
+#hvm #conten{
+    padding-top: 17.25vh;
+}
+#hvm #conten #history{
+    margin-bottom: 12.5vh;
+}
+#hvm #conten #misi .poin{
+    margin-bottom: 2.5em;
+}
+#hvm #loops-dark{
+    top:-130px;
+    left:-350px;
+    transform: rotate(39deg);
+    width: 800px;
+    height: 600px;
+    border-radius: 100%;
+    background-color: rgb(217,234,224);
+}
+#hvm #loops-light{
+    top:-105px;
+    left:-325px;
+    transform: rotate(39deg);
+    width: 720px;
+    height: 530px;
+    border-radius: 100%;
+    background-color: rgb(229,240,234);
+    box-shadow: 0px 0px 10px grey;
+}
+#hvm img{
+    width:90%;
+    margin-top: 0.8rem;
+}
+
+.round-poin{
+    width:18px;
+    height:18px;
+    margin-top: .8rem;
+    margin-left: .6rem;
+    background-color: rgb(19 169 229);
+    border-radius:100%;
+}
+/* mom */
+    #mom{
+        position: relative;
+        top: -15vh;
+        padding-bottom:10vh;
+    }
+    #mom #person{
+        margin: 0 auto;
+        width: 62.5vw;
+    }
+
+    #mom #person img{
+        width: 60%;
+    }
+    #mom #person h3{
+        font-weight: 700;
+    }
+    #mom #person h2{
+        font-style: italic;
+    }
+    #mom #person h3,
+    #mom #person h2{
+        color: rgb(19 169 229);
+    }
+    #mom #person #msg{
+        font-size:12pt;
+    }
+    #mom #management img{
+        border-radius: 100%;
+        width: 240px;
+        height: 230px;
+    }
+    #mom #management h2{
+        margin-bottom: 5rem;
+    }
+    #mom #management h3{
+        color: rgb(19 169 229);
+        font-weight: 600;
+    }
+    #mom #staff h4{
+        color: rgb(19 169 229);
+        font-weight: 500;
+    }
+    #mom #staff img{
+        border-radius: 100%;
+        width: 200px;
+        height: 180px;
+    }
+/* mom */
+
+@media (max-width: 568px){
+    #mom #person{
+        width: 100%;
+    }
+    #hvm #mom_title{
+        font-size:28pt;
+    }
+    #mom #management h3,
+    #mom #person h3, #mom #person h2{
+        font-size:18pt;
+    }
+    #hvm {
+        overflow-x: hidden;
+    }
+    #hvm img{
+        width:100%;
+        margin-top: unset;
+    }
+}

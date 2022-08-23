@@ -69,6 +69,7 @@ class AboutUsController extends Controller
         ];
 
         $css = [
+            url('asset\main\css\about.css'),
         ];
         $js = [
         ];
