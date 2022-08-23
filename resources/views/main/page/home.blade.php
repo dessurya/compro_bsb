@@ -186,10 +186,7 @@
         owlNewsInfo.autoPlay = false
         owlNewsInfo.transitionStyle = 'backSlide'
         $("#client #owl").owlCarousel(owlNewsInfo) 
-        $("#news_info #owl").owlCarousel({
-            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:7500, pagination: true,
-            transitionStyle : "backSlide"
-        }) 
+        $("#news_info #owl").owlCarousel(owlNewsInfo) 
     })
     owlNavigate = (owlContent, action) => {
         $(owlContent).trigger(action)
