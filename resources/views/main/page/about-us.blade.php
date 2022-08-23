@@ -32,9 +32,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="visi" class="text-center">
+                    <div id="visi" class="text-center mb-5">
                         <h2 class="title-section mb-4"><span>{{$title_page['visi']}}</span></h2>
-                        {!! $visi !!}
+                        <p>{!! $visi !!}</p>
                     </div>
                     <div id="misi">
                         <h2 class="title-section mb-4 text-center"><span>{{$title_page['misi']}}</span></h2>
