@@ -29,15 +29,15 @@
                     <div class="img mb-3" style="background-image: url('{{ url($row->img_thumbnail) }}');"></div>
                     {{-- <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}"> --}}
                     @endif
-                    <h3 class="title-section">{{ $row->title }}</h3>
+                    <h3 class="title-section mb-2">{{ $row->title }}</h3>
                     <div class="mb-4">
-                        {{ Str::words(strip_tags($row->content), ' ...', 50) }}
+                        {{ Str::words(strip_tags($row->content), ' ...', 35) }}
                     </div>
                     <a class="btn btn-cstm-one" href="{{ route('main.news-info.detail', ['slug'=>$row->slug]) }}">Read More</a>
                 </div>
                 @endforeach
             </div>
-            <div id="pagination-container">
+            <div id="pagination-container" class="mb-5">
                 {!! $NewsInfo->links() !!}
             </div>
         </div>
