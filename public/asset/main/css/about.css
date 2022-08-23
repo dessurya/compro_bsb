@@ -41,6 +41,10 @@ h2{
 #hvm #conten #history{
     margin-bottom: 12.5vh;
 }
+#hvm #conten #visi p{
+    font-weight: 900;
+    font-size: 32pt;
+}
 #hvm #conten #misi .poin{
     margin-bottom: 2.5em;
 }
