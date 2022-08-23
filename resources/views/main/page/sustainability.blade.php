@@ -55,6 +55,26 @@
         </div>
     </div>
 </div>
+
+<div class="fullWidth">
+    <div id="certificate" class="background fullWidth">
+        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');">
+            <div class="container">
+                <div class="dis-tab">
+                    <div class="dis-tab-row">
+                        <div class="dis-tab-cell valg-mid text-center">
+                            <h1 class="title-section-reverse">Certificate</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus provident fugit, neque, reiciendis rem aliquid inventore, sequi quos iste sunt! Nostrum laboriosam est veritatis doloremque illum deleniti pariatur excepturi!
+                            </p>
+                            <a class="btn btn-cstm-one" href="/">DOWNLOAD</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('script')

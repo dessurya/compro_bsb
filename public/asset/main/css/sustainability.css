@@ -57,6 +57,19 @@ nav#header .btn-menu-toggle .line{
     font-weight: 700;
     margin-bottom: 2rem;
 }
+
+#certificate .img{
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#certificate .dis-tab,
+#certificate .dis-tab-row,
+#certificate .dis-tab-cell{
+    height: 100vh;
+}
+
 @media (max-width: 568px){
     #banner{
         margin-top:65px;
