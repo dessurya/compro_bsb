@@ -58,6 +58,19 @@ nav#header .btn-menu-toggle .line{
     margin-bottom: 2rem;
 }
 
+#certificate{
+    color: white;
+}
+#certificate h1{
+    margin-bottom: 2em;
+}
+#certificate p{
+    width: 70%;
+    margin: 0 auto;
+}
+#certificate a{
+    margin-bottom: 4em;
+}
 #certificate .img{
     height: 100vh;
     background-position: center center;
