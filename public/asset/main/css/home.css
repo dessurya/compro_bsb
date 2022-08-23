@@ -170,6 +170,7 @@
         margin-top: -4em;
     }
     #client .owl-theme .owl-controls .owl-page span{
+        transition: all .51s;
         background: #2a81ce;
         opacity: .9;
         position: relative;
@@ -217,7 +218,8 @@
         color: rgba(1,160,228,1);
     }
     #news_info img {
-        max-width: 85%;
+        max-width: 100%;
+        border-radius: 12px;
     }
     #news_info #owlNav img{
         width: 58px;

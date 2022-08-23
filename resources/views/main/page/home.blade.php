@@ -149,13 +149,11 @@
         </div>
         <div id="owl" class="owl-carousel owl-theme p-3">
             @foreach($news as $data)
-            <div class="item row">
-                <div class="col-md col-12 text-center">
+            <div class="item">
+                <div class="text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
                     <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}">
                     @endif
-                </div>
-                <div class="col-md col-12">
                     <h3>{{ $data->title }}</h3>
                     <p>{{ Str::words(strip_tags($data->content), 35, ' ...') }}</p>
                     <a class="btn btn-cstm-one" href="#">Read More</a>
@@ -177,17 +175,16 @@
 @endforeach
 <script>
     $(document).ready(function(){ 
-        const owlBanner = {
+        $("#banner #owl").owlCarousel({
             items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:7500, pagination: false,
             transitionStyle : "fadeUp"
-        }
-        $("#banner #owl").owlCarousel(owlBanner) 
-        let owlNewsInfo = owlBanner
-        owlNewsInfo.autoPlay = false
-        owlNewsInfo.transitionStyle = 'backSlide'
-        $("#news_info #owl").owlCarousel(owlNewsInfo) 
+        }) 
         $("#client #owl").owlCarousel({
             items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:false, pagination: true,
+            transitionStyle : "backSlide"
+        }) 
+        $("#news_info #owl").owlCarousel({
+            items:3, singleItem:false, slideSpeed:450, paginationSpeed:1050, autoPlay:false, pagination: true,
             transitionStyle : "backSlide"
         }) 
     })
