@@ -187,7 +187,7 @@
         owlNewsInfo.transitionStyle = 'backSlide'
         $("#news_info #owl").owlCarousel(owlNewsInfo) 
         $("#client #owl").owlCarousel({
-            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:7500, pagination: true,
+            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:false, pagination: true,
             transitionStyle : "backSlide"
         }) 
     })
