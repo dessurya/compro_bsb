@@ -156,7 +156,12 @@ class HomeController extends Controller
         if (date('Y') != 2022) { $crYear .= ' - '.date('Y'); }
         $arr['copyright'] = $crYear;
         $config = self::getConfigJSON(self::$dirPublicConfig);
-        $arr['find'] = $config['media_social'];
+        $find = array();
+        foreach ($config['media_social'] as $row) {
+            $row['url'] = url($row['url']);
+            $find[] = $row;
+        }
+        $arr['find'] = $find;
         $arr['address'] = $config['address'];
         $arr['email'] = $config['email'];
         $arr['phone'] = $config['phone'];
