@@ -171,6 +171,13 @@
     }
     #client .owl-theme .owl-controls .owl-page span{
         background: #2a81ce;
+        opacity: .9;
+        position: relative;
+    }
+    #client .owl-theme .owl-controls .owl-page.active span{
+        width: 18px;
+        height: 18px;
+        top:3px;
     }
 /* #client */
 
