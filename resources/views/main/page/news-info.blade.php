@@ -84,8 +84,8 @@
         <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="news-list" class="container">
             @foreach($NewsInfo as $row)
-            <div class="row row-cols-3 mb-5">
-                <div class="col-md">
+            <div class="row mb-5">
+                <div class="col-md-4 col-12 text-center">
                     @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
                     <img src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
                     @endif
