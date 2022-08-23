@@ -47,7 +47,7 @@ nav#header .btn-menu-toggle .line{
     border-radius: 12px;
 }
 #pagination-container{
-    float:right;
+    /* float:right; */
 }
 #pagination-container .page-link{
     color: rgba(1,160,228,1) !important;

@@ -29,7 +29,7 @@
                     <div class="img mb-3" style="background-image: url('{{ url($row->img_thumbnail) }}');"></div>
                     {{-- <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}"> --}}
                     @endif
-                    <h3 class="title-section mb-2">{{ $row->title }}</h3>
+                    <h3 class="title-section mb-4">{{ $row->title }}</h3>
                     <div class="mb-4">
                         {{ Str::words(strip_tags($row->content), ' ...', 35) }}
                     </div>
@@ -37,7 +37,7 @@
                 </div>
                 @endforeach
             </div>
-            <div id="pagination-container" class="mb-5">
+            <div id="pagination-container">
                 {!! $NewsInfo->links() !!}
             </div>
         </div>
