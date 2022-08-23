@@ -153,6 +153,63 @@
             position: relative;
             z-index: 100;
         }
+
+        nav#header #wrapper-btn-menu-toggle{
+            display: block;
+            /* position: absolute;
+            right: 10px;
+            top: 10px; */
+        }
+
+        nav#header .btn-menu-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+        }
+        nav#header .btn-menu-toggle .line {
+            fill: none;
+            /* stroke: rgba(1,160,228,1); */
+            stroke: white;
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        nav#header.change .btn-menu-toggle .line{
+            stroke: #01a0e4;
+        }
+        nav#header.change .btn-menu-toggle.opened .line,
+        nav#header .btn-menu-toggle.opened .line{
+            stroke: white !important;
+        }
+        nav#header .btn-menu-toggle .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+        }
+        nav#header .btn-menu-toggle .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+        }
+        nav#header .btn-menu-toggle .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+        }
+        nav#header .btn-menu-toggle.opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+        }
+        nav#header .btn-menu-toggle.opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+        }
+        nav#header .btn-menu-toggle.opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+        }
     /* navbar */
 
     /* footer */
@@ -215,56 +272,6 @@
             }
         /* Handle */
     /* scroll bar */
-
-    #wrapper-btn-menu-toggle{
-        display: block;
-        /* position: absolute;
-        right: 10px;
-        top: 10px; */
-    }
-
-    .btn-menu-toggle {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        padding: 0;
-    }
-    .btn-menu-toggle .line {
-        fill: none;
-        /* stroke: rgba(1,160,228,1); */
-        stroke: white;
-        stroke-width: 6;
-        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-            stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-menu-toggle .line1 {
-        stroke-dasharray: 60 207;
-        stroke-width: 6;
-    }
-    .btn-menu-toggle .line2 {
-        stroke-dasharray: 60 60;
-        stroke-width: 6;
-    }
-    .btn-menu-toggle .line3 {
-        stroke-dasharray: 60 207;
-        stroke-width: 6;
-    }
-    .btn-menu-toggle.opened .line1 {
-        stroke-dasharray: 90 207;
-        stroke-dashoffset: -134;
-        stroke-width: 6;
-    }
-    .btn-menu-toggle.opened .line2 {
-        stroke-dasharray: 1 60;
-        stroke-dashoffset: -30;
-        stroke-width: 6;
-    }
-    .btn-menu-toggle.opened .line3 {
-        stroke-dasharray: 90 207;
-        stroke-dashoffset: -134;
-        stroke-width: 6;
-    }
 
     @media (max-width: 568px){
         nav#header {
