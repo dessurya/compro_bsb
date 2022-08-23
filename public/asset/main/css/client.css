@@ -1,0 +1,29 @@
+body{
+    color: rgb(109 109 109);
+    font-weight: 500;
+}
+nav#header{
+    background-color: white;
+}
+nav#header.change{
+    background-color: rgba(0,0,0,0);
+}
+nav#header .btn-menu-toggle .line{
+    stroke: #01a0e4;
+}
+.title-section{
+    color: rgb(19 169 229);
+    font-weight: 300;
+}
+#ourclient{
+    margin-top:190px;
+}
+#ourclient img{
+    max-width: 90%;
+}
+@media (max-width: 568px){
+    #ourclient{
+        margin-top:65px;
+    }
+
+}

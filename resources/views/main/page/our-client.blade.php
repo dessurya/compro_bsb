@@ -8,37 +8,9 @@
 @endpush
 
 @push('link')
-@foreach($css as $data)
-<link rel="stylesheet" href="{{ $data }}">
-@endforeach
-<style>
-    body{
-        color: rgb(109 109 109);
-        font-weight: 500;
-    }
-    nav#header a{
-        color: rgb(19 169 229) !important;
-    }
-    nav#header a:hover{
-        color: #008a3c !important;
-    }
-    .title-section{
-        color: rgb(19 169 229);
-        font-weight: 300;
-    }
-    #ourclient{
-        margin-top:190px;
-    }
-    #ourclient img{
-        max-width: 90%;
-    }
-    @media (max-width: 568px){
-        #ourclient{
-            margin-top:65px;
-        }
-
-    }
-</style>
+    @foreach($css as $data)
+    <link rel="stylesheet" href="{{ $data }}">
+    @endforeach
 @endpush
 
 @section('content')
