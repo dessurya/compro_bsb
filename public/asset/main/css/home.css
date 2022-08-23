@@ -153,8 +153,8 @@
         background-size: cover;
     }
     #client h1{
-        padding-top: 0;
-        padding-bottom: 1.6em;
+        padding-top: 1.6em;
+        padding-bottom: 0em;
         font-weight: 700;
     }
     #client h1 span:nth-child(odd){
@@ -165,6 +165,12 @@
     }
     #client img{
         width:100%;
+    }
+    #client .owl-theme .owl-controls{
+        margin-top: -2em;
+    }
+    #client .owl-theme .owl-controls .owl-page span{
+        background: #2a81ce;
     }
 /* #client */
 
