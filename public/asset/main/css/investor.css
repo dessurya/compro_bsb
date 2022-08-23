@@ -8,6 +8,9 @@ nav#header{
 nav#header.change{
     background-color: rgba(0,0,0,0);
 }
+nav#header .btn-menu-toggle .line{
+    stroke: #01a0e4;
+}
 .title-section{
     color: rgb(19 169 229);
     font-weight: 300;
