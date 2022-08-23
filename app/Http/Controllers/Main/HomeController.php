@@ -158,7 +158,7 @@ class HomeController extends Controller
         $config = self::getConfigJSON(self::$dirPublicConfig);
         $find = array();
         foreach ($config['media_social'] as $row) {
-            $row['url'] = url($row['url']);
+            $row['img_dark'] = url($row['img_dark']);
             $find[] = $row;
         }
         $arr['find'] = $find;
