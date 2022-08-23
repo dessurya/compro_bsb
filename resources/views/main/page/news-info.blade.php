@@ -17,7 +17,6 @@
         font-weight: 500;
     }
     nav#header{
-        transition: all 51s;
         background-color: white;
     }
     nav#header.change{
@@ -82,16 +81,14 @@
         <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
     </div>
     <div class="section">
-        <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
+        <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="news-list" class="container">
             @foreach($NewsInfo as $row)
-            <div class="row mb-5">
-                <div class="col text-center">
+            <div class="row row-cols-3 mb-5">
+                <div class="col-md">
                     @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
                     <img src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
                     @endif
-                </div>
-                <div class="col text-left">
                     <h3 class="title-section">{{ $row->title }}</h3>
                     <div class="mb-4">
                         {{ Str::words(strip_tags($row->content), ' ...', 50) }}
