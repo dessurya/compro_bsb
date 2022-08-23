@@ -122,7 +122,7 @@
 </div>
 
 <div id="client" class="section fullWidth fullHeight">
-    <div class="owl-carousel owl-theme">
+    <div id="owl" class="owl-carousel owl-theme">
         @for($i = 0; $i < 3; $i++)
         <div class="item fullWidth fullHeight">
             <div class="img fullWidth fullHeight text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
