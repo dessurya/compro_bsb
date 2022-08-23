@@ -146,11 +146,13 @@
 /* #client */
     #client{
         color: white;
+        height: 85vh;
     }
     #client .img{
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+        height: 85vh;
     }
     #client h1{
         padding-top: 1.6em;
@@ -167,7 +169,7 @@
         width:100%;
     }
     #client .owl-theme .owl-controls{
-        margin-top: -2em;
+        margin-top: -4em;
     }
     #client .owl-theme .owl-controls .owl-page span{
         background: #2a81ce;
