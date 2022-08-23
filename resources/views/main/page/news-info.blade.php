@@ -83,11 +83,11 @@
     <div class="section">
         <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="news-list" class="container">
-            @foreach($NewsInfo as $row)
             <div class="row mb-5">
+                @foreach($NewsInfo as $row)
                 <div class="col-md-4 col-12 text-center">
                     @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
-                    <img src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
+                    <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
                     @endif
                     <h3 class="title-section">{{ $row->title }}</h3>
                     <div class="mb-4">
@@ -95,9 +95,8 @@
                     </div>
                     <a class="btn btn-cstm-one" href="{{ route('main.news-info.detail', ['slug'=>$row->slug]) }}">Read More</a>
                 </div>
+                @endforeach
             </div>
-            @endforeach
-
             <div id="pagination-container">
                 {!! $NewsInfo->links() !!}
             </div>
