@@ -15,9 +15,8 @@
     .section{
         position: relative;
         width:100vw;
-        padding: 4.4em 0;
-        position: relative;
-        margin: 0 auto;
+        padding: 0;
+        margin: 4em auto;
     }
     .pos-abs{
         position: absolute;

@@ -146,13 +146,11 @@
 /* #client */
     #client{
         color: white;
-        height: 85vh;
     }
     #client .img{
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 85vh;
     }
     #client h1{
         padding-top: 1.6em;

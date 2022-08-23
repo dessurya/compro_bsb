@@ -121,11 +121,11 @@
     </div>
 </div>
 
-<div id="client" class="section fullWidth">
+<div id="client" class="section fullWidth fullHeight">
     <div id="owl" class="owl-carousel owl-theme">
         @for($i = 0; $i < 3; $i++)
-        <div class="item fullWidth">
-            <div class="img fullWidth text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
+        <div class="item fullWidth fullHeight">
+            <div class="img fullWidth fullHeight text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
                 {{-- <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1> --}}
                 <h1 class="title-section">{{$pageConfig['Our Client']}}</h1>
             </div>
