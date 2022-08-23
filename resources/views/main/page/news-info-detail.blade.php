@@ -16,11 +16,14 @@
         color: rgb(109 109 109);
         font-weight: 500;
     }
-    nav#header a{
-        color: rgb(19 169 229) !important;
+    nav#header{
+        background-color: white;
     }
-    nav#header a:hover{
-        color: #008a3c !important;
+    nav#header.change{
+        background-color: rgba(0,0,0,0);
+    }
+    nav#header .btn-menu-toggle .line{
+        stroke: #01a0e4;
     }
     .title-section{
         color: rgb(19 169 229);
