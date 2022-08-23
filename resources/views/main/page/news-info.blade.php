@@ -8,70 +8,9 @@
 @endpush
 
 @push('link')
-@foreach($css as $data)
-<link rel="stylesheet" href="{{ $data }}">
-@endforeach
-<style>
-    body{
-        color: rgb(109 109 109);
-        font-weight: 500;
-    }
-    nav#header{
-        background-color: white;
-    }
-    nav#header.change{
-        background-color: rgba(0,0,0,0);
-    }
-    nav#header .btn-menu-toggle .line{
-        stroke: #01a0e4;
-    }
-    .title-section{
-        color: rgb(19 169 229);
-        font-weight: 300;
-    }
-    #banner{
-        margin-top:190px;
-    }
-    #banner .img{
-        height: 80vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-bottom-left-radius: 70% 100%;
-    }
-    #gradient{
-        position: absolute;
-        z-index: -1;
-        top:0;
-        left:0;
-        width:100vw;
-        height:155vh;
-        background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
-    }
-    #news-list h3{
-        font-weight: 700;
-    }
-    #news-list img{
-        max-width: 100%;
-    }
-    #pagination-container{
-        float:right;
-    }
-    #pagination-container .page-link{
-        color: rgba(1,160,228,1) !important;
-    }
-    #pagination-container .page-item.active .page-link{
-        color: #fff !important;
-        background-color: rgba(1,160,228,1) !important;
-        border-color: rgba(1,160,228,1) !important;
-    }
-    @media (max-width: 568px){
-        #banner{
-            margin-top:65px;
-        }
-    }
-</style>
+    @foreach($css as $data)
+    <link rel="stylesheet" href="{{ $data }}">
+    @endforeach
 @endpush
 
 @section('content')
@@ -87,7 +26,8 @@
                 @foreach($NewsInfo as $row)
                 <div class="col-md-4 col-12 text-center">
                     @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
-                    <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}">
+                    <div class="img mb-3" style="background-image: url('{{ url($row->img_thumbnail) }}');"></div>
+                    {{-- <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}"> --}}
                     @endif
                     <h3 class="title-section">{{ $row->title }}</h3>
                     <div class="mb-4">

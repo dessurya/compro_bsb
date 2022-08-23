@@ -41,8 +41,9 @@ class NewsInfoController extends Controller
         ];
         $title_page = $config['title'][$lang];
         $banner = url($config['banner']['img']);
-        $NewsInfo = NewsInfo::where(['language'=>$lang,'flag_publish'=>'Y'])->orderBy('publish_date','desc')->paginate(8);
+        $NewsInfo = NewsInfo::where(['language'=>$lang,'flag_publish'=>'Y'])->orderBy('publish_date','desc')->paginate(3);
         $css = [
+            url('asset\main\css\news-info.css'),
         ];
         $js = [
         ];
