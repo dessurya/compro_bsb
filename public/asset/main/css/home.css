@@ -216,7 +216,10 @@
     #news_info h1,
     #news_info h3{
         color: rgba(1,160,228,1);
-        margin-bottom: 1em;
+        margin-bottom: .6em;
+    }
+    #news_info a{
+        margin-top: 1em;
     }
     #news_info img {
         max-width: 100%;
