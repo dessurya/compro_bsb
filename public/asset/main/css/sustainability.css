@@ -41,6 +41,9 @@ nav#header .btn-menu-toggle .line{
     background-color: rgb(217,234,224);
     background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
 }
+#investor .row{
+    margin-bottom: 4em;
+}
 #investor img{
     width: 100%;
     border-radius: 12px;
@@ -53,7 +56,9 @@ nav#header .btn-menu-toggle .line{
     #banner{
         margin-top:65px;
     }
-
+    #investor .row{
+        margin-bottom: 2em;
+    }
     #investor img{
         width: 75%;
     }
