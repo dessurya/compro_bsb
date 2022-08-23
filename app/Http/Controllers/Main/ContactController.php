@@ -56,6 +56,7 @@ class ContactController extends Controller
             ]
         ];
         $css = [
+            url('asset\main\css\contact.css'),
         ];
         $js = [
         ];

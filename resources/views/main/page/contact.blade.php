@@ -8,69 +8,9 @@
 @endpush
 
 @push('link')
-@foreach($css as $data)
-<link rel="stylesheet" href="{{ $data }}">
-@endforeach
-<style>
-    body{
-        color: rgb(109 109 109);
-        font-weight: 500;
-    }
-    nav#header a{
-        color: rgb(19 169 229) !important;
-    }
-    nav#header a:hover{
-        color: #008a3c !important;
-    }
-    .title-section{
-        color: rgb(19 169 229);
-        font-weight: 300;
-    }
-    #gradient{
-        margin-top:190px;
-        background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255),rgb(255,255,255));
-    }
-    #gradient .container{
-        padding-top: 6rem;
-        padding-bottom: 5rem;
-    }
-    .background .img{
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 5rem;
-    }
-    .background .img .msg{
-        width: 100%;
-        background-color: rgba(255,255,255,.8);
-        padding: 3rem 5rem;
-    }
-    form input,
-    form textarea{
-        background-color: rgba(0,0,0,0) !important;
-        border: 0 !important;
-        border-bottom: 1px solid black !important;
-        border-radius: 0 !important;
-    }
-    #gradient #contain{
-        padding-left: 4.5rem;
-    }
-    @media (max-width: 568px){
-        #gradient{
-            margin-top:65px;
-        }
-        #gradient #contain{
-            padding-left: unset;
-        }
-        .background .img{
-            padding: 2.5rem 0;
-        }
-        .background .img .msg{
-            padding: 2.5rem 1.5rem;
-        }
-    }
-</style>
+    @foreach($css as $data)
+    <link rel="stylesheet" href="{{ $data }}">
+    @endforeach
 @endpush
 
 @section('content')
