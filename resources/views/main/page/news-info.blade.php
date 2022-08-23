@@ -17,7 +17,11 @@
         font-weight: 500;
     }
     nav#header{
+        transition: all 51s;
         background-color: white;
+    }
+    nav#header.change{
+        background-color: rgba(0,0,0,0);
     }
     nav#header .btn-menu-toggle .line{
         stroke: #01a0e4;
