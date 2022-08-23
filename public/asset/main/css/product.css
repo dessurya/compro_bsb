@@ -1,0 +1,60 @@
+body{
+    color: rgb(109 109 109);
+    font-weight: 500;
+}
+nav#header{
+    background-color: white;
+}
+nav#header.change{
+    background-color: rgba(0,0,0,0);
+}
+nav#header .btn-menu-toggle .line{
+    stroke: #01a0e4;
+}
+.title-section{
+    color: rgb(19 169 229);
+    font-weight: 300;
+}
+#product-list .row{
+    margin-bottom: 4em;
+    line-height: 1.5;
+}
+#product-list h4{
+    font-weight: 700;
+}
+#product-list img{
+    max-width: 100%;
+}
+#banner{
+    margin-top:190px;
+}
+#banner .img{
+    height: 80vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border-bottom-left-radius: 70% 100%; */
+}
+#banner .dis-tab,
+#banner .dis-tab-row,
+#banner .dis-tab-cell{
+    height: 80vh;
+}
+#gradient{
+    position: absolute;
+    z-index: -1;
+    top:0;
+    left:0;
+    width:100vw;
+    height:155vh;
+    background-color: rgb(217,234,224);
+    background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
+}
+@media (max-width: 568px){
+    #banner{
+        margin-top:65px;
+    }
+    #product-list .row{
+        margin-bottom: 2em;
+    }
+}

@@ -8,69 +8,31 @@
 @endpush
 
 @push('link')
-@foreach($css as $data)
-<link rel="stylesheet" href="{{ $data }}">
-@endforeach
-<style>
-    body{
-        color: rgb(109 109 109);
-        font-weight: 500;
-    }
-    nav#header a{
-        color: rgb(19 169 229) !important;
-    }
-    nav#header a:hover{
-        color: #008a3c !important;
-    }
-    .title-section{
-        color: rgb(19 169 229);
-        font-weight: 300;
-    }
-    #product-list h4{
-        font-weight: 700;
-    }
-    #product-list img{
-        max-width: 100%;
-    }
-    #banner{
-        margin-top:190px;
-    }
-    #banner .img{
-        height: 80vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-bottom-left-radius: 70% 100%;
-    }
-    #gradient{
-        position: absolute;
-        z-index: -1;
-        top:0;
-        left:0;
-        width:100vw;
-        height:155vh;
-        background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
-    }
-    @media (max-width: 568px){
-        #banner{
-            margin-top:65px;
-        }
-    }
-</style>
+    @foreach($css as $data)
+    <link rel="stylesheet" href="{{ $data }}">
+    @endforeach
 @endpush
 
 @section('content')
 <div class="fullWidth">
     <div id="gradient"></div>
     <div id="banner" class="background fullWidth">
-        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
+        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');">
+            <div class="container">
+                <div class="dis-tab">
+                    <div class="dis-tab-row">
+                        <div class="dis-tab-cell valg-mid">
+                            <h1 class="title-section text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="section">
-        <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="product-list" class="container">
             @foreach($products as $row)
-            <div class="row mb-5">
+            <div class="row">
                 @if($loop->iteration % 2 == 0)
                 <div class="col text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">

@@ -42,6 +42,7 @@ class OurProductController extends Controller
         $banner = url($config['banner']['img']);
         $products = Product::where(['language'=>$lang,'flag_publish'=>'Y'])->orderBy('position','asc')->get();
         $css = [
+            url('asset\main\css\product.css'),
         ];
         $js = [
         ];
