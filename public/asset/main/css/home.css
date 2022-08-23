@@ -146,6 +146,8 @@
 /* #client */
     #client{
         color: white;
+    }
+    #client .img{
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -153,6 +155,7 @@
     #client h1{
         padding-top: 0;
         padding-bottom: 1.6em;
+        font-weight: 700;
     }
     #client h1 span:nth-child(odd){
         font-weight: 300;

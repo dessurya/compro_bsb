@@ -121,11 +121,22 @@
     </div>
 </div>
 
-<div id="client" class="section fullWidth text-center" style="background-image: url('{{ url($our_client['background']) }}');">
-    <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1>
-    <div class="container">
-        <img src="{{ url($our_client['img']) }}" alt="">
+<div id="client" class="section fullWidth">
+    <div class="owl-carousel owl-theme">
+        @for($i = 0; $i < 3; $i++)
+        <div class="item">
+            <div class="img fullWidth text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
+                {{-- <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1> --}}
+                <h1 class="title-section">{{$pageConfig['Our Client']}}</h1>
+            </div>
+        </div>
+        @endfor
     </div>
+    {{-- 
+        <div class="container">
+            <img src="{{ url($our_client['img']) }}" alt="">
+        </div>
+    --}}
 </div>
 
 <div id="news_info" class="section">
@@ -175,6 +186,7 @@
         owlNewsInfo.autoPlay = false
         owlNewsInfo.transitionStyle = 'backSlide'
         $("#news_info #owl").owlCarousel(owlNewsInfo) 
+        $("#client #owl").owlCarousel(owlNewsInfo) 
     })
     owlNavigate = (owlContent, action) => {
         $(owlContent).trigger(action)
