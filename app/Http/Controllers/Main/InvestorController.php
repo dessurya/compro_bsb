@@ -45,6 +45,7 @@ class InvestorController extends Controller
         $content = 'content_'.$lang.' AS content';
         $investor = Investor::select('name','img',$content)->where('flag_publish','Y')->orderBy('id','asc')->paginate(15);
         $css = [
+            url('asset\main\css\investor.css'),
         ];
         $js = [
         ];

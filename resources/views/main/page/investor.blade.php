@@ -8,67 +8,9 @@
 @endpush
 
 @push('link')
-@foreach($css as $data)
-<link rel="stylesheet" href="{{ $data }}">
-@endforeach
-<style>
-    body{
-        color: rgb(109 109 109);
-        font-weight: 500;
-    }
-    nav#header a{
-        color: rgb(19 169 229) !important;
-    }
-    nav#header a:hover{
-        color: #008a3c !important;
-    }
-    .title-section{
-        color: rgb(19 169 229);
-        font-weight: 300;
-    }
-    #product-list h4{
-        font-weight: 700;
-    }
-    #product-list img{
-        max-width: 100%;
-    }
-    #banner{
-        margin-top:190px;
-    }
-    #banner .img{
-        height: 80vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-bottom-left-radius: 70% 100%;
-    }
-    #gradient{
-        position: absolute;
-        z-index: -1;
-        top:0;
-        left:0;
-        width:100vw;
-        height:155vh;
-        background-color: rgb(217,234,224);
-        background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255));
-    }
-    #investor img{
-        width: 100%;
-    }
-    #investor h3{
-        font-weight: 700;
-        margin-bottom: 2rem;
-    }
-    @media (max-width: 568px){
-        #banner{
-            margin-top:65px;
-        }
-
-        #investor img{
-            width: 75%;
-        }
-    }
-</style>
+    @foreach($css as $data)
+    <link rel="stylesheet" href="{{ $data }}">
+    @endforeach
 @endpush
 
 @section('content')
