@@ -17,10 +17,17 @@
 <div class="fullWidth">
     <div id="gradient"></div>
     <div id="banner" class="background fullWidth">
-        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');"></div>
+        <div class="img fullWidth" style="background-image: url('{{ url($banner) }}');">
+            <div class="dis-tab">
+                <div class="dis-tab-row">
+                    <div class="dis-tab-cell valg-mid">
+                        <h1 class="title-section-reverse text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="section">
-        <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_page) !!}</h1>
         <div id="investor" class="container mt-5">
             @foreach($Sustainability as $row)
             <div class="row">

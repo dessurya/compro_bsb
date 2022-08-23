@@ -29,7 +29,12 @@ nav#header .btn-menu-toggle .line{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-bottom-left-radius: 70% 100%;
+    /* border-bottom-left-radius: 70% 100%; */
+}
+#banner .dis-tab,
+#banner .dis-tab-row,
+#banner .dis-tab-cell{
+    height: 80vh;
 }
 #gradient{
     position: absolute;
