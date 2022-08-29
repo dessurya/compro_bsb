@@ -42,7 +42,7 @@ Sustainability
                                 </div>
                                 <div class="col form-group">
                                     <label for="content_shoert">Content Shoert</label>
-                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="150">
+                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="175">
                                 </div>
                             </div>
                             <div class="row">
