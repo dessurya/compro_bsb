@@ -39,12 +39,12 @@
                 </div>
                 <div class="col text-right">
                     <h3 class="title-section">{{ $row->title }}</h3>
-                    {!! $row->content_shoert !!}
+                    {!! $row->content !!}
                 </div>
                 @else
                 <div class="col text-left">
                     <h3 class="title-section">{{ $row->title }}</h3>
-                    {!! $row->content_shoert !!}
+                    {!! $row->content !!}
                 </div>
                 <div class="col text-center">
                     <img src="{{ $row->img_thumnail }}" alt="{{ $row->title }}">

@@ -34,16 +34,21 @@ Sustainability
                                         <option value="id">Indonesia</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="position">Position</label>
                                     <input type="number" class="form-control" id="position" name="position" min="1" max="99" required>
                                 </div>
+                                <div class="col form-group">
+                                    <label for="content_shoert">Content Shoert</label>
+                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="150">
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="content_shoert">Content</label>
-                                    {{-- <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="150"> --}}
-                                    <textarea class="form-control" id="content_shoert" name="content_shoert"></textarea>
+                                    <label for="content">Content</label>
+                                    <textarea class="form-control" id="content" name="content"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -153,7 +158,7 @@ Sustainability
         $(indentity_form_information+' .card-title h3 b').html('')
         $(indentity_form_information+' input').val(null)
         $(indentity_form_information+' #imgThumnailDisplay .col').html('').fadeOut()
-        $(indentity_form_information+' #content_shoert').summernote('destroy')
+        $(indentity_form_information+' #content').summernote('destroy')
         $(indentity_form_information).fadeOut()
     }
 
@@ -162,7 +167,7 @@ Sustainability
         $(indentity_form_information).fadeIn()
         $(indentity_form_information+' input[name=title]').focus()
         if (summer == true) {
-            $(indentity_form_information+' #content_shoert').summernote()
+            $(indentity_form_information+' #content').summernote()
         }
     }
 
@@ -190,6 +195,7 @@ Sustainability
         param['title'] = $(identity+' [name=title]').val()
         param['language'] = $(identity+' [name=language]').val()
         param['position'] = $(identity+' [name=position]').val()
+        param['content'] = $(identity+' [name=content]').val()
         param['content_shoert'] = $(identity+' [name=content_shoert]').val()
         param['id'] = $(identity+' [name=old_data]').val()
         let result_data = await httpRequest('{{ $http_req['store'] }}','post',param).then(function(result){ return result })
@@ -231,6 +237,7 @@ Sustainability
         $(indentity_form_information+' [name=title]').val(result.title)
         $(indentity_form_information+' [name=language]').val(result.language)
         $(indentity_form_information+' [name=position]').val(result.position)
+        $(indentity_form_information+' [name=content]').val(result.content)
         if (result.content_shoert != '' && result.content_shoert != null) {
             $(indentity_form_information+' [name=content_shoert]').summernote('code', result.content_shoert)
         }else{

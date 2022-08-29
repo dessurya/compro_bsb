@@ -104,6 +104,7 @@ class SustainabilityController extends Controller
             'title'=>$http_req->title,
             'position'=>$http_req->position,
             'language'=>$http_req->language,
+            'content'=>$http_req->content,
             'content_shoert'=>$http_req->content_shoert,
             'created_by'=>Auth::user()->name,
         ];

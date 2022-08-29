@@ -11,6 +11,7 @@ class Sustainability extends Model
         'title',
         'language',
         'position',
+        'content',
         'content_shoert',
         'img_thumnail',
         'flag_publish',
