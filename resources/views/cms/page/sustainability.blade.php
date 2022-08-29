@@ -237,11 +237,11 @@ Sustainability
         $(indentity_form_information+' [name=title]').val(result.title)
         $(indentity_form_information+' [name=language]').val(result.language)
         $(indentity_form_information+' [name=position]').val(result.position)
-        $(indentity_form_information+' [name=content]').val(result.content)
-        if (result.content_shoert != '' && result.content_shoert != null) {
-            $(indentity_form_information+' [name=content_shoert]').summernote('code', result.content_shoert)
+        $(indentity_form_information+' [name=content_shoert]').val(result.content_shoert)
+        if (result.content != '' && result.content != null) {
+            $(indentity_form_information+' [name=content]').summernote('code', result.content)
         }else{
-            $(indentity_form_information+' [name=content_shoert]').summernote()
+            $(indentity_form_information+' [name=content]').summernote()
         }
         if (result.img_thumnail != '' && result.img_thumnail != null) {
             $(indentity_form_information+' #imgThumnailDisplay .col').html('<img src="../'+result.img_thumnail+'" class="img-fluid pad">').fadeIn()
