@@ -84,12 +84,12 @@ class HomeController extends Controller
         $configMedsos = $configMedsos['media_social'];
 
         $css = [
-            url('vendors\owlcarousel\owl.carousel.css'),
-            url('vendors\owlcarousel\owl.theme.css'),
-            url('asset\main\css\home.css'),
+            url('vendors\owlcarousel\owl.carousel.css').'?v='.date('Ym'),
+            url('vendors\owlcarousel\owl.theme.css').'?v='.date('Ym'),
+            url('asset\main\css\home.css').'?v='.date('Ym'),
         ];
         $js = [
-            url('vendors\owlcarousel\owl.carousel.js'),
+            url('vendors\owlcarousel\owl.carousel.js').'?v='.date('Ym'),
         ];
         return view('main.page.home', compact(
             'banner','product','sustainability','css','js','quotes_img','quotes','news','pageConfig','configMedsos',

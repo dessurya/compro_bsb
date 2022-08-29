@@ -56,7 +56,7 @@ class ContactController extends Controller
             ]
         ];
         $css = [
-            url('asset\main\css\contact.css'),
+            url('asset\main\css\contact.css').'?v='.date('Ym'),
         ];
         $js = [
         ];
