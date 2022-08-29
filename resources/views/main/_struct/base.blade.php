@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <title>{{ App\Http\Controllers\Main\HomeController::getWebName() }} @yield('title')</title>
     <meta charset="utf-8">
