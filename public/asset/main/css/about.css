@@ -15,6 +15,9 @@ nav#header .btn-menu-toggle .line{
 h2{
     font-size: 32pt;
 }
+h4,h5{
+    font-weight:600;
+}
 #hvm{
     padding-bottom: 10vh;
     position: relative;
@@ -42,7 +45,7 @@ h2{
     margin-bottom: 12.5vh;
 }
 #hvm #conten #visi p{
-    font-weight: 700;
+    font-weight: 600;
     font-size: 30pt;
 }
 #hvm #conten #misi .poin{
@@ -105,7 +108,7 @@ h2{
         color: rgb(19 169 229);
     }
     #mom #person #msg{
-        font-size:12pt;
+        font-size:14pt;
     }
     #mom #management img{
         border-radius: 100%;

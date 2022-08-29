@@ -74,7 +74,8 @@
         line-height: 1.1;
     }
     #quotes #content img{
-        height:160px;
+        height:86px;
+        margin-bottom: .5em;
     }
     #quotes #content p{
         font-weight: 700;
@@ -217,6 +218,7 @@
     #news_info h3{
         color: rgba(1,160,228,1);
         margin-bottom: .6em;
+        font-weight: 600;
     }
     #news_info a{
         margin-top: 1em;
