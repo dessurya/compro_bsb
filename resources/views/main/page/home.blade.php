@@ -114,7 +114,7 @@
                 <div class="img" style="background-image: url('{{ url($data->img_thumnail) }}');"></div>
                 <br>
                 <h3 class="p-2">{{ $data->title }}</h3>
-                <p class="p-2">{{ $data->content_shoert }}</p>
+                <p class="p-2">{{ strip_tags($data->content_shoert) }}</p>
             </div>
             @endforeach
         </div>
