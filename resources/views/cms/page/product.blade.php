@@ -42,7 +42,7 @@ Product
                                 </div>
                                 <div class="col form-group">
                                     <label for="content_shoert">Short Content</label>
-                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" placeholder="Short Content">
+                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" placeholder="Short Content" max="175">
                                 </div>
                             </div>
                             <div class="row">

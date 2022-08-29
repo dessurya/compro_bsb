@@ -5,6 +5,7 @@ Sustainability
 @endsection
 
 @push('link')
+<link rel="stylesheet" href="{{ asset('vendors/summernote/summernote.min.css') }}">
 @endpush
 
 @push('content')
@@ -33,15 +34,16 @@ Sustainability
                                         <option value="id">Indonesia</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col form-group">
                                     <label for="position">Position</label>
                                     <input type="number" class="form-control" id="position" name="position" min="1" max="99" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col form-group">
                                     <label for="content_shoert">Content</label>
-                                    <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="150">
+                                    {{-- <input type="text" class="form-control" id="content_shoert" name="content_shoert" max="150"> --}}
+                                    <textarea class="form-control" id="content_shoert" name="content_shoert"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -77,6 +79,7 @@ Sustainability
 @endpush
 
 @push('script')
+<script src="{{ asset('vendors/summernote/summernote.min.js') }}"></script>
 <script src="{{ asset('asset/cms/table-index.js') }}"></script>
 <script>
     let table_index_config = '{{ base64_encode(json_encode($table_config)) }}'
@@ -150,13 +153,17 @@ Sustainability
         $(indentity_form_information+' .card-title h3 b').html('')
         $(indentity_form_information+' input').val(null)
         $(indentity_form_information+' #imgThumnailDisplay .col').html('').fadeOut()
+        $(indentity_form_information+' #content_shoert').summernote('destroy')
         $(indentity_form_information).fadeOut()
     }
 
-    addSustainability = () => {
+    addSustainability = (summer=true) => {
         closeFormSustainability()
         $(indentity_form_information).fadeIn()
         $(indentity_form_information+' input[name=title]').focus()
+        if (summer == true) {
+            $(indentity_form_information+' #content_shoert').summernote()
+        }
     }
 
     submitFormSustainability = () => {
@@ -218,13 +225,17 @@ Sustainability
 
     openSustainability = async (id) => {
         loadingScreen(true)
-        addSustainability()
+        addSustainability(false)
         let result = await httpRequest('{{ $http_req['open'] }}','post',{id}).then(function(result){ return result.data })
         $(indentity_form_information+' [name=old_data]').val(result.id)
         $(indentity_form_information+' [name=title]').val(result.title)
         $(indentity_form_information+' [name=language]').val(result.language)
         $(indentity_form_information+' [name=position]').val(result.position)
-        $(indentity_form_information+' [name=content_shoert]').val(result.content_shoert)
+        if (result.content_shoert != '' && result.content_shoert != null) {
+            $(indentity_form_information+' [name=content_shoert]').summernote('code', result.content_shoert)
+        }else{
+            $(indentity_form_information+' [name=content_shoert]').summernote()
+        }
         if (result.img_thumnail != '' && result.img_thumnail != null) {
             $(indentity_form_information+' #imgThumnailDisplay .col').html('<img src="../'+result.img_thumnail+'" class="img-fluid pad">').fadeIn()
         }
