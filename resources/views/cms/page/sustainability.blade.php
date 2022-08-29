@@ -155,10 +155,10 @@ Sustainability
     }
 
     closeFormSustainability = () => {
+        $(indentity_form_information+' #content').summernote('destroy')
         $(indentity_form_information+' .card-title h3 b').html('')
         $(indentity_form_information+' input').val(null)
         $(indentity_form_information+' #imgThumnailDisplay .col').html('').fadeOut()
-        $(indentity_form_information+' #content').summernote('destroy')
         $(indentity_form_information).fadeOut()
     }
 
