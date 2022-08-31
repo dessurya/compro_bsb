@@ -46,6 +46,33 @@ Sustainability Page Config
                                     <input type="file" class="form-control" id="banner" name="banner" accept="image/*">
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="certificate_title_id">Certificate Title Indonesia</label>
+                                    <input type="text" class="form-control" id="certificate_title_id" name="certificate_title_id" value="{{ $arrConf['certificate']['title']['id'] }}">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="certificate_title_en">Certificate Title English</label>
+                                    <input type="text" class="form-control" id="certificate_title_en" name="certificate_title_en" value="{{ $arrConf['certificate']['title']['en'] }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="certificate_content_id">Certificate Content Indonesia</label>
+                                    <input type="text" class="form-control" id="certificate_content_id" name="certificate_content_id" value="{{ $arrConf['certificate']['content']['id'] }}">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="certificate_content_en">Certificate Content English</label>
+                                    <input type="text" class="form-control" id="certificate_content_en" name="certificate_content_en" value="{{ $arrConf['certificate']['content']['en'] }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="certificate_file">Certificate file</label>
+                                    <label style="color:red;"><small>*Diisikan dengan ling google drive (folder/file)! Perhatikan permesion dibuka untuk publik dengan akses hanya melihat!</small></label>
+                                    <input type="url" class="form-control" id="certificate_file" name="certificate_file" value="{{ $arrConf['certificate']['file'] }}">
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">

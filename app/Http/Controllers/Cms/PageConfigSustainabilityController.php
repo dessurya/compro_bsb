@@ -15,11 +15,23 @@ class PageConfigSustainabilityController extends Controller
         $arrConf = [
             'title' => [
                 'id' => 'Sustainability',
-                'en' => 'Sustainability',
+                'en' => 'Sustainability'
             ],
             'description' => [
                 'id' => null,
-                'en' => null,
+                'en' => null
+            ],
+            'certificate' => [
+                'title' => [
+                    'id' => null,
+                    'en' => null
+                ],
+                'content' => [
+                    'id' => null,
+                    'en' => null
+                ],
+                'background' => null,
+                'file' => null
             ],
             'banner' => [
                 'img' => null
@@ -51,6 +63,11 @@ class PageConfigSustainabilityController extends Controller
         $arrConf['title']['en'] = $input['title_en'];
         $arrConf['description']['id'] = $input['description_id'];
         $arrConf['description']['en'] = $input['description_en'];
+        $arrConf['certificate']['title']['id'] = $input['certificate_title_id'];
+        $arrConf['certificate']['title']['en'] = $input['certificate_title_en'];
+        $arrConf['certificate']['content']['id'] = $input['certificate_content_id'];
+        $arrConf['certificate']['content']['en'] = $input['certificate_content_en'];
+        $arrConf['certificate']['file'] = $input['certificate_file'];
         return $arrConf;
     }
 
