@@ -66,7 +66,7 @@
                         <div class="dis-tab-cell valg-mid text-center">
                             <h1 class="title-section-reverse">{{ $certificate_title }}</h1>
                             <p>{{ $certificate_content }}</p>
-                            <a class="btn btn-cstm-one" href="{{ $certificate_file }}">DOWNLOAD</a>
+                            <a class="btn btn-cstm-one" href="{{ $certificate_file }}" target="_blank">DOWNLOAD</a>
                         </div>
                     </div>
                 </div>
