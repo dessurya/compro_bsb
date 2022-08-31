@@ -40,6 +40,10 @@ class SustainabilityController extends Controller
         ];
         $title_page = $config['title'][$lang];
         $banner = url($config['banner']['img']);
+        $certificate_title = $config['certificate']['title'][$lang];
+        $certificate_content = $config['certificate']['content'][$lang];
+        $certificate_background = url($config['certificate']['background']);
+        $certificate_file = url($config['certificate']['file']);
         $Sustainability = Sustainability::where([
             'flag_publish' => 'Y',
             'language' => $lang
@@ -49,6 +53,10 @@ class SustainabilityController extends Controller
         ];
         $js = [
         ];
-        return view('main.page.sustainability', compact('lang','css','js','title_page','banner','Sustainability','meta'));
+        return view('main.page.sustainability', compact(
+            'lang','css','js','title_page','banner','Sustainability','meta',
+            'certificate_title','certificate_content','certificate_background',
+            'certificate_file'
+        ));
     }
 }
