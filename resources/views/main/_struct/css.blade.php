@@ -287,6 +287,12 @@
         /* Handle */
     /* scroll bar */
 
+    @media (max-width: 805px){
+        nav#header #float-toggle-menu #list{
+            width:48vw;
+        }
+    }
+
     @media (max-width: 568px){
         nav#header {
             background-color: rgba(229,240,234,.95);
@@ -307,6 +313,7 @@
             -ms-flex-direction: column!important;
             flex-direction: column!important;
         }
+        /* 
         #header #menu{
             position: relative;
             top: -100vh;
@@ -317,6 +324,7 @@
             top: unset;
             height:unset;
         }
+         */
         nav#header.show.change a,
         nav#header.show a,
         nav#header a{
