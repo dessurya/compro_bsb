@@ -307,4 +307,16 @@
             width:50vw;
         }
     }
+    @media (max-width: 420px){
+        nav#header,
+        nav#header.change{
+            padding:1rem;
+        }
+        nav#header .navbar-brand img{
+            height:53px;
+        }
+        nav#header #float-toggle-menu #list{
+            padding:0 !important;
+        }
+    }
 </style>
