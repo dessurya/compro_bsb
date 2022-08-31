@@ -233,7 +233,21 @@
         cursor: pointer;
     }
 /* #news_info */
-
+@media (max-width: 1190px){
+    #banner .background .img .content h2{
+        font-size: 55pt;
+    }
+}
+@media (max-width: 1000px){
+    #banner .background .img .content h2{
+        font-size: 55pt;
+    }
+}
+@media (max-width: 990px){
+    #banner .background .img .content h2{
+        font-size: 36pt;
+    }
+}
 @media (max-width: 568px){
     #banner {
         margin-top: 75px;

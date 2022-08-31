@@ -23,8 +23,7 @@
                     <div class="row dis-tab-row">
                         <div class="content-item col-md-6 col-2 dis-tab-cell valg-bot">
                             <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-6 offset-md-2 col-12">
                                     <h3>{{ $data->title }}</h3>
                                     <p>{{ $data->description }}</p>
                                     @if(!empty($data->link))
