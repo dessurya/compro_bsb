@@ -61,7 +61,7 @@
         <div class="container">
             <div class="row">
                 <div id="img-show" class="col-md-6 col-sm-12">
-                    <div class="dis-tab">
+                    <div class="dis-tab" style="width:100%;height:100%;">
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid text-center">
                                 <div class="d-flex flex-row flex-wrap justify-content-center">

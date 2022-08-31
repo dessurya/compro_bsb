@@ -244,6 +244,11 @@
         font-size: 55pt;
     }
 }
+@media (max-width: 1070px){
+    #teksture #bc-white{
+        border-radius: 0 0 0 20%;
+    }
+}
 @media (max-width: 1000px){
     #banner .background .img .content h2{
         font-size: 55pt;
@@ -258,6 +263,11 @@
 @media (max-width: 990px){
     #banner .background .img .content h2{
         font-size: 36pt;
+    }
+}
+@media (max-width: 975px){
+    #teksture #bc-white{
+        border-radius: 0;
     }
 }
 @media (max-width: 765px){
