@@ -73,6 +73,12 @@ Sustainability Page Config
                                     <input type="url" class="form-control" id="certificate_file" name="certificate_file" value="{{ $arrConf['certificate']['file'] }}">
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="certificate_background">Certifiate Background @if(isset($arrConf['certificate']['background']) and $arrConf['certificate']['background'] != null and $arrConf['certificate']['background'] != '')<a href="{{ url($arrConf['certificate']['background']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
+                                    <input type="file" class="form-control" id="certificate_background" name="certificate_background" accept="image/*">
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -107,11 +113,49 @@ Sustainability Page Config
         param.title_en = $('[name=title_en]').val()
         param.description_id = $('[name=description_id]').val()
         param.description_en = $('[name=description_en]').val()
+        param.certificate_title_id = $('[name=certificate_title_id]').val()
+        param.certificate_title_en = $('[name=certificate_title_en]').val()
+        param.certificate_content_id = $('[name=certificate_content_id]').val()
+        param.certificate_content_en = $('[name=certificate_content_en]').val()
+        param.certificate_file = $('[name=certificate_file]').val()
         const resStore = await httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ return result })
         return true
     }
     storeImg = async () => {
         let pictures = $('[name=banner]').prop('files')
+        let count_img = pictures.length
+        if (count_img == 0) {
+            showPNotify('Info','Success','info')
+            storeCertificate()
+        }else{
+            $.each(pictures, async function(idx,img){
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(img);
+                reader.onloadend = async function(oFREvent) {
+                    var byteArray = new Uint8Array(oFREvent.target.result)
+                    var len = byteArray.byteLength
+                    var binary = ''
+                    for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                    byteArray = window.btoa(binary)
+                    let param =  {
+                        'img_encode':byteArray,
+                        'img_name':img.name,
+                        'img_type':img.type,
+                        'type':'img',
+                        'key':'img',
+                        'for':'banner'
+                    }
+                    httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ 
+                        showPNotify('Info','Success','info')
+                        storeCertificate()
+                    })
+                };
+            })
+        }
+    }
+
+    storeCertificate = () => {
+        let pictures = $('[name=certificate_background]').prop('files')
         let count_img = pictures.length
         if (count_img == 0) {
             showPNotify('Info','Success','info')
@@ -132,8 +176,8 @@ Sustainability Page Config
                         'img_name':img.name,
                         'img_type':img.type,
                         'type':'img',
-                        'key':'img',
-                        'for':'banner'
+                        'key':'background',
+                        'for':'certificate'
                     }
                     httpRequest('{{ route("cms.page-config.sustainability.store") }}','post',param).then(function(result){ 
                         showPNotify('Info','Success','info')
