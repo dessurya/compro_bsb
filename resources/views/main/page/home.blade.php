@@ -61,12 +61,18 @@
         <div class="container">
             <div class="row">
                 <div id="img-show" class="col-md-6 col-sm-12">
-                    <div class="d-flex flex-row flex-wrap justify-content-center">
-                        @foreach($quotes_img as $data)
-                            @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
-                            @if($data['img'] != null) <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>@endif
-                            @if($loop->iteration % 2 == 0) </div> @endif
-                        @endforeach
+                    <div class="dis-tab">
+                        <div class="dis-tab-row">
+                            <div class="dis-tab-cell valg-mid text-center">
+                                <div class="d-flex flex-row flex-wrap justify-content-center">
+                                    @foreach($quotes_img as $data)
+                                        @if($loop->iteration % 2 != 0) <div class="d-flex flex-column"> @endif
+                                        @if($data['img'] != null) <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>@endif
+                                        @if($loop->iteration % 2 == 0) </div> @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="content" class="col-md-6 col-sm-12">
