@@ -17,7 +17,7 @@
         font-weight: 500;
     }
     nav#header{
-        background-color: white;
+        background-color: rgba(0,0,0,0);
     }
     nav#header.change{
         background-color: rgba(0,0,0,0);
@@ -30,11 +30,11 @@
         font-weight: 300;
     }
     #banner{
-        margin-top:190px;
-        height: 80vh;
+        margin-top:0px;
+        height: 95vh;
     }
     #banner .img{
-        height: 80vh;
+        height: 95vh;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -57,7 +57,7 @@
     }
     @media (max-width: 568px){
         #banner{
-            margin-top:65px;
+            margin-top:0px;
         }
         #news img{
             max-width: 65%;
