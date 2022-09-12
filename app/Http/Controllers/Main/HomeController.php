@@ -22,7 +22,7 @@ class HomeController extends Controller
     protected static $dirPublicConfig = 'config_json/public.json';
     protected $dirHomeConfig = 'config_json/home.json';
 
-    private function getConfigJSON($dirFile)
+    private static function getConfigJSON($dirFile)
     {
         if (file_exists($dirFile)){ return json_decode(file_get_contents($dirFile),true); }
         else { return false; }
@@ -80,7 +80,8 @@ class HomeController extends Controller
             'language' => $lang
         ])->orderBy('publish_date','desc')->limit($config['news_info']['max_item'])->get();
 
-        $configMedsos = self::getConfigJSON(self::$dirPublicConfig);
+        $dirVal = self::$dirPublicConfig;
+        $configMedsos = self::getConfigJSON($dirVal);
         $configMedsos = $configMedsos['media_social'];
 
         $css = [
@@ -107,7 +108,8 @@ class HomeController extends Controller
 
     public static function getWebName()
     {
-        $config = self::getConfigJSON(self::$dirPublicConfig);
+        $dirVal = self::$dirPublicConfig;
+        $config = self::getConfigJSON($dirVal);
         return $config['web']['name'];
     }
 
@@ -155,7 +157,8 @@ class HomeController extends Controller
         $crYear = '2022';
         if (date('Y') != 2022) { $crYear .= ' - '.date('Y'); }
         $arr['copyright'] = $crYear;
-        $config = self::getConfigJSON(self::$dirPublicConfig);
+        $dirVal = self::$dirPublicConfig;
+        $config = self::getConfigJSON($dirVal);
         $find = array();
         foreach ($config['media_social'] as $row) {
             $row['img_dark'] = url($row['img_dark']);
