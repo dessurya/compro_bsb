@@ -24,9 +24,9 @@
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
-                    <h2 class="title-section"><span>{{$title_page['intruduction']['bold']}}</span>{{$title_page['intruduction']['light']}}</h2>
+                    <h2 class="title-section">{{$title_page['intruduction']['bold']}}{{$title_page['intruduction']['light']}}</h2>
                 </div>
-                <div class="col-md-6">@if(!empty($history_img))<img id="img_intro" src="{{ url($history_img) }}" alt="">@endif</div>
+                <div class="col-md-6">@if(!empty($history_img))<img id="img_intro" class="mb-3" src="{{ url($history_img) }}" alt="">@endif</div>
                 <div class="col-md-6">
                     <div id="history">
                         {!! $history !!}

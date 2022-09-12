@@ -88,7 +88,8 @@
     }
     h1.title-section span:nth-child(odd),
     h1.title-section-reverse span:nth-child(even){
-        font-weight: 300;
+        /* font-weight: 300; */
+        font-weight: 700;
         color: rgb(19 169 229);
     }
     h1.title-section span:nth-child(even),
@@ -304,19 +305,26 @@
             height:56px;
         }
         nav#header #float-toggle-menu #list{
-            width:50vw;
+            width:52.5vw;
         }
     }
     @media (max-width: 420px){
         nav#header,
         nav#header.change{
-            padding:1rem;
+            padding:1rem !important;
+        }
+        nav#header.change .navbar-brand img{
+            height:53px;
+        }
+        nav#header #tools{
+            background-color: rgba(0,0,0,0.2);
         }
         nav#header .navbar-brand img{
             height:53px;
         }
         nav#header #float-toggle-menu #list{
             padding:0 !important;
+            width:100vw;
         }
     }
 </style>

@@ -3,7 +3,7 @@ body{
     font-weight: 500;
 }
 nav#header{
-    background-color: white;
+    background-color: rgba(0,0,0,0);
 }
 nav#header.change{
     background-color: rgba(0,0,0,0);
@@ -16,7 +16,7 @@ nav#header .btn-menu-toggle .line{
     font-weight: 300;
 }
 #gradient{
-    margin-top:190px;
+    margin-top:0px;
     background-color: rgb(217,234,224);
     background-image: linear-gradient(rgb(217,234,224),rgb(217,234,224),rgb(217,234,224),rgb(255,255,255),rgb(255,255,255));
 }
@@ -48,10 +48,10 @@ form textarea{
 }
 @media (max-width: 568px){
     #gradient{
-        margin-top:65px;
+        margin-top:0px;
     }
     #gradient #contain{
-        padding-left: unset;
+        padding-left: 1em;
     }
     .background .img{
         padding: 2.5rem 0;

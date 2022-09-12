@@ -3,7 +3,7 @@ body{
     font-weight: 500;
 }
 nav#header{
-    background-color: white;
+    background-color: rgba(0,0,0,0);
 }
 nav#header.change{
     background-color: rgba(0,0,0,0);
@@ -22,10 +22,10 @@ nav#header .btn-menu-toggle .line{
     max-width: 100%;
 }
 #banner{
-    margin-top:190px;
+    margin-top:0px;
 }
 #banner .img{
-    height: 80vh;
+    height: 95vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,7 +85,7 @@ nav#header .btn-menu-toggle .line{
 
 @media (max-width: 568px){
     #banner{
-        margin-top:65px;
+        margin-top:0px;
     }
     #investor .row{
         margin-bottom: 2em;

@@ -60,7 +60,7 @@
             margin-top:65px;
         }
         #news img{
-            max-width: 45%;
+            max-width: 65%;
         }
     }
 </style>

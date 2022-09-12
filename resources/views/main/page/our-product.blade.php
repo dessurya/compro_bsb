@@ -34,19 +34,19 @@
             @foreach($products as $row)
             <div class="row">
                 @if($loop->iteration % 2 == 0)
-                <div class="col text-center">
+                <div class="col-md text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
                 </div>
-                <div class="col text-right">
+                <div class="col-md text-right">
                     <h4 class="title-section">{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
                 @else
-                <div class="col text-left">
+                <div class="col-md text-left">
                     <h4 class="title-section">{{ $row->title }}</h4>
                     {!! $row->content !!}
                 </div>
-                <div class="col text-center">
+                <div class="col-md text-center">
                     <img src="{{ url($row->img_thumnail) }}" alt="{{ $row->title }}">
                 </div>
                 @endif

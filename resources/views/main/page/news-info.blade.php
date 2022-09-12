@@ -24,7 +24,7 @@
         <div id="news-list" class="container">
             <div class="row mb-5">
                 @foreach($NewsInfo as $row)
-                <div class="col-md-4 col-12 text-center">
+                <div class="col-md-4 col-12 text-center mb-4">
                     @if($row->flag_img_thumbnail == 'Y' AND !empty($row->img_thumbnail))
                     <div class="img mb-3" style="background-image: url('{{ url($row->img_thumbnail) }}');"></div>
                     {{-- <img class="mb-2" src="{{ url($row->img_thumbnail) }}" alt="{{ $row->title }}"> --}}
