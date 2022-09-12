@@ -44,7 +44,7 @@ class OurClientController extends Controller
             'img' => url($config['maps']['img'])
         ];
         $css = [
-            url('asset\main\css\client.css').'?v='.date('Ym'),
+            url('asset\main\css\client.css').'?v='.date('Ym').'1',
         ];
         $js = [
         ];

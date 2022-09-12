@@ -49,7 +49,7 @@ class SustainabilityController extends Controller
             'language' => $lang
         ])->orderBy('position','asc')->get();
         $css = [
-            url('asset\main\css\sustainability.css').'?v='.date('Ym'),
+            url('asset\main\css\sustainability.css').'?v='.date('Ym').'1',
         ];
         $js = [
         ];

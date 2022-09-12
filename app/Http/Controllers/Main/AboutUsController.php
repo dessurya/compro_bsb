@@ -69,7 +69,7 @@ class AboutUsController extends Controller
         ];
 
         $css = [
-            url('asset\main\css\about.css').'?v='.date('Ym'),
+            url('asset\main\css\about.css').'?v='.date('Ym').'1',
         ];
         $js = [
         ];
