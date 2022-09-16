@@ -115,6 +115,14 @@ h4,h5{
         width: 240px;
         height: 240px;
     }
+    #mom #management .img{
+        width: 260px;
+        height: 260px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 100%;
+    }
     #mom #management h2{
         margin-bottom: 5rem;
     }
@@ -125,11 +133,21 @@ h4,h5{
     #mom #staff h4{
         color: rgb(19 169 229);
         font-weight: 500;
+        font-size: 15pt;
     }
     #mom #staff img{
         border-radius: 100%;
         width: 200px;
         height: 180px;
+    }
+    #mom #staff .img{
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 100%;
     }
 /* mom */
 

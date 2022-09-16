@@ -36,7 +36,7 @@ class PageConfigOurProductController extends Controller
         }else if ($httpRequest->type == 'img') {
             $new_arr = $this->storeImg($arrConf,$httpRequest->input());
         }
-        unlink($file);
+        if (file_exists($file)) { unlink($file); }
         file_put_contents($file, json_encode($new_arr));
         return response()->json($res);
     }

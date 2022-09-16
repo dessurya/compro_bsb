@@ -80,7 +80,8 @@
                 <div class="row mb-5">
                     <div class="col-md-4 text-center">
                         @if($data['img'] != null)
-                        <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
+                        <div class="img" style="background-image: url('{{ $data['img'] }}');"></div>
+                        <!-- <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}"> -->
                         @endif
                     </div>
                     <div class="col">
@@ -99,7 +100,8 @@
                     @foreach($management['staff'] as $idx => $data)
                     <div class="col text-center align-self-center mb-4">
                         @if($data['img'] != null)
-                        <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}">
+                        <div class="img mb-3" style="background-image: url('{{ $data['img'] }}');"></div>
+                        <!-- <img src="{{ $data['img'] }}" alt="{{ $data['name'] }}"> -->
                         @endif
                         <h4>{{ $data['name'] }}</h4>
                         <h5>{{ $data['title'] }}</h5>

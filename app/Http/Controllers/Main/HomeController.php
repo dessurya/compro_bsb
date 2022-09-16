@@ -115,7 +115,9 @@ class HomeController extends Controller
 
     public static function getWebIcon()
     {
-        return null;
+        $dirVal = self::$dirPublicConfig;
+        $config = self::getConfigJSON($dirVal);
+        return $config['web']['icon'];
     }
 
     public static function getLangIcon($route,$lang)

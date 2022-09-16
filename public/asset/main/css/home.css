@@ -165,7 +165,7 @@
         font-weight: 700;
     }
     #client img{
-        width:100%;
+        width:90%;
     }
     #client .owl-theme .owl-controls{
         margin-top: -4em;
@@ -194,6 +194,7 @@
         top:0;
         left:0;
         width:100%;
+        z-index: -1;
     }
     #sustainability #content .img{
         height:240px;
@@ -227,6 +228,14 @@
         max-width: 100%;
         border-radius: 12px;
         margin-bottom: 1em;
+    }
+    #news_info .img{
+        width: 100%;
+        height: 240px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 12px;
     }
     #news_info #owlNav img{
         width: 58px;

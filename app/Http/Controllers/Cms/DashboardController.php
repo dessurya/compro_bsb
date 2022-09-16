@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        // \Artisan::call('optimize');
         return view('cms.page.dashboard');
     }
 }

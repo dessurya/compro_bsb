@@ -125,7 +125,7 @@ class ManagementController extends Controller
     public function storeImg(Request $http_req)
     {
         $find = Management::find($http_req->set_id);
-        if ($find and !empty($find->img)) { unlink($find->img); }
+        if ($find and !empty($find->img)) { if(file_exists($find->img)) {unlink($find->img);} }
         $dir_estimate = 'pict_content_asset/management';
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {
@@ -173,7 +173,7 @@ class ManagementController extends Controller
         $getData = Management::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
             HelperService::userHistoryStore($this->module,'Delete Management || '.$row->name);
-            if (!empty($row->img)) { unlink($row->img); }
+            if (!empty($row->img)) { if(file_exists($row->img)) {unlink($row->img);} }
             $row->delete();
         }
         return response()->json([ 'response' => true ]);

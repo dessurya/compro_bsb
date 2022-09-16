@@ -131,8 +131,8 @@ class NewsInfoController extends Controller
     {
         $find = NewsInfo::find($http_req->set_id);
         if ($find) {
-            if ($http_req->for == 'thumbnail' and !empty($find->img_thumbnail)) { unlink($find->img_thumbnail); }
-            else if ($http_req->for == 'banner' and !empty($find->img_banner)) { unlink($find->img_banner); }
+            if ($http_req->for == 'thumbnail' and !empty($find->img_thumbnail)) { if(file_exists($find->img_thumbnail)) { unlink($find->img_thumbnail); } }
+            else if ($http_req->for == 'banner' and !empty($find->img_banner)) { if(file_exists($find->img_banner)) { unlink($find->img_banner); } }
         }
         $dir_estimate = 'pict_content_asset/news-info/'.date('Y');
         $dir_file = '';

@@ -122,6 +122,65 @@ Home Page Config
                         </div>
                     </div>
                 </div>
+
+                <div id="ourClientWrapp" class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Our Client
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Item 1</h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="our_client_show_1" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                        <select class="form-control" id="our_client_show_1" name="our_client_show_1" accept="image/*">
+                                            
+                                    </div>
+                                </div>
+                                @if($arrConf['quotes']['imgs_1'] != null and $arrConf['quotes']['imgs_1'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_1']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_1']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_1" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(1)" type="file" class="form-control" id="quotes_imgs_1" name="quotes_imgs_1" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 2</h5>
+                                @if($arrConf['quotes']['imgs_2'] != null and $arrConf['quotes']['imgs_2'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_2']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_2']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_2" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(2)" type="file" class="form-control" id="quotes_imgs_2" name="quotes_imgs_2" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 3</h5>
+                                @if($arrConf['quotes']['imgs_3'] != null and $arrConf['quotes']['imgs_3'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_3']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_3']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_3" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(3)" type="file" class="form-control" id="quotes_imgs_3" name="quotes_imgs_3" accept="image/*" style="display:none;">
+                            </div>
+                            <div class="col text-center">
+                                <h5>Quotes Img 4</h5>
+                                @if($arrConf['quotes']['imgs_4'] != null and $arrConf['quotes']['imgs_4'] != '')
+                                <a href="{{ url($arrConf['quotes']['imgs_4']) }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url($arrConf['quotes']['imgs_4']) }}" alt="" style="height:125px;margin:auto;">
+                                </a>
+                                @endif
+                                <label for="quotes_imgs_4" class="btn btn-sm btn-block btn-outline-info">Upload</label>
+                                <input onchange="uploadQuotesImg(4)" type="file" class="form-control" id="quotes_imgs_4" name="quotes_imgs_4" accept="image/*" style="display:none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

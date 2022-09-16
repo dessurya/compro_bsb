@@ -139,7 +139,9 @@ class BannerController extends Controller
         $getData = Banner::whereIn('id',$http_req->ids)->get();
         foreach ($getData as $row) {
             HelperService::userHistoryStore($this->module,'Delete Banner || '.$row->title);
-            if (!empty($row->img)) { unlink($row->img); }
+            if (!empty($row->img)) { 
+                if (file_exists($row->img)) { unlink($row->img); }
+            }
             $row->delete();
         }
         return response()->json([ 'response' => true ]);
@@ -148,7 +150,9 @@ class BannerController extends Controller
     public function storeImg(Request $http_req)
     {
         $find = Banner::find($http_req->set_id);
-        if ($find and !empty($find->img)) { unlink($find->img); }
+        if ($find and !empty($find->img)) { 
+            if (file_exists($find->img)) { unlink($find->img); }
+        }
         $dir_estimate = 'pict_content_asset/banner';
         $dir_file = '';
         foreach (explode('/',$dir_estimate) as $item) {

@@ -133,6 +133,9 @@
             <div class="img fullWidth fullHeight text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
                 {{-- <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1> --}}
                 <h1 class="title-section">{{$pageConfig['Our Client']}}</h1>
+                <div class="container">
+                    <img src="{{ url($our_client['img']) }}" alt="">
+                </div>
             </div>
         </div>
         @endfor
@@ -157,7 +160,8 @@
             <div class="item p-3">
                 <div class="text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
-                    <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}">
+                    <div class="img mb-3" style="background-image: url('{{ url($data->img_thumbnail) }}');"></div>
+                    <!-- <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}"> -->
                     @endif
                     <h3>{{ $data->title }}</h3>
                     <p>{{ Str::words(strip_tags($data->content), 35, ' ...') }}</p>

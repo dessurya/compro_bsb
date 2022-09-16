@@ -36,8 +36,9 @@ class PageConfigHomeController extends Controller
                 'imgs_4' => null,
             ],
             'our_client' => [
-                'background' => null,
-                'img' => null,
+                'show_1' => 'N', 'background_1' => null, 'img_1' => null,
+                'show_2' => 'N', 'background_2' => null, 'img_2' => null,
+                'show_3' => 'N', 'background_3' => null, 'img_3' => null,
             ],
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
@@ -68,6 +69,9 @@ class PageConfigHomeController extends Controller
         $arrConf['quotes']['line']['id'][2] = $input['quotes_line_id_2'];
         $arrConf['quotes']['line']['en'][1] = $input['quotes_line_en_1'];
         $arrConf['quotes']['line']['en'][2] = $input['quotes_line_en_2'];
+        $arrConf['our_client']['show_1'] = $input['our_client_show_1'];
+        $arrConf['our_client']['show_2'] = $input['our_client_show_2'];
+        $arrConf['our_client']['show_3'] = $input['our_client_show_3'];
         return $arrConf;
     }
 
