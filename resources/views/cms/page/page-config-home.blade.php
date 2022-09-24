@@ -32,16 +32,6 @@ Home Page Config
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <label for="our_client_img">Our Client Img @if(isset($arrConf['our_client']['img']) and $arrConf['our_client']['img'] != null and $arrConf['our_client']['img'] != '')<a href="{{ url($arrConf['our_client']['img']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
-                                    <input type="file" class="form-control" id="our_client_img" name="our_client_img" accept="image/*">
-                                </div>
-                                <div class="col form-group">
-                                    <label for="our_client_background">Our Client Background Img @if(isset($arrConf['our_client']['background']) and $arrConf['our_client']['background'] != null and $arrConf['our_client']['background'] != '')<a href="{{ url($arrConf['our_client']['background']) }}" target="_blank" rel="noopener noreferrer">show</a>@endif</label>
-                                    <input type="file" class="form-control" id="our_client_background" name="our_client_background" accept="image/*">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col form-group">
                                     <label for="quotes_line_id_1">Quotes Indonesia Line 1</label>
                                     <input type="text" class="form-control" id="quotes_line_id_1" name="quotes_line_id_1" value="{{ $arrConf['quotes']['line']['id'][1] }}" required>
                                 </div>
@@ -125,59 +115,72 @@ Home Page Config
 
                 <div id="ourClientWrapp" class="card">
                     <div class="card-header">
-                        <div class="card-title">
-                            Our Client
-                        </div>
+                        Our Client <span onclick="formAddClient()" class="btn btn-sm btn-outline-info">Add</span>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Item 1</h5>
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="our_client_show_1" class="btn btn-sm btn-block btn-outline-info">Upload</label>
-                                        <select class="form-control" id="our_client_show_1" name="our_client_show_1" accept="image/*">
-                                            
+                    <div class="card-body p-0">
+                        
+                        <form id="formClient" onsubmit="return submitClient()" style="display:none;">
+                            <div class="card">
+                                <div class="card-header">
+                                    Form Our Client
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col form-group">
+                                            <label for="urutan">Queue</label>
+                                            <input type="number" class="form-control" id="urutan" name="urutan" required min="1" max="100">
+                                        </div>
+                                        <div class="col form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="img">Img</label>
+                                            <input type="file" class="form-control" id="img" name="img" accept="image/*" required>
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="background">Background</label>
+                                            <input type="file" class="form-control" id="background" name="background" accept="image/*" required>
+                                        </div>
                                     </div>
                                 </div>
-                                @if($arrConf['quotes']['imgs_1'] != null and $arrConf['quotes']['imgs_1'] != '')
-                                <a href="{{ url($arrConf['quotes']['imgs_1']) }}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ url($arrConf['quotes']['imgs_1']) }}" alt="" style="height:125px;margin:auto;">
-                                </a>
-                                @endif
-                                <label for="quotes_imgs_1" class="btn btn-sm btn-block btn-outline-info">Upload</label>
-                                <input onchange="uploadQuotesImg(1)" type="file" class="form-control" id="quotes_imgs_1" name="quotes_imgs_1" accept="image/*" style="display:none;">
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <input type="hidden" name="id">
+                                        <div class="col"><button type="reset" onclick="closeClient()" class="btn btn-sm btn-block btn-outline-danger">Close</button></div>
+                                        <div class="col"><button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col text-center">
-                                <h5>Quotes Img 2</h5>
-                                @if($arrConf['quotes']['imgs_2'] != null and $arrConf['quotes']['imgs_2'] != '')
-                                <a href="{{ url($arrConf['quotes']['imgs_2']) }}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ url($arrConf['quotes']['imgs_2']) }}" alt="" style="height:125px;margin:auto;">
-                                </a>
-                                @endif
-                                <label for="quotes_imgs_2" class="btn btn-sm btn-block btn-outline-info">Upload</label>
-                                <input onchange="uploadQuotesImg(2)" type="file" class="form-control" id="quotes_imgs_2" name="quotes_imgs_2" accept="image/*" style="display:none;">
-                            </div>
-                            <div class="col text-center">
-                                <h5>Quotes Img 3</h5>
-                                @if($arrConf['quotes']['imgs_3'] != null and $arrConf['quotes']['imgs_3'] != '')
-                                <a href="{{ url($arrConf['quotes']['imgs_3']) }}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ url($arrConf['quotes']['imgs_3']) }}" alt="" style="height:125px;margin:auto;">
-                                </a>
-                                @endif
-                                <label for="quotes_imgs_3" class="btn btn-sm btn-block btn-outline-info">Upload</label>
-                                <input onchange="uploadQuotesImg(3)" type="file" class="form-control" id="quotes_imgs_3" name="quotes_imgs_3" accept="image/*" style="display:none;">
-                            </div>
-                            <div class="col text-center">
-                                <h5>Quotes Img 4</h5>
-                                @if($arrConf['quotes']['imgs_4'] != null and $arrConf['quotes']['imgs_4'] != '')
-                                <a href="{{ url($arrConf['quotes']['imgs_4']) }}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ url($arrConf['quotes']['imgs_4']) }}" alt="" style="height:125px;margin:auto;">
-                                </a>
-                                @endif
-                                <label for="quotes_imgs_4" class="btn btn-sm btn-block btn-outline-info">Upload</label>
-                                <input onchange="uploadQuotesImg(4)" type="file" class="form-control" id="quotes_imgs_4" name="quotes_imgs_4" accept="image/*" style="display:none;">
-                            </div>
+                        </form>
+
+                        <div class="Client-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Queue</th>
+                                        <th>Name</th>
+                                        <th>Img & Background</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($arrConf['our_client'] as $idx => $data)
+                                    <tr>
+                                        <td>
+                                            <button onclick="removeClient('{{$idx}}')" class="btn btn-sm btn-outline-danger">Delete</button>
+                                        </td>
+                                        <td>{{ $data['urutan'] }}</td>
+                                        <td>{{ $data['name'] }}</td>
+                                        <td>
+                                            <a href="{{ url($data['img']) }}" target="_blank" rel="noopener noreferrer">img</a>
+                                            &nbsp;
+                                            <a href="{{ url($data['background']) }}" target="_blank" rel="noopener noreferrer">background</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -188,6 +191,125 @@ Home Page Config
 @endpush
 
 @push('script')
+<script>
+    closeClient = () => {
+        $('form#formClient [name=id]').val(null)
+        $('form#formClient').fadeOut()
+    }
+
+    formAddClient = () => {
+        $('form#formClient button[type=reset]').click()
+        $('form#formClient').fadeIn()
+    }
+
+    openClient = (idx,data) => {
+        formAddClient()
+        data = JSON.parse(atob(data))
+        $('form#formClient [name=id]').val(idx)
+        $('form#formClient [name=lokasi]').val(data.lokasi)
+        $('form#formClient [name=tanggal]').val(data.tanggal)
+        $('form#formClient [name=jam]').val(data.jam)
+    }
+
+    removeClient = async (idx) => {
+        loadingScreen(true)
+        closeClient()
+        let param = {}
+        param.type = 'remove_ourclient'
+        param.idx = idx
+        await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){
+            loadingScreen(false)
+            location.reload()
+        })
+    }
+
+    submitClient = () => {
+        loadingScreen(true)
+        let param = {}
+        param.type = 'store_ourclient'
+        param.urutan = $('form#formClient [name=urutan]').val()
+        param.name = $('form#formClient [name=name]').val()
+        param.id = $('form#formClient [name=id]').val()
+
+        httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
+            submitClientStoreImg(result.idx)
+            return false
+        })
+        return false
+    }
+
+    submitClientStoreImg = (arr_id) => {
+        let pictures = $('form#formClient [name=img]').prop('files')
+        let count_img = pictures.length
+        if (count_img == 0) { 
+            submitClientStoreBackground(arr_id)
+        } else if (count_img > 0) {
+            loadingScreen(true)
+            $.each(pictures, async function(idx,img){
+                img.arr_id = arr_id
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(img);
+                reader.onloadend = async function(oFREvent) {
+                    var byteArray = new Uint8Array(oFREvent.target.result)
+                    var len = byteArray.byteLength
+                    var binary = ''
+                    for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                    byteArray = window.btoa(binary)
+                    let param =  {
+                        'img_encode':byteArray,
+                        'img_name':img.name,
+                        'img_type':img.type,
+                        'idx': img.arr_id,
+                        'type':'store_ourclient_img',
+                        'key':'img',
+                        'for':'our_client'
+                    }
+                    httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
+                        submitClientStoreBackground(param.idx)
+                    })
+                };
+            })
+        }
+        return false
+    }
+
+    submitClientStoreBackground = (arr_id) => {
+        let pictures = $('form#formClient [name=background]').prop('files')
+        let count_img = pictures.length
+        if (count_img == 0) { 
+            loadingScreen(false)
+            location.reload()
+        } else if (count_img > 0) {
+            loadingScreen(true)
+            $.each(pictures, async function(idx,img){
+                img.arr_id = arr_id
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(img);
+                reader.onloadend = async function(oFREvent) {
+                    var byteArray = new Uint8Array(oFREvent.target.result)
+                    var len = byteArray.byteLength
+                    var binary = ''
+                    for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                    byteArray = window.btoa(binary)
+                    let param =  {
+                        'img_encode':byteArray,
+                        'img_name':img.name,
+                        'img_type':img.type,
+                        'idx': img.arr_id,
+                        'type':'store_ourclient_img',
+                        'key':'background',
+                        'for':'our_client'
+                    }
+                    httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
+                        loadingScreen(false)
+                        location.reload()
+                    })
+                };
+            })
+        }
+        return false
+    }
+</script>
 <script>
     uploadQuotesImg = (queue) => {
         let pictures = $('[name=quotes_imgs_'+queue+']').prop('files')
@@ -220,7 +342,6 @@ Home Page Config
             };
         })
     }
-
     submitPageConfig = () => {
         loadingScreen(true)
         submitPageConfigExe()
@@ -228,7 +349,6 @@ Home Page Config
     }
     submitPageConfigExe = async () =>{
         const storeString = await submitPageConfigExeSend()
-        if (storeString == true) { await storeImgOurClient() }
     }
     submitPageConfigExeSend = async () =>{
         let param = {}
@@ -240,71 +360,8 @@ Home Page Config
         param.quotes_line_en_1 = $('[name=quotes_line_en_1]').val()
         param.quotes_line_en_2 = $('[name=quotes_line_en_2]').val()
         const resStore = await httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ return result })
-        return true
-    }
-    storeImgOurClient = async () => {
-        let pictures = $('[name=our_client_img]').prop('files')
-        let count_img = pictures.length
-        if (count_img == 0) {
-            storeImgBackgroundOurClient()
-        }else{
-            $.each(pictures, async function(idx,img){
-                var reader = new FileReader();
-                reader.readAsArrayBuffer(img);
-                reader.onloadend = async function(oFREvent) {
-                    var byteArray = new Uint8Array(oFREvent.target.result)
-                    var len = byteArray.byteLength
-                    var binary = ''
-                    for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
-                    byteArray = window.btoa(binary)
-                    let param =  {
-                        'img_encode':byteArray,
-                        'img_name':img.name,
-                        'img_type':img.type,
-                        'type':'img',
-                        'key':'img',
-                        'for':'our_client'
-                    }
-                    httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
-                        storeImgBackgroundOurClient()
-                    })
-                };
-            })
-        }
-    }
-    storeImgBackgroundOurClient = async () => {
-        let pictures = $('[name=our_client_background]').prop('files')
-        let count_img = pictures.length
-        if (count_img == 0) {
-            showPNotify('Info','Success','info')
-            loadingScreen(false)
-            location.reload()
-        }else{
-            $.each(pictures, async function(idx,img){
-                var reader = new FileReader();
-                reader.readAsArrayBuffer(img);
-                reader.onloadend = async function(oFREvent) {
-                    var byteArray = new Uint8Array(oFREvent.target.result)
-                    var len = byteArray.byteLength
-                    var binary = ''
-                    for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
-                    byteArray = window.btoa(binary)
-                    let param =  {
-                        'img_encode':byteArray,
-                        'img_name':img.name,
-                        'img_type':img.type,
-                        'type':'img',
-                        'key':'background',
-                        'for':'our_client'
-                    }
-                    httpRequest('{{ route("cms.page-config.home.store") }}','post',param).then(function(result){ 
-                        showPNotify('Info','Success','info')
-                        loadingScreen(false)
-                        location.reload()
-                    })
-                };
-            })
-        }
+        loadingScreen(false)
+        location.reload()
     }
 </script>
 @endpush

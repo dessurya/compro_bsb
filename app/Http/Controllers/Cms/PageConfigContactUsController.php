@@ -27,7 +27,14 @@ class PageConfigContactUsController extends Controller
             ],
             'message' => [
                 'img' => null
-            ]
+            ],
+            'lelang_config' => [
+                'title' => [
+                    'id' => 'JADWAL LELANG',
+                    'en' => 'JADWAL LELANG',
+                ]
+            ],
+            'lelang' => []
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
         else{file_put_contents($file, json_encode($arrConf));}
@@ -43,14 +50,42 @@ class PageConfigContactUsController extends Controller
             $new_arr = $this->storeString($arrConf,$httpRequest->input());
         }else if ($httpRequest->type == 'img') {
             $new_arr = $this->storeImg($arrConf,$httpRequest->input());
+        }else if ($httpRequest->type == 'lelang') {
+            $new_arr = $this->storeLelang($arrConf,$httpRequest->input());
+        }else if ($httpRequest->type == 'remove_lelang') {
+            $new_arr = $this->removeLelang($arrConf,$httpRequest->input());
         }
         unlink($file);
         file_put_contents($file, json_encode($new_arr));
         return response()->json($res);
     }
 
+    private function removeLelang($arrConf,$input)
+    {
+        $newLelang = [];
+        $Lelang = $arrConf['lelang'];
+        foreach ($Lelang as $idx => $data) { if ($idx != $input['idx']) { $newLelang[$idx] = $data; } }
+        $arrConf['lelang'] = $newLelang;
+        return $arrConf;
+    }
+
+    private function storeLelang($arrConf,$input)
+    {
+        if (empty($input['id']) or $input['id'] == null or $input['id'] == '') { $idx = date('Ymdhis'); }
+        else { $idx = $input['id']; }
+
+        $arrConf['lelang'][$idx] = [
+            'lokasi' => $input['lokasi'],
+            'tanggal' => $input['tanggal'],
+            'jam' => $input['jam'],
+        ];
+        return $arrConf;
+    }
+
     private function storeString($arrConf,$input)
     {
+        $arrConf['lelang_config']['title']['id'] = $input['title_lelang_id'];
+        $arrConf['lelang_config']['title']['en'] = $input['title_lelang_en'];
         $arrConf['location']['title']['id'] = $input['title_id'];
         $arrConf['location']['title']['en'] = $input['title_en'];
         $arrConf['location']['description']['id'] = $input['description_id'];

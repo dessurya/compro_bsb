@@ -38,12 +38,12 @@
                     <img class="mb-3" src="{{ $row->img_thumnail }}" alt="{{ $row->title }}">
                 </div>
                 <div class="col-md text-right">
-                    <h3 class="title-section">{{ $row->title }}</h3>
+                    <h3 id="{{ $row->title }}" class="title-section">{{ $row->title }}</h3>
                     {!! $row->content !!}
                 </div>
                 @else
                 <div class="col-md text-left">
-                    <h3 class="title-section">{{ $row->title }}</h3>
+                    <h3 id="{{ $row->title }}" class="title-section">{{ $row->title }}</h3>
                     {!! $row->content !!}
                 </div>
                 <div class="col-md text-center">

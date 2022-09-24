@@ -53,6 +53,11 @@ class ContactController extends Controller
             ],
             'message' => [
                 'img' => url($config['message']['img'])
+            ],
+            'lelang' => [
+                'title' => $config['lelang_config']['title'][$lang],
+                'data' => $config['lelang'],
+                'count' => count($config['lelang'])
             ]
         ];
         $css = [

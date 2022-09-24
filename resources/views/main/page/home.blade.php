@@ -97,7 +97,7 @@
                 @foreach($product as $data)
                 <div class="col">
                     <img src="{{ url($data->img_thumnail) }}" alt="{{ $data->title }}">
-                    <h3>{{ $data->title }}</h3>
+                    <a href="{{ route('main.our-product') }}#{{ $data->title }}"><h3>{{ $data->title }}</h3></a>
                     <div class="text">
                         <p>{{ $data->content_shoert }}</p>
                     </div>
@@ -118,7 +118,7 @@
             <div class="col">
                 <div class="img" style="background-image: url('{{ url($data->img_thumnail) }}');"></div>
                 <br>
-                <h3 class="p-2">{{ $data->title }}</h3>
+                <a href="{{ route('main.sustainability') }}#{{ $data->title }}"><h3 class="p-2">{{ $data->title }}</h3></a>
                 <p class="p-2">{{ strip_tags($data->content_shoert) }}</p>
             </div>
             @endforeach
@@ -128,17 +128,17 @@
 
 <div id="client" class="section fullWidth fullHeight">
     <div id="owl" class="owl-carousel owl-theme">
-        @for($i = 0; $i < 3; $i++)
+        @foreach($our_client as $idx => $row)
         <div class="item fullWidth fullHeight">
-            <div class="img fullWidth fullHeight text-center"  style="background-image: url('{{ url($our_client['background']) }}');">
+            <div class="img fullWidth fullHeight text-center"  style="background-image: url('{{ url($row['background']) }}');">
                 {{-- <h1 class="title-section">{!! App\Http\Controllers\Main\HomeController::buildTitle($pageConfig['Our Client']) !!}</h1> --}}
                 <h1 class="title-section">{{$pageConfig['Our Client']}}</h1>
                 <div class="container">
-                    <img src="{{ url($our_client['img']) }}" alt="">
+                    <img src="{{ url($row['img']) }}" alt="">
                 </div>
             </div>
         </div>
-        @endfor
+        @endforeach
     </div>
     {{-- 
         <div class="container">

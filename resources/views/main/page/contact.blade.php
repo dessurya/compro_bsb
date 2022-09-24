@@ -11,12 +11,21 @@
     @foreach($css as $data)
     <link rel="stylesheet" href="{{ $data }}">
     @endforeach
+
+    <style>
+        #lelang .table-info tbody+tbody,
+        #lelang .table-info td,
+        #lelang .table-info th,
+        #lelang .table-i{
+            padding:1.6em 1.8em;
+        }
+    </style>
 @endpush
 
 @section('content')
 <div class="fullWidth">
     <div id="gradient" class="fullWidth">
-        <div class="container">
+        <div class="container mb-3">
             <div class="row">
                 <div class="col-md mb-3">
                     <iframe src="{{ $page_data['location']['embed'] }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -28,6 +37,31 @@
                 </div>
             </div>
         </div>
+        @if($page_data['lelang']['count'] > 0)
+        <div id="lelang" class="container">
+            <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['lelang']['title']) !!}</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover table-info" style="border-radius:35px; border: solid white 2px;">
+                    <thead class="text-center" style="color:white; background-color:rgb(19,169,229);">
+                        <tr>
+                            <th style="max-width: 45vw;">LOKASI</th>
+                            <th>HARI/TANGGAL</th>
+                            <th>JAM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($page_data['lelang']['data'] as $idx => $row )
+                            <tr>
+                                <td style="max-width: 45vw;">{{$row['lokasi']}}</td>
+                                <td>{{$row['tanggal']}}</td>
+                                <td>{{$row['jam']}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @endif
     </div>
     
     <div class="fullWidth background">

@@ -96,8 +96,9 @@
         <div class="container">
             <div id="staff" class="mb-5">
                 <h2 class="title-section text-center mb-5">{!! App\Http\Controllers\Main\HomeController::buildTitle($title_section['staff']) !!}</h2>
-                <div class="row row-cols-md-4  row-cols-2 row-cols-sm-2">
+                <div class="row">
                     @foreach($management['staff'] as $idx => $data)
+                    @if($loop->index%3 == 0)</div><div class="row mb-4">@endif
                     <div class="col text-center align-self-center mb-4">
                         @if($data['img'] != null)
                         <div class="img mb-3" style="background-image: url('{{ $data['img'] }}');"></div>
