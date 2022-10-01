@@ -336,4 +336,5 @@ News & Info
         loadingScreen(false)
     }
 </script>
+@include('cms.component.validate-max-file')
 @endpush

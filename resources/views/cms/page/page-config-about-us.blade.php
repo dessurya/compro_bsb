@@ -37,7 +37,7 @@ About Us Page Config
                                     <textarea id="intruduction_id_content" name="intruduction_id_content">{{ $arrConf['intruduction']['id']['content'] }}</textarea>
                                 </div>
                                 <div class="col form-group">
-                                    <label for="intruduction_en_content">Introduction Content Indonesia</label>
+                                    <label for="intruduction_en_content">Introduction Content ENglish</label>
                                     <textarea id="intruduction_en_content" name="intruduction_en_content">{{ $arrConf['intruduction']['en']['content'] }}</textarea>
                                 </div>
                             </div>
@@ -233,4 +233,5 @@ About Us Page Config
         }
     }
 </script>
+@include('cms.component.validate-max-file')
 @endpush

@@ -41,7 +41,7 @@
         <div id="lelang" class="container">
             <h1 class="title-section-reverse mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($page_data['lelang']['title']) !!}</h1>
             <div class="table-responsive">
-                <table class="table table-bordered table-striped table-hover table-info" style="border-radius:35px; border: solid white 2px;">
+                <table class="table table-bordered table-striped table-hover table-info" style="border: solid white 2px;">
                     <thead class="text-center" style="color:white; background-color:rgb(19,169,229);">
                         <tr>
                             <th style="max-width: 45vw;">LOKASI</th>

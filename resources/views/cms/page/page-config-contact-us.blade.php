@@ -254,4 +254,5 @@ Contact Us Page Config
         }
     }
 </script>
+@include('cms.component.validate-max-file')
 @endpush

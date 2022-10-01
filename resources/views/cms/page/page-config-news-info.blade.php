@@ -106,4 +106,5 @@ News & Info Page Config
         }
     }
 </script>
+@include('cms.component.validate-max-file')
 @endpush

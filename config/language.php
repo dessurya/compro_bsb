@@ -1,5 +1,5 @@
 <?php
 return [
     'id' => 'Indonesia',
-    // 'en' => 'English',
+    'en' => 'English',
 ];

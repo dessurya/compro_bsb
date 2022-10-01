@@ -364,4 +364,5 @@ Home Page Config
         location.reload()
     }
 </script>
+@include('cms.component.validate-max-file')
 @endpush

@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/artisan-optimize', function(){
+	\Artisan::call('optimize');
+	dd('dun run artisan optimze');
+});
+
+
 Route::get('/', 'AuthController@redirectLogin');
 Route::get('/login', 'AuthController@loginView')->name('login');
 Route::post('/login', 'AuthController@loginExe')->name('loginexe');
