@@ -19,6 +19,10 @@ class PublicConfigController extends Controller
             'phone'=>'<p>021 83796375</p>',
             'address'=>'<p>Perkantoran Crown Place Block B 02-03</p><p>Jl. Prof. Dr Soepomo no 231</p><p>Jakarta 12870 - Indonesia</p>',
             'media_social'=>[],
+            'footer'=>[
+                'info' => ['id' => '', 'en' => ''],
+                'media' => ['id' => '', 'en' => '']
+            ],
         ];
         if (file_exists($file)){ $arrConf = json_decode(file_get_contents($file),true); }
         else{file_put_contents($file, json_encode($arrConf));}
@@ -102,6 +106,10 @@ class PublicConfigController extends Controller
     private function storeString($arrConf,$input)
     {
         $arrConf['web']['name'] = $input['web_name'];
+        $arrConf['footer']['info']['id'] = $input['footer_info_id'];
+        $arrConf['footer']['info']['en'] = $input['footer_info_en'];
+        $arrConf['footer']['media']['id'] = $input['footer_media_id'];
+        $arrConf['footer']['media']['en'] = $input['footer_media_en'];
         $arrConf['address'] = $input['address'];
         $arrConf['email'] = $input['email'];
         $arrConf['phone'] = $input['phone'];

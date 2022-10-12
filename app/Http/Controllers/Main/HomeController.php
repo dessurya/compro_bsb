@@ -170,6 +170,12 @@ class HomeController extends Controller
         $arr['address'] = $config['address'];
         $arr['email'] = $config['email'];
         $arr['phone'] = $config['phone'];
+        $arr['footer_info'] = $config['footer']['info']['id'];
+        $arr['footer_media'] = $config['footer']['media']['id'];
+        if (App::currentLocale() == 'en') {
+            $arr['footer_info'] = $config['footer']['info']['en'];
+            $arr['footer_media'] = $config['footer']['media']['en'];
+        }
         echo view('main._struct.footer', compact('arr'))->render();
     }
 

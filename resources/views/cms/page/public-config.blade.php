@@ -44,6 +44,26 @@ Public Config
                             </div>
                             <div class="row">
                                 <div class="col form-group">
+                                    <label for="footer_info_id">Footer Title Information Id</label>
+                                    <input type="text" class="form-control" id="footer_info_id" name="footer_info_id" value="{{ $arrConf['footer']['info']['id'] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="footer_info_en">Footer Title Information En</label>
+                                    <input type="text" class="form-control" id="footer_info_en" name="footer_info_en" value="{{ $arrConf['footer']['info']['en'] }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="footer_media_id">Footer Title Media Id</label>
+                                    <input type="text" class="form-control" id="footer_media_id" name="footer_media_id" value="{{ $arrConf['footer']['media']['id'] }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label for="footer_media_en">Footer Title Media En</label>
+                                    <input type="text" class="form-control" id="footer_media_en" name="footer_media_en" value="{{ $arrConf['footer']['media']['en'] }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
                                     <label for="address">Address</label>
                                     <textarea id="address" name="address">{{ $arrConf['address'] }}</textarea>
                                 </div>
@@ -252,6 +272,10 @@ Public Config
         let param = {}
         param.type = 'string'
         param.web_name = $('[name=web_name]').val()
+        param.footer_info_id = $('[name=footer_info_id]').val()
+        param.footer_info_en = $('[name=footer_info_en]').val()
+        param.footer_media_id = $('[name=footer_media_id]').val()
+        param.footer_media_en = $('[name=footer_media_en]').val()
         param.address = $('[name=address]').summernote('code')
         param.phone = $('[name=phone]').summernote('code')
         param.email = $('[name=email]').summernote('code')

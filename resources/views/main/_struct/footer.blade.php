@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div id="info" class="col-8">
-                    <h3>Information</h3>
+                    <h3>{!! $arr['footer_info'] !!}</h3>
                     <div class="dis-tab">
                         <div class="dis-tab-row">
                             <div class="dis-tab-cell valg-mid"><i class="fas fa-phone" aria-hidden="true"></i></div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div id="find" class="col-4 text-right">
-                    <h3>Find Us</h3>
+                    <h3>{!! $arr['footer_media'] !!}</h3>
                     @foreach($arr['find'] as $img)
                     <a href="{{ $img['url'] }}" target="_blank" rel="noopener noreferrer">
                         <img src="{{ $img['img_dark'] }}" alt="{{ $img['identity'] }}">
