@@ -44,7 +44,8 @@
                 <table class="table table-bordered table-striped table-hover table-info" style="border: solid white 2px;">
                     <thead class="text-center" style="color:white; background-color:rgb(19,169,229);">
                         <tr>
-                            <th style="max-width: 45vw;">LOKASI</th>
+                            <th></th>
+                            <th>LOKASI</th>
                             <th>HARI/TANGGAL</th>
                             <th>JAM</th>
                         </tr>
@@ -52,7 +53,8 @@
                     <tbody>
                         @foreach ($page_data['lelang']['data'] as $idx => $row )
                             <tr>
-                                <td style="max-width: 45vw;">{{$row['lokasi']}}</td>
+                                <td>{{$row['nama']}}</td>
+                                <td>{{$row['lokasi']}}</td>
                                 <td>{{$row['tanggal']}}</td>
                                 <td>{{$row['jam']}}</td>
                             </tr>

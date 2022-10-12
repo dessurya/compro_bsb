@@ -91,6 +91,10 @@ Contact Us Page Config
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12 form-group">
+                                            <label for="nama">Nama</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" required>
+                                        </div>
+                                        <div class="col-12 form-group">
                                             <label for="lokasi">Lokasi</label>
                                             <textarea class="form-control" id="lokasi" name="lokasi" required></textarea>
                                         </div>
@@ -119,6 +123,7 @@ Contact Us Page Config
                                 <thead>
                                     <tr>
                                         <th></th>
+                                        <th>Nama</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
@@ -131,6 +136,7 @@ Contact Us Page Config
                                             <button onclick="removeLelang('{{$idx}}')" class="btn btn-sm btn-outline-danger">Delete</button>
                                             <button onclick="openLelang('{{$idx}}','{{base64_encode(json_encode($data))}}')" class="btn btn-sm btn-outline-info">Update</button>
                                         </td>
+                                        <td>{{ $data['nama'] }}</td>
                                         <td>{{ $data['lokasi'] }}</td>
                                         <td>{{ $data['tanggal'] }}</td>
                                         <td>{{ $data['jam'] }}</td>
@@ -163,6 +169,7 @@ Contact Us Page Config
         formAddLelang()
         data = JSON.parse(atob(data))
         $('form#formLelang [name=id]').val(idx)
+        $('form#formLelang [name=nama]').val(data.nama)
         $('form#formLelang [name=lokasi]').val(data.lokasi)
         $('form#formLelang [name=tanggal]').val(data.tanggal)
         $('form#formLelang [name=jam]').val(data.jam)
@@ -184,6 +191,7 @@ Contact Us Page Config
         loadingScreen(true)
         let param = {}
         param.type = 'lelang'
+        param.nama = $('form#formLelang [name=nama]').val()
         param.lokasi = $('form#formLelang [name=lokasi]').val()
         param.tanggal = $('form#formLelang [name=tanggal]').val()
         param.jam = $('form#formLelang [name=jam]').val()

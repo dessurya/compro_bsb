@@ -75,6 +75,7 @@ class PageConfigContactUsController extends Controller
         else { $idx = $input['id']; }
 
         $arrConf['lelang'][$idx] = [
+            'nama' => $input['nama'],
             'lokasi' => $input['lokasi'],
             'tanggal' => $input['tanggal'],
             'jam' => $input['jam'],
