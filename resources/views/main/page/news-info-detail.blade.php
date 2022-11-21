@@ -75,8 +75,8 @@
         @endif
     </div>
     <div id="news" class="section">
-        <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($NewsInfo->title) !!}</h1>
         <div class="container">
+            <h1 class="title-section mb-5 text-center">{!! App\Http\Controllers\Main\HomeController::buildTitle($NewsInfo->title) !!}</h1>
             @if($NewsInfo->flag_img_thumbnail == 'Y' AND !empty($NewsInfo->img_thumbnail))
             <img src="{{ url($NewsInfo->img_thumbnail) }}" alt="{{ $NewsInfo->title }}">
             @endif

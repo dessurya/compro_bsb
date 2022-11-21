@@ -9,7 +9,7 @@
 
 @push('link')
     @foreach($css as $data)
-    <link rel="stylesheet" href="{{ $data }}">
+    <link rel="stylesheet" href="{{ $data }}?v=001">
     @endforeach
 @endpush
 
@@ -160,8 +160,8 @@
             <div class="item p-3">
                 <div class="text-center">
                     @if($data->flag_img_thumbnail == 'Y' AND !empty($data->img_thumbnail))
-                    <div class="img mb-3" style="background-image: url('{{ url($data->img_thumbnail) }}');"></div>
-                    <!-- <img src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}"> -->
+                    <!-- <div class="img mb-3" style="background-image: url('{{ url($data->img_thumbnail) }}');"></div> -->
+                    <img class="img mb-3" src="{{ url($data->img_thumbnail) }}" alt="{{ $data->title }}">
                     @endif
                     <h3>{{ $data->title }}</h3>
                     <p>{{ Str::words(strip_tags($data->content), 35, ' ...') }}</p>
@@ -193,8 +193,8 @@
             transitionStyle : "backSlide"
         }) 
         $("#news_info #owl").owlCarousel({
-            items:3, singleItem:false, slideSpeed:450, paginationSpeed:1050, autoPlay:false, pagination: true,
-            transitionStyle : "backSlide"
+            items:1, singleItem:true, slideSpeed:450, paginationSpeed:1050, autoPlay:false, pagination: true,
+            loop:true, autoWidth:true, transitionStyle : "backSlide"
         }) 
     })
     owlNavigate = (owlContent, action) => {
