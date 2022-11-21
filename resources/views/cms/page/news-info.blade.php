@@ -120,7 +120,7 @@ News & Info
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
-                            <h3>Form News & Info Img<b></b></h3>
+                            <h3>Form News & Info Img <b></b></h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -397,11 +397,12 @@ News & Info
                     'news_info_id':img.news_info_id,
                     'done':img.done,
                 }
-                // console.log(param)
                 httpRequest('{{ $http_req['img.store'] }}','post',param).then(function(result){ 
                     console.log(result)
                     if (result.done == 0) {
                         $('#formNewsInfoImg .card-footer [name=img]').val(null)
+                        let id_p = $('#formNewsInfoImg .card-footer [name=id]').val()
+                        openNewsInfoImg(id_p)
                     }
                 })
             };
@@ -409,13 +410,33 @@ News & Info
         return false
     }
 
+    deleteImg = (id) => {
+        httpRequest('{{ $http_req['img.delete'] }}','post',{id}).then((res) => {
+            let id_p = $('#formNewsInfoImg .card-footer [name=id]').val()
+            openNewsInfoImg(id_p)
+        })
+    }
+
     openNewsInfoImg = (id) => {
         $('#formNewsInfoImg .card-footer [name=id]').val(null)
         loadingScreen(true)
         httpRequest('{{ $http_req['img'] }}','post',{id}).then(function(result){
             $('#formNewsInfoImg').show()
+            $('#formNewsInfoImg .card-title b').html(result.data.title)
             $('#formNewsInfoImg .card-body .row').html('')
             $('#formNewsInfoImg .card-footer [name=id]').val(id)
+            let render = ''
+            $.each(result.data.get_img, (idx,row) => {
+                render += '<div class="col">'
+                render += '<div class="card">'
+                render += '<img class="card-img-top" src="../'+row.img+'">'
+                render += '<div class="card-body">'
+                render += '<button onclick="return deleteImg('+row.id+')" class="btn btn-sm btn-block btn-danger">Delete</button>'
+                render += '</div>'
+                render += '</div>'
+                render += '</div>'
+            })
+            $('#formNewsInfoImg .card-body .row').html(render)
         })
         loadingScreen(false)
     }

@@ -50,6 +50,7 @@ class NewsInfoController extends Controller
             'store-flag-publish' => route('cms.news-info.store-flag-publish'),
             'img' => route('cms.news-info.img'),
             'img.store' => route('cms.news-info.img.store'),
+            'img.delete' => route('cms.news-info.img.delete'),
         ];
         return view('cms.page.news-info', compact(
             'table_config', 'http_req'
@@ -232,6 +233,17 @@ class NewsInfoController extends Controller
         return response()->json([
             'response' => true,
             'done' => $http_req->done
+        ]);
+    }
+
+    public function imgDelete(Request $http_req)
+    {
+        $store = NewsInfoImg::find($http_req->id);
+        if(file_exists($store->img)) { unlink($store->img); }
+        $store->delete();
+        return response()->json([
+            'response' => true,
+            'id' => $http_req->id
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\NewsInfo;
+use App\Models\NewsInfoImg;
 use App\Models\NavigationConfig;
 
 class NewsInfoController extends Controller
@@ -53,7 +54,7 @@ class NewsInfoController extends Controller
 
     public function detail($slug)
     {
-        $NewsInfo = NewsInfo::where(['flag_publish'=>'Y','slug'=>$slug])->firstOrFail();
+        $NewsInfo = NewsInfo::with('getImg')->where(['flag_publish'=>'Y','slug'=>$slug])->firstOrFail();
         $meta = [
             'author' => $NewsInfo->created_by,
             'title' => $NewsInfo->meta_title,

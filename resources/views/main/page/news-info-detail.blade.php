@@ -81,6 +81,17 @@
             <img src="{{ url($NewsInfo->img_thumbnail) }}" alt="{{ $NewsInfo->title }}">
             @endif
             {!! $NewsInfo->content !!}
+
+        </div>
+        <div class="clearboth"></div>
+        <div class="container">
+            <div class="row">
+                @foreach ($NewsInfo->getImg as $row)
+                <div class="col-12 col-md-4 text-center">
+                    <img src="{{ url($row->img) }}" width="100%">
+                </div>
+                @endforeach
+            </div>
         </div>
         <div class="clearboth"></div>
     </div>

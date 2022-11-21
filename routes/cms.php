@@ -115,6 +115,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/store-flag-publish', 'NewsInfoController@storeFlagPublish')->name('.store-flag-publish');
         Route::post('/img', 'NewsInfoController@img')->name('.img');
         Route::post('/img/store', 'NewsInfoController@imgStore')->name('.img.store');
+        Route::post('/img/delete', 'NewsInfoController@imgDelete')->name('.img.delete');
     });
     // news info
 
