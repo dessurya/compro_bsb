@@ -116,6 +116,36 @@ News & Info
             </div>
         </div>
         <div class="col-12">
+            <div id="formNewsInfoImg" style="display:none;">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>Form News & Info Img<b></b></h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-cols-4"></div>
+                    </div>
+                    <form onsubmit="return submitFormNewsInfoImg()"  enctype="multipart/form-data">
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label for="img">Upload Img</label>
+                                    <input type="file" class="form-control" id="img" name="img" multiple accept="image/*">
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col">
+                                        <input type="hidden" name="id">
+                                        <button type="submit" class="btn btn-sm btn-block btn-outline-success">Submit</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
             @include('cms.component.table-index-template', ['table_config' => $table_config])
         </div>
     </div>
@@ -156,7 +186,12 @@ News & Info
                 let render_row = '<tr id="row_data_'+row.id+'" ondblclick="selectedRowData(\'row_data_'+row.id+'\')">'
                 $.each(t_config.data_set, function(c_idx,c_coll){
                     if (c_coll.field == 'tools') {
-                        render_row += '<td><button class="btn btn-info btn-sm" onclick="openNewsInfo('+row.id+')">Open</button></td>'
+                        render_row += '<td>'
+                        render_row += '<div class="btn-group">'
+                        render_row += '<button class="btn btn-info btn-sm" onclick="openNewsInfo('+row.id+')">Open</button>'
+                        render_row += '<button class="btn btn-info btn-sm" onclick="openNewsInfoImg('+row.id+')">Image</button>'
+                        render_row += '</div>'
+                        render_row += '</td>'
                     }else{
                         render_row += '<td>'+row[c_coll.field]+'</td>'
                     }
@@ -333,6 +368,55 @@ News & Info
         if (result.img_banner != '' && result.img_banner != null) {
             $(indentity_form_news_info+' #imgBannerDisplay .col').html('<img src="../'+result.img_banner+'" class="img-fluid pad">').fadeIn()
         }
+        loadingScreen(false)
+    }
+
+    submitFormNewsInfoImg = () => {
+        let id = $('#formNewsInfoImg .card-footer [name=id]').val()
+        let pictures = $('#formNewsInfoImg .card-footer [name=img]').prop('files')
+        let pictures_length = parseInt(pictures.length)-1
+        $.each(pictures, async function(idx,img){
+            console.log(img)
+            if (img.size >= 1000141) {
+                alert('Img '+img.name+' more than 1MB! please use another!')
+            }
+            img['news_info_id'] = id
+            img['done'] = pictures_length-parseInt(idx)
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(img);
+            reader.onloadend = async function(oFREvent) {
+                var byteArray = new Uint8Array(oFREvent.target.result)
+                var len = byteArray.byteLength
+                var binary = ''
+                for (var i = 0; i < len; i++) { binary += String.fromCharCode(byteArray[i]) }
+                byteArray = window.btoa(binary)
+                let param =  {
+                    'encode':byteArray,
+                    'name':img.name,
+                    'type':img.type,
+                    'news_info_id':img.news_info_id,
+                    'done':img.done,
+                }
+                // console.log(param)
+                httpRequest('{{ $http_req['img.store'] }}','post',param).then(function(result){ 
+                    console.log(result)
+                    if (result.done == 0) {
+                        $('#formNewsInfoImg .card-footer [name=img]').val(null)
+                    }
+                })
+            };
+        })
+        return false
+    }
+
+    openNewsInfoImg = (id) => {
+        $('#formNewsInfoImg .card-footer [name=id]').val(null)
+        loadingScreen(true)
+        httpRequest('{{ $http_req['img'] }}','post',{id}).then(function(result){
+            $('#formNewsInfoImg').show()
+            $('#formNewsInfoImg .card-body .row').html('')
+            $('#formNewsInfoImg .card-footer [name=id]').val(id)
+        })
         loadingScreen(false)
     }
 </script>

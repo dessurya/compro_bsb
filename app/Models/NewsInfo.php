@@ -36,4 +36,8 @@ class NewsInfo extends Model
     { 
         return $this->attributes['slug'] = Str::slug($value, '-');; 
     }
+    public function getImg()
+    {
+        return $this->hasMany(NewsInfoImg::class);
+    }
 }

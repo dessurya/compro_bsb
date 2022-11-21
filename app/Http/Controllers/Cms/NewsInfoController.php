@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NewsInfo;
+use App\Models\NewsInfoImg;
 
 use Validator;
 use HelperService;
@@ -47,6 +48,8 @@ class NewsInfoController extends Controller
             'store' => route('cms.news-info.store'),
             'store-img' => route('cms.news-info.store-img'),
             'store-flag-publish' => route('cms.news-info.store-flag-publish'),
+            'img' => route('cms.news-info.img'),
+            'img.store' => route('cms.news-info.img.store'),
         ];
         return view('cms.page.news-info', compact(
             'table_config', 'http_req'
@@ -193,5 +196,42 @@ class NewsInfoController extends Controller
             $result['invalid'] = $validator->getMessageBag()->toArray();
         }
         return $result;
+    }
+
+    public function img(Request $http_req)
+    {
+        $data = NewsInfo::with('getImg')->find($http_req->id);
+        return response()->json([
+            'response' => true,
+            'data' => $data
+        ]);
+    }
+
+    public function imgStore(Request $http_req)
+    {
+        $dir_estimate = 'pict_content_asset/news-info-img/'.$http_req->news_info_id;
+        $dir_file = '';
+        foreach (explode('/',$dir_estimate) as $item) {
+            $dir_file .= $item.'/';
+            if (!file_exists($dir_file)){ mkdir($dir_file, 0777); }
+        }
+        $path_file = $dir_file.date('Ymdhis').'_'.$http_req->name;
+        try {
+            file_put_contents($path_file, base64_decode($http_req->encode));
+        } catch (Exception $e) {
+            $msg = $e->getMessage();
+            return response()->json([
+                'response' => false,
+                'http_req' => $msg
+            ]);
+        }
+        $store = NewsInfoImg::Create([
+            'news_info_id' => $http_req->news_info_id,
+            'img' => $path_file
+        ]);
+        return response()->json([
+            'response' => true,
+            'done' => $http_req->done
+        ]);
     }
 }
