@@ -6,14 +6,14 @@
                     <h3>{!! $arr['footer_info'] !!}</h3>
                     <div class="dis-tab">
                         <div class="dis-tab-row">
-                            <div class="dis-tab-cell valg-mid"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                            <div class="dis-tab-cell valg-mid"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                             <div class="dis-tab-cell valg-mid">
                                 {!! $arr['email'] !!}
                             </div>
                         </div>
                         <div class="m-2"></div>
                         <div class="dis-tab-row">
-                            <div class="dis-tab-cell valg-mid"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                            <div class="dis-tab-cell valg-mid"><i class="fas fa-phone" aria-hidden="true"></i></div>
                             <div class="dis-tab-cell valg-mid">
                                 {!! $arr['phone'] !!}
                             </div>
