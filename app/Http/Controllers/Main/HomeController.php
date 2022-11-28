@@ -124,7 +124,7 @@ class HomeController extends Controller
     {
         $clr = 'blue';
         if ($route == 'main.home') { $clr = 'white'; }
-        return url('pict_content_asset/_default/lang_'.$clr.'_'.$lang.'.png');
+        return url('pict_content_asset/_default/lang_'.$clr.'_'.$lang.'.png?v='.date('Ym'));
     }
 
     public static function getHeader()

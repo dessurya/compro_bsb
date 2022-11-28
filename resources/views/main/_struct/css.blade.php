@@ -120,7 +120,7 @@
             transition: all .51s;
         }
         nav#header #lang img{
-            height: 30px;
+            height: 18px;
         }
         
         nav#header.change {
